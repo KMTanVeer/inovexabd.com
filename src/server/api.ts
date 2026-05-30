@@ -14,10 +14,6 @@ import { PRODUCTS } from "../data/products.ts";
 let localStore: any[] = [...PRODUCTS].map(p => ({ ...p, _id: p.id }));
 const ALLOWED_PRODUCT_CATEGORIES = ["switches", "routers", "ssds", "servers", "lan-cards"];
 
-const LOGIN_WINDOW_MS = 15 * 60 * 1000;
-const MAX_LOGIN_ATTEMPTS = 5;
-const loginAttempts = new Map<string, { count: number; firstAttemptAt: number }>();
-
 const normalizeString = (value: unknown, maxLength = 500) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
 
@@ -63,33 +59,6 @@ const sanitizeProductPayload = (body: any) => {
 };
 
 const isValidProductCategory = (category: string) => ALLOWED_PRODUCT_CATEGORIES.includes(category);
-
-const getClientIp = (req: any) => req.ip || req.socket?.remoteAddress || "unknown";
-
-const isRateLimited = (clientIp: string) => {
-  const now = Date.now();
-  const current = loginAttempts.get(clientIp);
-  if (!current) return false;
-  if (now - current.firstAttemptAt > LOGIN_WINDOW_MS) {
-    loginAttempts.delete(clientIp);
-    return false;
-  }
-  return current.count >= MAX_LOGIN_ATTEMPTS;
-};
-
-const recordFailedLogin = (clientIp: string) => {
-  const now = Date.now();
-  const current = loginAttempts.get(clientIp);
-  if (!current || now - current.firstAttemptAt > LOGIN_WINDOW_MS) {
-    loginAttempts.set(clientIp, { count: 1, firstAttemptAt: now });
-    return;
-  }
-  loginAttempts.set(clientIp, { ...current, count: current.count + 1 });
-};
-
-const clearLoginAttempts = (clientIp: string) => {
-  loginAttempts.delete(clientIp);
-};
 
 const safeStringCompare = (a: string, b: string) => {
   const aBuffer = Buffer.from(a);
@@ -167,11 +136,6 @@ router.post("/auth/login", async (req, res) => {
     return res.status(503).json({ error: "Authentication is not configured." });
   }
 
-  const clientIp = getClientIp(req);
-  if (isRateLimited(clientIp)) {
-    return res.status(429).json({ error: "Too many login attempts. Try again later." });
-  }
-
   const { email, password } = req.body;
   if (typeof email !== "string" || typeof password !== "string") {
     return res.status(400).json({ error: "Invalid request payload." });
@@ -179,11 +143,9 @@ router.post("/auth/login", async (req, res) => {
 
   const valid = await verifyAdminCredentials(email.trim(), password);
   if (valid) {
-    clearLoginAttempts(clientIp);
     const token = jwt.sign({ user: "admin" }, secret, { expiresIn: "12h" });
     res.json({ token });
   } else {
-    recordFailedLogin(clientIp);
     res.status(401).json({ error: "Invalid credentials." });
   }
 });
@@ -252,6 +214,9 @@ router.post("/products", verifyToken, async (req, res) => {
 
 router.put("/products/:id", verifyToken, async (req, res) => {
   const payload = sanitizeProductPayload(req.body);
+  if (!Object.prototype.hasOwnProperty.call(req.body ?? {}, "rating")) {
+    delete payload.rating;
+  }
   const imageUrl = payload.images.length > 0 ? payload.images[0] : normalizeString(req.body?.image, 2000);
   const featured = payload.featured;
   if (!payload.name || !payload.category || !payload.brand || !payload.description) {

@@ -13,10 +13,17 @@ dotenv.config();
 async function startServer() {
   const app = express();
   const PORT = 3000;
+  const trustProxySetting = process.env.TRUST_PROXY;
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean);
+
+  if (trustProxySetting === "true") {
+    app.set("trust proxy", true);
+  } else if (trustProxySetting === "false") {
+    app.set("trust proxy", false);
+  }
 
   // Middleware
   app.disable("x-powered-by");
@@ -33,6 +40,12 @@ async function startServer() {
       allowedHeaders: ["Content-Type", "Authorization"],
     })
   );
+  app.use((err: any, _req: any, res: any, next: any) => {
+    if (err?.message === "Not allowed by CORS") {
+      return res.status(403).json({ error: "Not allowed by CORS" });
+    }
+    next(err);
+  });
   app.use(express.json({ limit: "1mb" }));
   app.use((req, res, next) => {
     res.setHeader("X-Content-Type-Options", "nosniff");
