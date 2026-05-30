@@ -7,11 +7,11 @@ import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 import { useState, useEffect } from 'react';
 
-// Import Hero Images
-import dellServerHero from '@/src/assets/Products-image/all-image/Hero-images/dell-server-hero.png';
-import ciscoHero from '@/src/assets/Products-image/all-image/Hero-images/cisco-hero.png';
-import intelSsdHero from '@/src/assets/Products-image/all-image/Hero-images/intel-ssd-hero.png';
-import juniperHero from '@/src/assets/Products-image/all-image/Hero-images/juniper-hero.png';
+// Hero Images from public assets
+const dellServerHero = '/Products-image/all-image/Hero-images/dell-server-hero.png';
+const ciscoHero = '/Products-image/all-image/Hero-images/cisco-hero.png';
+const intelSsdHero = '/Products-image/all-image/Hero-images/intel-ssd-hero.png';
+const juniperHero = '/Products-image/all-image/Hero-images/juniper-hero.png';
 
 const BANNERS = [
   {
