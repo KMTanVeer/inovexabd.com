@@ -4,7 +4,7 @@ import { SEO } from '@/src/components/common/SEO.tsx';
 export function Privacy() {
   return (
     <div className="pt-32 pb-24 min-h-screen">
-      <SEO title="Privacy Policy" description="Information privacy commitment at Inovexa BD." url="https://inovexabd.com/privacy" />
+      <SEO title="Privacy Policy" description="Information privacy commitment at Inovexa BD." />
       <div className="container mx-auto px-6 max-w-3xl space-y-6 leading-relaxed font-light">
         <h1 className="text-3xl font-bold font-display uppercase tracking-wider mb-8">Privacy Policy</h1>
         <p>Inovexa BD takes data confidentiality and cybersecurity seriously. This policy delineates how customer and procurement logs are managed.</p>

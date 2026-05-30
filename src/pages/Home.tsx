@@ -1,17 +1,17 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ChevronRight, Zap, Shield, Cpu, Globe, Server, ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { CATEGORIES, Product } from '@/src/data/products.ts';
+import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 import { useState, useEffect } from 'react';
 
-// Hero Images from public assets
-const dellServerHero = '/Products-image/all-image/Hero-images/dell-server-hero.png';
-const ciscoHero = '/Products-image/all-image/Hero-images/cisco-hero.png';
-const intelSsdHero = '/Products-image/all-image/Hero-images/intel-ssd-hero.png';
-const juniperHero = '/Products-image/all-image/Hero-images/juniper-hero.png';
+// Import Hero Images
+import dellServerHero from '@/src/assets/Products-image/all-image/Hero-images/dell-server-hero.png';
+import ciscoHero from '@/src/assets/Products-image/all-image/Hero-images/cisco-hero.png';
+import intelSsdHero from '@/src/assets/Products-image/all-image/Hero-images/intel-ssd-hero.png';
+import juniperHero from '@/src/assets/Products-image/all-image/Hero-images/juniper-hero.png';
 
 const BANNERS = [
   {
@@ -43,7 +43,7 @@ const BANNERS = [
 ];
 
 export function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
   const featuredProducts = products.filter(p => p.isFeatured || (p as any).featured).slice(0, 8);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeBanner, setActiveBanner] = useState(0);
@@ -51,13 +51,6 @@ export function Home() {
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const [isQuickViewActive, setIsQuickViewActive] = useState(false);
   const [itemsPerView, setItemsPerView] = useState(4);
-
-  useEffect(() => {
-    fetch('/api/products')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(err => console.error('Failed to fetch products', err));
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {

@@ -13,56 +13,13 @@ dotenv.config();
 async function startServer() {
   const app = express();
   const PORT = 3000;
-  const trustProxySetting = process.env.TRUST_PROXY;
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-
-  if (trustProxySetting === "true") {
-    app.set("trust proxy", true);
-  } else if (trustProxySetting === "false") {
-    app.set("trust proxy", false);
-  }
 
   // Middleware
-  app.disable("x-powered-by");
-  app.use(
-    cors({
-      origin: (origin, callback) => {
-        if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
-          callback(null, true);
-          return;
-        }
-        callback(new Error("Not allowed by CORS"));
-      },
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      allowedHeaders: ["Content-Type", "Authorization"],
-    })
-  );
-  app.use((err: any, _req: any, res: any, next: any) => {
-    if (err?.message === "Not allowed by CORS") {
-      return res.status(403).json({ error: "Not allowed by CORS" });
-    }
-    next(err);
-  });
-  app.use(express.json({ limit: "1mb" }));
-  app.use((req, res, next) => {
-    res.setHeader("X-Content-Type-Options", "nosniff");
-    res.setHeader("X-Frame-Options", "DENY");
-    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-    res.setHeader("Permissions-Policy", "geolocation=(), camera=(), microphone=()");
-    if (process.env.NODE_ENV === "production") {
-      res.setHeader(
-        "Strict-Transport-Security",
-        "max-age=31536000; includeSubDomains; preload"
-      );
-    }
-    next();
-  });
+  app.use(cors());
+  app.use(express.json());
 
-  // Connect to MongoDB only when explicitly enabled
-  if (process.env.USE_MONGODB === "true" && process.env.MONGODB_URI) {
+  // Connect to MongoDB if URI is provided
+  if (process.env.MONGODB_URI) {
     try {
       await mongoose.connect(process.env.MONGODB_URI, {
         serverSelectionTimeoutMS: 5000
@@ -72,7 +29,7 @@ async function startServer() {
       console.error('MongoDB connection error:', err);
     }
   } else {
-    console.warn('Using local preset product data. Set USE_MONGODB=true with MONGODB_URI to enable database mode.');
+    console.warn('MONGODB_URI environment variable not set. Database features will not work.');
   }
 
   // API routes

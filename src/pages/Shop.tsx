@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Filter, SlidersHorizontal, Grid, List as ListIcon, X, Phone, Info } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
-import { CATEGORIES, Product } from '@/src/data/products.ts';
+import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
@@ -15,22 +15,9 @@ export function Shop() {
   const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory);
   const [showPromoModal, setShowPromoModal] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    fetch('/api/products')
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to fetch products', err);
-        setIsLoading(false);
-      });
-  }, []);
-  
   useEffect(() => {
     const q = searchParams.get('q');
     const cat = searchParams.get('category');

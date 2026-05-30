@@ -2,34 +2,27 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Star, Heart, ShieldCheck, Truck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2 } from 'lucide-react';
-import { type Product } from '@/src/data/products.ts';
+import { type Product, PRODUCTS } from '@/src/data/products.ts';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 
 export function ProductDetail() {
   const { id } = useParams();
+  const [allProducts] = useState<Product[]>(PRODUCTS);
   const [product, setProduct] = useState<Product | null>(null);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState<'specs' | 'description' | 'reviews'>('specs');
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetch('/api/products')
-      .then(res => res.json())
-      .then(data => {
-        setAllProducts(data);
-        const foundProduct = data.find((p: any) => String(p.id) === String(id) || String(p._id) === String(id));
-        if (foundProduct) {
-          setProduct(foundProduct);
-          window.scrollTo(0, 0);
-        }
-      })
-      .catch(err => console.error('Failed to fetch products', err))
-      .finally(() => setIsLoading(false));
-  }, [id]);
+    const foundProduct = allProducts.find((p: any) => String(p.id) === String(id) || String(p._id) === String(id));
+    if (foundProduct) {
+      setProduct(foundProduct);
+      window.scrollTo(0, 0);
+    }
+  }, [id, allProducts]);
 
   if (isLoading) {
     return (
@@ -55,7 +48,6 @@ export function ProductDetail() {
   }
 
   const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
-  const productIdForUrl = (product as any)._id || product.id;
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden">
@@ -63,7 +55,7 @@ export function ProductDetail() {
           title={`${product.name} | Enterprise Networking Equipment`}
           description={product.description}
           keywords={`${product.name}, ${product.category}, networking equipment, enterprise router, switch, lan card, ssd`}
-          url={`https://inovexabd.com/product/${productIdForUrl}`}
+          url={`https://inovexabd.com/product/${product.id}`}
           type="product"
           structuredData={{
             '@context': 'https://schema.org',
@@ -81,7 +73,7 @@ export function ProductDetail() {
               priceCurrency: 'BDT',
               price: '0.00',
               availability: 'https://schema.org/InStock',
-              url: `https://inovexabd.com/product/${productIdForUrl}`,
+              url: `https://inovexabd.com/product/${product.id}`,
             },
           }}
         />

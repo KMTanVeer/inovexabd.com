@@ -13,7 +13,7 @@ export function Contact() {
 
   return (
     <div className="pt-32 pb-24 min-h-screen">
-      <SEO title="Contact" description="Get in touch with Inovexa BD expert physical network architects." url="https://inovexabd.com/contact" />
+      <SEO title="Contact" description="Get in touch with Inovexa BD expert physical network architects." />
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl md:text-5xl font-bold font-display uppercase tracking-wider">Contact Us</h1>
