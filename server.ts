@@ -61,8 +61,8 @@ async function startServer() {
     next();
   });
 
-  // Connect to MongoDB if URI is provided
-  if (process.env.MONGODB_URI) {
+  // Connect to MongoDB only when explicitly enabled
+  if (process.env.USE_MONGODB === "true" && process.env.MONGODB_URI) {
     try {
       await mongoose.connect(process.env.MONGODB_URI, {
         serverSelectionTimeoutMS: 5000
@@ -72,7 +72,7 @@ async function startServer() {
       console.error('MongoDB connection error:', err);
     }
   } else {
-    console.warn('MONGODB_URI environment variable not set. Database features will not work.');
+    console.warn('Using local preset product data. Set USE_MONGODB=true with MONGODB_URI to enable database mode.');
   }
 
   // API routes

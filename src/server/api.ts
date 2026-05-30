@@ -13,6 +13,8 @@ import { PRODUCTS } from "../data/products.ts";
 
 let localStore: any[] = [...PRODUCTS].map(p => ({ ...p, _id: p.id }));
 const ALLOWED_PRODUCT_CATEGORIES = ["switches", "routers", "ssds", "servers", "lan-cards"];
+const shouldUseDatabase = () =>
+  process.env.USE_MONGODB === "true" && Boolean(process.env.MONGODB_URI && mongoose.connection.readyState === 1);
 
 const normalizeString = (value: unknown, maxLength = 500) =>
   typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -159,12 +161,12 @@ router.get("/health/db", async (_req, res) => {
   res.json({
     connected: mongoose.connection.readyState === 1,
     readyState: mongoose.connection.readyState,
-    usingDatabase: Boolean(process.env.MONGODB_URI && mongoose.connection.readyState === 1),
+    usingDatabase: shouldUseDatabase(),
   });
 });
 
 router.get("/products", async (req, res) => {
-  if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
+  if (!shouldUseDatabase()) {
     return res.json(localStore);
   }
   try {
@@ -185,7 +187,7 @@ router.post("/products", verifyToken, async (req, res) => {
     return res.status(400).json({ error: `Invalid category. Allowed: ${ALLOWED_PRODUCT_CATEGORIES.join(", ")}` });
   }
 
-  if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
+  if (!shouldUseDatabase()) {
     const featured = payload.featured;
     const newProd = {
       _id: `prod_${Date.now()}`,
@@ -226,7 +228,7 @@ router.put("/products/:id", verifyToken, async (req, res) => {
     return res.status(400).json({ error: `Invalid category. Allowed: ${ALLOWED_PRODUCT_CATEGORIES.join(", ")}` });
   }
 
-  if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
+  if (!shouldUseDatabase()) {
     const id = req.params.id;
     const index = localStore.findIndex(p => p._id === id || p.id === id);
     if (index !== -1) {
@@ -264,7 +266,7 @@ router.put("/products/:id", verifyToken, async (req, res) => {
 });
 
 router.delete("/products/:id", verifyToken, async (req, res) => {
-  if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
+  if (!shouldUseDatabase()) {
     const id = req.params.id;
     localStore = localStore.filter(p => p._id !== id && p.id !== id);
     return res.json({ success: true });
