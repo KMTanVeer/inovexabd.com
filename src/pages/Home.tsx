@@ -5,7 +5,7 @@ import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 // Import Hero Images
 import dellServerHero from '@/src/assets/Products-image/all-image/Hero-images/dell-server-hero.png';
@@ -42,9 +42,47 @@ const BANNERS = [
   }
 ];
 
+const HERO_SHOWCASE = [
+  {
+    id: 'server',
+    name: 'Dell PowerEdge Server',
+    category: 'Enterprise Server',
+    tag: 'MISSION CRITICAL',
+    image: dellServerHero,
+    color: 'purple'
+  },
+  {
+    id: 'switch-cisco',
+    name: 'Cisco Nexus Switch',
+    category: 'Data Center Switch',
+    tag: 'ULTRA LOW LATENCY',
+    image: ciscoHero,
+    color: 'blue'
+  },
+  {
+    id: 'ssd',
+    name: 'Intel Enterprise SSD',
+    category: 'Data Center Storage',
+    tag: 'EXTREME RELIABILITY',
+    image: intelSsdHero,
+    color: 'blue'
+  },
+  {
+    id: 'switch-juniper',
+    name: 'Juniper Networks',
+    category: 'Enterprise Router',
+    tag: 'HIGH PERFORMANCE',
+    image: juniperHero,
+    color: 'purple'
+  }
+] as const;
+
 export function Home() {
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
-  const featuredProducts = products.filter(p => p.isFeatured || (p as any).featured).slice(0, 8);
+  const featuredProducts = useMemo(
+    () => products.filter(p => p.isFeatured || (p as any).featured).slice(0, 8),
+    [products]
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeBanner, setActiveBanner] = useState(0);
   const [heroShowcaseIndex, setHeroShowcaseIndex] = useState(0);
@@ -63,48 +101,13 @@ export function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const heroShowcase = [
-    {
-      id: 'server',
-      name: 'Dell PowerEdge Server',
-      category: 'Enterprise Server',
-      tag: 'MISSION CRITICAL',
-      image: dellServerHero,
-      color: 'purple'
-    },
-    {
-      id: 'switch-cisco',
-      name: 'Cisco Nexus Switch',
-      category: 'Data Center Switch',
-      tag: 'ULTRA LOW LATENCY',
-      image: ciscoHero,
-      color: 'blue'
-    },
-    {
-      id: 'ssd',
-      name: 'Intel Enterprise SSD',
-      category: 'Data Center Storage',
-      tag: 'EXTREME RELIABILITY',
-      image: intelSsdHero,
-      color: 'blue'
-    },
-    {
-      id: 'switch-juniper',
-      name: 'Juniper Networks',
-      category: 'Enterprise Router',
-      tag: 'HIGH PERFORMANCE',
-      image: juniperHero,
-      color: 'purple'
-    }
-  ];
-
   // Auto-play for Hero Showcase (4s)
   useEffect(() => {
     const timer = setInterval(() => {
-      setHeroShowcaseIndex((prev) => (prev + 1) % heroShowcase.length);
+      setHeroShowcaseIndex((prev) => (prev + 1) % HERO_SHOWCASE.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [heroShowcase.length]);
+  }, []);
 
   // Auto-play for product slider
   useEffect(() => {
@@ -132,7 +135,7 @@ export function Home() {
   const bannerAccentButtonClass = isBlueBanner
     ? 'bg-blue-600 hover:bg-blue-500 shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]'
     : 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)]';
-  const isBlueShowcase = heroShowcase[heroShowcaseIndex].color === 'blue';
+  const isBlueShowcase = HERO_SHOWCASE[heroShowcaseIndex].color === 'blue';
   const showcaseGlowClass = isBlueShowcase ? 'bg-blue-500/10' : 'bg-purple-500/10';
   const showcaseBadgeClass = isBlueShowcase
     ? 'bg-blue-600/20 border-blue-500/30 text-blue-400'
@@ -140,12 +143,7 @@ export function Home() {
   const showcaseDotPrimaryClass = isBlueShowcase ? 'bg-blue-500' : 'bg-purple-500';
   const showcaseDotSecondaryClass = isBlueShowcase ? 'bg-blue-500/30' : 'bg-purple-500/30';
   const showcaseCategoryClass = isBlueShowcase ? 'text-blue-400/60' : 'text-purple-400/60';
-  const showcaseFrameClass = isBlueShowcase
-    ? 'relative w-full aspect-video flex items-center justify-center mb-8'
-    : 'relative w-full aspect-video flex items-center justify-center mb-8';
-  const showcaseImageClass = isBlueShowcase
-    ? 'w-full h-full object-contain drop-shadow-[0_18px_36px_rgba(15,23,42,0.6)] dark:drop-shadow-[0_18px_36px_rgba(255,255,255,0.2)] hover:scale-[1.03] transition-transform duration-700'
-    : 'w-full h-full object-contain drop-shadow-[0_18px_36px_rgba(15,23,42,0.6)] dark:drop-shadow-[0_18px_36px_rgba(255,255,255,0.2)] hover:scale-[1.03] transition-transform duration-700';
+  const showcaseImageClass = 'w-full h-full object-contain brightness-110 contrast-110 drop-shadow-[0_18px_36px_rgba(15,23,42,0.6)] dark:drop-shadow-[0_18px_36px_rgba(255,255,255,0.2)] hover:scale-[1.03] transition-transform duration-700';
   const bannerOrderButtonBaseClass = 'px-8 py-4 md:px-10 md:py-5 rounded-xl text-white font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95 text-sm md:text-base';
   const bannerDetailsButtonClass = 'px-8 py-4 md:px-10 md:py-5 rounded-xl bg-white/70 dark:bg-white/5 border border-black/15 dark:border-white/10 text-black dark:text-white font-black uppercase tracking-widest transition-all hover:bg-white dark:hover:bg-white/10 backdrop-blur-xl text-sm md:text-base';
   const bannerContactHoverClass = isBlueBanner ? 'hover:text-blue-600 dark:hover:text-blue-400' : 'hover:text-purple-600 dark:hover:text-purple-400';
@@ -263,11 +261,13 @@ export function Home() {
                   <div className={`absolute inset-0 ${showcaseGlowClass} blur-[120px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity`} />
                   
                   <div className="relative flex flex-col items-center text-center">
-                    <div className={showcaseFrameClass}>
+                    <div className="relative w-full aspect-video flex items-center justify-center mb-8">
                       <img 
-                        src={heroShowcase[heroShowcaseIndex].image} 
-                        alt={heroShowcase[heroShowcaseIndex].name} 
+                        src={HERO_SHOWCASE[heroShowcaseIndex].image} 
+                        alt={HERO_SHOWCASE[heroShowcaseIndex].name} 
                         className={showcaseImageClass}
+                        loading="eager"
+                        decoding="async"
                         referrerPolicy="no-referrer"
                       />
                     </div>
@@ -275,7 +275,7 @@ export function Home() {
                     <div className="space-y-3">
                       <div className="flex items-center justify-center gap-3">
                          <span className={`px-2 py-0.5 rounded border text-[10px] font-black uppercase tracking-widest ${showcaseBadgeClass}`}>
-                           {heroShowcase[heroShowcaseIndex].tag}
+                           {HERO_SHOWCASE[heroShowcaseIndex].tag}
                           </span>
                           <div className="flex gap-1.5">
                           <div className={`w-1.5 h-1.5 rounded-full ${showcaseDotPrimaryClass} animate-pulse`} />
@@ -283,10 +283,10 @@ export function Home() {
                          </div>
                        </div>
                       <h4 className="text-3xl font-black text-black dark:text-white tracking-tight leading-tight">
-                        {heroShowcase[heroShowcaseIndex].name}
+                        {HERO_SHOWCASE[heroShowcaseIndex].name}
                       </h4>
                       <p className={`text-xs ${showcaseCategoryClass} font-black uppercase tracking-[0.4em]`}>
-                        {heroShowcase[heroShowcaseIndex].category}
+                        {HERO_SHOWCASE[heroShowcaseIndex].category}
                       </p>
                     </div>
                   </div>
@@ -313,7 +313,10 @@ export function Home() {
               <img 
                 src={BANNERS[activeBanner].image} 
                 alt={BANNERS[activeBanner].title}
-                className="w-full h-full object-cover opacity-30 dark:opacity-20 scale-105"
+                className="w-full h-full object-cover opacity-40 dark:opacity-30 scale-105"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/45 dark:from-black dark:via-black/80 dark:to-transparent" />
