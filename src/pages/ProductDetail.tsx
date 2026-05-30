@@ -55,6 +55,7 @@ export function ProductDetail() {
   }
 
   const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const productIdForUrl = (product as any)._id || product.id;
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden">
@@ -62,7 +63,7 @@ export function ProductDetail() {
           title={`${product.name} | Enterprise Networking Equipment`}
           description={product.description}
           keywords={`${product.name}, ${product.category}, networking equipment, enterprise router, switch, lan card, ssd`}
-          url={`https://inovexabd.com/product/${product.id}`}
+          url={`https://inovexabd.com/product/${productIdForUrl}`}
           type="product"
           structuredData={{
             '@context': 'https://schema.org',
@@ -80,7 +81,7 @@ export function ProductDetail() {
               priceCurrency: 'BDT',
               price: '0.00',
               availability: 'https://schema.org/InStock',
-              url: `https://inovexabd.com/product/${product.id}`,
+              url: `https://inovexabd.com/product/${productIdForUrl}`,
             },
           }}
         />

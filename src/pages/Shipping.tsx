@@ -4,7 +4,7 @@ import { SEO } from '@/src/components/common/SEO.tsx';
 export function Shipping() {
   return (
     <div className="pt-32 pb-24 min-h-screen">
-      <SEO title="Shipping & Delivery" description="Shipping timelines and networks across Bangladesh." />
+      <SEO title="Shipping & Delivery" description="Shipping timelines and networks across Bangladesh." url="https://inovexabd.com/shipping" />
       <div className="container mx-auto px-6 max-w-3xl space-y-6 leading-relaxed font-light">
         <h1 className="text-3xl font-bold font-display uppercase tracking-wider mb-8">Shipping & Delivery</h1>
         <p>Inovexa BD offers secure shipping across all divisions in Bangladesh, including specialized secure-handling transport for critical data center chassis.</p>

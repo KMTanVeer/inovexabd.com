@@ -14,7 +14,7 @@ const icons: Record<string, any> = {
 export function Categories() {
   return (
     <div className="pt-32 pb-24 min-h-screen">
-      <SEO title="Categories" description="Explore modern specialized catalog listings." />
+      <SEO title="Categories" description="Explore modern specialized catalog listings." url="https://inovexabd.com/categories" />
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-4xl md:text-5xl font-bold font-display uppercase tracking-wider">Device Categories</h1>
