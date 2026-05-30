@@ -2,6 +2,7 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import rateLimit from "express-rate-limit";
 import { timingSafeEqual } from "crypto";
 import { Product } from "./models/Product.js";
 
@@ -116,6 +117,23 @@ const getJwtSecret = () => {
   const secret = process.env.JWT_SECRET;
   return secret && secret.trim() ? secret : null;
 };
+
+const apiLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 200,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+router.use(apiLimiter);
+router.use("/auth", authLimiter);
 
 // Middleware to verify JWT
 const verifyToken = (req: any, res: any, next: any) => {
