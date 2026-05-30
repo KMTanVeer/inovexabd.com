@@ -52,6 +52,28 @@ npm run dev
 
 App runs on `http://localhost:3000`.
 
+### 4) Add products with MongoDB Atlas (recommended flow)
+
+1. Configure runtime env values:
+   - `MONGODB_URI`
+   - `JWT_SECRET`
+   - `ADMIN_EMAIL`
+   - `ADMIN_PASSWORD_HASH` (or `ADMIN_PASSWORD` for local testing only)
+2. In MongoDB Atlas:
+   - Allow your current IP in Network Access.
+   - Create a DB user with read/write permissions for your database.
+3. Start the app and confirm DB mode:
+   - Check server log for `Connected to MongoDB`.
+   - Verify `GET /api/health/db` returns `"usingDatabase": true`.
+4. Open `http://localhost:3000/admin/login` and sign in with your admin credentials.
+5. Go to `http://localhost:3000/admin/products` and add products from the admin panel.
+6. Use only supported categories:
+   - `switches`, `routers`, `ssds`, `servers`, `lan-cards`
+7. Verify persistence:
+   - Refresh admin products page.
+   - Restart server and check product still exists.
+   - Optionally verify document in Atlas collection.
+
 ## Scripts
 
 - `npm run dev` — Start development server

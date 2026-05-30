@@ -12,6 +12,7 @@ const router = Router();
 import { PRODUCTS } from "../data/products.ts";
 
 let localStore: any[] = [...PRODUCTS].map(p => ({ ...p, _id: p.id }));
+const ALLOWED_PRODUCT_CATEGORIES = ["switches", "routers", "ssds", "servers", "lan-cards"];
 
 const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 const MAX_LOGIN_ATTEMPTS = 5;
@@ -60,6 +61,8 @@ const sanitizeProductPayload = (body: any) => {
     rating: toNumber(body?.rating, 0),
   };
 };
+
+const isValidProductCategory = (category: string) => ALLOWED_PRODUCT_CATEGORIES.includes(category);
 
 const getClientIp = (req: any) => req.ip || req.socket?.remoteAddress || "unknown";
 
@@ -190,6 +193,14 @@ router.get("/auth/verify", verifyToken, (req, res) => {
 });
 
 // Product Routes
+router.get("/health/db", async (_req, res) => {
+  res.json({
+    connected: mongoose.connection.readyState === 1,
+    readyState: mongoose.connection.readyState,
+    usingDatabase: Boolean(process.env.MONGODB_URI && mongoose.connection.readyState === 1),
+  });
+});
+
 router.get("/products", async (req, res) => {
   if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
     return res.json(localStore);
@@ -207,6 +218,9 @@ router.post("/products", verifyToken, async (req, res) => {
   const imageUrl = payload.images.length > 0 ? payload.images[0] : normalizeString(req.body?.image, 2000);
   if (!payload.name || !payload.category || !payload.brand || !payload.description) {
     return res.status(400).json({ error: "Missing required product fields." });
+  }
+  if (!isValidProductCategory(payload.category)) {
+    return res.status(400).json({ error: `Invalid category. Allowed: ${ALLOWED_PRODUCT_CATEGORIES.join(", ")}` });
   }
 
   if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
@@ -240,6 +254,12 @@ router.put("/products/:id", verifyToken, async (req, res) => {
   const payload = sanitizeProductPayload(req.body);
   const imageUrl = payload.images.length > 0 ? payload.images[0] : normalizeString(req.body?.image, 2000);
   const featured = payload.featured;
+  if (!payload.name || !payload.category || !payload.brand || !payload.description) {
+    return res.status(400).json({ error: "Missing required product fields." });
+  }
+  if (!isValidProductCategory(payload.category)) {
+    return res.status(400).json({ error: `Invalid category. Allowed: ${ALLOWED_PRODUCT_CATEGORIES.join(", ")}` });
+  }
 
   if (!process.env.MONGODB_URI || mongoose.connection.readyState !== 1) {
     const id = req.params.id;
