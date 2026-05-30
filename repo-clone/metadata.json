@@ -1,0 +1,8 @@
+{
+  "name": "Inovexa Technology | Enterprise IT Infrastructure & Networking Solutions",
+  "description": "Inovexa Technology is Bangladesh's leading provider of next-generation IT infrastructure, enterprise networking, and datacenter solutions. We specialize in high-performance servers, 10G/40G/100G networking gear, and mission-critical hardware for modern workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
