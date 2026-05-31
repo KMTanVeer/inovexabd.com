@@ -251,6 +251,10 @@ export function Navbar() {
                    {link.dropdownGroups ? (
                      <button
                        type="button"
+                       onClick={() => {
+                         navigate(link.path);
+                         setIsMobileMenuOpen(false);
+                       }}
                        className={cn(
                          "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
                          "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"

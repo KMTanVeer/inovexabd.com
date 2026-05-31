@@ -18,7 +18,7 @@ export function Categories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CATALOG_GROUPS.map(group => {
             return (
-              <div key={group.name} className="group bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-8 rounded-3xl flex flex-col justify-between min-h-64 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+              <div key={group.name} className="group bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-8 rounded-3xl flex flex-col justify-between min-h-[16rem] hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold uppercase tracking-tight">{group.name}</h3>
                   <ul className="space-y-2">

@@ -65,6 +65,5 @@ npm run build
 ## Admin Login (default)
 
 - Email: `admin@inovexa.com`
-- Password: `admin123`
 
-> Change these credentials in `src/server/api.ts` before production use.
+> Configure admin credentials via environment variables or server configuration before production use.
