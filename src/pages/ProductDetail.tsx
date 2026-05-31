@@ -20,7 +20,10 @@ export function ProductDetail() {
     const foundProduct = allProducts.find((p: any) => String(p.id) === String(id) || String(p._id) === String(id));
     if (foundProduct) {
       setProduct(foundProduct);
+      setSelectedImageIndex(0);
       window.scrollTo(0, 0);
+    } else {
+      setProduct(null);
     }
   }, [id, allProducts]);
 
@@ -48,6 +51,8 @@ export function ProductDetail() {
   }
 
   const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+  const productImages = (product.images?.length ? product.images : [product.image]).filter((image): image is string => Boolean(image));
+  const activeImage = productImages[selectedImageIndex] || productImages[0] || '';
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden">
@@ -96,7 +101,7 @@ export function ProductDetail() {
                 <div className="lg:col-span-7 flex flex-col md:flex-row gap-5">
                     {/* Thumbnails - Left side on desktop */}
                     <div className="flex md:flex-col gap-3 order-2 md:order-1 w-full md:w-20 lg:w-24 shrink-0">
-                        {[0, 1, 2, 3].map((i) => (
+                        {productImages.map((image, i) => (
                             <button
                                 key={i}
                                 onClick={() => setSelectedImageIndex(i)}
@@ -106,9 +111,10 @@ export function ProductDetail() {
                                 )}
                             >
                                 <img 
-                                  src={`https://picsum.photos/seed/${product.id + i}/200/200`} 
-                                  alt="preview" 
+                                  src={image} 
+                                  alt={`${product.name} thumbnail ${i + 1}`}
                                   className="w-full h-full object-cover rounded-lg opacity-60 transition-opacity hover:opacity-100" 
+                                  referrerPolicy="no-referrer"
                                 />
                             </button>
                         ))}
@@ -120,7 +126,7 @@ export function ProductDetail() {
                         className="relative flex-1 group aspect-square rounded-[2rem] overflow-hidden border border-black/10 dark:border-white/5 bg-white/80 dark:bg-white/[0.02] backdrop-blur-3xl p-6 md:p-10 order-1 md:order-2"
                     >
                         <img 
-                            src={((product.images && product.images[0]) || product.image || '').startsWith('/assets') ? `https://picsum.photos/seed/${product.id}/1200/1200` : ((product.images && product.images[0]) || product.image || '')} 
+                            src={activeImage} 
                             alt={product.name} 
                             className="w-full h-full object-contain mix-blend-screen drop-shadow-[0_20px_40px_rgba(59,130,246,0.25)] group-hover:scale-105 transition-transform duration-700"
                             referrerPolicy="no-referrer"
