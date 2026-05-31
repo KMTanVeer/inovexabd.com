@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="180" height="52" viewBox="0 0 180 52" role="img" aria-label="Cisco logo">
-  <rect width="180" height="52" rx="10" fill="#ffffff"/>
-  <g fill="#1ba0d7">
-    <rect x="56" y="8" width="4" height="10" rx="1"/>
-    <rect x="66" y="5" width="4" height="13" rx="1"/>
-    <rect x="76" y="3" width="4" height="15" rx="1"/>
-    <rect x="86" y="1" width="4" height="17" rx="1"/>
-    <rect x="96" y="3" width="4" height="15" rx="1"/>
-    <rect x="106" y="5" width="4" height="13" rx="1"/>
-    <rect x="116" y="8" width="4" height="10" rx="1"/>
-  </g>
-  <text x="58" y="39" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1ba0d7" letter-spacing="1.1">CISCO</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="52" aria-label="Cisco logo" role="img" viewBox="0 0 180 52"><rect width="180" height="52" fill="#fff" rx="10"/><g fill="#1ba0d7"><rect width="4" height="10" x="56" y="8" rx="1"/><rect width="4" height="13" x="66" y="5" rx="1"/><rect width="4" height="15" x="76" y="3" rx="1"/><rect width="4" height="17" x="86" y="1" rx="1"/><rect width="4" height="15" x="96" y="3" rx="1"/><rect width="4" height="13" x="106" y="5" rx="1"/><rect width="4" height="10" x="116" y="8" rx="1"/></g><text x="58" y="39" fill="#1ba0d7" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1.1">CISCO</text></svg>
