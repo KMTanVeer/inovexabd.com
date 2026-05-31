@@ -145,6 +145,53 @@ export const PRODUCTS: Product[] = [
     isFeatured: true
   },
   {
+    id: 'cisco-nexus-93180yc-ex',
+    name: 'Cisco Nexus N9K-C93180YC-EX',
+    category: 'networking',
+    price: 0,
+    description: 'High-performance data center switching platform for modern enterprise infrastructure with ultra-low latency and scalable architecture.',
+    image: img('Cisco Nexus N9K C93180YC EX', '1.jpg'),
+    images: [
+      img('Cisco Nexus N9K C93180YC EX', '1.jpg'),
+      img('Cisco Nexus N9K C93180YC EX', '1.webp'),
+      img('Cisco Nexus N9K C93180YC EX', '2.webp'),
+      img('Cisco Nexus N9K C93180YC EX', '3.webp')
+    ],
+    rating: 4.9,
+    specs: {
+      Model: 'N9K-C93180YC-EX',
+      Brand: 'Cisco Nexus',
+      Type: 'Data Center Switch',
+      Performance: 'Ultra-Low Latency'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'juniper-mx80',
+    name: 'Juniper MX80 Universal Router',
+    category: 'networking',
+    price: 0,
+    description: 'Reliable enterprise router built for scalable networks with strong routing performance and secure connectivity.',
+    image: img('juniper mx80 universal router', '1.png'),
+    images: [
+      img('juniper mx80 universal router', '1.png'),
+      img('juniper mx80 universal router', '2.webp'),
+      img('juniper mx80 universal router', '3.webp'),
+      img('juniper mx80 universal router', '4.webp'),
+      img('juniper mx80 universal router', '5.webp'),
+      img('juniper mx80 universal router', '6.webp'),
+      img('juniper mx80 universal router', 'Juniper_MX80_Chassis_2X_P1-476x476.jpg.webp')
+    ],
+    rating: 4.8,
+    specs: {
+      Model: 'MX80',
+      Brand: 'Juniper',
+      Type: 'Universal Router',
+      Use: 'Enterprise & ISP Routing'
+    },
+    isFeatured: true
+  },
+  {
     id: 'intel-d3-s4510-480gb',
     name: 'Intel D3-S4510 480GB SATA SSD',
     category: 'storage',
