@@ -158,7 +158,7 @@ export function Home() {
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'Inovexa Technology',
+          name: 'Inovexa Technologies',
           url: 'https://inovexabd.com/',
           potentialAction: {
             '@type': 'SearchAction',
@@ -198,7 +198,7 @@ export function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-black/75 dark:text-white/55 leading-relaxed max-w-2xl"
             >
-              Inovexa Technology is a modern IT infrastructure and networking solutions company specializing in enterprise networking, server solutions, ISP equipment, and smart security systems.
+              Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in enterprise networking, server solutions, ISP equipment, and smart security systems.
             </motion.p>
 
             <motion.div
@@ -478,7 +478,7 @@ export function Home() {
             <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white tracking-tight">Ready to Upgrade Your <br />Infrastructure?</h2>
               <p className="text-black/70 dark:text-white/60 text-lg">
-                Join hundreds of enterprises trust Inovexa Technology for their mission-critical networking and server requirements.
+                Join hundreds of enterprises trust Inovexa Technologies for their mission-critical networking and server requirements.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <Link to="/contact" className="px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition-all">
