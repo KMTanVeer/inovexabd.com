@@ -6,7 +6,7 @@ import { cn } from '@/src/components/common/GlassContainer.tsx';
 import { useNavigate } from 'react-router-dom';
 import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 import { useTheme } from '@/src/context/ThemeContext.tsx';
-import { CATEGORIES } from '@/src/data/products.ts';
+import { CATALOG_GROUPS } from '@/src/data/products.ts';
 
 const NAV_LINKS = [
   { name: 'Home', path: '/', icon: Home },
@@ -14,7 +14,10 @@ const NAV_LINKS = [
     name: 'Shop', 
     path: '/shop',
     icon: ShoppingBag,
-    dropdown: CATEGORIES.map(c => ({ name: c.name, path: `/shop?category=${c.id}` }))
+    dropdownGroups: CATALOG_GROUPS.map((group) => ({
+      name: group.name,
+      items: group.items.map((item) => ({ name: item, path: `/shop?q=${encodeURIComponent(item)}` }))
+    }))
   },
   { name: 'Contact', path: '/contact', icon: Mail },
 ];
@@ -57,14 +60,14 @@ export function Navbar() {
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <BrandLogo variant="topbar" className="transform transition-transform group-hover:scale-105" />
+          <BrandLogo variant="topbar" showMark={false} highlightTopbarX className="transform transition-transform group-hover:scale-105" />
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => {
             const Icon = link.icon;
-            return link.dropdown ? (
+            return link.dropdownGroups ? (
               <div key={link.path} className="relative group/dropdown">
                 <Link
                   to={link.path}
@@ -78,16 +81,23 @@ export function Navbar() {
                   <ChevronDown size={14} className="opacity-70 group-hover/dropdown:rotate-180 transition-transform duration-300" />
                 </Link>
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 pt-4 w-48 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-50">
-                  <div className="bg-white dark:bg-zinc-900 border border-black/5 dark:border-white/10 rounded-xl shadow-xl overflow-hidden py-2 backdrop-blur-xl">
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block px-4 py-2 text-sm text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-500 transition-colors"
-                      >
-                        {item.name}
-                      </Link>
+                <div className="absolute top-full left-0 pt-4 w-[320px] opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-50">
+                  <div className="bg-white dark:bg-zinc-900 border border-black/5 dark:border-white/10 rounded-xl shadow-xl overflow-hidden py-3 backdrop-blur-xl">
+                    {link.dropdownGroups.map((group) => (
+                      <div key={group.name} className="px-4 py-2">
+                        <p className="text-[11px] font-bold uppercase tracking-widest text-blue-500 mb-1.5">{group.name}</p>
+                        <div className="space-y-1">
+                          {group.items.map((item) => (
+                            <Link
+                              key={item.path}
+                              to={item.path}
+                              className="block px-2 py-1.5 text-sm text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-500 rounded-md transition-colors"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -224,17 +234,24 @@ export function Navbar() {
                        {link.name}
                      </div>
                    </Link>
-                   {link.dropdown && (
+                   {link.dropdownGroups && (
                      <div className="flex flex-col gap-3 pl-8 border-l-2 border-black/5 dark:border-white/10 ml-2">
-                       {link.dropdown.map((item) => (
-                         <Link
-                           key={item.path}
-                           to={item.path}
-                           onClick={() => setIsMobileMenuOpen(false)}
-                           className="text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
-                         >
-                           {item.name}
-                         </Link>
+                       {link.dropdownGroups.map((group) => (
+                         <div key={group.name} className="space-y-2">
+                           <p className="text-[11px] font-bold uppercase tracking-widest text-blue-500">{group.name}</p>
+                           <div className="space-y-2">
+                             {group.items.map((item) => (
+                               <Link
+                                 key={item.path}
+                                 to={item.path}
+                                 onClick={() => setIsMobileMenuOpen(false)}
+                                 className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
+                               >
+                                 {item.name}
+                               </Link>
+                             ))}
+                           </div>
+                         </div>
                        ))}
                      </div>
                    )}

@@ -3,6 +3,8 @@ import React from 'react';
 interface BrandLogoProps {
   className?: string;
   variant?: 'full' | 'topbar' | 'mark';
+  showMark?: boolean;
+  highlightTopbarX?: boolean;
 }
 
 function BrandMark() {
@@ -17,7 +19,7 @@ function BrandMark() {
   );
 }
 
-export function BrandLogo({ className, variant = 'full' }: BrandLogoProps) {
+export function BrandLogo({ className, variant = 'full', showMark = true, highlightTopbarX = false }: BrandLogoProps) {
   if (variant === 'mark') {
     return (
       <div className={className}>
@@ -29,18 +31,30 @@ export function BrandLogo({ className, variant = 'full' }: BrandLogoProps) {
   if (variant === 'topbar') {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
-        <BrandMark />
-        <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
-        <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
-          inovexabd.com
-        </span>
+        {showMark && (
+          <>
+            <BrandMark />
+            <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
+          </>
+        )}
+        {highlightTopbarX ? (
+          <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
+            inove
+            <span className="text-blue-600 dark:text-blue-400 drop-shadow-[0_0_10px_rgba(37,99,235,0.7)] dark:drop-shadow-[0_0_12px_rgba(96,165,250,0.9)]">x</span>
+            abd.com
+          </span>
+        ) : (
+          <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
+            inovexabd.com
+          </span>
+        )}
       </div>
     );
   }
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <BrandMark />
+      {showMark && <BrandMark />}
 
       {/* Wordmark */}
       <div className="flex flex-col justify-center select-none">

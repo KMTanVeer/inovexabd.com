@@ -21,6 +21,11 @@ export interface Category {
   description: string;
 }
 
+export interface CatalogGroup {
+  name: string;
+  items: string[];
+}
+
 export const CATEGORIES: Category[] = [
   {
     id: 'servers',
@@ -49,6 +54,21 @@ export const CATEGORIES: Category[] = [
     icon: Gamepad2,
     image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80',
     description: 'Next-gen gaming gear, mechanical keyboards, and RGB accessories.'
+  }
+];
+
+export const CATALOG_GROUPS: CatalogGroup[] = [
+  {
+    name: 'Servers',
+    items: ['Dell R630', 'Dell R640', 'Dell R730', 'Supermicro Server']
+  },
+  {
+    name: 'Networking',
+    items: ['Intel NICs', 'Mellanox NICs', 'Huawei NICs', 'Cisco Switches', 'Juniper Routers', 'SFP/QSFP Modules']
+  },
+  {
+    name: 'Storage',
+    items: ['Enterprise SSDs', 'Enterprise HDDs', 'Data Center RAM', 'PSU', 'Processors', 'Fiber Patch Cords']
   }
 ];
 

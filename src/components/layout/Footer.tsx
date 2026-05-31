@@ -13,7 +13,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
-              <BrandLogo className="w-12 h-12 transform transition-transform group-hover:rotate-12" />
+              <BrandLogo showMark={false} className="w-12 h-12 transform transition-transform group-hover:rotate-12" />
             </Link>
             <p className="text-black/60 dark:text-white/50 text-sm leading-relaxed max-w-xs">
               Think Smart, Build Smarter. Empowering businesses with next-generation IT infrastructure and futuristic networking solutions.
