@@ -23,16 +23,16 @@ export function Categories() {
                   <h3 className="text-2xl font-bold uppercase tracking-tight">{group.name}</h3>
                   <ul className="space-y-2">
                     {group.items.map((item) => (
-                      <li key={item}>
-                        <Link to={`/shop?q=${encodeURIComponent(item)}`} className="text-sm text-black/60 dark:text-white/60 hover:text-blue-500 transition-colors">
-                          {item}
+                      <li key={item.path}>
+                        <Link to={item.path} className="text-sm text-black/60 dark:text-white/60 hover:text-blue-500 transition-colors">
+                          {item.name}
                         </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <Link to={`/shop?q=${encodeURIComponent(group.name)}`} className="flex items-center gap-2 text-sm font-bold text-blue-500 hover:text-blue-600 transition-colors pt-4 group">
+                <Link to={group.explorePath} className="flex items-center gap-2 text-sm font-bold text-blue-500 hover:text-blue-600 transition-colors pt-4 group">
                   Explore Products
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>

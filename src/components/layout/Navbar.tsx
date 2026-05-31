@@ -16,7 +16,7 @@ const NAV_LINKS = [
     icon: ShoppingBag,
     dropdownGroups: CATALOG_GROUPS.map((group) => ({
       name: group.name,
-      items: group.items.map((item) => ({ name: item, path: `/shop?q=${encodeURIComponent(item)}` }))
+      items: group.items
     }))
   },
   { name: 'Contact', path: '/contact', icon: Mail },

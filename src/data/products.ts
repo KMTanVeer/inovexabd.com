@@ -23,7 +23,11 @@ export interface Category {
 
 export interface CatalogGroup {
   name: string;
-  items: string[];
+  items: {
+    name: string;
+    path: string;
+  }[];
+  explorePath: string;
 }
 
 export const CATEGORIES: Category[] = [
@@ -47,21 +51,6 @@ export const CATEGORIES: Category[] = [
     icon: HardDrive,
     image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80',
     description: 'Enterprise SSDs, HDDs, data center RAM, processors, PSUs, and fiber accessories.'
-  }
-];
-
-export const CATALOG_GROUPS: CatalogGroup[] = [
-  {
-    name: 'Servers',
-    items: ['Dell R630', 'Dell R640', 'Dell R730', 'Supermicro Server']
-  },
-  {
-    name: 'Networking',
-    items: ['Intel NICs', 'Mellanox NICs', 'Huawei NICs', 'Cisco Switches', 'Juniper Routers', 'SFP/QSFP Modules']
-  },
-  {
-    name: 'Storage',
-    items: ['Enterprise SSDs', 'Enterprise HDDs', 'Data Center RAM', 'PSU', 'Processors', 'Fiber Patch Cords']
   }
 ];
 
@@ -366,3 +355,14 @@ export const PRODUCTS: Product[] = [
     }
   }
 ];
+
+export const CATALOG_GROUPS: CatalogGroup[] = CATEGORIES.map((category) => ({
+  name: category.name,
+  items: PRODUCTS
+    .filter((product) => product.category === category.id)
+    .map((product) => ({
+      name: product.name,
+      path: `/product/${encodeURIComponent(product.id)}`
+    })),
+  explorePath: `/shop?category=${encodeURIComponent(category.id)}`
+}));
