@@ -18,6 +18,13 @@ const TRUST_BADGES = [
 ];
 
 const MANUFACTURER_BRANDS = ['Dell', 'Cisco', 'Huawei', 'Juniper', 'Intel'];
+const BRAND_LOGOS: Record<string, string> = {
+  dell: '/brand-logos/dell.svg',
+  cisco: '/brand-logos/cisco.svg',
+  huawei: '/brand-logos/huawei.svg',
+  juniper: '/brand-logos/juniper.svg',
+  intel: '/brand-logos/intel.svg',
+};
 
 export function ProductDetail() {
   const { id } = useParams();
@@ -81,6 +88,8 @@ export function ProductDetail() {
     product.category === 'networking'
       ? ((product.specs as any)?.Model as string | undefined) || ((product.specs as any)?.Type as string | undefined) || 'Enterprise Networking'
       : ((product.specs as any)?.Series as string | undefined) || ((product.specs as any)?.Model as string | undefined) || 'Enterprise Hardware';
+  const normalizedBrand = MANUFACTURER_BRANDS.find((brand) => detectedBrand.toLowerCase().includes(brand.toLowerCase())) || detectedBrand;
+  const currentBrandLogo = BRAND_LOGOS[normalizedBrand.toLowerCase()];
 
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-white dark:bg-black transition-colors">
@@ -126,20 +135,20 @@ export function ProductDetail() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 items-start">
-          <div className="lg:col-span-8 flex flex-col md:flex-row gap-5">
+          <div className="lg:col-span-8 flex flex-col md:flex-row md:items-stretch gap-5">
             <div
               className={cn(
-                'hidden md:block shrink-0 w-24 lg:w-28 max-h-[min(34rem,72vh)] overflow-y-auto pr-1',
+                'hidden md:block shrink-0 w-32 h-[min(42rem,78vh)] overflow-y-auto overflow-x-hidden pr-1',
                 hasManyImages ? 'rounded-2xl border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] p-3' : '',
               )}
             >
-              <div className={cn('gap-3', hasManyImages ? 'grid grid-cols-2' : 'flex flex-col')}>
+              <div className={cn('gap-3', hasManyImages ? 'grid grid-cols-2 auto-rows-fr' : 'flex flex-col')}>
                 {productImages.map((image, i) => (
                   <button
                     key={i}
                     onClick={() => setSelectedImageIndex(i)}
                     className={cn(
-                      'relative h-20 w-20 lg:h-[5.5rem] lg:w-[5.5rem] rounded-xl border bg-white dark:bg-black overflow-hidden transition-all duration-300',
+                      'relative w-full aspect-square rounded-xl border bg-white dark:bg-black overflow-hidden transition-all duration-300',
                       selectedImageIndex === i
                         ? 'border-blue-600 shadow-[0_0_0_1px_rgba(37,99,235,0.45),0_10px_24px_rgba(37,99,235,0.28)]'
                         : 'border-black/15 dark:border-white/20 hover:border-blue-500/60',
@@ -155,6 +164,7 @@ export function ProductDetail() {
                       src={image}
                       alt={`${product.name} thumbnail ${i + 1}`}
                       className="w-full h-full object-cover rounded-xl opacity-100"
+                      loading="lazy"
                       referrerPolicy="no-referrer"
                     />
                   </button>
@@ -165,7 +175,7 @@ export function ProductDetail() {
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative flex-1 group h-[min(34rem,72vh)] rounded-[2rem] overflow-hidden border border-black/15 dark:border-white/20 bg-white dark:bg-neutral-950 p-4 md:p-6"
+              className="relative flex-1 group h-[min(42rem,78vh)] rounded-[2rem] overflow-hidden border border-black/15 dark:border-white/20 bg-white dark:bg-neutral-950 p-4 md:p-6"
             >
               <div className="h-full w-full rounded-[1.5rem] bg-white dark:bg-neutral-950 overflow-hidden border border-black/5 dark:border-white/10">
                 <img
@@ -213,6 +223,16 @@ export function ProductDetail() {
 
           <div className="lg:col-span-4 space-y-7">
             <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                {currentBrandLogo ? (
+                  <div className="h-10 px-3 rounded-lg border border-black/10 dark:border-white/15 bg-white dark:bg-neutral-950 flex items-center">
+                    <img src={currentBrandLogo} alt={`${normalizedBrand} logo`} className="h-5 w-auto object-contain" loading="lazy" />
+                  </div>
+                ) : (
+                  <p className="text-sm font-semibold text-black/75 dark:text-white/80">Brand: {normalizedBrand}</p>
+                )}
+              </div>
+
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-3 py-1 rounded-full bg-blue-600/12 border border-blue-600/25 text-[10px] font-bold text-blue-700 dark:text-blue-300 uppercase tracking-[0.18em]">
                   {product.category}
@@ -252,28 +272,6 @@ export function ProductDetail() {
               <p className="text-black/80 dark:text-white/80 leading-relaxed text-sm pt-1">
                 {product.description}
               </p>
-            </div>
-
-            <div className="rounded-2xl border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] p-4 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/70 dark:text-white/70">Manufacturer Branding</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {MANUFACTURER_BRANDS.map((brand) => {
-                  const isActive = detectedBrand.toLowerCase().includes(brand.toLowerCase());
-                  return (
-                    <div
-                      key={brand}
-                      className={cn(
-                        'px-3 py-2 rounded-lg border text-xs font-semibold text-center transition-colors',
-                        isActive
-                          ? 'border-blue-500/45 bg-blue-500/12 text-blue-700 dark:text-blue-300'
-                          : 'border-black/10 dark:border-white/15 text-black/70 dark:text-white/75 bg-white dark:bg-black/25',
-                      )}
-                    >
-                      {brand} Logo
-                    </div>
-                  );
-                })}
-              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
