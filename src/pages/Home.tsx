@@ -6,10 +6,12 @@ import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 import { useState, useEffect, useMemo } from 'react';
-import dellServerHero from '@/src/assets/Products-image/all-image/Hero-images/dell-server-hero.png';
-import ciscoHero from '@/src/assets/Products-image/all-image/Hero-images/cisco-hero.png';
-import intelSsdHero from '@/src/assets/Products-image/all-image/Hero-images/intel-ssd-hero.png';
-import juniperHero from '@/src/assets/Products-image/all-image/Hero-images/juniper-hero.png';
+
+// Import Hero Images
+import dellServerHero from '@/src/assets/Hero-images/dell-server-hero.png';
+import ciscoHero from '@/src/assets/Hero-images/cisco-hero.png';
+import intelSsdHero from '@/src/assets/Hero-images/intel-ssd-hero.png';
+import juniperHero from '@/src/assets/Hero-images/juniper-hero.png';
 
 const BANNERS = [
   {
