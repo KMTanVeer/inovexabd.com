@@ -130,7 +130,6 @@ export function Privacy() {
   <br />
   Website: www.inovexabd.com
 </p>
-```
 
   </div>
 </div>
