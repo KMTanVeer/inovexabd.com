@@ -6,7 +6,7 @@ export function Returns() {
     <div className="pt-32 pb-24 min-h-screen">
   <SEO
     title="Returns & Refunds"
-    description="Returns, replacement, warranty, and refund policy for Inovexa BD."
+    description="Returns, replacement, warranty, and refund policy for Inovexa Technologies."
   />
 
   <div className="container mx-auto px-6 max-w-4xl space-y-6 leading-relaxed font-light">
@@ -15,7 +15,7 @@ export function Returns() {
     </h1>
 
     <p>
-      At Inovexa BD, we strive to ensure every customer receives reliable,
+      At Inovexa Technologies, we strive to ensure every customer receives reliable,
       enterprise-grade hardware. If you encounter any issues with your purchase,
       please review our return and refund policy below.
     </p>
@@ -60,7 +60,7 @@ export function Returns() {
 
     <p>
       If a product is confirmed defective and falls within the eligible return
-      period, Inovexa BD may provide a replacement unit of the same model or an
+      period, Inovexa Technologies may provide a replacement unit of the same model or an
       equivalent alternative, subject to stock availability.
     </p>
 
