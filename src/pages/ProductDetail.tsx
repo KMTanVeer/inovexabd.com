@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Star, Heart, ShieldCheck, Truck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall } from 'lucide-react';
+import { Star, Heart, ShieldCheck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall } from 'lucide-react';
 import { type Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
@@ -275,9 +275,9 @@ export function ProductDetail() {
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a
-                href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I need pricing details for ${product!.name}`)}`}
+                href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I need pricing details for ${product.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
