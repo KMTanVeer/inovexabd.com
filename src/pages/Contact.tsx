@@ -34,7 +34,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-wider">Headquarters</h3>
-                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">Sector 11, Uttara, Dhaka-1230, Bangladesh.</p>
+                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">Asadgate, Shyamoli, Dhaka, Bangladesh.</p>
                 </div>
               </div>
 
@@ -44,7 +44,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-wider">Email Sales</h3>
-                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">sales@inovexabd.com</p>
+                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">info@inovexabd.com</p>
                 </div>
               </div>
 
@@ -54,7 +54,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-wider">Phone Lines</h3>
-                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">+880 1700-000000</p>
+                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">+880 1813065665</p>
                 </div>
               </div>
             </div>
