@@ -31,8 +31,7 @@ export function Footer() {
                 { name: 'Home', path: '/' },
                 { name: 'Shop', path: '/shop' },
                 { name: 'Categories', path: '/categories' },
-                { name: 'Contact', path: '/contact' },
-                { name: 'Admin Dashboard', path: '/admin' }
+                { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link to={item.path} className="text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm">{item.name}</Link>
