@@ -1,4 +1,4 @@
-import { LucideIcon, Network, Cpu, Server, Cable, Watch, Headphones, Gamepad2, Mouse, Keyboard, Smartphone, Zap } from 'lucide-react';
+import { LucideIcon, Network, Cpu, Server, Gamepad2 } from 'lucide-react';
 
 export interface Product {
   id: string;
@@ -7,6 +7,7 @@ export interface Product {
   price: number;
   description: string;
   image: string;
+  images?: string[];
   rating: number;
   specs: Record<string, string>;
   isFeatured?: boolean;
@@ -51,422 +52,304 @@ export const CATEGORIES: Category[] = [
   }
 ];
 
+const img = (folder: string, file: string) =>
+  `/Products-image/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
+
 export const PRODUCTS: Product[] = [
-  // Lan Cards
   {
-    id: 'lan-huawei-10g',
-    name: 'Huawei 10G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'High-performance 10G Ethernet adapter from Huawei, optimized for data-intensive workloads and enterprise networking.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
-    rating: 4.8,
-    specs: {
-      'Interface': 'SFP+',
-      'Speed': '10 Gbps',
-      'Architecture': 'PCIe Gen 3',
-      'Ports': '1x SFP+'
-    },
-    isFeatured: true
-  },
-  {
-    id: 'lan-intel-x710-10g',
-    name: 'Intel X710 10G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'Original Intel X710 series network adapter. The industry standard for reliability and performance in high-speed networking.',
-    image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80',
-    rating: 5.0,
-    specs: {
-      'Controller': 'Intel X710',
-      'Speed': '10 Gbps Dual Port',
-      'Interface': 'PCIe 3.0 x8',
-      'Virtualization': 'VMDq, SR-IOV'
-    },
-    isFeatured: true
-  },
-  {
-    id: 'lan-supermicro-10g',
-    name: 'Supermicro 10G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'Efficient and robust 10G networking from Supermicro. Perfect for server integration.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80',
-    rating: 4.5,
-    specs: {
-      'Speed': '10 Gbps',
-      'Form Factor': 'Standard/Low Profile',
-      'Chipset': 'Broadcom/Intel based'
-    }
-  },
-  {
-    id: 'lan-mellanox-10g',
-    name: 'Mellanox 10G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'High-speed 10G Lan card from Mellanox, known for low latency and high throughput.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80',
-    rating: 4.7,
-    specs: {
-      'Speed': '10 Gbps',
-      'Latency': 'Ultra-low',
-      'Technology': 'ConnectX Series'
-    }
-  },
-  {
-    id: 'lan-intel-40g',
-    name: 'Intel 40G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'Extreme speed for enterprise backbones. Intel 40G network adapter ensures zero bottlenecking.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80',
-    rating: 4.9,
-    specs: {
-      'Speed': '40 Gbps',
-      'Interface': 'QSFP+',
-      'Features': 'Data Center Bridging (DCB)'
-    }
-  },
-  {
-    id: 'lan-mellanox-40g',
-    name: 'Mellanox 40G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'Performance-driven 40G networking hardware from Mellanox.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
-    rating: 4.6,
-    specs: {
-      'Speed': '40 Gbps',
-      'Port Configuration': '1x QSFP+'
-    }
-  },
-  {
-    id: 'lan-broadcom-25g',
-    name: 'Broadcom 25G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'The sweet spot between 10G and 40G. 25G Broadcom adapter for modern data centers.',
-    image: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80',
-    rating: 4.4,
-    specs: {
-      'Speed': '25 Gbps',
-      'Compatibility': 'SFP28'
-    }
-  },
-  {
-    id: 'lan-intel-25g',
-    name: 'Intel 25G Lan Card',
-    category: 'networking',
-    price: 0,
-    description: 'Intel 25G Ethernet adapter. High efficiency, high reliability.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80',
-    rating: 4.8,
-    specs: {
-      'Speed': '25 Gbps',
-      'Interface': 'PCIe 3.0 x8'
-    }
-  },
-  // SFP Modules
-  {
-    id: 'sfp-cisco-10g',
-    name: 'Cisco 10G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'Genuine Cisco SFP-10G-SR module for short-range fiber connections.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
-    rating: 4.9,
-    specs: {
-      'Type': 'SFP+',
-      'Speed': '10 Gbps',
-      'Reach': '300m',
-      'Cable Type': 'Multimode Fiber'
-    }
-  },
-  {
-    id: 'sfp-huawei-10g',
-    name: 'Huawei 10G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'Huawei high-performance 10G SFP module for enterprise switches.',
-    image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&q=80',
-    rating: 4.7,
-    specs: {
-      'Type': 'SFP+',
-      'Speed': '10 Gbps'
-    }
-  },
-  {
-    id: 'sfp-cisco-40g',
-    name: 'Cisco 40G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'Cisco QSFP-40G series transceivers for high-density 40G networking.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
-    rating: 4.8,
-    specs: {
-      'Type': 'QSFP+',
-      'Speed': '40 Gbps'
-    }
-  },
-  {
-    id: 'sfp-huawei-40g',
-    name: 'Huawei 40G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'High-speed 40G QSFP module from Huawei.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80',
-    rating: 4.5,
-    specs: {
-      'Type': 'QSFP+',
-      'Speed': '40 Gbps'
-    }
-  },
-  {
-    id: 'sfp-mellanox-40g',
-    name: 'Mellanox 40G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'Low-power, high-reliability 40G SFP module from Mellanox.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
-    rating: 4.6,
-    specs: {
-      'Type': 'QSFP+',
-      'Speed': '40 Gbps'
-    }
-  },
-  {
-    id: 'sfp-nokia-100g',
-    name: 'Nokia 100G SFP Module',
-    category: 'networking',
-    price: 0,
-    description: 'Next-generation 100G connectivity. The Nokia QSFP28 module is built for the future of networking.',
-    image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&q=80',
-    rating: 5.0,
-    specs: {
-      'Type': 'QSFP28',
-      'Speed': '100 Gbps',
-      'Connector': 'LC'
-    },
-    isFeatured: true
-  },
-  // Misc
-  {
-    id: 'patch-cord-3m',
-    name: 'Fiber Patch Cord (3M)',
-    category: 'networking',
-    price: 0,
-    description: 'High-quality 3-meter fiber optic patch cord for server and switch connectivity.',
-    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80',
-    rating: 4.6,
-    specs: {
-      'Length': '3 Meters',
-      'Type': 'Fiber Optic',
-      'Connector': 'LC-LC'
-    }
-  },
-  {
-    id: 'psu-supermicro-750w',
-    name: 'Supermicro 750W PSU (EPP)',
-    category: 'computing',
-    price: 0,
-    description: 'Supermicro Titanium/Platinum level redundant power supply unit for high-availability systems.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
-    rating: 4.7,
-    specs: {
-      'Power': '750W',
-      'Efficiency': 'Titanium/Platinum EPP',
-      'Form Factor': 'Server Redundant'
-    }
-  },
-  // Servers
-  {
-    id: 'server-sm-4node',
-    name: 'Supermicro 4-Node Cluster Server',
+    id: 'dell-poweredge-r630',
+    name: 'Dell PowerEdge R630 Rack Server',
     category: 'servers',
     price: 0,
-    description: 'Comprehensive high-density 4-node cluster solution. Includes chassis and motherboard. Total price with processors: 132,000 Taka.',
-    image: 'https://images.unsplash.com/photo-1558489080-00d07a6833fe?auto=format&fit=crop&q=80',
-    rating: 5.0,
+    description: 'Enterprise 1U dual-socket rack server built for virtualization, database workloads, and dense compute deployments.',
+    image: img('Dell PowerEdge R630', 'dell poweredge.jpg'),
+    images: [
+      img('Dell PowerEdge R630', 'dell poweredge.jpg'),
+      img('Dell PowerEdge R630', '2.jpg'),
+      img('Dell PowerEdge R630', '3.jpg')
+    ],
+    rating: 4.9,
     specs: {
-      'Architecture': '4-Node (BigTwin)',
-      'Nodes': '4 independent systems',
-      'Note': 'Requires 8 processors'
-    },
-    isFeatured: true
-  },
-  {
-    id: 'processor-72core',
-    name: '72 Core Processor Unit',
-    category: 'computing',
-    price: 0,
-    description: 'High-core-count enterprise processor for compute-intensive virtualization and data processing.',
-    image: 'https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80',
-    rating: 4.5,
-    specs: {
-      'Cores': '72 Cores',
-      'Type': 'Enterprise Xeon/EPYC based'
-    }
-  },
-  {
-    id: 'dell-r630-72c',
-    name: 'Dell PowerEdge R630 (72 Core)',
-    category: 'servers',
-    price: 0,
-    description: 'Powerful 1U rack server. Configure with 72 cores for massive multi-threaded performance. Note: Price excludes RAM.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
-    rating: 4.8,
-    specs: {
-      'Model': 'PowerEdge R630',
-      'Cores': '72 Cores',
+      Model: 'PowerEdge R630',
       'Form Factor': '1U Rack',
-      'Storage': '8x 2.5" SFF'
-    }
-  },
-  {
-    id: 'dell-r630-88c',
-    name: 'Dell PowerEdge R630 (88 Core)',
-    category: 'servers',
-    price: 0,
-    description: 'Upgraded 88-core configuration of the legendary R630. Reliable, fast, and dense. Note: Price excludes RAM.',
-    image: 'https://images.unsplash.com/photo-1558489106-2d6ec42da696?auto=format&fit=crop&q=80',
-    rating: 4.9,
-    specs: {
-      'Model': 'PowerEdge R630',
-      'Cores': '88 Cores',
-      'Form Factor': '1U Rack'
+      Processor: 'Intel Xeon E5 v3/v4 Platform',
+      Storage: '2.5-inch SFF Drive Support'
     },
     isFeatured: true
   },
   {
-    id: 'dell-r640-72c',
-    name: 'Dell PowerEdge R640 (72 Core)',
-    category: 'servers',
-    price: 0,
-    description: 'Modern 1U flagship server. Includes Railkit and Bezel. Unmatched performance and management. Note: Price excludes RAM.',
-    image: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80',
-    rating: 5.0,
-    specs: {
-      'Model': 'PowerEdge R640',
-      'Cores': '72 Cores',
-      'Inclusions': 'Railkit, Bezel (Vessel)',
-      'Form Factor': '1U'
-    },
-    isFeatured: true
-  },
-  {
-    id: 'dell-r640-80c',
-    name: 'Dell PowerEdge R640 (80 Core)',
-    category: 'servers',
-    price: 0,
-    description: '80-core high-performance variant of the R640. Ideal for cloud hosting and large database clusters. Includes Railkit and Bezel.',
-    image: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&q=80',
-    rating: 4.9,
-    specs: {
-      'Model': 'PowerEdge R640',
-      'Cores': '80 Cores',
-      'Inclusions': 'Railkit, Bezel'
-    }
-  },
-  {
-    id: 'dell-r640-96c',
-    name: 'Dell PowerEdge R640 (96 Core)',
-    category: 'servers',
-    price: 0,
-    description: 'The beast - 96 Core Dell R640. Maximum compute density in 1U. Includes Railkit and Bezel. Note: Price excludes RAM.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80',
-    rating: 5.0,
-    specs: {
-      'Model': 'PowerEdge R640',
-      'Cores': '96 Cores',
-      'Inclusions': 'Railkit, Bezel'
-    }
-  },
-  {
-    id: 'dell-r730-72c',
-    name: 'Dell PowerEdge R730 (72 Core)',
-    category: 'servers',
-    price: 0,
-    description: '2U versatile server powerhouse. 72 Cores for expandability and high-performance I/O. Includes Railkit and Bezel. Note: Price excludes RAM.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80',
-    rating: 4.8,
-    specs: {
-      'Model': 'PowerEdge R730',
-      'Cores': '72 Cores',
-      'Form Factor': '2U Rack',
-      'Inclusions': 'Railkit, Bezel'
-    }
-  },
-  // RAM
-  {
-    id: 'ram-8gb-ddr4',
-    name: '8GB DDR4 Enterprise RAM',
+    id: 'hgst-12tb-10k-sas-hdd',
+    name: 'HGST 12TB 10K RPM Enterprise HDD',
     category: 'computing',
     price: 0,
-    description: 'Reliable DDR4 memory for servers and enterprise workstations.',
-    image: 'https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80',
-    rating: 4.4,
-    specs: {
-      'Capacity': '8GB',
-      'Type': 'DDR4',
-      'ECC': 'Supported'
-    }
-  },
-  {
-    id: 'ram-16gb-ddr4',
-    name: '16GB DDR4 Enterprise RAM',
-    category: 'computing',
-    price: 0,
-    description: 'High-density DDR4 memory modules for scaling your server infrastructure.',
-    image: 'https://images.unsplash.com/photo-1551703599-6b3e8379aa8c?auto=format&fit=crop&q=80',
+    description: 'High-capacity enterprise hard drive designed for heavy read/write cycles in servers and storage arrays.',
+    image: img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.jpg'),
+    images: [
+      img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.jpg'),
+      img('HGST 12 TB  10K RPM', 'photo_2_2026-05-31_10-45-21.jpg')
+    ],
     rating: 4.6,
     specs: {
-      'Capacity': '16GB',
-      'Type': 'DDR4'
+      Capacity: '12 TB',
+      Interface: 'SAS',
+      Speed: '10,000 RPM',
+      Usage: 'Enterprise Storage Systems'
     }
   },
   {
-    id: 'ram-32gb-ddr4',
-    name: '32GB DDR4 Enterprise RAM',
+    id: 'hpe-7-68tb-nvme-ssd',
+    name: 'HPE NVMe Enterprise SSD 7.68TB',
     category: 'computing',
     price: 0,
-    description: 'Elite 32GB DDR4 modules for mission-critical applications requiring maximum bandwidth.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
-    rating: 5.0,
+    description: 'High-end NVMe solid-state drive with low latency and high endurance for mission-critical data center applications.',
+    image: img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.jpg'),
+    images: [img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.jpg')],
+    rating: 4.8,
     specs: {
-      'Capacity': '32GB',
-      'Type': 'DDR4',
-      'Features': 'Buffered, ECC'
+      Brand: 'HPE',
+      Capacity: '7.68 TB',
+      Interface: 'NVMe PCIe',
+      Type: 'Enterprise SSD'
     },
     isFeatured: true
   },
   {
-    id: 'cisco-nexus-93180yc-ex',
-    name: 'Cisco Nexus N9K-C93180YC-EX',
+    id: 'huawei-ce6870-24s6cq-ei',
+    name: 'Huawei CloudEngine CE6870-24S6CQ-EI Switch',
     category: 'networking',
     price: 0,
-    description: 'High-performance Data Center switch with 48 x 10/25-Gbps SFP28 ports and 6 x 40/100-Gbps QSFP28 ports.',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
+    description: 'High-performance data center switch engineered for large east-west traffic, high port density, and low latency fabrics.',
+    image: img('HUAWEI CE687024S6CQEI', 'photo_2026-05-31_10-42-51.jpg'),
+    images: [
+      img('HUAWEI CE687024S6CQEI', 'photo_2026-05-31_10-42-51.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_1_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_2_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_3_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_4_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_5_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_6_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_7_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_8_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_9_2026-05-31_10-47-29.jpg'),
+      img('HUAWEI CE687024S6CQEI', 'photo_10_2026-05-31_10-47-29.jpg')
+    ],
     rating: 4.9,
     specs: {
-      '10G Ports': '48 x 10G SFP+',
-      '25G Ports': '6 x 25G SFP28',
-      '40G Ports': '6 x 40G QSFP+',
-      'Capacity': '2.56 Tbps'
+      Model: 'CE6870-24S6CQ-EI',
+      'Downlink Ports': '24 x 10/25GE SFP28',
+      'Uplink Ports': '6 x 40/100GE QSFP28',
+      Deployment: 'Data Center Spine/Leaf'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'intel-d3-s4510-480gb',
+    name: 'Intel D3-S4510 480GB SATA SSD',
+    category: 'computing',
+    price: 0,
+    description: 'Reliable 2.5-inch SATA enterprise SSD optimized for read-intensive workloads and consistent performance.',
+    image: img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.jpg'),
+    images: [img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.jpg')],
+    rating: 4.7,
+    specs: {
+      Series: 'Intel D3-S4510',
+      Capacity: '480 GB',
+      Interface: 'SATA 6Gb/s',
+      'Form Factor': '2.5-inch'
     }
   },
   {
-    id: 'juniper-mx80',
-    name: 'Juniper MX80 Universal Router',
-    category: 'networking',
+    id: 'intel-dc-s3610-200gb',
+    name: 'Intel DC S3610 200GB SATA SSD',
+    category: 'computing',
     price: 0,
-    description: 'Carrier-grade universal routing platform for enterprise and service provider applications.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80',
+    description: 'Data center-grade SATA SSD delivering steady throughput, enhanced endurance, and dependable server performance.',
+    image: img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.jpg'),
+    images: [
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.jpg'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-2.jpg'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-3.jpg'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-4.jpg'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-5.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Series: 'Intel DC S3610',
+      Capacity: '200 GB',
+      Interface: 'SATA 6Gb/s',
+      Endurance: 'Enterprise Workload Optimized'
+    }
+  },
+  {
+    id: 'intel-dc-s4500-240gb',
+    name: 'Intel DC S4500 240GB SATA SSD',
+    category: 'computing',
+    price: 0,
+    description: 'Cost-efficient enterprise SSD with stable latency and strong reliability for cloud and virtualization platforms.',
+    image: img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.jpg'),
+    images: [
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_2_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_3_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_4_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_5_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_6_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_7_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_8_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_9_2026-05-31_10-24-02.jpg'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_10_2026-05-31_10-24-02.jpg')
+    ],
     rating: 4.8,
     specs: {
-      '10G Ports': 'Up to 20 x 10G',
-      '40G Ports': 'Up to 8 x 40G',
-      '100G Ports': 'Up to 4 x 100G',
-      'Capacity': '160 Tbps'
+      Series: 'Intel DC S4500',
+      Capacity: '240 GB',
+      Interface: 'SATA 6Gb/s',
+      'Form Factor': '2.5-inch'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'intel-d3-s4510-series-480gb',
+    name: 'Intel D3-S4510 Series 480GB SSD',
+    category: 'computing',
+    price: 0,
+    description: 'Enterprise SATA SSD variant from Intel D3-S4510 family for dependable everyday server storage performance.',
+    image: img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.jpg'),
+    images: [
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.jpg'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-1.jpg'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-2.jpg'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-3.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Series: 'Intel D3-S4510',
+      Capacity: '480 GB',
+      Interface: 'SATA 6Gb/s',
+      'Form Factor': '2.5-inch'
+    }
+  },
+  {
+    id: 'mellanox-40g-dual-sfp',
+    name: 'Mellanox 40G Dual-Port SFP Network Card',
+    category: 'networking',
+    price: 0,
+    description: 'Dual-port 40GbE adapter for high-throughput server networking and low-latency data center communication.',
+    image: img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.jpg'),
+    images: [
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.jpg'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_2_2026-05-31_10-46-45.jpg'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_3_2026-05-31_10-46-45.jpg'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_4_2026-05-31_10-46-45.jpg'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_5_2026-05-31_10-46-45.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Brand: 'Mellanox',
+      Speed: '40 Gbps',
+      Ports: '2 x SFP+',
+      Interface: 'PCIe x8'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'intel-x710-da2-10g',
+    name: 'Intel X710-DA2 10G Dual-Port SFP+ LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Enterprise-class dual-port 10GbE adapter based on Intel X710 controller with virtualization and offload support.',
+    image: img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.jpg'),
+    images: [
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_2_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_3_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_4_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_5_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_6_2026-05-31_10-25-03.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_7_2026-05-31_10-25-04.jpg'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_8_2026-05-31_10-25-04.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Controller: 'Intel X710',
+      Speed: '10 Gbps',
+      Ports: '2 x SFP+',
+      Interface: 'PCIe 3.0 x8'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'intel-x520-da2-10g',
+    name: 'Intel X520-DA2 10G Dual-Port SFP+ LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Proven dual-port 10GbE adapter with excellent compatibility for enterprise servers and virtualized environments.',
+    image: img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.jpg'),
+    images: [
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_2_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_3_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_4_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_5_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_6_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_7_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_8_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_9_2026-05-31_10-26-27.jpg'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_10_2026-05-31_10-26-27.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Controller: 'Intel X520',
+      Speed: '10 Gbps',
+      Ports: '2 x SFP+',
+      Interface: 'PCIe x8'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'dell-1-8tb-10k-sas-hdd',
+    name: 'Dell SAS 12Gbps 1.8TB 10K RPM Drive',
+    category: 'computing',
+    price: 0,
+    description: 'Enterprise-grade SAS hard drive delivering balanced capacity and performance for transactional server workloads.',
+    image: img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.jpg'),
+    images: [
+      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.jpg'),
+      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-2.jpg')
+    ],
+    rating: 4.6,
+    specs: {
+      Capacity: '1.8 TB',
+      Interface: 'SAS 12Gbps',
+      Speed: '10,000 RPM',
+      Brand: 'Dell'
+    }
+  },
+  {
+    id: 'supermicro-dual-sfp-v211',
+    name: 'Supermicro Dual-Port SFP LAN Card v2.11',
+    category: 'networking',
+    price: 0,
+    description: 'Server network adapter from Supermicro with dual SFP connectivity, suitable for enterprise edge and core deployments.',
+    image: img('Supermicro 2 port SFP Lan Card Version 211', 'photo_1_2026-05-31_10-41-32.jpg'),
+    images: [
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_1_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_2_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_3_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_4_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_5_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_6_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_7_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_8_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_9_2026-05-31_10-41-32.jpg'),
+      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_10_2026-05-31_10-41-32.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Brand: 'Supermicro',
+      Ports: '2 x SFP',
+      Interface: 'PCIe',
+      Version: '2.11'
     }
   }
 ];
