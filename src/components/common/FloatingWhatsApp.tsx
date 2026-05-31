@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+const rippleStyle = `
+  @keyframes ripple-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 10px 30px rgba(37,211,102,0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0), 0 10px 30px rgba(37,211,102,0.4);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 10px 30px rgba(37,211,102,0.4);
+    }
+  }
+  
+  .whatsapp-ripple {
+    animation: ripple-pulse 2s infinite;
+  }
+`;
 
 export function FloatingWhatsApp() {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = rippleStyle;
+    document.head.appendChild(style);
+    return () => style.remove();
+  }, []);
   const whatsappNumber = '8801813065665';
   const url = `https://wa.me/${whatsappNumber}`;
 
@@ -9,7 +33,7 @@ export function FloatingWhatsApp() {
       href={url}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] flex items-center justify-center transition-all duration-300 transform hover:scale-110 group"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 group whatsapp-ripple"
       aria-label="Contact on WhatsApp"
     >
       <div className="absolute right-full mr-3 bg-white dark:bg-zinc-800 text-black dark:text-white px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity drop-shadow-md">

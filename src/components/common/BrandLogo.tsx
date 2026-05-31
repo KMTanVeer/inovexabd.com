@@ -2,19 +2,45 @@ import React from 'react';
 
 interface BrandLogoProps {
   className?: string;
+  variant?: 'full' | 'topbar' | 'mark';
 }
 
-export function BrandLogo({ className }: BrandLogoProps) {
+function BrandMark() {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      {/* Graphic Logo Mark */}
-      <div className="relative flex items-center justify-center w-10 h-10 select-none">
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-xl transform rotate-45 group-hover:rotate-180 transition-transform duration-700 shadow-[0_0_20px_rgba(37,99,235,0.3)] dark:shadow-[0_0_20px_rgba(37,99,235,0.5)]" />
-        <div className="absolute inset-[3px] bg-white dark:bg-black rounded-[10px] transform rotate-45 group-hover:-rotate-90 transition-transform duration-700" />
-        <span className="relative z-10 font-black text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-display transition-transform duration-300">
-          X
+    <div className="relative flex items-center justify-center w-10 h-10 select-none shrink-0">
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-xl transform rotate-45 group-hover:rotate-180 transition-transform duration-700 shadow-[0_0_20px_rgba(37,99,235,0.3)] dark:shadow-[0_0_20px_rgba(37,99,235,0.5)]" />
+      <div className="absolute inset-[3px] bg-white dark:bg-black rounded-[10px] transform rotate-45 group-hover:-rotate-90 transition-transform duration-700" />
+      <span className="relative z-10 font-black text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-display transition-transform duration-300">
+        X
+      </span>
+    </div>
+  );
+}
+
+export function BrandLogo({ className, variant = 'full' }: BrandLogoProps) {
+  if (variant === 'mark') {
+    return (
+      <div className={className}>
+        <BrandMark />
+      </div>
+    );
+  }
+
+  if (variant === 'topbar') {
+    return (
+      <div className={`flex items-center gap-3 ${className}`}>
+        <BrandMark />
+        <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
+        <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
+          inovexabd.com
         </span>
       </div>
+    );
+  }
+
+  return (
+    <div className={`flex items-center gap-3 ${className}`}>
+      <BrandMark />
 
       {/* Wordmark */}
       <div className="flex flex-col justify-center select-none">

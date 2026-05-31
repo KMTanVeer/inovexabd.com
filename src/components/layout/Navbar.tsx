@@ -33,12 +33,8 @@ export function Navbar() {
     if (searchQuery.trim()) {
       navigate(`/shop?q=${encodeURIComponent(searchQuery.trim())}`);
       setIsSearchOpen(false);
-      setQuery('');
+      setSearchQuery('');
     }
-  };
-
-  const setQuery = (query: string) => {
-    setSearchQuery(query);
   };
 
   useEffect(() => {
@@ -61,7 +57,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <BrandLogo className="transform transition-transform group-hover:scale-105" />
+          <BrandLogo variant="topbar" className="transform transition-transform group-hover:scale-105" />
         </Link>
 
         {/* Desktop Nav */}
