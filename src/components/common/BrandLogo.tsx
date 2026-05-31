@@ -32,7 +32,9 @@ export function BrandLogo({ className, variant = 'full' }: BrandLogoProps) {
         <BrandMark />
         <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
         <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
-          inovexabd.com
+          <span className="font-serif italic tracking-[0.08em]">inove</span>
+          <span className="inline-block font-black text-blue-600 dark:text-blue-400 font-display -skew-x-12 mx-[1px]">x</span>
+          <span className="font-serif italic tracking-[0.08em]">abd.com</span>
         </span>
       </div>
     );

@@ -7,12 +7,6 @@ import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 import { useState, useEffect, useMemo } from 'react';
 
-// Import Hero Images
-import dellServerHero from '@/src/assets/Hero-images/dell-server-hero.png';
-import ciscoHero from '@/src/assets/Hero-images/cisco-hero.png';
-import intelSsdHero from '@/src/assets/Hero-images/intel-ssd-hero.png';
-import juniperHero from '@/src/assets/Hero-images/juniper-hero.png';
-
 const BANNERS = [
   {
     id: 'cisco-nexus-93180yc-ex',
@@ -48,7 +42,7 @@ const HERO_SHOWCASE = [
     name: 'Dell PowerEdge Server',
     category: 'Enterprise Server',
     tag: 'MISSION CRITICAL',
-    image: dellServerHero,
+    image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=2069&auto=format&fit=crop',
     color: 'purple'
   },
   {
@@ -56,7 +50,7 @@ const HERO_SHOWCASE = [
     name: 'Cisco Nexus Switch',
     category: 'Data Center Switch',
     tag: 'ULTRA LOW LATENCY',
-    image: ciscoHero,
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1974&auto=format&fit=crop',
     color: 'blue'
   },
   {
@@ -64,7 +58,7 @@ const HERO_SHOWCASE = [
     name: 'Intel Enterprise SSD',
     category: 'Data Center Storage',
     tag: 'EXTREME RELIABILITY',
-    image: intelSsdHero,
+    image: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?q=80&w=2070&auto=format&fit=crop',
     color: 'blue'
   },
   {
@@ -72,7 +66,7 @@ const HERO_SHOWCASE = [
     name: 'Juniper Networks',
     category: 'Enterprise Router',
     tag: 'HIGH PERFORMANCE',
-    image: juniperHero,
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
     color: 'purple'
   }
 ] as const;
