@@ -295,7 +295,7 @@ export function ProductDetail() {
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/12 to-white/0 -translate-x-full group-hover:animate-shimmer" />
               </Link>
               <a
-                href={`https://wa.me/8801813065665?text=Hello, I need pricing details for ${product!.name}`}
+                href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I need pricing details for ${product!.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2.5 rounded-lg bg-green-600 text-white text-sm font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
@@ -361,8 +361,8 @@ export function ProductDetail() {
                     <span className="text-sm font-medium text-black dark:text-white text-right">{String(value)}</span>
                   </div>
                 ))}
-                {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                  <div key={spec.key} className="flex items-start justify-between gap-6 py-3">
+                {(product as any).specifications && (product as any).specifications.map((spec: any, index: number) => (
+                  <div key={`${spec.key}-${index}`} className="flex items-start justify-between gap-6 py-3">
                     <span className="text-xs font-semibold text-black/65 dark:text-white/65 uppercase tracking-[0.15em]">{spec.key}</span>
                     <span className="text-sm font-medium text-black dark:text-white text-right">{spec.value}</span>
                   </div>
