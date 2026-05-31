@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { ShieldCheck, Twitter, Github, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 
 export function Footer() {
   return (
-    <footer className="relative bg-slate-100 dark:bg-black pt-20 pb-12 overflow-hidden border-t border-black/5 dark:border-white/10">
+    <footer className="relative bg-slate-100 dark:bg-black pt-24 pb-12 overflow-hidden border-t border-black/5 dark:border-white/10">
+      {/* Glow Effect */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full" />
+      
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-3 group">
-              <BrandLogo variant="mark" className="transform transition-transform group-hover:rotate-12" />
-              <span className="text-sm font-semibold text-black/85 dark:text-white/85 tracking-wide">inovexabd.com</span>
+            <Link to="/" className="flex items-center gap-2 group">
+              <BrandLogo className="w-12 h-12 transform transition-transform group-hover:rotate-12" />
             </Link>
             <p className="text-black/60 dark:text-white/50 text-sm leading-relaxed max-w-xs">
               Think Smart, Build Smarter. Empowering businesses with next-generation IT infrastructure and futuristic networking solutions.
@@ -20,6 +22,11 @@ export function Footer() {
               <a href="https://www.facebook.com/inovexatechnologies" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
                 <Facebook size={18} />
               </a>
+              {[Twitter, Github, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -31,7 +38,9 @@ export function Footer() {
                 { name: 'Home', path: '/' },
                 { name: 'Shop', path: '/shop' },
                 { name: 'Categories', path: '/categories' },
-                { name: 'Contact', path: '/contact' }
+                { name: 'About', path: '/contact' },
+                { name: 'Contact', path: '/contact' },
+                { name: 'Admin Dashboard', path: '/admin' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link to={item.path} className="text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm">{item.name}</Link>
@@ -47,6 +56,7 @@ export function Footer() {
               {[
                 { name: 'Contact Us', path: '/contact' },
                 { name: 'Returns & Warranty', path: '/returns' },
+                { name: 'Order Tracking', path: '#' },
                 { name: 'Shipping Policy', path: '/shipping' },
                 { name: 'Privacy Policy', path: '/privacy' }
               ].map((item) => (
@@ -74,12 +84,26 @@ export function Footer() {
                 <span>contact@inovexabd.com</span>
               </div>
             </div>
+            
+            <div className="pt-4">
+              <h5 className="text-black/80 dark:text-white/80 text-xs font-bold uppercase tracking-widest mb-3">Newsletter</h5>
+              <div className="flex gap-2">
+                <input 
+                  type="email" 
+                  placeholder="Your Email" 
+                  className="bg-white/60 dark:bg-white/5 border border-black/10 dark:border-white/10 px-4 py-2 rounded-lg text-sm text-black dark:text-white focus:outline-none focus:border-blue-500 w-full"
+                />
+                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors">
+                  <Mail size={18} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="pt-12 border-t border-black/10 dark:border-white/5 flex flex-col items-center justify-center gap-6">
           <p className="text-black/40 dark:text-white/30 text-xs font-medium text-center">
-            © {new Date().getFullYear()} inovexabd.com. All Rights Reserved.
+            © {new Date().getFullYear()} Inovexa Technology. All Rights Reserved.
           </p>
         </div>
       </div>
