@@ -39,8 +39,7 @@ export function Footer() {
                 { name: 'Shop', path: '/shop' },
                 { name: 'Categories', path: '/categories' },
                 { name: 'About', path: '/contact' },
-                { name: 'Contact', path: '/contact' },
-                { name: 'Admin Dashboard', path: '/admin' }
+                { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link to={item.path} className="text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm">{item.name}</Link>
@@ -85,19 +84,6 @@ export function Footer() {
               </div>
             </div>
             
-            <div className="pt-4">
-              <h5 className="text-black/80 dark:text-white/80 text-xs font-bold uppercase tracking-widest mb-3">Newsletter</h5>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your Email" 
-                  className="bg-white/60 dark:bg-white/5 border border-black/10 dark:border-white/10 px-4 py-2 rounded-lg text-sm text-black dark:text-white focus:outline-none focus:border-blue-500 w-full"
-                />
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors">
-                  <Mail size={18} />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
