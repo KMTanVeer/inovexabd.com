@@ -286,10 +286,10 @@ export function ProductDetail() {
             <div className="flex flex-col gap-3">
               <Link
                 to="/contact"
-                className="group relative px-6 py-3.5 rounded-xl bg-blue-600 text-white font-semibold transition-all hover:bg-blue-500 hover:shadow-[0_0_24px_rgba(37,99,235,0.28)] overflow-hidden text-center"
+                className="group relative px-4 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.24)] overflow-hidden text-center"
               >
                 <div className="relative z-10 flex items-center justify-center gap-2">
-                  <FileText size={18} />
+                  <FileText size={16} />
                   Request a Quote
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/12 to-white/0 -translate-x-full group-hover:animate-shimmer" />
@@ -298,16 +298,16 @@ export function ProductDetail() {
                 href={`https://wa.me/8801813065665?text=Hello, I need pricing details for ${product!.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
+                className="px-4 py-2.5 rounded-lg bg-green-600 text-white text-sm font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={16} />
                 WhatsApp Inquiry
               </a>
               <a
                 href="tel:+8801813065665"
-                className="px-6 py-3.5 rounded-xl bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-black dark:text-white font-semibold hover:bg-black/10 dark:hover:bg-white/15 transition-all backdrop-blur-md text-center flex items-center justify-center gap-2"
+                className="px-4 py-2.5 rounded-lg bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-black dark:text-white text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/15 transition-all backdrop-blur-md text-center flex items-center justify-center gap-2"
               >
-                <PhoneCall size={18} className="text-blue-600 dark:text-blue-400" />
+                <PhoneCall size={16} className="text-blue-600 dark:text-blue-400" />
                 Call to Inquire
               </a>
             </div>
@@ -353,18 +353,18 @@ export function ProductDetail() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12"
+                className="max-w-4xl divide-y divide-black/10 dark:divide-white/15"
               >
                 {specEntries.map(([label, value]) => (
-                  <div key={label} className="flex items-center justify-between py-4 border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] px-6 rounded-xl">
-                    <span className="text-xs font-semibold text-black/70 dark:text-white/70 uppercase tracking-[0.15em]">{label}</span>
-                    <span className="text-sm font-semibold text-black dark:text-white tracking-wide">{String(value)}</span>
+                  <div key={label} className="flex items-start justify-between gap-6 py-3">
+                    <span className="text-xs font-semibold text-black/65 dark:text-white/65 uppercase tracking-[0.15em]">{label}</span>
+                    <span className="text-sm font-medium text-black dark:text-white text-right">{String(value)}</span>
                   </div>
                 ))}
                 {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                  <div key={spec.key} className="flex items-center justify-between py-4 border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] px-6 rounded-xl">
-                    <span className="text-xs font-semibold text-black/70 dark:text-white/70 uppercase tracking-[0.15em]">{spec.key}</span>
-                    <span className="text-sm font-semibold text-black dark:text-white tracking-wide">{spec.value}</span>
+                  <div key={spec.key} className="flex items-start justify-between gap-6 py-3">
+                    <span className="text-xs font-semibold text-black/65 dark:text-white/65 uppercase tracking-[0.15em]">{spec.key}</span>
+                    <span className="text-sm font-medium text-black dark:text-white text-right">{spec.value}</span>
                   </div>
                 ))}
               </motion.div>
