@@ -1,4 +1,4 @@
-import { LucideIcon, Network, Cpu, Server, Gamepad2 } from 'lucide-react';
+import { LucideIcon, Network, HardDrive, Server } from 'lucide-react';
 
 export interface Product {
   id: string;
@@ -21,6 +21,15 @@ export interface Category {
   description: string;
 }
 
+export interface CatalogGroup {
+  name: string;
+  items: {
+    name: string;
+    path: string;
+  }[];
+  explorePath: string;
+}
+
 export const CATEGORIES: Category[] = [
   {
     id: 'servers',
@@ -37,18 +46,11 @@ export const CATEGORIES: Category[] = [
     description: 'Enterprise networking solutions, ISP equipment, and high-speed connectivity.'
   },
   {
-    id: 'computing',
-    name: 'Computing',
-    icon: Cpu,
+    id: 'storage',
+    name: 'Storage',
+    icon: HardDrive,
     image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80',
-    description: 'High-performance RAM, processors, and PC accessories.'
-  },
-  {
-    id: 'gaming',
-    name: 'Gaming',
-    icon: Gamepad2,
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80',
-    description: 'Next-gen gaming gear, mechanical keyboards, and RGB accessories.'
+    description: 'Enterprise SSDs, HDDs, data center RAM, processors, PSUs, and fiber accessories.'
   }
 ];
 
@@ -80,7 +82,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'hgst-12tb-10k-sas-hdd',
     name: 'HGST 12TB 10K RPM Enterprise HDD',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'High-capacity enterprise hard drive designed for heavy read/write cycles in servers and storage arrays.',
     image: img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.jpg'),
@@ -99,7 +101,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'hpe-7-68tb-nvme-ssd',
     name: 'HPE NVMe Enterprise SSD 7.68TB',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'High-end NVMe solid-state drive with low latency and high endurance for mission-critical data center applications.',
     image: img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.jpg'),
@@ -145,7 +147,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-d3-s4510-480gb',
     name: 'Intel D3-S4510 480GB SATA SSD',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'Reliable 2.5-inch SATA enterprise SSD optimized for read-intensive workloads and consistent performance.',
     image: img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.jpg'),
@@ -161,7 +163,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-dc-s3610-200gb',
     name: 'Intel DC S3610 200GB SATA SSD',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'Data center-grade SATA SSD delivering steady throughput, enhanced endurance, and dependable server performance.',
     image: img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.jpg'),
@@ -183,7 +185,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-dc-s4500-240gb',
     name: 'Intel DC S4500 240GB SATA SSD',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'Cost-efficient enterprise SSD with stable latency and strong reliability for cloud and virtualization platforms.',
     image: img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.jpg'),
@@ -211,7 +213,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-d3-s4510-series-480gb',
     name: 'Intel D3-S4510 Series 480GB SSD',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'Enterprise SATA SSD variant from Intel D3-S4510 family for dependable everyday server storage performance.',
     image: img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.jpg'),
@@ -309,7 +311,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-1-8tb-10k-sas-hdd',
     name: 'Dell SAS 12Gbps 1.8TB 10K RPM Drive',
-    category: 'computing',
+    category: 'storage',
     price: 0,
     description: 'Enterprise-grade SAS hard drive delivering balanced capacity and performance for transactional server workloads.',
     image: img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.jpg'),
@@ -353,3 +355,14 @@ export const PRODUCTS: Product[] = [
     }
   }
 ];
+
+export const CATALOG_GROUPS: CatalogGroup[] = CATEGORIES.map((category) => ({
+  name: category.name,
+  items: PRODUCTS
+    .filter((product) => product.category === category.id)
+    .map((product) => ({
+      name: product.name,
+      path: `/product/${encodeURIComponent(product.id)}`
+    })),
+  explorePath: `/shop?category=${encodeURIComponent(category.id)}`
+}));

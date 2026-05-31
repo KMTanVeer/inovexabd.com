@@ -1,20 +1,69 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Inovexa BD Website
 
-# Run and deploy your AI Studio app
+Inovexa BD is an enterprise hardware showcase and catalog site for servers, networking equipment, and storage products.  
+The project includes a React + Vite frontend and an Express API backend with optional MongoDB persistence.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/664f91a7-1db7-47c3-b96c-461b8c519b0b
+- Product browsing with category and search filters
+- Product detail pages with image galleries and specifications
+- Category/sub-category navigation linked to real product detail paths
+- Admin product management API with JWT-protected write routes
+- Local in-memory product fallback when MongoDB is not configured
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- Express
+- MongoDB (optional)
 
+## Project Structure
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- `src/` — frontend app, pages, components, product data
+- `src/server/` — API routes and database model
+- `server.ts` — app server entry for dev/prod
+- `Products-image/` — local product image assets
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+ (recommended)
+
+### 1) Install dependencies
+
+```bash
+npm install
+```
+
+### 2) Configure environment variables
+
+Copy `.env.example` to `.env.local` (or `.env`) and set values:
+
+- `JWT_SECRET` (required for auth token signing)
+- `MONGODB_URI` (optional, enables DB persistence)
+- `CLOUDINARY_*` (optional, if image upload flow is used)
+- `GEMINI_API_KEY` (optional, for Gemini-powered features)
+
+### 3) Run in development
+
+```bash
+npm run dev
+```
+
+The app runs on `http://localhost:3000`.
+
+## Build and Validation
+
+```bash
+npm run lint
+npm run build
+```
+
+## Admin Login (default)
+
+- Email: `admin@inovexa.com`
+
+> Configure admin credentials via environment variables or server configuration before production use.
