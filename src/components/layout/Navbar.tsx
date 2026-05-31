@@ -27,6 +27,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [activeDesktopGroup, setActiveDesktopGroup] = useState<string | null>(null);
+  const [activeMobileGroup, setActiveMobileGroup] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
@@ -85,18 +87,43 @@ export function Navbar() {
                   <div className="bg-white dark:bg-zinc-900 border border-black/5 dark:border-white/10 rounded-xl shadow-xl overflow-hidden py-3 backdrop-blur-xl">
                     {link.dropdownGroups.map((group) => (
                       <div key={group.name} className="px-4 py-2">
-                        <p className="text-[11px] font-bold uppercase tracking-widest text-blue-500 mb-1.5">{group.name}</p>
-                        <div className="space-y-1">
-                          {group.items.map((item) => (
-                            <Link
-                              key={item.path}
-                              to={item.path}
-                              className="block px-2 py-1.5 text-sm text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-500 rounded-md transition-colors"
+                        <button
+                          type="button"
+                          onClick={() => setActiveDesktopGroup((prev) => (prev === group.name ? null : group.name))}
+                          className="w-full flex items-center justify-between px-2 py-1.5 text-sm font-semibold text-black/80 dark:text-white/80 hover:text-blue-500 transition-colors"
+                        >
+                          <span>{group.name}</span>
+                          <ChevronDown
+                            size={14}
+                            className={cn(
+                              "transition-transform duration-300",
+                              activeDesktopGroup === group.name ? "rotate-0" : "-rotate-90"
+                            )}
+                          />
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {activeDesktopGroup === group.name && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.25, ease: 'easeInOut' }}
+                              className="overflow-hidden"
                             >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
+                              <div className="space-y-1 pl-2 pt-1">
+                                {group.items.map((item) => (
+                                  <Link
+                                    key={item.path}
+                                    to={item.path}
+                                    className="block px-2 py-1.5 text-sm text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-500 rounded-md transition-colors"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     ))}
                   </div>
@@ -221,36 +248,76 @@ export function Navbar() {
                    transition={{ delay: 0.1 + i * 0.1 }}
                    className="flex flex-col gap-4"
                  >
-                   <Link
-                     to={link.path}
-                     className={cn(
-                       "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                       location.pathname === link.path ? "text-blue-500" : "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
-                     )}
-                     onClick={() => setIsMobileMenuOpen(false)}
-                   >
-                     <div className="flex items-center gap-3">
-                       <Icon size={20} />
-                       {link.name}
-                     </div>
-                   </Link>
+                   {link.dropdownGroups ? (
+                     <button
+                       type="button"
+                       className={cn(
+                         "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
+                         "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                       )}
+                     >
+                       <div className="flex items-center gap-3">
+                         <Icon size={20} />
+                         {link.name}
+                       </div>
+                     </button>
+                   ) : (
+                     <Link
+                       to={link.path}
+                       className={cn(
+                         "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
+                         location.pathname === link.path ? "text-blue-500" : "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                       )}
+                       onClick={() => setIsMobileMenuOpen(false)}
+                     >
+                       <div className="flex items-center gap-3">
+                         <Icon size={20} />
+                         {link.name}
+                       </div>
+                     </Link>
+                   )}
                    {link.dropdownGroups && (
                      <div className="flex flex-col gap-3 pl-8 border-l-2 border-black/5 dark:border-white/10 ml-2">
                        {link.dropdownGroups.map((group) => (
                          <div key={group.name} className="space-y-2">
-                           <p className="text-[11px] font-bold uppercase tracking-widest text-blue-500">{group.name}</p>
-                           <div className="space-y-2">
-                             {group.items.map((item) => (
-                               <Link
-                                 key={item.path}
-                                 to={item.path}
-                                 onClick={() => setIsMobileMenuOpen(false)}
-                                 className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
+                           <button
+                             type="button"
+                             onClick={() => setActiveMobileGroup((prev) => (prev === group.name ? null : group.name))}
+                             className="w-full flex items-center justify-between text-left text-base font-semibold text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400"
+                           >
+                             <span>{group.name}</span>
+                             <ChevronDown
+                               size={16}
+                               className={cn(
+                                 "transition-transform duration-300",
+                                 activeMobileGroup === group.name ? "rotate-0" : "-rotate-90"
+                               )}
+                             />
+                           </button>
+                           <AnimatePresence initial={false}>
+                             {activeMobileGroup === group.name && (
+                               <motion.div
+                                 initial={{ height: 0, opacity: 0 }}
+                                 animate={{ height: 'auto', opacity: 1 }}
+                                 exit={{ height: 0, opacity: 0 }}
+                                 transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                 className="overflow-hidden"
                                >
-                                 {item.name}
-                               </Link>
-                             ))}
-                           </div>
+                                 <div className="space-y-2 pl-2">
+                                   {group.items.map((item) => (
+                                     <Link
+                                       key={item.path}
+                                       to={item.path}
+                                       onClick={() => setIsMobileMenuOpen(false)}
+                                       className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
+                                     >
+                                       {item.name}
+                                     </Link>
+                                   ))}
+                                 </div>
+                               </motion.div>
+                             )}
+                           </AnimatePresence>
                          </div>
                        ))}
                      </div>
