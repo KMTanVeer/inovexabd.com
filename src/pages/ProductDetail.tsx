@@ -22,6 +22,8 @@ export function ProductDetail() {
       setProduct(foundProduct);
       setSelectedImageIndex(0);
       window.scrollTo(0, 0);
+    } else {
+      setProduct(null);
     }
   }, [id, allProducts]);
 
@@ -49,7 +51,7 @@ export function ProductDetail() {
   }
 
   const relatedProducts = allProducts.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
-  const productImages = ((product as any).images?.length ? (product as any).images : [product.image]).filter(Boolean);
+  const productImages = (product.images?.length ? product.images : [product.image]).filter((image): image is string => Boolean(image));
   const activeImage = productImages[selectedImageIndex] || productImages[0] || '';
 
   return (
@@ -110,7 +112,7 @@ export function ProductDetail() {
                             >
                                 <img 
                                   src={image} 
-                                  alt="preview" 
+                                  alt={`${product.name} thumbnail ${i + 1}`}
                                   className="w-full h-full object-cover rounded-lg opacity-60 transition-opacity hover:opacity-100" 
                                   referrerPolicy="no-referrer"
                                 />
