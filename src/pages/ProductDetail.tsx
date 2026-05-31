@@ -1,20 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Star, Heart, ShieldCheck, Truck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall, FileText } from 'lucide-react';
+import { Star, Heart, ShieldCheck, Truck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall } from 'lucide-react';
 import { type Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 
 const TRUST_BADGES = [
   '1 Year Warranty',
-  'Technical Support',
   'After-Sales Service',
-  'Genuine Hardware',
   'Fully Tested',
-  'Warranty Available',
   'Nationwide Delivery',
-  'Enterprise Support',
 ];
 
 const MANUFACTURER_BRANDS = ['Dell', 'Cisco', 'Huawei', 'Juniper', 'Intel'];
@@ -81,7 +77,6 @@ export function ProductDetail() {
   const stockValue = (product as any).stock;
   const stockStatus = typeof stockValue === 'number' ? (stockValue > 0 ? 'In Stock' : 'Out of Stock') : 'In Stock';
   const condition = ((product as any).condition as string | undefined) || 'Refurbished';
-  const warrantyInfo = ((product as any).warranty as string | undefined) || 'Warranty Available';
   const categoryLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
   const specEntries = product.specs ? Object.entries(product.specs) : [];
   const subcategoryLabel =
@@ -264,9 +259,6 @@ export function ProductDetail() {
                 <div className="px-2.5 py-1 rounded-lg bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-[10px] font-semibold text-black/75 dark:text-white/80 uppercase tracking-wider">
                   {condition}
                 </div>
-                <div className="px-2.5 py-1 rounded-lg bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-[10px] font-semibold text-black/75 dark:text-white/80 uppercase tracking-wider">
-                  {warrantyInfo}
-                </div>
               </div>
 
               <p className="text-black/80 dark:text-white/80 leading-relaxed text-sm pt-1">
@@ -283,29 +275,19 @@ export function ProductDetail() {
               ))}
             </div>
 
-            <div className="flex flex-col gap-3">
-              <Link
-                to="/contact"
-                className="group relative px-4 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.24)] overflow-hidden text-center"
-              >
-                <div className="relative z-10 flex items-center justify-center gap-2">
-                  <FileText size={16} />
-                  Request a Quote
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/12 to-white/0 -translate-x-full group-hover:animate-shimmer" />
-              </Link>
+            <div className="grid grid-cols-2 gap-3">
               <a
                 href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I need pricing details for ${product!.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-lg bg-green-600 text-white text-sm font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
+                className="px-4 py-2.5 rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-500 transition-all text-center flex items-center justify-center gap-2"
               >
                 <MessageCircle size={16} />
                 WhatsApp Inquiry
               </a>
               <a
                 href="tel:+8801813065665"
-                className="px-4 py-2.5 rounded-lg bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-black dark:text-white text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/15 transition-all backdrop-blur-md text-center flex items-center justify-center gap-2"
+                className="px-4 py-2.5 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-black dark:text-white text-sm font-semibold hover:bg-black/10 dark:hover:bg-white/15 transition-all backdrop-blur-md text-center flex items-center justify-center gap-2"
               >
                 <PhoneCall size={16} className="text-blue-600 dark:text-blue-400" />
                 Call to Inquire
