@@ -243,7 +243,7 @@ export function Home() {
         </div>
 
         {/* Hero Image Showcase */}
-        <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 w-[45%] h-full items-center justify-center pointer-events-none pr-12">
+        <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 w-[45%] h-full items-center justify-center pointer-events-none pr-12">
           <div className="relative w-full max-w-lg aspect-square flex items-center justify-center pointer-events-auto">
             <AnimatePresence mode="wait">
               <motion.div
