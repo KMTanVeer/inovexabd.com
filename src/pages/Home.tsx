@@ -18,7 +18,7 @@ const BANNERS = [
     id: 'cisco-nexus-93180yc-ex',
     title: 'Cisco Nexus N9K-C93180YC-EX',
     subtitle: 'High-Performance Data Center Switching for Modern Enterprise Infrastructure',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80',
+    image: ciscoHero,
     features: [
       '100G High-Speed Networking',
       'Enterprise Grade Reliability',
@@ -31,7 +31,7 @@ const BANNERS = [
     id: 'juniper-mx80',
     title: 'Juniper MX80 Universal Router',
     subtitle: 'Reliable Routing Performance for Scalable Enterprise Networks',
-    image: 'https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=2674&auto=format&fit=crop',
+    image: juniperHero,
     features: [
       'Carrier Grade Stability',
       'Advanced Routing Performance',
