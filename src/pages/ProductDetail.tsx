@@ -93,6 +93,7 @@ export function ProductDetail() {
         description={product.description}
         keywords={`${product.name}, ${product.category}, networking equipment, enterprise router, switch, lan card, ssd`}
         url={`https://inovexabd.com/product/${product.id}`}
+        image={activeImage || product.image}
         type="product"
         structuredData={{
           '@context': 'https://schema.org',

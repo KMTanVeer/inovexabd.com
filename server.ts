@@ -3,6 +3,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import mongoose from "mongoose";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 // Load routes
@@ -15,8 +16,9 @@ async function startServer() {
   const PORT = 3000;
 
   // Middleware
-  app.use(cors());
+  app.use(cors({ origin: true, credentials: true }));
   app.use(express.json());
+  app.use(cookieParser());
 
   // Connect to MongoDB if URI is provided
   if (process.env.MONGODB_URI) {
