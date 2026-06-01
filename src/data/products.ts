@@ -560,6 +560,101 @@ export const PRODUCTS: Product[] = [
       Ports: '2 x SFP28',
       Interface: 'PCIe'
     }
+  },
+  {
+    id: 'intel-xxv710-da2-25g',
+    name: 'Intel XXV710-DA2 25G Dual SFP Port LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Intel enterprise-grade dual-port 25GbE adapter with SFP28 connectivity for high-bandwidth server networking.',
+    image: img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
+    images: [
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_2_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_3_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_4_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_5_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_6_2026-06-01_07-48-53.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Controller: 'Intel XXV710',
+      Speed: '25 Gbps',
+      Ports: '2 x SFP28',
+      Interface: 'PCIe'
+    }
+  },
+  {
+    id: 'dell-r640-poweredge',
+    name: 'Dell R640 PowerEdge Server',
+    category: 'servers',
+    price: 0,
+    description: 'Dell PowerEdge R640 rack server optimized for dense compute, virtualization, and enterprise data center workloads.',
+    image: img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
+    images: [
+      img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_2_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_3_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_4_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_5_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_6_2026-06-01_07-50-26.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_7_2026-06-01_07-50-26.jpg')
+    ],
+    rating: 4.9,
+    specs: {
+      Model: 'PowerEdge R640',
+      Brand: 'Dell',
+      'Form Factor': '1U Rack Server',
+      Processor: 'Intel Xeon Scalable'
+    }
+  },
+  {
+    id: 'fujitsu-1g-four-port-lan',
+    name: 'Fujitsu 1G Four Port Ethernet LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Fujitsu quad-port 1GbE adapter for reliable multi-port network connectivity in enterprise servers.',
+    image: img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
+    images: [
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_2_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_3_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_4_2026-06-01_07-51-42.jpg')
+    ],
+    rating: 4.6,
+    specs: {
+      Brand: 'Fujitsu',
+      Speed: '1 Gbps',
+      Ports: '4 x Ethernet',
+      Interface: 'PCIe'
+    }
+  },
+  {
+    id: 'fujitsu-d3045-a11-quad-port',
+    name: 'Fujitsu D3045-A11 Quad Port Ethernet LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Fujitsu D3045-A11 enterprise LAN card with quad-port Ethernet connectivity for scalable server networking.',
+    image: img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
+    images: [
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_2_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_3_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_4_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_5_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_6_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_7_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_8_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_9_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_10_2026-06-01_07-51-04.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Model: 'D3045-A11',
+      Brand: 'Fujitsu',
+      Ports: '4 x Ethernet',
+      Interface: 'PCIe'
+    }
   }
 ];
 
