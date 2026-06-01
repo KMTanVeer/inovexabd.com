@@ -380,18 +380,18 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'Server network adapter from Supermicro with dual SFP connectivity, suitable for enterprise edge and core deployments.',
-    image: img('Supermicro 2 port SFP Lan Card Version 211', 'photo_1_2026-05-31_10-41-32.jpg'),
+    image: img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.jpg'),
     images: [
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_1_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_2_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_3_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_4_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_5_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_6_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_7_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_8_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_9_2026-05-31_10-41-32.jpg'),
-      img('Supermicro 2 port SFP Lan Card Version 211', 'photo_10_2026-05-31_10-41-32.jpg')
+      img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_2_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_3_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_4_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_5_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_6_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_7_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_8_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_9_2026-06-01_07-52-15.jpg'),
+      img('Supermicro 2.11  Lan Card', 'photo_10_2026-06-01_07-52-15.jpg')
     ],
     rating: 4.7,
     specs: {
@@ -399,6 +399,261 @@ export const PRODUCTS: Product[] = [
       Ports: '2 x SFP',
       Interface: 'PCIe',
       Version: '2.11'
+    }
+  },
+  {
+    id: 'intel-d7-p5520-7-68tb',
+    name: 'Intel SSD D7-P5520 7.68TB NVMe SSD',
+    category: 'storage',
+    price: 0,
+    description: 'High-capacity Intel enterprise NVMe SSD designed for mixed workload data center performance and endurance.',
+    image: img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.jpg'),
+    images: [
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.jpg'),
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_2_2026-06-01_07-53-10.jpg'),
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_3_2026-06-01_07-53-10.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Series: 'Intel D7-P5520',
+      Capacity: '7.68 TB',
+      Interface: 'NVMe U.2',
+      'Form Factor': '2.5-inch'
+    }
+  },
+  {
+    id: 'supermicro-10g-2port-v20',
+    name: 'Supermicro 10G 2-Port SFP LAN Card v2.0',
+    category: 'networking',
+    price: 0,
+    description: 'Dual-port 10GbE Supermicro LAN card with SFP connectivity for compact server networking deployments.',
+    image: img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.jpg'),
+    images: [
+      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.jpg'),
+      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_2_2026-06-01_07-53-55.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Brand: 'Supermicro',
+      Speed: '10 Gbps',
+      Ports: '2 x SFP+',
+      Version: '2.0'
+    }
+  },
+  {
+    id: 'supermicro-10g-2port-v20-pro',
+    name: 'Supermicro 10G-2 Port SFP LAN Card v2.0',
+    category: 'networking',
+    price: 0,
+    description: 'Enterprise 10GbE PCIe LAN adapter from Supermicro with dual SFP ports for high-throughput server links.',
+    image: img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.jpg'),
+    images: [
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.jpg'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_2_2026-06-01_07-55-10.jpg'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_3_2026-06-01_07-55-10.jpg'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_4_2026-06-01_07-55-10.jpg'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_5_2026-06-01_07-55-10.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Brand: 'Supermicro',
+      Speed: '10 Gbps',
+      Ports: '2 x SFP+',
+      Interface: 'PCIe x8'
+    }
+  },
+  {
+    id: 'patch-cord-om4-100g',
+    name: 'Patch Cord OM4 100G Fiber Cable',
+    category: 'networking',
+    price: 0,
+    description: 'OM4 multi-mode 100G fiber patch cord for high-speed switch and server interconnects in data center racks.',
+    image: img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.jpg'),
+    images: [img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.jpg')],
+    rating: 4.7,
+    specs: {
+      Type: 'Patch Cord',
+      Grade: 'OM4',
+      Speed: '100 Gbps',
+      Connector: 'Fiber Optic'
+    }
+  },
+  {
+    id: 'samsung-pm863a-1-92tb',
+    name: 'Samsung PM863a 1.92TB Enterprise SATA SSD',
+    category: 'storage',
+    price: 0,
+    description: 'Enterprise-grade Samsung SATA SSD with strong endurance and reliable throughput for read-intensive applications.',
+    image: img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.jpg'),
+    images: [img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.jpg')],
+    rating: 4.7,
+    specs: {
+      Series: 'Samsung PM863a',
+      Capacity: '1.92 TB',
+      Interface: 'SATA',
+      'Form Factor': '2.5-inch'
+    }
+  },
+  {
+    id: 'dell-emc-intel-dc-p4510-1tb',
+    name: 'Dell EMC Intel DC P4510 1TB NVMe SSD',
+    category: 'storage',
+    price: 0,
+    description: 'Data center NVMe SSD from Dell EMC and Intel collaboration, tuned for low latency and scalable enterprise storage.',
+    image: img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.jpg'),
+    images: [img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.jpg')],
+    rating: 4.8,
+    specs: {
+      Series: 'Intel DC P4510',
+      Capacity: '1.0 TB',
+      Interface: 'NVMe U.2',
+      Brand: 'Dell EMC / Intel'
+    }
+  },
+  {
+    id: 'cisco-qsfp-40g-sr4',
+    name: 'Cisco QSFP-40G-SR4 Transceiver',
+    category: 'networking',
+    price: 0,
+    description: 'Cisco short-reach 40G transceiver module built for reliable high-bandwidth optical links in enterprise networks.',
+    image: img('Cisco QSFP-40G-SR4', 'photo_1_2026-06-01_07-56-43.jpg'),
+    images: [img('Cisco QSFP-40G-SR4', 'photo_1_2026-06-01_07-56-43.jpg')],
+    rating: 4.8,
+    specs: {
+      Model: 'QSFP-40G-SR4',
+      Type: 'Optical Transceiver',
+      Speed: '40 Gbps',
+      Interface: 'QSFP+'
+    }
+  },
+  {
+    id: 'mellanox-linkx-qsfp28-100g',
+    name: 'Mellanox LinkX QSFP28 100Gbps Module',
+    category: 'networking',
+    price: 0,
+    description: 'Mellanox LinkX 100GbE optical connectivity module for ultra-fast spine-leaf and HPC network fabrics.',
+    image: img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.jpg'),
+    images: [img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.jpg')],
+    rating: 4.8,
+    specs: {
+      Brand: 'Mellanox',
+      Type: 'QSFP28 Module',
+      Speed: '100 Gbps',
+      Interface: 'QSFP28'
+    }
+  },
+  {
+    id: 'mellanox-connectx5-25gbe-dual',
+    name: 'Mellanox ConnectX-5 Dual-Port 25GbE SFP28 NIC',
+    category: 'networking',
+    price: 0,
+    description: 'ConnectX-5 enterprise NIC with dual 25GbE SFP28 ports for virtualization, cloud, and high-performance computing.',
+    image: img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.jpg'),
+    images: [
+      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.jpg'),
+      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_2_2026-06-01_07-57-37.jpg')
+    ],
+    rating: 4.9,
+    specs: {
+      Series: 'ConnectX-5',
+      Speed: '25 Gbps',
+      Ports: '2 x SFP28',
+      Interface: 'PCIe'
+    }
+  },
+  {
+    id: 'intel-xxv710-da2-25g',
+    name: 'Intel XXV710-DA2 25G Dual SFP Port LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Intel enterprise-grade dual-port 25GbE adapter with SFP28 connectivity for high-bandwidth server networking.',
+    image: img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
+    images: [
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_2_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_3_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_4_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_5_2026-06-01_07-48-53.jpg'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_6_2026-06-01_07-48-53.jpg')
+    ],
+    rating: 4.8,
+    specs: {
+      Controller: 'Intel XXV710',
+      Speed: '25 Gbps',
+      Ports: '2 x SFP28',
+      Interface: 'PCIe'
+    }
+  },
+  {
+    id: 'dell-r640-poweredge',
+    name: 'Dell R640 PowerEdge Server',
+    category: 'servers',
+    price: 0,
+    description: 'Dell PowerEdge R640 rack server optimized for dense compute, virtualization, and enterprise data center workloads.',
+    image: img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
+    images: [
+      img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_2_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_3_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_4_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_5_2026-06-01_07-50-25.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_6_2026-06-01_07-50-26.jpg'),
+      img('Dell R 640 Power Edge Server', 'photo_7_2026-06-01_07-50-26.jpg')
+    ],
+    rating: 4.9,
+    specs: {
+      Model: 'PowerEdge R640',
+      Brand: 'Dell',
+      'Form Factor': '1U Rack Server',
+      Processor: 'Intel Xeon Scalable'
+    }
+  },
+  {
+    id: 'fujitsu-1g-four-port-lan',
+    name: 'Fujitsu 1G Four Port Ethernet LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Fujitsu quad-port 1GbE adapter for reliable multi-port network connectivity in enterprise servers.',
+    image: img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
+    images: [
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_2_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_3_2026-06-01_07-51-42.jpg'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_4_2026-06-01_07-51-42.jpg')
+    ],
+    rating: 4.6,
+    specs: {
+      Brand: 'Fujitsu',
+      Speed: '1 Gbps',
+      Ports: '4 x Ethernet',
+      Interface: 'PCIe'
+    }
+  },
+  {
+    id: 'fujitsu-d3045-a11-quad-port',
+    name: 'Fujitsu D3045-A11 Quad Port Ethernet LAN Card',
+    category: 'networking',
+    price: 0,
+    description: 'Fujitsu D3045-A11 enterprise LAN card with quad-port Ethernet connectivity for scalable server networking.',
+    image: img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
+    images: [
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_2_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_3_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_4_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_5_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_6_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_7_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_8_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_9_2026-06-01_07-51-04.jpg'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_10_2026-06-01_07-51-04.jpg')
+    ],
+    rating: 4.7,
+    specs: {
+      Model: 'D3045-A11',
+      Brand: 'Fujitsu',
+      Ports: '4 x Ethernet',
+      Interface: 'PCIe'
     }
   }
 ];
