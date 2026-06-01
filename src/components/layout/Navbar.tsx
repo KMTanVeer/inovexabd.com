@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Menu, X, ArrowRight, Sun, Moon, ChevronDown, Home, ShoppingBag, Mail, Package } from 'lucide-react';
@@ -30,6 +30,7 @@ export function Navbar() {
   const [activeDesktopGroup, setActiveDesktopGroup] = useState<string | null>(null);
   const [activeMobileGroup, setActiveMobileGroup] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -49,6 +50,20 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isSearchOpen) return;
+    searchInputRef.current?.focus();
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsSearchOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isSearchOpen]);
 
   return (
     <nav
@@ -158,7 +173,11 @@ export function Navbar() {
             </div>
           </button>
           <button 
-            onClick={() => setIsSearchOpen(true)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsSearchOpen(true);
+            }}
+            aria-label="Open search"
             className="group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
           >
             <div className="absolute inset-0 rounded-full bg-purple-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 pointer-events-none" />
@@ -180,50 +199,66 @@ export function Navbar() {
       {/* Search Overlay */}
       <AnimatePresence>
         {isSearchOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-white/95 dark:bg-black/95 backdrop-blur-2xl flex items-center justify-center px-6"
-          >
-            <button 
+          <>
+            <motion.button
+              type="button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsSearchOpen(false)}
-              className="absolute top-8 right-8 text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
+              aria-label="Close search"
+              className="fixed inset-0 z-[55] bg-black/20 dark:bg-black/50 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="fixed top-20 md:top-24 left-1/2 z-[60] w-[calc(100%-1.5rem)] md:w-[min(760px,calc(100%-3rem))] -translate-x-1/2 rounded-2xl border border-black/10 dark:border-white/10 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl shadow-2xl"
             >
-              <X size={32} />
-            </button>
-            <form onSubmit={handleSearch} className="w-full max-w-2xl space-y-8">
-              <div className="relative group">
-                <input 
-                  autoFocus
-                  type="text" 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search infrastructure hardware..."
-                  className="w-full bg-transparent border-b-2 border-black/10 dark:border-white/10 py-4 text-3xl md:text-5xl font-bold text-black dark:text-white placeholder:text-black/10 dark:placeholder:text-white/10 focus:outline-none focus:border-blue-500 transition-all"
-                />
-                <button type="submit" className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-blue-500">
-                  <ArrowRight size={32} />
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <span className="text-xs font-bold text-blue-500 uppercase tracking-widest mr-2">Quick Search:</span>
-                {['10G Card', 'Xeon', 'Supermicro', 'SFP+', 'Dell R640'].map(tag => (
-                   <button 
-                    key={tag}
+              <form onSubmit={handleSearch} className="p-4 md:p-6 space-y-5">
+                <div className="flex items-center gap-2 md:gap-3 border border-black/10 dark:border-white/10 rounded-xl px-3 md:px-4 focus-within:border-blue-500 transition-colors">
+                  <Search size={18} className="text-black/40 dark:text-white/40 shrink-0" />
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Search infrastructure hardware..."
+                    className="w-full bg-transparent py-3 md:py-4 text-base md:text-xl font-semibold text-black dark:text-white placeholder:text-black/35 dark:placeholder:text-white/35 focus:outline-none"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Submit search"
+                    className="p-2 rounded-lg text-blue-500 hover:bg-blue-500/10 transition-colors"
+                  >
+                    <ArrowRight size={20} />
+                  </button>
+                  <button
                     type="button"
-                    onClick={() => {
-                      setSearchQuery(tag);
-                      // Optionally auto-submit or just focus
-                    }} 
-                    className="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 text-xs text-black/50 dark:text-white/50 hover:bg-black/5 dark:hover:bg-white/5 transition-all"
-                   >
-                     {tag}
-                   </button>
-                ))}
-              </div>
-            </form>
-          </motion.div>
+                    onClick={() => setIsSearchOpen(false)}
+                    aria-label="Close search panel"
+                    className="p-2 rounded-lg text-black/40 dark:text-white/40 hover:bg-black/5 dark:hover:bg-white/10 hover:text-black dark:hover:text-white transition-colors"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-2.5">
+                  <span className="text-[11px] font-bold text-blue-500 uppercase tracking-widest mr-1 self-center">Quick Search:</span>
+                  {['10G Card', 'Xeon', 'Supermicro', 'SFP+', 'Dell R640'].map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={() => setSearchQuery(tag)}
+                      className="px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 transition-all"
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              </form>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
