@@ -133,8 +133,8 @@ export function Home() {
   const bannerAccentTextClass = isBlueBanner ? 'text-blue-500/90' : 'text-purple-500/90';
   const bannerAccentDotClass = isBlueBanner ? 'bg-blue-500' : 'bg-purple-500';
   const bannerAccentButtonClass = isBlueBanner
-    ? 'bg-blue-600 hover:bg-blue-500 shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]'
-    : 'bg-purple-600 hover:bg-purple-500 shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)]';
+    ? 'bg-blue-600 hover:bg-blue-500 md:bg-blue-700 md:hover:bg-blue-600 shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]'
+    : 'bg-purple-600 hover:bg-purple-500 md:bg-purple-700 md:hover:bg-purple-600 shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)]';
   const isBlueShowcase = HERO_SHOWCASE[heroShowcaseIndex].color === 'blue';
   const showcaseGlowClass = isBlueShowcase ? 'bg-blue-500/10' : 'bg-purple-500/10';
   const showcaseBadgeClass = isBlueShowcase
