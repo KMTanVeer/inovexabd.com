@@ -72,7 +72,7 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex items-start gap-3 text-sm text-black/60 dark:text-white/50">
                 <MapPin size={18} className="text-blue-500 shrink-0" />
-                <span>Road-1, Shamoly, Dhaka,<br />Dhaka, Bangladesh</span>
+                <span>Asadgate, Shyamoli, Dhaka,<br />Bangladesh</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50">
                 <Phone size={18} className="text-blue-500 shrink-0" />

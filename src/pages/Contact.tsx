@@ -33,7 +33,7 @@ export function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm uppercase tracking-wider">Headquarters</h3>
+                  <h3 className="font-bold text-sm uppercase tracking-wider">Locate Us</h3>
                   <p className="text-black/60 dark:text-white/60 text-sm mt-1">Asadgate, Shyamoli, Dhaka, Bangladesh.</p>
                 </div>
               </div>
