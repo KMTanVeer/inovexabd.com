@@ -88,7 +88,7 @@ export function Footer() {
         </div>
 
         <div className="pt-12 border-t border-black/10 dark:border-white/5 flex flex-col items-center justify-center gap-6">
-          <p className="text-black/40 dark:text-white/30 text-xs font-medium text-center">
+          <p className="text-black/60 dark:text-white/60 text-xs font-medium text-center">
             © {new Date().getFullYear()} Inovexa Technology. All Rights Reserved.
           </p>
         </div>

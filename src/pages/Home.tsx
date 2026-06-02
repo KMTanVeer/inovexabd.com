@@ -173,7 +173,7 @@ export function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/20 blur-[130px] rounded-full animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-purple-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187530221-8930ad3b913c?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center opacity-5 dark:opacity-10 mix-blend-overlay scale-110" />
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center opacity-5 dark:opacity-10 mix-blend-overlay scale-110" />
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -282,9 +282,9 @@ export function Home() {
                           <div className={`w-1.5 h-1.5 rounded-full ${showcaseDotSecondaryClass}`} />
                          </div>
                        </div>
-                      <h4 className="text-3xl font-black text-black dark:text-white tracking-tight leading-tight">
+                      <h2 className="text-3xl font-black text-black dark:text-white tracking-tight leading-tight">
                         {HERO_SHOWCASE[heroShowcaseIndex].name}
-                      </h4>
+                      </h2>
                       <p className={`text-xs ${showcaseCategoryClass} font-black uppercase tracking-[0.4em]`}>
                         {HERO_SHOWCASE[heroShowcaseIndex].category}
                       </p>
