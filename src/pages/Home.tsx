@@ -177,28 +177,18 @@ export function Home() {
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-4xl space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-4"
-            >
+            <div className="space-y-4 animate-fade-in-up">
               <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-black dark:text-white font-stylish flex flex-col">
                 <span>Inovexa</span>
                 <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                   Technology
                 </span>
               </h1>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-black/75 dark:text-white/55 leading-relaxed max-w-2xl"
-            >
+            <p className="text-lg md:text-xl text-black/75 dark:text-white/55 leading-relaxed max-w-2xl animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
               Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in enterprise networking, server solutions, ISP equipment, and smart security systems.
-            </motion.p>
+            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -236,7 +226,7 @@ export function Home() {
               ].map((stat, i) => (
                 <div key={i} className="space-y-1">
                   <div className="text-2xl font-bold text-black dark:text-white tracking-tight">{stat.value}</div>
-                  <div className="text-[10px] uppercase tracking-widest text-black/55 dark:text-white/40 font-bold">{stat.label}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-black/70 dark:text-white/70 font-bold">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
