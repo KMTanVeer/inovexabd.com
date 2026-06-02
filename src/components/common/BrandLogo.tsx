@@ -33,7 +33,8 @@ export function BrandLogo({ className, variant = 'full', showMark = true, highli
       <div className={`flex items-center gap-3 ${className}`}>
         <img src="/inovexabd-logo.png" alt="Inovexa Symbol" className="h-10 w-auto object-contain" />
         <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
-        <img src="/inovexabd-banner.png" alt="Inovexa Banner" className="h-5 md:h-6 w-auto object-contain" />
+        <img src="/inovexabd-banner.png" alt="Inovexa Banner" className="h-5 md:h-6 w-auto object-contain dark:hidden" />
+        <img src="/inovexabd-banner-dark-mode.png" alt="Inovexa Banner" className="h-5 md:h-6 w-auto object-contain hidden dark:block" />
       </div>
     );
   }
