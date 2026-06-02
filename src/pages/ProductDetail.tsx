@@ -405,18 +405,18 @@ export function ProductDetail() {
               >
                 <div className="flex items-center gap-8 py-10 px-8 rounded-3xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/15">
                   <div className="text-center space-y-2">
-                    <div className="text-6xl font-bold text-black dark:text-white">{product.rating || 5}</div>
-                    <div className="flex items-center justify-center gap-1 text-yellow-500">
+                    <div className="text-6xl font-bold text-black dark:text-white">0</div>
+                    <div className="flex items-center justify-center gap-1 text-gray-400">
                       {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                     </div>
-                    <div className="text-[10px] font-semibold text-black/65 dark:text-white/70 uppercase tracking-widest leading-loose">Based on 124 reviews</div>
+                    <div className="text-[10px] font-semibold text-black/65 dark:text-white/70 uppercase tracking-widest leading-loose">Based on 0 reviews</div>
                   </div>
                   <div className="flex-1 space-y-3">
                     {[5, 4, 3, 2, 1].map((stars) => (
                       <div key={stars} className="flex items-center gap-4">
                         <span className="text-[10px] font-semibold text-black/70 dark:text-white/70 w-4">{stars}</span>
                         <div className="flex-1 h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
-                          <div className="h-full bg-blue-600 dark:bg-blue-500" style={{ width: stars >= 4 ? '85%' : stars === 3 ? '10%' : '5%' }} />
+                          <div className="h-full bg-blue-600 dark:bg-blue-500" style={{ width: '0%' }} />
                         </div>
                       </div>
                     ))}
@@ -424,26 +424,12 @@ export function ProductDetail() {
                 </div>
 
                 <div className="space-y-8">
-                  {[
-                    { user: 'Alex Thompson', comment: 'Integration was seamless with our existing Cisco core. Performance is exactly as advertised. The 10G throughput is rock solid even under peak loads.', rating: 5, date: '2 days ago' },
-                    { user: 'Sarah Chen', comment: 'Great product for the price. Huawei did a fantastic job with the thermal management on these cards. They stay cool in our dense rack configurations.', rating: 4, date: '1 week ago' },
-                  ].map((review, i) => (
-                    <div key={i} className="space-y-4 p-8 rounded-2xl border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03]">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500" />
-                          <div>
-                            <h5 className="font-bold text-black dark:text-white text-sm">{review.user}</h5>
-                            <p className="text-[10px] text-black/65 dark:text-white/70 uppercase tracking-widest font-semibold">{review.date}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-1 text-yellow-500">
-                          {[...Array(review.rating)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
-                        </div>
-                      </div>
-                      <p className="text-black/75 dark:text-white/75 text-sm leading-relaxed">{review.comment}</p>
-                    </div>
-                  ))}
+                  <div className="p-8 rounded-2xl border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-center">
+                    <p className="text-black/75 dark:text-white/75 text-sm leading-relaxed mb-4">No reviews yet.</p>
+                    <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-widest rounded-full transition-colors">
+                      Write a Review
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )}
