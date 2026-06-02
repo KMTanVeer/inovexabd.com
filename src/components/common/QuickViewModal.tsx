@@ -33,20 +33,20 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ type: 'spring', damping: 25, stiffness: 400 }}
-            className="relative w-full max-w-5xl h-fit max-h-[95vh] overflow-hidden rounded-[2rem] shadow-[0_0_100px_rgba(37,99,235,0.2)] z-10"
+            className="relative w-full max-w-5xl max-h-[95vh] flex flex-col overflow-hidden rounded-[2rem] shadow-[0_0_100px_rgba(37,99,235,0.2)] z-10"
           >
-            <GlassContainer className="h-full flex flex-col md:flex-row overflow-y-auto md:overflow-hidden p-0 bg-[#050505]/95 border-white/10">
-              {/* Close Button */}
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors"
-                aria-label="Close modal"
-              >
-                <X size={20} />
-              </button>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-black/60 transition-colors"
+              aria-label="Close modal"
+            >
+              <X size={20} />
+            </button>
 
+            <GlassContainer className="flex-1 min-h-0 flex flex-col md:flex-row overflow-y-auto p-0 bg-[#050505]/95 border-white/10">
               {/* Product Image Area */}
-              <div className="w-full md:w-1/2 relative bg-white/[0.02]">
+              <div className="w-full md:w-1/2 relative bg-white/[0.02] shrink-0">
                 <img
                   src={(product.images && product.images[0]) || product.image}
                   alt={product.name}
@@ -57,7 +57,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
               </div>
 
               {/* Product Details Area */}
-              <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center gap-6">
+              <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center gap-6 shrink-0">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
