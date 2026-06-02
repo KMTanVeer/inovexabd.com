@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Star, Heart, ShieldCheck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall } from 'lucide-react';
+import { Star, Heart, ShieldCheck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall, Facebook, Twitter, Linkedin, Link2 } from 'lucide-react';
 import { type Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
@@ -295,6 +295,27 @@ export function ProductDetail() {
                 <PhoneCall size={16} className="text-blue-600 dark:text-blue-400" />
                 Call to Inquire
               </a>
+            </div>
+
+            <div className="flex items-center gap-4 pt-2">
+              <span className="text-[11px] font-bold text-black/60 dark:text-white/60 uppercase tracking-widest">Share to:</span>
+              <div className="flex items-center gap-2">
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=https://inovexabd.com/product/${product.id || (product as any)._id}`} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-blue-500 hover:text-white text-black/70 dark:text-white/70 transition-all">
+                  <Facebook size={14} />
+                </a>
+                <a href={`https://wa.me/?text=Check%20out%20this%20product:%20https://inovexabd.com/product/${product.id || (product as any)._id}`} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-green-500 hover:text-white text-black/70 dark:text-white/70 transition-all">
+                  <MessageCircle size={14} />
+                </a>
+                <a href={`https://twitter.com/intent/tweet?url=https://inovexabd.com/product/${product.id || (product as any)._id}&text=${encodeURIComponent(product.name)}`} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-sky-500 hover:text-white text-black/70 dark:text-white/70 transition-all">
+                  <Twitter size={14} />
+                </a>
+                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=https://inovexabd.com/product/${product.id || (product as any)._id}`} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-blue-700 hover:text-white text-black/70 dark:text-white/70 transition-all">
+                  <Linkedin size={14} />
+                </a>
+                <button onClick={() => navigator.clipboard.writeText(`https://inovexabd.com/product/${product.id || (product as any)._id}`)} className="p-2 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/20 dark:hover:bg-white/20 text-black/70 dark:text-white/70 transition-all" title="Copy Link">
+                  <Link2 size={14} />
+                </button>
+              </div>
             </div>
 
             <div className="pt-4 border-t border-black/10 dark:border-white/15">

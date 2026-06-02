@@ -150,6 +150,7 @@ export function Home() {
 
   return (
     <div className="relative overflow-hidden bg-white dark:bg-black transition-colors duration-300">
+      <h1 className="sr-only">InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions</h1>
       <SEO
         title="InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions"
         disableTitleSuffix={true}
@@ -200,7 +201,7 @@ export function Home() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-4xl space-y-10">
             <div className="space-y-4 animate-fade-in-up">
-              <h1 className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
                 <span className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm md:text-base">
                   ISP Equipment, Enterprise Networking & Data Center Solutions
                 </span>
@@ -210,7 +211,7 @@ export function Home() {
                     Technologies
                   </span>
                 </span>
-              </h1>
+              </div>
             </div>
 
             <p className="text-lg md:text-xl text-black/75 dark:text-white/55 leading-relaxed max-w-2xl animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
