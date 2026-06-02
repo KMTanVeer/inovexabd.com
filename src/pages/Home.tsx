@@ -432,7 +432,7 @@ export function Home() {
             <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Hardware</h2>
-                <p className="text-black/65 dark:text-white/40 max-w-lg">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
+                <p className="text-black/70 dark:text-white/60 max-w-lg">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
               </div>
               <Link to="/shop" className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors uppercase tracking-widest text-xs">
                 Browse Full Catalog <ChevronRight size={16} />
@@ -462,9 +462,12 @@ export function Home() {
               {Array.from({ length: featuredProducts.length - (itemsPerView - 1) }).map((_, i) => (
                 <button
                   key={i}
+                  aria-label={`Go to slide ${i + 1}`}
                   onClick={() => setCurrentIndex(i)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/10 dark:bg-white/10'}`}
-                />
+                  className="p-2 -m-2"
+                >
+                  <div className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/20 dark:bg-white/20'}`} />
+                </button>
               ))}
             </div>
          </div>
@@ -509,7 +512,7 @@ export function Home() {
                     <Icon size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-black dark:text-white tracking-tight">{feature.title}</h3>
-                  <p className="text-black/50 dark:text-white/30 text-sm leading-relaxed">{feature.desc}</p>
+                  <p className="text-black/60 dark:text-white/50 text-sm leading-relaxed">{feature.desc}</p>
                 </div>
               );
             })}

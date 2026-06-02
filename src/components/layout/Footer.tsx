@@ -19,11 +19,11 @@ export function Footer() {
               Think Smart, Build Smarter. Empowering businesses with next-generation IT infrastructure and futuristic networking solutions.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/inovexatechnologies" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
+              <a aria-label="Facebook" href="https://www.facebook.com/inovexatechnologies" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
                 <Facebook size={18} />
               </a>
-              {[Twitter, Github, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
+              {[{Icon: Twitter, label: 'Twitter'}, {Icon: Github, label: 'GitHub'}, {Icon: Linkedin, label: 'LinkedIn'}].map(({Icon, label}, i) => (
+                <a aria-label={label} key={i} href="#" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
                   <Icon size={18} />
                 </a>
               ))}

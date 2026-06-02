@@ -187,11 +187,11 @@ export function Navbar() {
           </button>
           
           {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden text-black dark:text-white"
+          <button
+            className="md:hidden text-black dark:text-white p-2 -mr-2"
+            aria-label="Toggle mobile menu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          >            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

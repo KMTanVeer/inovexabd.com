@@ -118,7 +118,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
           
           <div className="pt-3 flex items-center justify-between border-t border-black/5 dark:border-white/5 mt-auto">
             <div className="flex flex-col">
-              <span className="text-[10px] text-black/40 dark:text-white/40 font-medium">Price</span>
+              <span className="text-[10px] text-black/60 dark:text-white/60 font-medium">Price</span>
               <span className="text-lg font-bold text-black dark:text-white">
                 {product.price?.toLocaleString() || '0'}tk
               </span>
