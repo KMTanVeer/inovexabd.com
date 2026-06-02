@@ -173,25 +173,14 @@ export function ProductDetail() {
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative flex-1 group h-[min(42rem,78vh)] rounded-[2rem] overflow-hidden border border-black/15 dark:border-white/20 bg-white dark:bg-neutral-950 p-4 md:p-6"
+              className="relative flex-1 group h-[min(42rem,78vh)] rounded-[2rem] overflow-hidden border border-black/15 dark:border-white/20 bg-white dark:bg-neutral-950 flex items-center justify-center"
             >
-              <div className="h-full w-full rounded-[1.5rem] bg-white dark:bg-neutral-950 overflow-hidden border border-black/5 dark:border-white/10">
-                <img
-                  src={activeImage}
-                  alt={product.name}
-                  className="w-full h-full object-contain transition-transform duration-500 ease-out md:group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <div className="absolute top-5 right-5 flex flex-col gap-2">
-                <button className="p-2.5 rounded-full bg-white/95 dark:bg-black/70 border border-black/10 dark:border-white/20 text-black dark:text-white hover:bg-white dark:hover:bg-black transition-all">
-                  <Share2 size={16} />
-                </button>
-                <button className="p-2.5 rounded-full bg-white/95 dark:bg-black/70 border border-black/10 dark:border-white/20 text-black dark:text-white hover:text-red-500 hover:border-red-500/40 transition-all">
-                  <Heart size={16} />
-                </button>
-              </div>
+              <img
+                src={activeImage}
+                alt={product.name}
+                className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
             </motion.div>
 
             <div className="md:hidden mt-1 -mx-1">
