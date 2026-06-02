@@ -31,23 +31,9 @@ export function BrandLogo({ className, variant = 'full', showMark = true, highli
   if (variant === 'topbar') {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
-        {showMark && (
-          <>
-            <BrandMark />
-            <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
-          </>
-        )}
-        {highlightTopbarX ? (
-          <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
-            inove
-            <span className="text-blue-600 dark:text-blue-400 drop-shadow-[0_0_10px_rgba(37,99,235,0.7)] dark:drop-shadow-[0_0_12px_rgba(96,165,250,0.9)]">x</span>
-            abd.com
-          </span>
-        ) : (
-          <span className="text-sm md:text-base font-semibold tracking-wide text-black dark:text-white">
-            inovexabd.com
-          </span>
-        )}
+        <img src="/inovexabd-logo.png" alt="Inovexa Symbol" className="h-10 w-auto object-contain" />
+        <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
+        <img src="/inovexabd-banner.png" alt="Inovexa Banner" className="h-5 md:h-6 w-auto object-contain" />
       </div>
     );
   }

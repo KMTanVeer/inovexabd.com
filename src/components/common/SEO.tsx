@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, url, image, keywords, type, structuredData }: SEOProps) {
-  const fullTitle = `${title} | Inovexa BD`;
+  const fullTitle = `${title} | InovexaBD`;
   const siteUrl = url || "https://inovexabd.com";
   let finalImage = image || "https://inovexabd.com/og-image.jpg";
   if (finalImage.startsWith('/')) {
@@ -28,7 +28,7 @@ export function SEO({ title, description, url, image, keywords, type, structured
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type || 'website'} />
-      <meta property="og:site_name" content="Inovexa BD" />
+      <meta property="og:site_name" content="InovexaBD" />
       <meta property="og:image" content={finalImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />

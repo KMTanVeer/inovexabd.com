@@ -1,6 +1,6 @@
-# Inovexa BD Website
+# InovexaBD Website
 
-Inovexa BD is an enterprise hardware showcase and catalog site for servers, networking equipment, and storage products.  
+InovexaBD is an enterprise hardware showcase and catalog site for servers, networking equipment, and storage products.  
 The project includes a React + Vite frontend and an Express API backend with optional MongoDB persistence.
 
 ## Features
