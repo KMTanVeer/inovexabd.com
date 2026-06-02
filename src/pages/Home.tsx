@@ -181,7 +181,7 @@ export function Home() {
               <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-black dark:text-white font-stylish flex flex-col">
                 <span>Inovexa</span>
                 <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                  Technology
+                  Technologies
                 </span>
               </h1>
             </div>
@@ -397,15 +397,17 @@ export function Home() {
         </button>
 
         {/* Progress Dots */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-4">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-2">
           {BANNERS.map((_, i) => (
             <button
               key={i}
               onClick={() => setActiveBanner(i)}
               aria-label={`Go to banner ${i + 1}`}
               aria-current={activeBanner === i ? 'true' : undefined}
-              className={`h-1 rounded-full transition-all duration-500 ${activeBanner === i ? `w-20 ${bannerAccentDotClass}` : 'w-8 bg-black/20 dark:bg-white/20'}`}
-            />
+              className="w-11 h-11 flex items-center justify-center focus:outline-none"
+            >
+              <div className={`h-1 rounded-full transition-all duration-500 ${activeBanner === i ? `w-20 ${bannerAccentDotClass}` : 'w-8 bg-black/20 dark:bg-white/20'}`} />
+            </button>
           ))}
         </div>
       </section>
@@ -446,14 +448,13 @@ export function Home() {
               </motion.div>
             </div>
 
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-1 mt-8">
               {Array.from({ length: featuredProducts.length - (itemsPerView - 1) }).map((_, i) => (
                 <button
                   key={i}
                   aria-label={`Go to slide ${i + 1}`}
                   onClick={() => setCurrentIndex(i)}
-                  className="p-2 -m-2"
+                  className="w-11 h-11 flex items-center justify-center focus:outline-none"
                 >
                   <div className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/20 dark:bg-white/20'}`} />
                 </button>
