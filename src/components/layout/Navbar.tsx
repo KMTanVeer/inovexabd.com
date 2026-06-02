@@ -74,9 +74,9 @@ export function Navbar() {
           : 'py-6 bg-transparent'
       )}
     >
-      <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group shrink-0">
           <BrandLogo variant="topbar" showMark={false} highlightTopbarX className="transform transition-transform group-hover:scale-105" />
         </Link>
 
@@ -161,11 +161,11 @@ export function Navbar() {
         </div>
 
         {/* Icons */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 md:gap-5">
           <button
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300"
+            className="group relative p-2 md:p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300"
           >
             <div className="absolute inset-0 rounded-full bg-blue-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 pointer-events-none" />
             <div className="relative transform group-hover:rotate-12 transition-transform duration-300">
