@@ -151,21 +151,43 @@ export function Home() {
   return (
     <div className="relative overflow-hidden bg-white dark:bg-black transition-colors duration-300">
       <SEO
-        title="Enterprise Networking Equipment, Switches, Routers, LAN Cards & SSDs"
-        description="Shop enterprise networking equipment in Bangladesh including switches, routers, LAN cards, SSD storage, servers, transceivers, and data center hardware."
-        keywords="networking equipment, enterprise switches, routers, lan card, ssd, server hardware, datacenter equipment, bangladesh"
+        title="InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions"
+        disableTitleSuffix={true}
+        description="Buy ISP equipment, enterprise networking hardware, Dell PowerEdge servers, Cisco switches, Huawei routers, storage systems, fiber optic solutions, and data center infrastructure from InovexaBD Bangladesh."
+        keywords="ISP Equipment Bangladesh, Enterprise Networking Bangladesh, Cisco Switch Bangladesh, Huawei Router Bangladesh, Dell PowerEdge Server Bangladesh, Fiber Optic Equipment, Data Center Solutions Bangladesh, Network Infrastructure Bangladesh, Server Hardware Bangladesh"
         url="https://inovexabd.com/"
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'Inovexa Technologies',
-          url: 'https://inovexabd.com/',
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: 'https://inovexabd.com/shop?q={search_term_string}',
-            'query-input': 'required name=search_term_string',
+        structuredData={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Inovexa Technologies',
+            url: 'https://inovexabd.com/',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: 'https://inovexabd.com/shop?q={search_term_string}',
+              'query-input': 'required name=search_term_string',
+            },
           },
-        }}
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Inovexa Technologies',
+            url: 'https://inovexabd.com/',
+            logo: 'https://inovexabd.com/inovexabd-logo.png',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+8801813065665',
+              contactType: 'sales',
+              email: 'info@inovexabd.com'
+            },
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Asadgate, Shyamoli',
+              addressLocality: 'Dhaka',
+              addressCountry: 'BD'
+            }
+          }
+        ]}
       />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
@@ -178,16 +200,21 @@ export function Home() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="max-w-4xl space-y-10">
             <div className="space-y-4 animate-fade-in-up">
-              <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-black dark:text-white font-stylish flex flex-col">
-                <span>Inovexa</span>
-                <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                  Technologies
+              <h1 className="flex flex-col gap-2">
+                <span className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm md:text-base">
+                  ISP Equipment, Enterprise Networking & Data Center Solutions
+                </span>
+                <span className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-black dark:text-white font-stylish flex flex-col">
+                  <span>Inovexa</span>
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                    Technologies
+                  </span>
                 </span>
               </h1>
             </div>
 
             <p className="text-lg md:text-xl text-black/75 dark:text-white/55 leading-relaxed max-w-2xl animate-fade-in-up" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
-              Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in enterprise networking, server solutions, ISP equipment, and smart security systems.
+              Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in <Link to="/categories" className="text-blue-600 dark:text-blue-400 hover:underline">enterprise networking</Link>, <Link to="/shop" className="text-blue-600 dark:text-blue-400 hover:underline">server solutions</Link>, ISP equipment, and smart security systems in Bangladesh.
             </p>
 
             <motion.div

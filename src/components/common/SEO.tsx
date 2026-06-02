@@ -8,15 +8,21 @@ interface SEOProps {
   keywords?: string;
   type?: string;
   structuredData?: any;
+  ogTitle?: string;
+  ogDescription?: string;
+  disableTitleSuffix?: boolean;
 }
 
-export function SEO({ title, description, url, image, keywords, type, structuredData }: SEOProps) {
-  const fullTitle = `${title} | InovexaBD`;
+export function SEO({ title, description, url, image, keywords, type, structuredData, ogTitle, ogDescription, disableTitleSuffix }: SEOProps) {
+  const fullTitle = disableTitleSuffix ? title : `${title} | InovexaBD`;
   const siteUrl = url || "https://inovexabd.com";
-  let finalImage = image || "https://inovexabd.com/og-image.jpg";
+  let finalImage = image || "https://inovexabd.com/og-image.webp";
   if (finalImage.startsWith('/')) {
     finalImage = `https://inovexabd.com${finalImage}`;
   }
+
+  const finalOgTitle = ogTitle || fullTitle;
+  const finalOgDesc = ogDescription || description;
 
   return (
     <Helmet>
@@ -25,14 +31,14 @@ export function SEO({ title, description, url, image, keywords, type, structured
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={siteUrl} />
       <meta property="og:url" content={siteUrl} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={finalOgTitle} />
+      <meta property="og:description" content={finalOgDesc} />
       <meta property="og:type" content={type || 'website'} />
       <meta property="og:site_name" content="InovexaBD" />
       <meta property="og:image" content={finalImage} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={finalOgTitle} />
+      <meta name="twitter:description" content={finalOgDesc} />
       <meta name="twitter:image" content={finalImage} />
       {structuredData && (
         <script type="application/ld+json">

@@ -89,17 +89,19 @@ export function ProductDetail() {
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-white dark:bg-black transition-colors">
       <SEO
-        title={`${product.name} | Enterprise Networking Equipment`}
-        description={product.description}
+        title={`${product.name} | ISP, Enterprise Networking & Data Center Solutions`}
+        description={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
         keywords={`${product.name}, ${product.category}, networking equipment, enterprise router, switch, lan card, ssd`}
-        url={`https://inovexabd.com/product/${product.id}`}
-        image={activeImage || product.image}
+        url={`https://inovexabd.com/product/${product.id || (product as any)._id}`}
+        image={activeImage || product.image || "/og-image.webp"}
+        ogTitle={`${product.name} | InovexaBD`}
+        ogDescription={`Enterprise-grade ${product.name} for ISP, enterprise networking, and data center deployments. Available from InovexaBD Bangladesh.`}
         type="product"
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'Product',
           name: product.name,
-          description: product.description,
+          description: `${product.name} is an enterprise-grade solution designed for ISP networks, data centers, and business IT infrastructure. Available from InovexaBD Bangladesh.`,
           category: product.category,
           image: product.image,
           brand: {
@@ -111,7 +113,7 @@ export function ProductDetail() {
             priceCurrency: 'BDT',
             price: isPriceAvailable ? String(product.price) : '0.00',
             availability: stockStatus === 'In Stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-            url: `https://inovexabd.com/product/${product.id}`,
+            url: `https://inovexabd.com/product/${product.id || (product as any)._id}`,
           },
         }}
       />

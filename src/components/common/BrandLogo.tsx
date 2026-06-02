@@ -57,7 +57,7 @@ export function BrandLogo({ className, variant = 'full', showMark = true, highli
           </span>
         </div>
         <span className="text-[8px] font-black tracking-[0.4em] uppercase text-black/50 dark:text-white/50 leading-none mt-1">
-          Technology
+          Technologies
         </span>
       </div>
     </div>
