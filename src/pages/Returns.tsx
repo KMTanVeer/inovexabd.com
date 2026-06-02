@@ -95,7 +95,7 @@ export function Returns() {
     </p>
 
     <p>
-      Email: support@inovexabd.com
+      Email: info@inovexabd.com
       <br />
       Website: www.inovexabd.com
     </p>

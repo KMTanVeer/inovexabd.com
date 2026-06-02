@@ -5,10 +5,28 @@ import { SEO } from '@/src/components/common/SEO.tsx';
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const response = await fetch("https://formspree.io/f/xvzyeqek", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,7 +62,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-wider">Email Sales</h3>
-                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">info@inovexabd.com</p>
+                  <a href="mailto:info@inovexabd.com" className="block text-black/60 dark:text-white/60 text-sm mt-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">info@inovexabd.com</a>
                 </div>
               </div>
 
@@ -54,7 +72,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm uppercase tracking-wider">Phone Lines</h3>
-                  <p className="text-black/60 dark:text-white/60 text-sm mt-1">+880 1813065665</p>
+                  <a href="tel:+8801813065665" className="block text-black/60 dark:text-white/60 text-sm mt-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">+880 1813065665</a>
                 </div>
               </div>
             </div>
@@ -74,21 +92,21 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-black/50 dark:text-white/50">Your Name</label>
-                  <input required type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
+                  <input name="name" required type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-black/50 dark:text-white/50">Email Address</label>
-                  <input required type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
+                  <input name="email" required type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-black/50 dark:text-white/50">Your Inquiry</label>
-                  <textarea required value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} className="w-full min-h-[120px] bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
+                  <textarea name="message" required value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} className="w-full min-h-[120px] bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3" />
                 </div>
 
-                <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-widest py-4 rounded-xl transition-colors">
-                  Send Message
+                <button type="submit" disabled={loading} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold uppercase tracking-widest py-4 rounded-xl transition-colors">
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

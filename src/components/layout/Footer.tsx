@@ -80,7 +80,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50">
                 <Mail size={18} className="text-blue-500 shrink-0" />
-                <span>contact@inovexabd.com</span>
+                <span>info@inovexabd.com</span>
               </div>
             </div>
             
