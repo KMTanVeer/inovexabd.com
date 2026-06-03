@@ -50,65 +50,65 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
                 <img
                   src={(product.images && product.images[0]) || product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover aspect-square md:aspect-auto"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-auto"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden" />
               </div>
 
               {/* Product Details Area */}
-              <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center gap-6 shrink-0">
+              <div className="w-full md:w-1/2 p-4 md:p-12 flex flex-col justify-center gap-4 md:gap-6 shrink-0">
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                  <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
+                    <span className="px-2 md:px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] md:text-[10px] font-bold text-blue-400 uppercase tracking-widest">
                       {product.category}
                     </span>
                     <div className="flex items-center gap-1">
-                      <Star size={14} className="fill-yellow-500 text-yellow-500" />
-                      <span className="text-sm font-bold text-white tracking-widest">{product.rating || 5}</span>
+                      <Star size={12} className="fill-yellow-500 text-yellow-500 md:w-3.5 md:h-3.5" />
+                      <span className="text-xs md:text-sm font-bold text-white tracking-widest">{product.rating || 5}</span>
                     </div>
                   </div>
-                  <h2 className="text-3xl font-bold text-white mb-4 leading-tight">
+                  <h2 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 leading-tight">
                     {product.name}
                   </h2>
-                  <p className="text-white/60 leading-relaxed">
+                  <p className="text-white/60 leading-relaxed text-xs md:text-base line-clamp-3 md:line-clamp-none">
                     {product.description}
                   </p>
                 </div>
 
                 {/* Specs */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
                   {product.specs && Object.entries(product.specs).map(([label, value]) => (
-                    <div key={label} className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                      <span className="block text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1">{label}</span>
-                      <span className="block text-sm text-white font-medium">{String(value)}</span>
+                    <div key={label} className="p-2 md:p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1 truncate">{label}</span>
+                      <span className="block text-xs md:text-sm text-white font-medium truncate">{String(value)}</span>
                     </div>
                   ))}
                   {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                    <div key={spec.key} className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                      <span className="block text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1">{spec.key}</span>
-                      <span className="block text-sm text-white font-medium">{spec.value}</span>
+                    <div key={spec.key} className="p-2 md:p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1 truncate">{spec.key}</span>
+                      <span className="block text-xs md:text-sm text-white font-medium truncate">{spec.value}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-white/5 flex items-center justify-between gap-6">
+                <div className="pt-4 md:pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
                   <div className="flex flex-col">
-                    <span className="text-xs text-white/40 font-medium">Retail Price</span>
-                    <span className="text-3xl font-bold text-white">{product.price?.toLocaleString() || '0'}tk</span>
+                    <span className="text-[10px] md:text-xs text-white/40 font-medium">Retail Price</span>
+                    <span className="text-2xl md:text-3xl font-bold text-white">{product.price?.toLocaleString() || '0'}tk</span>
                   </div>
                   <a
                     href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-4 rounded-xl bg-blue-600 text-white font-bold text-center hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all flex items-center justify-center gap-2"
+                    className="w-full md:flex-1 py-3 md:py-4 rounded-xl bg-blue-600 text-white text-sm md:text-base font-bold text-center hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all flex items-center justify-center gap-2"
                   >
                     Order on WhatsApp
                   </a>
                 </div>
 
-                <div className="flex items-center gap-2 text-green-400 text-xs font-bold uppercase tracking-widest">
-                  <CheckCircle2 size={14} />
+                <div className="flex items-center gap-2 text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                  <CheckCircle2 size={12} className="md:w-3.5 md:h-3.5" />
                   In Stock & Ready for Delivery
                 </div>
               </div>
