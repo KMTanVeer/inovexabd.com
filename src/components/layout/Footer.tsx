@@ -16,7 +16,7 @@ export function Footer() {
               <BrandLogo showMark={false} className="w-12 h-12 transform transition-transform group-hover:rotate-12" />
             </Link>
             <p className="text-black/60 dark:text-white/50 text-sm leading-relaxed max-w-xs">
-              Think Smart, Build Smarter. Empowering businesses with next-generation IT infrastructure and futuristic networking solutions.
+              InovexaBD is a trusted provider of ISP equipment, enterprise networking solutions, servers, fiber optic products, and data center infrastructure. We help businesses and service providers build reliable, scalable, and future-ready technology environments.
             </p>
             <div className="flex gap-4">
               <a aria-label="Facebook" href="https://www.facebook.com/inovexatechnologies" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
@@ -38,7 +38,7 @@ export function Footer() {
                 { name: 'Home', path: '/' },
                 { name: 'Shop', path: '/shop' },
                 { name: 'Categories', path: '/categories' },
-                { name: 'About', path: '/contact' },
+                { name: 'About', path: '/about' },
                 { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
