@@ -86,36 +86,64 @@ export function ProductDetail() {
   const normalizedBrand = MANUFACTURER_BRANDS.find((brand) => detectedBrand.toLowerCase().includes(brand.toLowerCase())) || detectedBrand;
   const currentBrandLogo = BRAND_LOGOS[normalizedBrand.toLowerCase()];
 
+  const dynamicKeywords = `${product.name}, ${product.category}, ${detectedBrand}, ${normalizedBrand}, ${subcategoryLabel}, buy ${product.name} Bangladesh, ${product.name} price in BD, ISP equipment, enterprise networking, server solutions, data center equipment`;
+
   return (
     <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-white dark:bg-black transition-colors">
       <SEO
         title={`${product.name} | ISP, Enterprise Networking & Data Center Solutions`}
         description={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
-        keywords={`${product.name}, ${product.category}, networking equipment, enterprise router, switch, lan card, ssd`}
+        keywords={dynamicKeywords}
         url={`https://inovexabd.com/product/${product.id || (product as any)._id}`}
         image={activeImage || product.image || "/og-image.webp"}
         ogTitle={`${product.name} | InovexaBD`}
         ogDescription={`Enterprise-grade ${product.name} for ISP, enterprise networking, and data center deployments. Available from InovexaBD Bangladesh.`}
         type="product"
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'Product',
-          name: product.name,
-          description: `${product.name} is an enterprise-grade solution designed for ISP networks, data centers, and business IT infrastructure. Available from InovexaBD Bangladesh.`,
-          category: product.category,
-          image: product.image,
-          brand: {
-            '@type': 'Brand',
-            name: detectedBrand,
+        structuredData={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: product.name,
+            description: product.description,
+            category: product.category,
+            image: product.image,
+            brand: {
+              '@type': 'Brand',
+              name: detectedBrand,
+            },
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'BDT',
+              price: isPriceAvailable ? String(product.price) : '0.00',
+              availability: stockStatus === 'In Stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+              url: `https://inovexabd.com/product/${product.id || (product as any)._id}`,
+            },
           },
-          offers: {
-            '@type': 'Offer',
-            priceCurrency: 'BDT',
-            price: isPriceAvailable ? String(product.price) : '0.00',
-            availability: stockStatus === 'In Stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-            url: `https://inovexabd.com/product/${product.id || (product as any)._id}`,
-          },
-        }}
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://inovexabd.com/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: categoryLabel,
+                item: `https://inovexabd.com/shop?category=${product.category}`
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: product.name,
+                item: `https://inovexabd.com/product/${product.id || (product as any)._id}`
+              }
+            ]
+          }
+        ]}
       />
 
       <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-blue-600/5 blur-[160px] rounded-full -z-10" />
