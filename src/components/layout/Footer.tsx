@@ -33,7 +33,7 @@ export function Footer() {
           {/* Quick Links */}
           <div className="space-y-6">
             <h4 className="text-black dark:text-white font-bold tracking-tight">Quick Links</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
                 { name: 'Home', path: '/' },
                 { name: 'Shop', path: '/shop' },
@@ -42,7 +42,7 @@ export function Footer() {
                 { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} className="text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm">{item.name}</Link>
+                  <Link to={item.path} className="block w-full text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm py-1">{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -51,7 +51,7 @@ export function Footer() {
           {/* Support */}
           <div className="space-y-6">
             <h4 className="text-black dark:text-white font-bold tracking-tight">Customer Support</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
                 { name: 'Contact Us', path: '/contact' },
                 { name: 'Returns & Warranty', path: '/returns' },
@@ -60,7 +60,7 @@ export function Footer() {
                 { name: 'Privacy Policy', path: '/privacy' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} className="text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm">{item.name}</Link>
+                  <Link to={item.path} className="block w-full text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm py-1">{item.name}</Link>
                 </li>
               ))}
             </ul>
@@ -69,21 +69,31 @@ export function Footer() {
           {/* Contact Info */}
           <div className="space-y-6">
             <h4 className="text-black dark:text-white font-bold tracking-tight">Get in Touch</h4>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 text-sm text-black/60 dark:text-white/50">
-                <MapPin size={18} className="text-blue-500 shrink-0" />
+            <div className="space-y-3">
+              <a 
+                href="https://maps.google.com/?q=Asadgate,+Shyamoli,+Dhaka,+Bangladesh" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-start gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
+              >
+                <MapPin size={18} className="text-blue-500 shrink-0 mt-0.5" />
                 <span>Asadgate, Shyamoli, Dhaka,<br />Bangladesh</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50">
+              </a>
+              <a 
+                href="tel:+8801813065665" 
+                className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
+              >
                 <Phone size={18} className="text-blue-500 shrink-0" />
                 <span>+8801813065665</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50">
+              </a>
+              <a 
+                href="mailto:info@inovexabd.com" 
+                className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
+              >
                 <Mail size={18} className="text-blue-500 shrink-0" />
                 <span>info@inovexabd.com</span>
-              </div>
+              </a>
             </div>
-            
           </div>
         </div>
 
