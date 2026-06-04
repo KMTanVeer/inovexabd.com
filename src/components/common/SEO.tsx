@@ -15,10 +15,10 @@ interface SEOProps {
 
 export function SEO({ title, description, url, image, keywords, type, structuredData, ogTitle, ogDescription, disableTitleSuffix }: SEOProps) {
   const fullTitle = disableTitleSuffix ? title : `${title} | InovexaBD`;
-  const siteUrl = url || "https://inovexabd.com";
-  let finalImage = image || "https://inovexabd.com/og-image.webp";
+  const siteUrl = url || "https://www.inovexabd.com";
+  let finalImage = image || "https://www.inovexabd.com/og-image.webp";
   if (finalImage.startsWith('/')) {
-    finalImage = `https://inovexabd.com${finalImage}`;
+    finalImage = `https://www.inovexabd.com${finalImage}`;
   }
 
   const finalOgTitle = ogTitle || fullTitle;

@@ -77,12 +77,12 @@ async function startServer() {
       if (product && fs.existsSync(htmlPath)) {
         try {
           let html = fs.readFileSync(htmlPath, 'utf8');
-          const title = `${product.name} | InovexaBD`;
-          const desc = `Buy ${product.name} from InovexaBD. ${product.description.slice(0, 150)}...`;
+          const title = `${product.name} | ISP, Enterprise Networking & Data Center Solutions | InovexaBD`;
+          const desc = `Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`;
           
           let finalImage = product.image;
           if (finalImage.startsWith('/')) {
-            finalImage = `https://inovexabd.com${finalImage}`;
+            finalImage = `https://www.inovexabd.com${finalImage}`;
           }
 
           html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);

@@ -94,10 +94,10 @@ export function ProductDetail() {
         title={`${product.name} | ISP, Enterprise Networking & Data Center Solutions`}
         description={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
         keywords={dynamicKeywords}
-        url={`https://inovexabd.com/product/${product.id || (product as any)._id}`}
+        url={`https://www.inovexabd.com/product/${product.id || (product as any)._id}`}
         image={activeImage || product.image || "/og-image.webp"}
-        ogTitle={`${product.name} | InovexaBD`}
-        ogDescription={`Enterprise-grade ${product.name} for ISP, enterprise networking, and data center deployments. Available from InovexaBD Bangladesh.`}
+        ogTitle={`${product.name} | ISP, Enterprise Networking & Data Center Solutions | InovexaBD`}
+        ogDescription={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
         type="product"
         structuredData={[
           {
