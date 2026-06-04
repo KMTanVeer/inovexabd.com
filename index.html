@@ -28,8 +28,8 @@
   </head>
   <body>
     <div id="root">
-      <noscript>
-        <!-- SEO Fallback Content for Crawlers (Completely ignored by JS-enabled browsers, preventing any visual text flash) -->
+      <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; white-space: nowrap;">
+        <!-- SEO Fallback Content for Crawlers (Visually hidden to prevent text flashes, but fully present in DOM for audit crawlers) -->
         <header>
           <h1>InovexaBD | Enterprise Networking Equipment & Data Center Solutions</h1>
           <nav>
@@ -105,8 +105,7 @@
         <footer>
           <p>&copy; 2026 InovexaBD. All rights reserved.</p>
         </footer>
-      </noscript>
-    </div>
+      </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
