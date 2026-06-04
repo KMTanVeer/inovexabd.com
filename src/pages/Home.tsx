@@ -282,6 +282,8 @@ export function Home() {
                       <img 
                         src={HERO_SHOWCASE[heroShowcaseIndex].image} 
                         alt={HERO_SHOWCASE[heroShowcaseIndex].name} 
+                        width={400}
+                        height={250}
                         className={showcaseImageClass}
                         loading="eager"
                         decoding="async"
@@ -330,6 +332,8 @@ export function Home() {
               <img 
                 src={BANNERS[activeBanner].image} 
                 alt={BANNERS[activeBanner].title}
+                width={1920}
+                height={1080}
                 className="w-full h-full object-cover opacity-40 dark:opacity-30 scale-105"
                 loading="lazy"
                 decoding="async"

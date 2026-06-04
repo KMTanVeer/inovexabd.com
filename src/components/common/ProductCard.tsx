@@ -58,6 +58,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
             <img
               src={(product.images && product.images[0]) || product.image}
               alt={product.name}
+              width={400}
+              height={400}
+              loading="lazy"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               referrerPolicy="no-referrer"
             />

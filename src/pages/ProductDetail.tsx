@@ -189,6 +189,8 @@ export function ProductDetail() {
                     <img
                       src={image}
                       alt={`${product.name} thumbnail ${i + 1}`}
+                      width={80}
+                      height={80}
                       className="w-full h-full object-cover rounded-xl opacity-100"
                       loading="lazy"
                       referrerPolicy="no-referrer"
@@ -206,6 +208,8 @@ export function ProductDetail() {
               <img
                 src={activeImage}
                 alt={product.name}
+                width={800}
+                height={600}
                 className="w-full h-full object-contain transition-transform duration-500 ease-out group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
@@ -227,6 +231,9 @@ export function ProductDetail() {
                     <img
                       src={image}
                       alt={`${product.name} thumbnail ${i + 1}`}
+                      width={80}
+                      height={80}
+                      loading="lazy"
                       className="w-full h-full object-cover opacity-100"
                       referrerPolicy="no-referrer"
                     />
@@ -241,7 +248,7 @@ export function ProductDetail() {
               <div className="flex items-center gap-3">
                 {currentBrandLogo ? (
                   <div className="h-10 px-3 rounded-lg border border-black/10 dark:border-white/15 bg-white dark:bg-neutral-950 flex items-center">
-                    <img src={currentBrandLogo} alt={`${normalizedBrand} logo`} className="h-5 w-auto object-contain" loading="lazy" />
+                    <img src={currentBrandLogo} alt={`${normalizedBrand} logo`} width={100} height={20} className="h-5 w-auto object-contain" loading="lazy" />
                   </div>
                 ) : (
                   <p className="text-sm font-semibold text-black/75 dark:text-white/80">Brand: {normalizedBrand}</p>

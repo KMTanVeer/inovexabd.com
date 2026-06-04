@@ -10,6 +10,7 @@ import { ThemeProvider } from '@/src/context/ThemeContext.tsx';
 import { Navbar } from '@/src/components/layout/Navbar.tsx';
 import { Footer } from '@/src/components/layout/Footer.tsx';
 import { FloatingWhatsApp } from '@/src/components/common/FloatingWhatsApp.tsx';
+import { CookieConsent } from '@/src/components/common/CookieConsent.tsx';
 import { Home } from '@/src/pages/Home.tsx';
 import { AdminLayout } from '@/src/components/layout/AdminLayout.tsx';
 
@@ -59,6 +60,7 @@ function StoreLayout({ children }: { children: React.ReactNode }) {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <CookieConsent />
     </div>
   );
 }
