@@ -15,7 +15,7 @@ interface SEOProps {
 
 export function SEO({ title, description, url, image, keywords, type, structuredData, ogTitle, ogDescription, disableTitleSuffix }: SEOProps) {
   const fullTitle = disableTitleSuffix ? title : `${title} | InovexaBD`;
-  const siteUrl = url || "https://www.inovexabd.com";
+  const siteUrl = url || (typeof window !== 'undefined' ? `https://www.inovexabd.com${window.location.pathname}` : "https://www.inovexabd.com");
   let finalImage = image || "https://www.inovexabd.com/og-image.webp";
   if (finalImage.startsWith('/')) {
     finalImage = `https://www.inovexabd.com${finalImage}`;

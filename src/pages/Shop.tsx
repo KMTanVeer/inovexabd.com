@@ -44,7 +44,7 @@ export function Shop() {
           title="Shop Networking Equipment, Switches, Routers, LAN Cards & SSDs"
           description="Browse enterprise networking equipment, switches, routers, LAN cards, SSDs, servers and accessories with category and search filters."
           keywords="shop networking equipment, router price, switch price, lan card, ssd, enterprise server, cisco, juniper, huawei"
-          url="https://inovexabd.com/shop"
+          url="https://www.inovexabd.com/shop"
         />
         {/* BG Blurs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">

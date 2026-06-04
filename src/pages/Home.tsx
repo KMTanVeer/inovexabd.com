@@ -156,16 +156,16 @@ export function Home() {
         disableTitleSuffix={true}
         description="Buy ISP equipment, enterprise networking hardware, Dell PowerEdge servers, Cisco switches, Huawei routers, storage systems, fiber optic solutions, and data center infrastructure from InovexaBD Bangladesh."
         keywords="ISP Equipment Bangladesh, Enterprise Networking Bangladesh, Cisco Switch Bangladesh, Huawei Router Bangladesh, Dell PowerEdge Server Bangladesh, Fiber Optic Equipment, Data Center Solutions Bangladesh, Network Infrastructure Bangladesh, Server Hardware Bangladesh"
-        url="https://inovexabd.com/"
+        url="https://www.inovexabd.com/"
         structuredData={[
           {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'Inovexa Technologies',
-            url: 'https://inovexabd.com/',
+            url: 'https://www.inovexabd.com/',
             potentialAction: {
               '@type': 'SearchAction',
-              target: 'https://inovexabd.com/shop?q={search_term_string}',
+              target: 'https://www.inovexabd.com/shop?q={search_term_string}',
               'query-input': 'required name=search_term_string',
             },
           },
@@ -173,8 +173,8 @@ export function Home() {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'Inovexa Technologies',
-            url: 'https://inovexabd.com/',
-            logo: 'https://inovexabd.com/inovexabd-logo.png',
+            url: 'https://www.inovexabd.com/',
+            logo: 'https://www.inovexabd.com/inovexabd-logo.png',
             contactPoint: {
               '@type': 'ContactPoint',
               telephone: '+8801813065665',
