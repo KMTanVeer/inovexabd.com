@@ -22,6 +22,7 @@ const Categories = React.lazy(() => import('@/src/pages/Categories.tsx').then(m 
 const Returns = React.lazy(() => import('@/src/pages/Returns.tsx').then(m => ({ default: m.Returns })));
 const Shipping = React.lazy(() => import('@/src/pages/Shipping.tsx').then(m => ({ default: m.Shipping })));
 const Privacy = React.lazy(() => import('@/src/pages/Privacy.tsx').then(m => ({ default: m.Privacy })));
+const NotFound = React.lazy(() => import('@/src/pages/NotFound.tsx').then(m => ({ default: m.NotFound })));
 const AdminLogin = React.lazy(() => import('@/src/pages/admin/AdminLogin.tsx').then(m => ({ default: m.AdminLogin })));
 const AdminDashboard = React.lazy(() => import('@/src/pages/admin/AdminDashboard.tsx').then(m => ({ default: m.AdminDashboard })));
 const AdminProducts = React.lazy(() => import('@/src/pages/admin/AdminProducts.tsx').then(m => ({ default: m.AdminProducts })));
@@ -93,7 +94,7 @@ export default function App() {
                     <Route path="/returns" element={<Returns />} />
                     <Route path="/shipping" element={<Shipping />} />
                     <Route path="/privacy" element={<Privacy />} />
-                    <Route path="*" element={<Home />} />
+                    <Route path="*" element={<NotFound />} />
                   </Routes>
                 </StoreLayout>
               } />
