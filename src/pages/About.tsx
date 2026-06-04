@@ -105,8 +105,8 @@ export function About() {
             <Sparkles size={12} />
             <span>Discover InovexaBD</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-display uppercase tracking-wider text-black dark:text-white leading-tight">
-            About Inovexa Technologies
+          <h1 className="text-3xl md:text-5xl font-bold font-display uppercase tracking-wider text-black dark:text-white leading-tight">
+            Inovexa Technologies
           </h1>
           <p className="text-lg md:text-xl font-bold text-black/80 dark:text-white/80 tracking-wide max-w-3xl mx-auto">
             Empowering Connectivity, Infrastructure, and Innovation
