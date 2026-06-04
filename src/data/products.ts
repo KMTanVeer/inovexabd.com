@@ -6,6 +6,7 @@ export interface Product {
   category: string;
   price: number;
   description: string;
+  shortDescription?: string;
   image: string;
   images?: string[];
   rating: number;
@@ -64,6 +65,7 @@ export const PRODUCTS: Product[] = [
     category: 'servers',
     price: 0,
     description: 'Boost Your Business with the Dell PowerEdge R630 – A Powerful, Scalable, and Reliable Server Solution\n\nThe Dell PowerEdge R630 is a high-performance rack server designed for enterprise-grade computing, virtualization, and data-intensive applications. Powered by dual Intel® Xeon® E5-2699 v3 processors, this server delivers exceptional processing power with 72 total threads, ensuring seamless multitasking, scalability, and efficiency.\n\nExtreme Performance – Equipped with 2× Intel® Xeon® E5-2699 v3 processors, delivering 36 cores and 72 threads for high-speed computing.\nScalable Memory – Supports 16GB DDR4 RAM, with expansion capabilities for higher workloads.\nRack-Mountable 1U Form Factor – Optimized for data centers, cloud computing, and enterprise IT environments.\nEnterprise-Grade Reliability – Ideal for virtualization, database management, and high-performance applications.\nEfficient Power & Cooling – Designed for maximum energy efficiency with optimized thermal performance.',
+    shortDescription: 'The Dell PowerEdge R630 Server – High-Performance Rack Server for Enterprise Workloads represents a pinnacle of engineering from computing experts. Built with future-proof materials and cutting-edge silicon, this solution addresses the high-demand requirements of modern data centers and enterprise workflows.',
     image: img('Dell PowerEdge R630', 'dell poweredge.jpg'),
     images: [
       img('Dell PowerEdge R630', 'dell poweredge.jpg'),

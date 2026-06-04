@@ -289,7 +289,7 @@ export function ProductDetail() {
               </div>
 
               <p className="text-black/80 dark:text-white/80 leading-relaxed text-sm pt-1">
-                {product.description}
+                {product.shortDescription || product.description}
               </p>
             </div>
 
@@ -407,11 +407,19 @@ export function ProductDetail() {
                 exit={{ opacity: 0, y: -10 }}
                 className="max-w-4xl space-y-8"
               >
-                <h3 className="text-2xl font-bold text-black dark:text-white tracking-tight">Innovative Technology for Modern Challenges</h3>
-                <p className="text-black/80 dark:text-white/80 leading-relaxed text-lg">
-                  The {product.name} represents a pinnacle of engineering from {product.category === 'networking' ? 'networking pioneers' : 'computing experts'}.
-                  Built with future-proof materials and cutting-edge silicon, this solution addresses the high-demand requirements of modern data centers and enterprise workflows.
-                </p>
+                <h3 className="text-2xl font-bold text-black dark:text-white tracking-tight font-display">
+                  {product.shortDescription ? 'Product Description & Overview' : 'Innovative Technology for Modern Challenges'}
+                </h3>
+                <div className="text-black/80 dark:text-white/80 leading-relaxed text-base whitespace-pre-line">
+                  {product.shortDescription ? (
+                    product.description
+                  ) : (
+                    <p className="text-lg">
+                      The {product.name} represents a pinnacle of engineering from {product.category === 'networking' ? 'networking pioneers' : 'computing experts'}.
+                      Built with future-proof materials and cutting-edge silicon, this solution addresses the high-demand requirements of modern data centers and enterprise workflows.
+                    </p>
+                  )}
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-blue-600 dark:text-blue-400">
