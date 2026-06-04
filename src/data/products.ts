@@ -60,10 +60,10 @@ const img = (folder: string, file: string) =>
 export const PRODUCTS: Product[] = [
   {
     id: 'dell-poweredge-r630',
-    name: 'Dell PowerEdge R630 1U Rack Server',
+    name: 'Dell PowerEdge R630 Server – High-Performance Rack Server for Enterprise Workloads',
     category: 'servers',
     price: 0,
-    description: 'The Dell PowerEdge R630 is an ultra-dense, 1U two-socket rack server designed to deliver compromise-free virtualization, large database execution, and high-performance computing (HPC) power. With support for dual Intel Xeon E5-2600 v3/v4 processors and up to 1.5TB DDR4 RAM, it provides outstanding computational density for space-constrained data centers.',
+    description: 'Boost Your Business with the Dell PowerEdge R630 – A Powerful, Scalable, and Reliable Server Solution\n\nThe Dell PowerEdge R630 is a high-performance rack server designed for enterprise-grade computing, virtualization, and data-intensive applications. Powered by dual Intel® Xeon® E5-2699 v3 processors, this server delivers exceptional processing power with 72 total threads, ensuring seamless multitasking, scalability, and efficiency.\n\nExtreme Performance – Equipped with 2× Intel® Xeon® E5-2699 v3 processors, delivering 36 cores and 72 threads for high-speed computing.\nScalable Memory – Supports 16GB DDR4 RAM, with expansion capabilities for higher workloads.\nRack-Mountable 1U Form Factor – Optimized for data centers, cloud computing, and enterprise IT environments.\nEnterprise-Grade Reliability – Ideal for virtualization, database management, and high-performance applications.\nEfficient Power & Cooling – Designed for maximum energy efficiency with optimized thermal performance.',
     image: img('Dell PowerEdge R630', 'dell poweredge.jpg'),
     images: [
       img('Dell PowerEdge R630', 'dell poweredge.jpg'),
@@ -72,15 +72,14 @@ export const PRODUCTS: Product[] = [
     ],
     rating: 4.9,
     specs: {
+      Brand: 'DELL',
+      'Product Line': 'PowerEdge',
       Model: 'PowerEdge R630',
-      Brand: 'Dell Technologies',
-      'Form Factor': '1U Rack Server',
-      Processor: 'Dual Intel Xeon E5-2600 v3/v4 Series',
-      Memory: '24 x DDR4 DIMM slots (Up to 1.5TB LRDIMM)',
-      'Drive Bays': 'Up to 10 x 2.5" SFF Hot-Plug SAS/SATA/SSD',
-      RAID: 'PERC H330, H730, H730P Controllers Supported',
-      Power: 'Redundant Hot-Plug Power Supplies (495W / 750W / 1100W)',
-      Manageability: 'iDRAC8 Enterprise with Lifecycle Controller'
+      Processor: 'Dual Intel® Xeon® E5-2699 v3 (72 Cores)',
+      RAM: '8GB x 2 = 16GB DDR4 ECC Server RAM (Expandable)',
+      'Memory Type': 'DDR4',
+      'Form Factor': 'Rack-Mountable (1U)',
+      'Designed for': 'Enterprise, Data Centers, Cloud Computing, and Virtualization'
     },
     isFeatured: true
   },
