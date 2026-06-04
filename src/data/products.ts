@@ -165,7 +165,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'cisco-nexus-93180yc-ex',
-    name: 'Cisco Nexus 93180YC-EX 10G/25G/100G L3 Switch',
+    name: 'Cisco Nexus 9300 N9K-C93180YC-EX 48x 10/25GbE SFP28 + 6x 100GbE QSFP28 Network Switch',
     category: 'networking',
     price: 0,
     description: 'The Cisco Nexus 93180YC-EX is a high-performance Layer 2/3 switch designed for top-of-rack (ToR) data center deployments. It is equipped with 48 x 10/25 Gbps SFP+ ports and 6 x 40/100 Gbps QSFP28 uplink ports, delivering 3.6 Tbps of switching capacity. It supports Cisco ACI (Application Centric Infrastructure) or standard NX-OS, enabling robust software-defined networking.',
@@ -179,13 +179,17 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     specs: {
       Model: 'N9K-C93180YC-EX',
-      Brand: 'Cisco Systems',
-      'Port Configuration': '48 x 10/25G SFP+ and 6 x 40/100G QSFP28',
-      'Switching Capacity': '3.6 Tbps',
-      'Forwarding Rate': '2.6 Bpps',
-      Buffer: '40 MB Intelligent Buffer',
-      Modes: 'Cisco ACI Mode or Standalone NX-OS Mode',
-      Features: 'VXLAN, FCoE, IEEE 802.1Q tagging, OpenFlow'
+      Series: 'Cisco Nexus 9300-EX Series',
+      'Hardware Specs': 'CPU: 4 cores, System Memory: 24 GB, SSD Drive: 64 GB, System Buffer: 40 MB',
+      Interfaces: '48x 10/25GbE SFP28 + 6x 100GbE QSFP28',
+      'Rack Mount': '19" 1U Rack-Mount (4-Post Rack-Mount Kit included)',
+      'Management Ports': '2 Ports: 1xRJ-45 and 1xSFP',
+      Airflow: '4x Fans, Front to Rear',
+      'Input Voltage (AC)': '100 ~ 240V, 50 to 60 Hz (650W AC Power Supply)',
+      Redundancy: 'Redundant AC Power Supply',
+      Software: 'Cisco NX-OS Software',
+      Latency: 'Less than 1 microsecond',
+      Bandwidth: 'Supports 3.6 Terabits per second (Tbps)'
     },
     isFeatured: true
   },
