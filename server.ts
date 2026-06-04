@@ -22,12 +22,11 @@ async function startServer() {
   app.use(express.json());
   app.use(cookieParser());
 
-  // Redirect www to non-www and enforce HTTPS security headers
+  // Redirect non-www to www and enforce HTTPS security headers
   app.use((req, res, next) => {
     const host = req.headers.host;
-    if (host && host.startsWith('www.')) {
-      const nonWwwHost = host.slice(4);
-      return res.redirect(301, `https://${nonWwwHost}${req.originalUrl}`);
+    if (host === 'inovexabd.com') {
+      return res.redirect(301, `https://www.inovexabd.com${req.originalUrl}`);
     }
 
     res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -90,8 +89,8 @@ async function startServer() {
           html = html.replace(/<meta\s+name="description"\s+content=".*?"\s*\/?>/, `<meta name="description" content="${desc}" />`);
 
           const ogTags = `
-    <link rel="canonical" href="https://inovexabd.com/product/${product.id}" />
-    <meta property="og:url" content="https://inovexabd.com/product/${product.id}" />
+    <link rel="canonical" href="https://www.inovexabd.com/product/${product.id}" />
+    <meta property="og:url" content="https://www.inovexabd.com/product/${product.id}" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${desc}" />
     <meta property="og:type" content="product" />

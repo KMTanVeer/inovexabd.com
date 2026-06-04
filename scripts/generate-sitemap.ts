@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { PRODUCTS } from '../src/data/products.ts';
 
-const HOST = 'https://inovexabd.com';
+const HOST = 'https://www.inovexabd.com';
 
 const staticRoutes = [
   { path: '', priority: '1.0', changefreq: 'daily' },
