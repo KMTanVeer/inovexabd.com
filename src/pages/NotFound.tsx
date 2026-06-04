@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, ShoppingBag, ArrowLeft, Search, HelpCircle, Server, Network, HardDrive } from 'lucide-react';
+import { Home, ShoppingBag, ArrowLeft, Search, HelpCircle, Server, Network, HardDrive, AlertTriangle } from 'lucide-react';
 import { SEO } from '@/src/components/common/SEO.tsx';
 
 export function NotFound() {
@@ -14,25 +14,30 @@ export function NotFound() {
       
       {/* Background Decorative Blurs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/10 dark:bg-blue-600/5 blur-[160px] rounded-full" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600/10 dark:bg-purple-600/5 blur-[140px] rounded-full" />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-red-600/10 dark:bg-red-600/5 blur-[160px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-orange-600/10 dark:bg-orange-600/5 blur-[140px] rounded-full" />
       </div>
 
       <div className="container max-w-4xl mx-auto px-6 text-center space-y-12 relative z-10">
         {/* Animated Error Code */}
         <div className="relative inline-block">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-red-500/30 bg-red-500/5 text-red-600 dark:text-red-400 text-xs font-semibold uppercase tracking-widest mb-6">
+            <AlertTriangle size={12} />
+            <span>Connection Warning</span>
+          </div>
+          
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: 'spring', damping: 15, stiffness: 80 }}
-            className="text-[120px] md:text-[180px] font-black leading-none bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-500 font-display select-none filter drop-shadow-[0_0_30px_rgba(37,99,235,0.2)]"
+            className="text-[120px] md:text-[180px] font-black leading-none bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-rose-600 to-orange-600 dark:from-red-500 dark:via-rose-500 dark:to-orange-500 font-display select-none filter drop-shadow-[0_0_30px_rgba(239,68,68,0.2)]"
           >
             404
           </motion.h1>
           
           {/* Subtle radar pulse effect behind 404 */}
           <div className="absolute inset-0 flex items-center justify-center -z-10">
-            <span className="w-40 h-40 rounded-full bg-blue-500/10 dark:bg-blue-500/5 animate-ping" />
+            <span className="w-40 h-40 rounded-full bg-red-500/10 dark:bg-red-500/5 animate-ping" />
           </div>
         </div>
 
@@ -60,7 +65,7 @@ export function NotFound() {
         >
           <Link
             to="/"
-            className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-500 dark:hover:bg-blue-600 text-sm font-semibold flex items-center gap-2 shadow-[0_4px_20px_rgba(37,99,235,0.25)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.35)] transition-all transform hover:-translate-y-0.5"
+            className="px-6 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white dark:bg-red-500 dark:hover:bg-red-600 text-sm font-semibold flex items-center gap-2 shadow-[0_4px_20px_rgba(239,68,68,0.25)] hover:shadow-[0_6px_25px_rgba(239,68,68,0.35)] transition-all transform hover:-translate-y-0.5"
           >
             <Home size={16} />
             Back to Home
