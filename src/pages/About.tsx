@@ -106,12 +106,12 @@ export function About() {
             <span>Discover InovexaBD</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold font-display uppercase tracking-wider text-black dark:text-white leading-tight">
-            About <span className="text-gradient">InovexaBD</span>
+            About Inovexa Technologies
           </h1>
           <p className="text-lg md:text-xl font-bold text-black/80 dark:text-white/80 tracking-wide max-w-3xl mx-auto">
             Empowering Connectivity, Infrastructure, and Innovation
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full my-6" />
+          <div className="w-24 h-1 bg-blue-600 dark:bg-blue-500 mx-auto rounded-full my-6" />
           <div className="space-y-6 text-base md:text-lg text-black/60 dark:text-white/60 leading-relaxed font-light text-justify md:text-center max-w-3xl mx-auto">
             <p>
               InovexaBD is a Bangladesh-based technology solutions provider specializing in ISP equipment, 
@@ -293,11 +293,11 @@ export function About() {
           </div>
         </div>
 
-        {/* Commitment Section (CTA style) */}
-        <div className="relative overflow-hidden p-8 md:p-12 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-2xl text-center space-y-6">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent)]" />
-          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider relative z-10">Our Commitment</h2>
-          <p className="max-w-3xl mx-auto text-white/90 leading-relaxed text-sm md:text-base font-light relative z-10">
+        {/* Commitment Section (Glass style) */}
+        <div className="relative overflow-hidden p-8 md:p-12 rounded-3xl border border-black/10 dark:border-white/10 bg-slate-50/50 dark:bg-zinc-950/40 backdrop-blur-md shadow-xl text-center space-y-6">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.05),transparent)] pointer-events-none" />
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider text-black dark:text-white relative z-10">Our Commitment</h2>
+          <p className="max-w-3xl mx-auto text-black/70 dark:text-white/70 leading-relaxed text-sm md:text-base font-light relative z-10">
             At InovexaBD, we believe that strong digital infrastructure is the foundation of modern business. 
             Whether it's enterprise networking, ISP deployment, server infrastructure, or data center expansion, 
             we are committed to helping organizations achieve their technology goals with confidence.
