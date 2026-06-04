@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import fs from "fs";
+import { PRODUCTS } from "./src/data/products.ts";
 
 // Load routes
 import apiRouter from "./src/server/api.js";
@@ -46,8 +48,53 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
+    
+    // Serve static files
     app.use(express.static(distPath));
-    // Important: for Express v4, it's app.get('*', ...).
+
+    // Dynamic Meta Injection for Product Detail pages
+    app.get('/product/:id', (req, res) => {
+      const productId = req.params.id;
+      const product = PRODUCTS.find(p => String(p.id) === String(productId));
+      const htmlPath = path.join(distPath, 'index.html');
+
+      if (product && fs.existsSync(htmlPath)) {
+        try {
+          let html = fs.readFileSync(htmlPath, 'utf8');
+          const title = `${product.name} | InovexaBD`;
+          const desc = `Buy ${product.name} from InovexaBD. ${product.description.slice(0, 150)}...`;
+          
+          let finalImage = product.image;
+          if (finalImage.startsWith('/')) {
+            finalImage = `https://inovexabd.com${finalImage}`;
+          }
+
+          html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+          html = html.replace(/<meta\s+name="description"\s+content=".*?"\s*\/?>/, `<meta name="description" content="${desc}" />`);
+
+          const ogTags = `
+    <link rel="canonical" href="https://inovexabd.com/product/${product.id}" />
+    <meta property="og:url" content="https://inovexabd.com/product/${product.id}" />
+    <meta property="og:title" content="${title}" />
+    <meta property="og:description" content="${desc}" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="InovexaBD" />
+    <meta property="og:image" content="${finalImage}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${title}" />
+    <meta name="twitter:description" content="${desc}" />
+    <meta name="twitter:image" content="${finalImage}" />
+`;
+          html = html.replace('</head>', `${ogTags}\n  </head>`);
+          return res.send(html);
+        } catch (err) {
+          console.error("Error generating dynamic meta tags:", err);
+        }
+      }
+      res.sendFile(htmlPath);
+    });
+
+    // Fallback for SPA routing
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });

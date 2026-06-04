@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 import { AdminAuth } from '@/src/lib/auth.ts';
 
@@ -39,6 +40,9 @@ export function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black text-black dark:text-white flex items-center justify-center p-6">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="w-full max-w-md bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-8 rounded-3xl shadow-2xl">
         <div className="flex flex-col items-center mb-8">
           <BrandLogo className="w-16 h-16 mb-4" />

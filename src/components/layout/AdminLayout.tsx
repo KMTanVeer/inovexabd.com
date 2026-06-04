@@ -1,5 +1,6 @@
 import { Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { AdminSidebar } from './AdminSidebar.tsx';
 import { LogOut, Menu, X } from 'lucide-react';
 import { AdminAuth } from '@/src/lib/auth.ts';
@@ -29,6 +30,9 @@ export function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black text-black dark:text-white flex">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Sidebar */}
       <AdminSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       

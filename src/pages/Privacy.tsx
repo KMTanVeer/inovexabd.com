@@ -14,9 +14,8 @@ export function Privacy() {
       Privacy Policy
     </h1>
 
-```
-<p>
-  At Inovexa Technologies, we are committed to protecting your privacy and maintaining
+    <p>
+      At Inovexa Technologies, we are committed to protecting your privacy and maintaining
   the confidentiality of your personal and business information. This
   Privacy Policy explains how we collect, use, store, and protect data when
   you interact with our website or services.
