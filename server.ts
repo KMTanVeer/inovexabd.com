@@ -22,6 +22,23 @@ async function startServer() {
   app.use(express.json());
   app.use(cookieParser());
 
+  // Redirect www to non-www and enforce HTTPS security headers
+  app.use((req, res, next) => {
+    const host = req.headers.host;
+    if (host && host.startsWith('www.')) {
+      const nonWwwHost = host.slice(4);
+      return res.redirect(301, `https://${nonWwwHost}${req.originalUrl}`);
+    }
+
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    if (process.env.NODE_ENV === 'production') {
+      res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    }
+    next();
+  });
+
   // Connect to MongoDB if URI is provided
   if (process.env.MONGODB_URI) {
     try {
