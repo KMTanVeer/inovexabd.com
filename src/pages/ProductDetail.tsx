@@ -117,6 +117,41 @@ export function ProductDetail() {
               price: isPriceAvailable ? String(product.price) : '0.00',
               availability: stockStatus === 'In Stock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
               url: `https://inovexabd.com/product/${product.id || (product as any)._id}`,
+              hasMerchantReturnPolicy: {
+                '@type': 'MerchantReturnPolicy',
+                applicableCountry: 'BD',
+                returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                merchantReturnDays: 3,
+                returnMethod: 'https://schema.org/ReturnByMail',
+                returnFees: 'https://schema.org/FreeReturn',
+              },
+              shippingDetails: {
+                '@type': 'OfferShippingDetails',
+                shippingRate: {
+                  '@type': 'MonetaryAmount',
+                  value: '0.00',
+                  currency: 'BDT',
+                },
+                shippingDestination: {
+                  '@type': 'DefinedRegion',
+                  addressCountry: 'BD',
+                },
+                deliveryTime: {
+                  '@type': 'ShippingDeliveryTime',
+                  handlingTime: {
+                    '@type': 'QuantitativeValue',
+                    minValue: 0,
+                    maxValue: 1,
+                    unitCode: 'DAY',
+                  },
+                  transitTime: {
+                    '@type': 'QuantitativeValue',
+                    minValue: 1,
+                    maxValue: 5,
+                    unitCode: 'DAY',
+                  },
+                },
+              },
             },
             aggregateRating: {
               '@type': 'AggregateRating',
