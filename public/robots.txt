@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /api/
 Allow: /
 
-Sitemap: https://inovexabd.com/sitemap.xml
+Sitemap: https://www.inovexabd.com/sitemap.xml
