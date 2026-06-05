@@ -132,39 +132,6 @@ export const PRODUCTS: Product[] = [
     isFeatured: true
   },
   {
-    id: 'huawei-ce6870-24s6cq-ei',
-    name: 'Huawei CloudEngine CE6870-24S6CQ-EI 10G/100G Data Center Switch',
-    category: 'networking',
-    price: 0,
-    description: 'The Huawei CloudEngine CE6870-24S6CQ-EI is an enterprise-grade data center L3 switch designed for massive east-west traffic networks. It features 24 x 10GE SFP+ ports alongside 6 x 100GE QSFP28 uplink ports. With a massive 4GB dynamic packet buffer, it prevents packet drops during bursty database, virtualization, and storage workloads, providing rock-solid spine-leaf performance.',
-    image: img('HUAWEI CE687024S6CQEI', 'photo_2026-05-31_10-42-51.jpg'),
-    images: [
-      img('HUAWEI CE687024S6CQEI', 'photo_2026-05-31_10-42-51.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_1_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_2_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_3_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_4_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_5_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_6_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_7_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_8_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_9_2026-05-31_10-47-29.jpg'),
-      img('HUAWEI CE687024S6CQEI', 'photo_10_2026-05-31_10-47-29.jpg')
-    ],
-    rating: 4.9,
-    specs: {
-      Model: 'CloudEngine CE6870-24S6CQ-EI',
-      Brand: 'Huawei Enterprise',
-      'Port Configuration': '24 x 10GE SFP+ and 6 x 100GE QSFP28',
-      'Switching Capacity': '1.68 Tbps',
-      'Packet Forwarding Rate': '1,080 Mpps',
-      'Packet Buffer': '4 GB Ultra-Large Buffer',
-      Stacking: 'iStack Support (Up to 9 switches)',
-      Features: 'VXLAN, EVPN, FCoE, Telemetry'
-    },
-    isFeatured: true
-  },
-  {
     id: 'cisco-nexus-93180yc-ex',
     name: 'Cisco Nexus 9300 N9K-C93180YC-EX 48x 10/25GbE SFP28 + 6x 100GbE QSFP28 Network Switch',
     category: 'networking',
