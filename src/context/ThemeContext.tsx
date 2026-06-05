@@ -14,10 +14,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
       if (stored === 'dark' || stored === 'light') return stored;
-      // Default to dark since user wants modern dark-themed responsive dashboard, but support both
-      return 'dark';
+      // Default to light as the starting theme
+      return 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
