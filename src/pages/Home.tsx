@@ -9,9 +9,13 @@ import { useState, useEffect, useMemo } from 'react';
 
 // Import Hero Images
 import dellServerHero from '@/src/assets/Hero-images/dell-server-hero.webp';
+import dellServerHeroSmall from '@/src/assets/Hero-images/dell-server-hero-small.webp';
 import ciscoHero from '@/src/assets/Hero-images/cisco-hero.webp';
+import ciscoHeroSmall from '@/src/assets/Hero-images/cisco-hero-small.webp';
 import intelSsdHero from '@/src/assets/Hero-images/intel-ssd-hero.webp';
+import intelSsdHeroSmall from '@/src/assets/Hero-images/intel-ssd-hero-small.webp';
 import juniperHero from '@/src/assets/Hero-images/juniper-hero.webp';
+import juniperHeroSmall from '@/src/assets/Hero-images/juniper-hero-small.webp';
 
 const BANNERS = [
   {
@@ -49,6 +53,7 @@ const HERO_SHOWCASE = [
     category: 'Enterprise Server',
     tag: 'MISSION CRITICAL',
     image: dellServerHero,
+    imageSmall: dellServerHeroSmall,
     color: 'purple'
   },
   {
@@ -57,6 +62,7 @@ const HERO_SHOWCASE = [
     category: 'Data Center Switch',
     tag: 'ULTRA LOW LATENCY',
     image: ciscoHero,
+    imageSmall: ciscoHeroSmall,
     color: 'blue'
   },
   {
@@ -65,6 +71,7 @@ const HERO_SHOWCASE = [
     category: 'Data Center Storage',
     tag: 'EXTREME RELIABILITY',
     image: intelSsdHero,
+    imageSmall: intelSsdHeroSmall,
     color: 'blue'
   },
   {
@@ -73,6 +80,7 @@ const HERO_SHOWCASE = [
     category: 'Enterprise Router',
     tag: 'HIGH PERFORMANCE',
     image: juniperHero,
+    imageSmall: juniperHeroSmall,
     color: 'purple'
   }
 ] as const;
@@ -280,10 +288,12 @@ export function Home() {
                   <div className="relative flex flex-col items-center text-center">
                     <div className="relative w-full aspect-video flex items-center justify-center mb-8">
                       <img 
-                        src={HERO_SHOWCASE[heroShowcaseIndex].image} 
+                        src={HERO_SHOWCASE[heroShowcaseIndex].imageSmall} 
+                        srcSet={`${HERO_SHOWCASE[heroShowcaseIndex].imageSmall} 400w, ${HERO_SHOWCASE[heroShowcaseIndex].image} 800w`}
+                        sizes="(max-width: 640px) 100vw, 400px"
                         alt={HERO_SHOWCASE[heroShowcaseIndex].name} 
                         width={400}
-                        height={250}
+                        height={267}
                         className={showcaseImageClass}
                         loading="eager"
                         decoding="async"
