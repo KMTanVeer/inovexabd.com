@@ -38,9 +38,20 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&family=Syncopate:wght@700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <!-- Preload Critical Fonts (Latin Subsets) -->
+    <link rel="preload" href="/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/8vIH7w4qzmVxm2BL9A.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/pe0pMIuPIYBCpEV5eFdKvtKqBP5v.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Preload LCP Image Showcase (Dell PowerEdge Server) -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="/Hero-images/dell-server-hero-small.webp" 
+      imagesrcset="/Hero-images/dell-server-hero-small.webp 400w, /Hero-images/dell-server-hero.webp 800w" 
+      imagesizes="(max-width: 640px) 100vw, 400px" 
+      fetchpriority="high" 
+    />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8KFKYF2425"></script>

@@ -7,15 +7,15 @@ import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 import { useState, useEffect, useMemo } from 'react';
 
-// Import Hero Images
-import dellServerHero from '@/src/assets/Hero-images/dell-server-hero.webp';
-import dellServerHeroSmall from '@/src/assets/Hero-images/dell-server-hero-small.webp';
-import ciscoHero from '@/src/assets/Hero-images/cisco-hero.webp';
-import ciscoHeroSmall from '@/src/assets/Hero-images/cisco-hero-small.webp';
-import intelSsdHero from '@/src/assets/Hero-images/intel-ssd-hero.webp';
-import intelSsdHeroSmall from '@/src/assets/Hero-images/intel-ssd-hero-small.webp';
-import juniperHero from '@/src/assets/Hero-images/juniper-hero.webp';
-import juniperHeroSmall from '@/src/assets/Hero-images/juniper-hero-small.webp';
+// Hero Image Static Paths
+const dellServerHero = '/Hero-images/dell-server-hero.webp';
+const dellServerHeroSmall = '/Hero-images/dell-server-hero-small.webp';
+const ciscoHero = '/Hero-images/cisco-hero.webp';
+const ciscoHeroSmall = '/Hero-images/cisco-hero-small.webp';
+const intelSsdHero = '/Hero-images/intel-ssd-hero.webp';
+const intelSsdHeroSmall = '/Hero-images/intel-ssd-hero-small.webp';
+const juniperHero = '/Hero-images/juniper-hero.webp';
+const juniperHeroSmall = '/Hero-images/juniper-hero-small.webp';
 
 const BANNERS = [
   {
