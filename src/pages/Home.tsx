@@ -465,7 +465,7 @@ export function Home() {
          <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16">
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Hardware</h2>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Products</h2>
                 <p className="text-black/70 dark:text-white/60 max-w-lg">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
               </div>
               <Link to="/shop" className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors uppercase tracking-widest text-xs">
