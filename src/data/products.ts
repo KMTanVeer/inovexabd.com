@@ -1,3 +1,4 @@
+// Re-deploy trigger: restore original backgrounds
 import { LucideIcon, Network, HardDrive, Server } from 'lucide-react';
 
 export interface Product {
