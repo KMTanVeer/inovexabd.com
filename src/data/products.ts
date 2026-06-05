@@ -67,11 +67,11 @@ export const PRODUCTS: Product[] = [
     price: 0,
     description: 'Boost Your Business with the Dell PowerEdge R630 – A Powerful, Scalable, and Reliable Server Solution\n\nThe Dell PowerEdge R630 is a high-performance rack server designed for enterprise-grade computing, virtualization, and data-intensive applications. Powered by dual Intel® Xeon® E5-2699 v3 processors, this server delivers exceptional processing power with 72 total threads, ensuring seamless multitasking, scalability, and efficiency.\n\nExtreme Performance – Equipped with 2× Intel® Xeon® E5-2699 v3 processors, delivering 36 cores and 72 threads for high-speed computing.\nScalable Memory – Supports 16GB DDR4 RAM, with expansion capabilities for higher workloads.\nRack-Mountable 1U Form Factor – Optimized for data centers, cloud computing, and enterprise IT environments.\nEnterprise-Grade Reliability – Ideal for virtualization, database management, and high-performance applications.\nEfficient Power & Cooling – Designed for maximum energy efficiency with optimized thermal performance.',
     shortDescription: 'The Dell PowerEdge R630 Server – High-Performance Rack Server for Enterprise Workloads represents a pinnacle of engineering from computing experts. Built with future-proof materials and cutting-edge silicon, this solution addresses the high-demand requirements of modern data centers and enterprise workflows.',
-    image: img('Dell PowerEdge R630', 'dell poweredge.jpg'),
+    image: img('Dell PowerEdge R630', 'dell poweredge.webp'),
     images: [
-      img('Dell PowerEdge R630', 'dell poweredge.jpg'),
-      img('Dell PowerEdge R630', '2.jpg'),
-      img('Dell PowerEdge R630', '3.jpg')
+      img('Dell PowerEdge R630', 'dell poweredge.webp'),
+      img('Dell PowerEdge R630', '2.webp'),
+      img('Dell PowerEdge R630', '3.webp')
     ],
     rating: 4.9,
     specs: {
@@ -92,10 +92,10 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The HGST Ultrastar C10K1800 is a high-performance, mission-critical 2.5-inch enterprise hard drive offering 1.2TB of capacity. Engineered for write-intensive database applications, transactional processing, and multi-drive storage arrays, this SFF drive features a 12Gb/s SAS interface and operates at 10,000 RPM, delivering rapid access times and carrier-grade reliability.',
-    image: img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.jpg'),
+    image: img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.webp'),
     images: [
-      img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.jpg'),
-      img('HGST 12 TB  10K RPM', 'photo_2_2026-05-31_10-45-21.jpg')
+      img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.webp'),
+      img('HGST 12 TB  10K RPM', 'photo_2_2026-05-31_10-45-21.webp')
     ],
     rating: 4.8,
     specs: {
@@ -116,8 +116,8 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The HPE 7.68TB NVMe Gen4 High Read Intensive SSD is designed for platforms requiring massive data access speeds and high capacity, such as read-heavy cloud virtualization, data warehousing, and big data analysis. Utilizing the high-bandwidth PCIe Gen4 x4 interface, this 2.5-inch SFF Basic Carrier drive provides exceptional read IOPs, low response latency, and solid drive write endurance.',
-    image: img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.jpg'),
-    images: [img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.jpg')],
+    image: img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.webp'),
+    images: [img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.webp')],
     rating: 4.8,
     specs: {
       Model: 'HPE P40509-B21',
@@ -138,9 +138,9 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Cisco Nexus 93180YC-EX is a high-performance Layer 2/3 switch designed for top-of-rack (ToR) data center deployments. It is equipped with 48 x 10/25 Gbps SFP+ ports and 6 x 40/100 Gbps QSFP28 uplink ports, delivering 3.6 Tbps of switching capacity. It supports Cisco ACI (Application Centric Infrastructure) or standard NX-OS, enabling robust software-defined networking.',
-    image: img('Cisco Nexus N9K C93180YC EX', '1.jpg'),
+    image: img('Cisco Nexus N9K C93180YC EX', '1_1.webp'),
     images: [
-      img('Cisco Nexus N9K C93180YC EX', '1.jpg'),
+      img('Cisco Nexus N9K C93180YC EX', '1_1.webp'),
       img('Cisco Nexus N9K C93180YC EX', '1.webp'),
       img('Cisco Nexus N9K C93180YC EX', '2.webp'),
       img('Cisco Nexus N9K C93180YC EX', '3.webp')
@@ -168,14 +168,14 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Juniper Networks MX80 is a compact, full-featured 2U routing platform engineered for enterprise, campus, and service provider edge deployments. It delivers 80 Gbps of system capacity and comes standard with 4 x 10GE SFP+ ports. With two Modular Interface Card (MIC) slots, the MX80 is highly customizable to support various fiber and copper interfaces under Junos OS.',
-    image: img('juniper mx80 universal router', '1.png'),
+    image: img('juniper mx80 universal router', '1.webp'),
     images: [
-      img('juniper mx80 universal router', '1.png'),
-      img('juniper mx80 universal router', '2.webp'),
-      img('juniper mx80 universal router', '3.webp'),
-      img('juniper mx80 universal router', '4.webp'),
-      img('juniper mx80 universal router', '5.webp'),
-      img('juniper mx80 universal router', '6.webp'),
+      img('juniper mx80 universal router', '1.webp'),
+      img('juniper mx80 universal router', 'photo_1_2026-06-05_20-31-35.webp'),
+      img('juniper mx80 universal router', 'photo_3_2026-06-05_20-31-35.webp'),
+      img('juniper mx80 universal router', 'photo_4_2026-06-05_20-31-35.webp'),
+      img('juniper mx80 universal router', 'photo_7_2026-06-05_20-31-35.webp'),
+      img('juniper mx80 universal router', 'photo_9_2026-06-05_20-31-35.webp'),
       img('juniper mx80 universal router', 'Juniper_MX80_Chassis_2X_P1-476x476.jpg.webp')
     ],
     rating: 4.8,
@@ -197,8 +197,8 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Intel D3-S4510 480GB SATA Enterprise SSD is optimized for read-intensive workloads, virtualization hosts, and data storage arrays. Built with 3D NAND TLC technology, this 2.5-inch, 7mm SSD offers consistent, predictable latency and high read-write operations, while substantially reducing power consumption compared to traditional air-filled hard drives.',
-    image: img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.jpg'),
-    images: [img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.jpg')],
+    image: img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.webp'),
+    images: [img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.webp')],
     rating: 4.7,
     specs: {
       Model: 'SSDSC2KB480G801',
@@ -218,13 +218,13 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Intel DC S3610 200GB is a high-endurance enterprise-class SATA III SSD designed for mixed-use workloads. Delivering high performance in both reads and writes, it is built with Intel 20nm HET (High Endurance Technology) MLC NAND. It is ideal for server swap files, virtualization, dynamic caching layers, and high-frequency transaction databases.',
-    image: img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.jpg'),
+    image: img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.webp'),
     images: [
-      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.jpg'),
-      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-2.jpg'),
-      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-3.jpg'),
-      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-4.jpg'),
-      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-5.jpg')
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.webp'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-2.webp'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-3.webp'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-4.webp'),
+      img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-5.webp')
     ],
     rating: 4.7,
     specs: {
@@ -245,18 +245,18 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Intel DC S4500 240GB Enterprise SATA SSD is designed to help legacy storage arrays run more efficiently. Built on Intel 3D NAND TLC technology, it provides high read operations and reliable data integrity. It offers an excellent path to replace mechanical HDDs with high-performance, low-power solid-state infrastructure.',
-    image: img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.jpg'),
+    image: img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.webp'),
     images: [
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_2_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_3_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_4_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_5_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_6_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_7_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_8_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_9_2026-05-31_10-24-02.jpg'),
-      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_10_2026-05-31_10-24-02.jpg')
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_2_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_3_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_4_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_5_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_6_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_7_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_8_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_9_2026-05-31_10-24-02.webp'),
+      img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_10_2026-05-31_10-24-02.webp')
     ],
     rating: 4.8,
     specs: {
@@ -278,12 +278,12 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'An alternative carrier variant of the Intel SSD D3-S4510 480GB. Utilizing Intel 3D NAND TLC, this drive provides the exact same high read IOPS and enterprise-grade power-loss data protection, making it compatible with various specialized server caddies and drive enclosures in modular data systems.',
-    image: img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.jpg'),
+    image: img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.webp'),
     images: [
-      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.jpg'),
-      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-1.jpg'),
-      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-2.jpg'),
-      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-3.jpg')
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.webp'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-1.webp'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-2.webp'),
+      img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-3.webp')
     ],
     rating: 4.7,
     specs: {
@@ -304,13 +304,13 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Mellanox ConnectX-3 EN (MCX312B-XCCT) is a dual-port 10G/40G SFP+ network interface card designed for latency-sensitive network storage and cloud servers. Equipped with a PCIe 3.0 x8 interface, it features RoCE (RDMA over Converged Ethernet) and network virtualization offloads (VXLAN, NVGRE), maximizing server performance.',
-    image: img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.jpg'),
+    image: img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.webp'),
     images: [
-      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.jpg'),
-      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_2_2026-05-31_10-46-45.jpg'),
-      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_3_2026-05-31_10-46-45.jpg'),
-      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_4_2026-05-31_10-46-45.jpg'),
-      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_5_2026-05-31_10-46-45.jpg')
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.webp'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_2_2026-05-31_10-46-45.webp'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_3_2026-05-31_10-46-45.webp'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_4_2026-05-31_10-46-45.webp'),
+      img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_5_2026-05-31_10-46-45.webp')
     ],
     rating: 4.8,
     specs: {
@@ -330,16 +330,16 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Intel Ethernet Converged Network Adapter X710-DA2 is a dual-port 10GbE network interface card designed for server virtualization, cloud setups, and LAN workloads. It features hardware-based traffic optimization (Intel Flow Director) and full support for network virtualization offloads (VXLAN, NVGRE, Geneve) on a PCIe 3.0 x8 interface.',
-    image: img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.jpg'),
+    image: img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.webp'),
     images: [
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_2_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_3_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_4_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_5_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_6_2026-05-31_10-25-03.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_7_2026-05-31_10-25-04.jpg'),
-      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_8_2026-05-31_10-25-04.jpg')
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_2_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_3_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_4_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_5_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_6_2026-05-31_10-25-03.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_7_2026-05-31_10-25-04.webp'),
+      img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_8_2026-05-31_10-25-04.webp')
     ],
     rating: 4.8,
     specs: {
@@ -359,18 +359,18 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Intel Ethernet Server Adapter X520-DA2 is a highly reliable, dual-port 10GbE SFP+ adapter card designed for storage area networks (SAN) and high-traffic databases. Powered by the Intel 82599ES controller, it offers native FCoE and iSCSI hardware offloads, reducing CPU utilization while maintaining packet performance.',
-    image: img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.jpg'),
+    image: img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.webp'),
     images: [
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_2_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_3_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_4_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_5_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_6_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_7_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_8_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_9_2026-05-31_10-26-27.jpg'),
-      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_10_2026-05-31_10-26-27.jpg')
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_2_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_3_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_4_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_5_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_6_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_7_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_8_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_9_2026-05-31_10-26-27.webp'),
+      img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_10_2026-05-31_10-26-27.webp')
     ],
     rating: 4.7,
     specs: {
@@ -390,10 +390,10 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Dell 1.8TB 10K RPM SAS 12Gbps is a small form factor (SFF) 2.5-inch enterprise mechanical hard drive designed for Dell PowerEdge servers. Operating at 10,000 RPM over a fast SAS 12Gbps interface, this 512e sector format drive delivers the optimal combination of transaction performance, capacity, and power efficiency for high-density storage applications.',
-    image: img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.jpg'),
+    image: img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.webp'),
     images: [
-      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.jpg'),
-      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-2.jpg')
+      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.webp'),
+      img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-2.webp')
     ],
     rating: 4.6,
     specs: {
@@ -413,18 +413,18 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Supermicro AOC-STGN-i2S (v2.11) is a low-power, dual-port 10GbE network interface card based on the Intel 82599ES controller. Designed for Supermicro SuperServers and storage platforms, this PCIe card supports high-throughput SFP+ optical links, Direct Attach Copper (DAC) cables, and features robust virtualization offloads.',
-    image: img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.jpg'),
+    image: img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.webp'),
     images: [
-      img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_2_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_3_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_4_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_5_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_6_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_7_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_8_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_9_2026-06-01_07-52-15.jpg'),
-      img('Supermicro 2.11  Lan Card', 'photo_10_2026-06-01_07-52-15.jpg')
+      img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_2_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_3_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_4_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_5_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_6_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_7_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_8_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_9_2026-06-01_07-52-15.webp'),
+      img('Supermicro 2.11  Lan Card', 'photo_10_2026-06-01_07-52-15.webp')
     ],
     rating: 4.7,
     specs: {
@@ -443,11 +443,11 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Solidigm D7-P5520 (formerly Intel SSD D7-P5520) is a 7.68TB enterprise-grade PCIe 4.0 NVMe SSD. Utilizing advanced 144-Layer 3D TLC NAND, this high-performance U.2 drive delivers massive read speeds up to 7,100 MB/s and extreme endurance (1 DWPD), optimized for write-intensive cloud virtualization, HPC, and heavy databases.',
-    image: img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.jpg'),
+    image: img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.webp'),
     images: [
-      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.jpg'),
-      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_2_2026-06-01_07-53-10.jpg'),
-      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_3_2026-06-01_07-53-10.jpg')
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.webp'),
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_2_2026-06-01_07-53-10.webp'),
+      img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_3_2026-06-01_07-53-10.webp')
     ],
     rating: 4.8,
     specs: {
@@ -468,10 +468,10 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The AOC-STGN-i2S (v2.0) is a dual-port 10G SFP+ PCI-e network card manufactured by Supermicro. Built on the industry-standard Intel 82599ES controller, it allows high-speed 10Gbps optical fiber and DAC copper connections, providing solid load balancing and virtualization support for rackmount servers.',
-    image: img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.jpg'),
+    image: img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.webp'),
     images: [
-      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.jpg'),
-      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_2_2026-06-01_07-53-55.jpg')
+      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.webp'),
+      img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_2_2026-06-01_07-53-55.webp')
     ],
     rating: 4.7,
     specs: {
@@ -490,13 +490,13 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'A variant of Supermicro AOC-STGN-i2S dual-port 10GbE network controller equipped with a custom pro-series carrier bracket. Based on the Intel 82599ES chip, it is optimized for high-bandwidth virtualization, high-speed storage networking, and redundant link deployments in modern IT setups.',
-    image: img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.jpg'),
+    image: img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.webp'),
     images: [
-      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.jpg'),
-      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_2_2026-06-01_07-55-10.jpg'),
-      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_3_2026-06-01_07-55-10.jpg'),
-      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_4_2026-06-01_07-55-10.jpg'),
-      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_5_2026-06-01_07-55-10.jpg')
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.webp'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_2_2026-06-01_07-55-10.webp'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_3_2026-06-01_07-55-10.webp'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_4_2026-06-01_07-55-10.webp'),
+      img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_5_2026-06-01_07-55-10.webp')
     ],
     rating: 4.8,
     specs: {
@@ -515,8 +515,8 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'This LC to LC OM4 Laser-Optimized Multimode Fiber (LOMMF) patch cord is designed for 40G/100G high-speed networking applications. Constructed with 50/125µm fiber core and a Low Smoke Zero Halogen (LSZH) jacket, it provides low insertion loss and high bandwidth capabilities in short-range data center switch links.',
-    image: img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.jpg'),
-    images: [img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.jpg')],
+    image: img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.webp'),
+    images: [img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.webp')],
     rating: 4.7,
     specs: {
       Type: 'OM4 Duplex Multimode Fiber Patch Cord',
@@ -534,8 +534,8 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Samsung PM863a 1.92TB is an enterprise-class SATA III 2.5-inch SSD designed for data centers requiring high read-write stability. Utilizing Samsung V-NAND technology, this SSD features power-loss protection, high queue-depth performance, and is optimized for web servers, content distribution networks, and enterprise database infrastructure.',
-    image: img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.jpg'),
-    images: [img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.jpg')],
+    image: img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.webp'),
+    images: [img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.webp')],
     rating: 4.7,
     specs: {
       Model: 'MZ7LM1T9HMJP',
@@ -555,8 +555,8 @@ export const PRODUCTS: Product[] = [
     category: 'storage',
     price: 0,
     description: 'The Dell Intel DC P4510 1.0TB NVMe SSD is a high-performance U.2 drive engineered for cloud systems, hyperconverged architectures, and database operations. Built with Intel 3D NAND TLC technology on a PCIe 3.1 x4 interface, it minimizes latency, increases throughput, and is fully certified for Dell PowerEdge servers.',
-    image: img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.jpg'),
-    images: [img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.jpg')],
+    image: img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.webp'),
+    images: [img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.webp')],
     rating: 4.8,
     specs: {
       Model: 'SSDPE2KX010T8D / Dell PN: 0VY9M',
@@ -607,8 +607,8 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Mellanox MMA1B00-C100D LinkX is a high-speed 100Gb/s optical transceiver module designed for spine-leaf switches and InfiniBand routers. Utilizing 4-channel 850nm VCSEL lasers, it supports connections up to 100 meters over OM4 multimode fiber, terminating in a standard MPO-12 connector.',
-    image: img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.jpg'),
-    images: [img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.jpg')],
+    image: img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.webp'),
+    images: [img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.webp')],
     rating: 4.8,
     specs: {
       Model: 'MMA1B00-C100D',
@@ -627,10 +627,10 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Mellanox ConnectX-5 EN (MCX512A-ADAT) is a dual-port 25GbE network interface card designed for cloud hosts, virtualization, and flash storage. With a PCIe 3.0 x8 interface, it features hardware offloads for VXLAN, NVGRE, and RoCE v2, enabling exceptional processing speeds and low host CPU utilization.',
-    image: img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.jpg'),
+    image: img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.webp'),
     images: [
-      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.jpg'),
-      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_2_2026-06-01_07-57-37.jpg')
+      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.webp'),
+      img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_2_2026-06-01_07-57-37.webp')
     ],
     rating: 4.9,
     specs: {
@@ -649,14 +649,14 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Intel XXV710-DA2 is a dual-port 25GbE SFP28 PCIe network card designed for server consolidation and data centers. Operating on a PCIe 3.0 x8 slot, it supports network virtualization offloads, Intel Flow Director, and provides backward compatibility to 10GbE, enabling a smooth path to high-speed migrations.',
-    image: img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
+    image: img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.webp'),
     images: [
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.jpg'),
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_2_2026-06-01_07-48-53.jpg'),
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_3_2026-06-01_07-48-53.jpg'),
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_4_2026-06-01_07-48-53.jpg'),
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_5_2026-06-01_07-48-53.jpg'),
-      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_6_2026-06-01_07-48-53.jpg')
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.webp'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_2_2026-06-01_07-48-53.webp'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_3_2026-06-01_07-48-53.webp'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_4_2026-06-01_07-48-53.webp'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_5_2026-06-01_07-48-53.webp'),
+      img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_6_2026-06-01_07-48-53.webp')
     ],
     rating: 4.8,
     specs: {
@@ -675,15 +675,15 @@ export const PRODUCTS: Product[] = [
     category: 'servers',
     price: 0,
     description: 'The Dell PowerEdge R640 is a high-performance 1U, two-socket rack server designed to handle demanding enterprise data center workloads. Supporting dual Intel Xeon Scalable processors and up to 3TB DDR4 RAM, this server offers the optimal mix of compute capacity, NVMe storage density, and redundancy for virtualization and heavy applications.',
-    image: img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
+    image: img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.webp'),
     images: [
-      img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_2_2026-06-01_07-50-25.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_3_2026-06-01_07-50-25.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_4_2026-06-01_07-50-25.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_5_2026-06-01_07-50-25.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_6_2026-06-01_07-50-26.jpg'),
-      img('Dell R 640 Power Edge Server', 'photo_7_2026-06-01_07-50-26.jpg')
+      img('Dell R 640 Power Edge Server', 'photo_1_2026-06-01_07-50-25.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_2_2026-06-01_07-50-25.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_3_2026-06-01_07-50-25.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_4_2026-06-01_07-50-25.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_5_2026-06-01_07-50-25.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_6_2026-06-01_07-50-26.webp'),
+      img('Dell R 640 Power Edge Server', 'photo_7_2026-06-01_07-50-26.webp')
     ],
     rating: 4.9,
     specs: {
@@ -703,12 +703,12 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Fujitsu D3045-A11 is a quad-port 1Gbps Ethernet PCI-e network interface card. Based on the Intel i350-AM4 controller, it is designed to deliver stable network virtualization and load balancing, making it ideal for multi-homed server applications and firewall gateways.',
-    image: img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
+    image: img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.webp'),
     images: [
-      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.jpg'),
-      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_2_2026-06-01_07-51-42.jpg'),
-      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_3_2026-06-01_07-51-42.jpg'),
-      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_4_2026-06-01_07-51-42.jpg')
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.webp'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_2_2026-06-01_07-51-42.webp'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_3_2026-06-01_07-51-42.webp'),
+      img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_4_2026-06-01_07-51-42.webp')
     ],
     rating: 4.6,
     specs: {
@@ -727,18 +727,18 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'A bulk-packaged edition of the Fujitsu D3045-A11 quad-port 1Gbps network adapter card. Powered by the Intel i350 controller, it supports full hardware acceleration, energy-efficient ethernet, and redundant network interface card (NIC) teaming configurations.',
-    image: img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
+    image: img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.webp'),
     images: [
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_2_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_3_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_4_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_5_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_6_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_7_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_8_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_9_2026-06-01_07-51-04.jpg'),
-      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_10_2026-06-01_07-51-04.jpg')
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_2_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_3_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_4_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_5_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_6_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_7_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_8_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_9_2026-06-01_07-51-04.webp'),
+      img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_10_2026-06-01_07-51-04.webp')
     ],
     rating: 4.7,
     specs: {
