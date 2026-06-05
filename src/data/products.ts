@@ -607,19 +607,30 @@ export const PRODUCTS: Product[] = [
     name: 'Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module',
     category: 'networking',
     price: 0,
-    description: 'The Cisco QSFP-40G-SR4 is a hot-swappable 40G optical transceiver module designed for short-reach fiber links. It operates at 850nm wavelengths over multimode fiber (MMF), supporting links up to 100 meters on OM3 fiber and 150 meters on OM4 fiber. It uses an MPO/MTP-12 connector configuration.',
-    image: img('Cisco QSFP-40G-SR4', 'photo_1_2026-06-01_07-56-43.jpg'),
-    images: [img('Cisco QSFP-40G-SR4', 'photo_1_2026-06-01_07-56-43.jpg')],
+    description: 'The Cisco QSFP-40G-SR4 is a hot-swappable, parallel fiber-optic QSFP+ transceiver module designed for high-density 40 Gigabit Ethernet links in enterprise networks and data centers. It operates at 850nm nominal wavelength over multimode fiber (MMF), supporting transmission distances of up to 100 meters on OM3 MMF and up to 150 meters on OM4 MMF. Equipped with an MPO-12 optical interface, it supports a 4x10G breakout mode when used with parallel-to-duplex breakout cables, facilitating connectivity to 10GBASE-SR interfaces. It features low power consumption (typically 1.5W), hot-swappability for seamless installation, and full compliance with IEEE 802.3ba 40GBASE-SR4 and SFF-8436 standards, offering reliable optical connectivity.',
+    shortDescription: 'The Cisco QSFP-40G-SR4 is a hot-swappable 40G QSFP+ optical transceiver module featuring an MPO-12 connector, supporting OM3/OM4 and 4x10G breakout cabling.',
+    image: img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'Cisco 40GBASE-SR4 QSFP+ optical transceiver module.webp'),
+    images: [
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'Cisco 40GBASE-SR4 QSFP+ optical transceiver module.webp'),
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'photo_1_2026-06-01_07-56-43.webp'),
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'photo_1_2026-06-01_07-56-43 (2).webp'),
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'photo_1_2026-06-05_12-00-50.webp'),
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'photo_2_2026-06-05_12-00-50.webp'),
+      img('Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module', 'photo_5_2026-06-05_12-00-50.webp')
+    ],
     rating: 4.8,
     specs: {
       Model: 'QSFP-40G-SR4',
       Brand: 'Cisco Systems',
       Type: 'QSFP+ Transceiver Module',
       Cabling: 'OM3 / OM4 Multimode Fiber (MMF)',
-      Connector: 'MPO-12 Duplex',
+      Connector: 'MPO-12 Duplex (8-fiber)',
       Speed: '40 Gbps',
       Wavelength: '850 nm',
-      Distance: '100m (OM3) / 150m (OM4)'
+      Distance: '100m (OM3) / 150m (OM4)',
+      'Breakout Support': 'Supports 4 x 10G breakout cabling',
+      'Power Consumption': '~1.5 Watts',
+      Compliance: 'IEEE 802.3ba 40GBASE-SR4, SFF-8436'
     }
   },
   {
@@ -770,6 +781,151 @@ export const PRODUCTS: Product[] = [
       Interface: 'PCIe 2.1 x4',
       Controller: 'Intel i350 Controller',
       Features: 'Virtual Machine Device Queues (VMDq), SR-IOV'
+    }
+  },
+  {
+    id: 'dell-broadcom-57412-10gbe',
+    name: 'Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCIe Network Adapter',
+    category: 'networking',
+    price: 0,
+    description: 'The Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCI-e Network Adapter is a high-performance network interface card engineered for enterprise data centers and virtualization environments. Built on the advanced Broadcom BCM57412 controller, it offers reliable 10 Gbps Ethernet connectivity per port (up to 20 Gbps full-duplex) with dual SFP+ slots. Fully compatible with Dell PowerEdge rack servers (such as R640, R740, and R750 series), it features full hardware offloading for VXLAN, NVGRE, and Geneve virtualization encapsulations. With TruFlow™ flow processing technology and RDMA over Converged Ethernet (RoCE) support, it minimizes host CPU overhead and delivers low latency for storage and high-throughput workloads.',
+    shortDescription: 'The Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCIe Network Adapter is a high-performance network interface card designed to accelerate cloud scale databases and virtualization environments with hardware offloading.',
+    image: img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_1_2026-06-05_11-54-13.webp'),
+    images: [
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_1_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_2_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_3_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_4_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_5_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_6_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_8_2026-06-05_11-54-13.webp'),
+      img('Dell Broadcom 57412 dual-port 10GbE SFP+ network adapter', 'photo_10_2026-06-05_11-54-13.webp')
+    ],
+    rating: 4.8,
+    specs: {
+      Model: 'BCM57412 (Dell PN: GMW01 / 0NWK2 / NWR7D)',
+      Brand: 'Dell / Broadcom',
+      Speed: '10 Gbps per port',
+      Ports: '2 x SFP+ Slots',
+      Interface: 'PCI Express 3.0 x8',
+      Controller: 'Broadcom BCM57412',
+      Features: 'RoCE, TruFlow™, SR-IOV (Up to 128 VFs), VXLAN/NVGRE/Geneve Offloads',
+      'Cabling Support': 'Direct Attach Copper (DAC) and LC Fiber-Optic (SR/LR)'
+    }
+  },
+  {
+    id: 'dell-poweredge-nvme-pcie-extender',
+    name: 'Dell PowerEdge NVMe PCIe Extender Expansion Card',
+    category: 'storage',
+    price: 0,
+    description: 'The Dell PowerEdge NVMe PCIe Extender Expansion Card is a high-speed passive routing bridge designed to link enterprise-grade PCIe NVMe SSDs directly to PowerEdge servers. Utilizing a physical PCIe x16 interface to connect to riser slots, this card features dual SlimSAS (SFF-8654) internal connectors for clean cabling to the server\'s drive backplane. It ensures maximum data transfer rates between the CPU and high-performance storage, fully certified to support models such as R630, R730, R640, R740, R740xd, R840, and R940. Note: This is an extender card enabling direct NVMe connectivity; software-based OS-level RAID or dedicated NVMe RAID controllers are required for disk redundancy.',
+    shortDescription: 'The Dell PowerEdge NVMe PCIe Extender Expansion Card connects PCIe lanes to NVMe SSD drive backplanes, enabling ultra-fast storage access in Dell PowerEdge systems.',
+    image: img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_1_2026-06-05_12-06-05.webp'),
+    images: [
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_1_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_2_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_3_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_4_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_5_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_6_2026-06-05_12-06-05.webp'),
+      img('Dell PowerEdge NVMe PCIe Extender Expansion Card', 'photo_7_2026-06-05_12-06-05.webp')
+    ],
+    rating: 4.8,
+    specs: {
+      Model: 'Dell PowerEdge NVMe PCIe Extender (PN: 1YGFW / TJCNG / GY1TD / 235NK)',
+      Brand: 'Dell Technologies',
+      Interface: 'PCI Express x16',
+      'Internal Connectors': 'SlimSAS SFF-8654',
+      'Supported Servers': 'PowerEdge R630, R640, R740, R740xd, R840, R940',
+      'Form Factor': 'Standard PCIe Expansion Card',
+      Function: 'Passive PCIe Routing Bridge (Non-RAID)'
+    }
+  },
+  {
+    id: 'mikrotik-routeros-x86-level6-ssd',
+    name: 'MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5-inch SATA SSD',
+    category: 'storage',
+    price: 0,
+    description: 'The MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5-inch SATA SSD is a solid-state boot drive containing the robust RouterOS x86 software pre-installed with a lifetime Level 6 Controller license. Level 6 license provides unlimited virtual interfaces, unlimited EoIP tunnels, unlimited PPPoE/PPtP/L2TP tunnels, unlimited HotSpot active users, and full routing support. Bound permanently to the drive\'s software ID, this SSD allows you to instantly transform standard PC/server hardware into an enterprise-grade router. It is optimized for high uptime, low write latency, and compatible with both legacy BIOS and UEFI motherboard boot configurations.',
+    shortDescription: 'Transform standard PC/server hardware into an enterprise-grade router with this 2.5-inch SATA SSD preinstalled with a lifetime MikroTik RouterOS Level 6 license.',
+    image: img('MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD', 'photo_1_2026-06-05_11-57-37.webp'),
+    images: [
+      img('MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD', 'photo_1_2026-06-05_11-57-37.webp'),
+      img('MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD', 'photo_2_2026-06-05_11-57-37.webp'),
+      img('MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD', 'photo_3_2026-06-05_11-57-37.webp'),
+      img('MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD', 'photo_4_2026-06-05_11-57-37.webp')
+    ],
+    rating: 4.9,
+    specs: {
+      'License Level': 'Level 6 (Unlimited / Lifetime Key)',
+      'Form Factor': '2.5-inch SATA III SSD',
+      'OS Installed': 'MikroTik RouterOS x86',
+      'Tunnels Supported': 'Unlimited PPPoE, L2TP, PPtP, EoIP, OVPN',
+      'Queues & Firewall': 'Unlimited queues, advanced firewalling',
+      'Boot Mode': 'Supports Legacy BIOS / UEFI configurations',
+      'Target Systems': 'x86 PC / Server Router Platforms'
+    }
+  },
+  {
+    id: 'nvidia-mellanox-mc2210411-sr4',
+    name: 'NVIDIA Mellanox MC2210411-SR4 40Gb/s QSFP+ Optical Transceiver Module',
+    category: 'networking',
+    price: 0,
+    description: 'The NVIDIA Mellanox MC2210411-SR4 is a hot-pluggable, 4-channel pluggable optical transceiver designed for high-density 40Gb/s Ethernet and InfiniBand FDR10 applications. Operating at an 850nm nominal wavelength over multimode fiber (MMF), it supports a transmission reach up to 100 meters on OM3 MMF and up to 150 meters on OM4 MMF. It features an MPO-12 optical interface and integrated Digital Diagnostic Monitoring (DDM/DOM) to track temperature, supply voltage, transmit/receive power, and laser bias in real-time. Built with high-performance VCSEL transmitters and PIN receivers, this transceiver operates over standard case temperatures (0°C to 70°C) with single 3.3V power, compliant with IEEE 802.3ba and SFF-8436 standards.',
+    shortDescription: 'The NVIDIA Mellanox MC2210411-SR4 is a high-speed 40G QSFP+ optical transceiver module featuring an MPO-12 connector and DDM diagnostics.',
+    image: img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'NVIDIA Mellanox MMA1B00-C100D LinkX 100GbE QSFP28 SR4 Optical Transceiver.webp'),
+    images: [
+      img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'NVIDIA Mellanox MMA1B00-C100D LinkX 100GbE QSFP28 SR4 Optical Transceiver.webp'),
+      img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'NVIDIA Mellanox MMA1B00-C100D LinkX 100GbE QSFP28 SR4 Optical Transceiver-img3.webp'),
+      img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'photo_2_2026-06-05_11-58-10.webp'),
+      img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'photo_3_2026-06-05_11-58-10.webp'),
+      img('NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers', 'photo_6_2026-06-05_11-58-10.webp')
+    ],
+    rating: 4.8,
+    specs: {
+      Model: 'MC2210411-SR4',
+      Brand: 'NVIDIA Mellanox',
+      'Form Factor': 'QSFP+',
+      'Data Rate': '40 Gbps (4x 10.3Gbps channels)',
+      Wavelength: '850 nm',
+      Connector: 'MPO-12 Duplex (8-fiber)',
+      Distance: '100m (OM3 MMF) / 150m (OM4 MMF)',
+      Compliance: 'IEEE 802.3ba 40GBASE-SR4, SFF-8436, RoHS',
+      Diagnostics: 'Digital Diagnostic Monitoring (DDM / DOM) Supported'
+    }
+  },
+  {
+    id: 'supermicro-dual-sfp-v210',
+    name: 'Supermicro AOC-STGN-i2S Dual-Port 10GbE SFP+ PCI-e Adapter (v2.10)',
+    category: 'networking',
+    price: 0,
+    description: 'The Supermicro AOC-STGN-i2S (v2.10) is a low-profile, dual-port 10GbE network adapter card built on the industry-standard Intel® 82599ES 10Gb Ethernet controller. Powered by a PCI Express 2.0 x8 physical interface, it supports up to 10 Gbps transfer rates per port (totaling 20 Gbps full-duplex) using Direct-Attached Copper (DAC) cables or SFP+ fiber optical transceivers. Ideal for virtualization and high VM environments, it includes support for VMDq and PCI-SIG SR-IOV. It also provides advanced TCP/IP, SCTP, and UDP checksum offloads, Fibre Channel over Ethernet (FCoE), iSCSI boot, PXE, and NC-SI remote management, making it an excellent cost-effective upgrade for rackmount servers.',
+    shortDescription: 'The Supermicro AOC-STGN-i2S (v2.10) is a dual-port 10G SFP+ network adapter card powered by the Intel 82599ES controller for high-speed connectivity.',
+    image: img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_1_2026-06-05_11-55-13.webp'),
+    images: [
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_1_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_2_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_3_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_4_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_5_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_7_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_8_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_9_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_10_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_12_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_14_2026-06-05_11-55-13.webp'),
+      img('Supermicro 10 G dual port SFP LAN Card version 2.10', 'photo_1_2026-06-05_11-55-56.webp')
+    ],
+    rating: 4.7,
+    specs: {
+      Model: 'AOC-STGN-i2S (v2.10)',
+      Brand: 'Supermicro',
+      Speed: '10 Gbps per port',
+      Ports: '2 x SFP+ Slots',
+      Interface: 'PCI Express 2.0 x8',
+      Controller: 'Intel 82599ES Controller',
+      Features: 'VMDq, SR-IOV, FCoE, NC-SI management, iSCSI boot',
+      Dimensions: '4.0" (102mm) x 2.73" (69mm)'
     }
   }
 ];
