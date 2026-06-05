@@ -31,10 +31,10 @@ export function BrandLogo({ className, variant = 'full', showMark = true, highli
   if (variant === 'topbar') {
     return (
       <div className={`flex items-center gap-1.5 md:gap-3 ${className}`}>
-        <img src="/inovexabd-logo.png" alt="Inovexa Symbol" width={918} height={740} className="h-10 w-auto object-contain" />
+        <img src="/inovexabd-logo.webp" alt="Inovexa Symbol" width={148} height={120} className="h-10 w-auto object-contain" />
         <span className="h-6 w-px bg-black/15 dark:bg-white/20" aria-hidden="true" />
-        <img src="/inovexabd-banner.png" alt="Inovexa Banner" width={1143} height={158} className="h-5 md:h-6 w-auto object-contain dark:hidden" />
-        <img src="/inovexabd-banner-dark-mode.png" alt="Inovexa Banner" width={714} height={99} className="h-5 md:h-6 w-auto object-contain hidden dark:block" />
+        <img src="/inovexabd-banner.webp" alt="Inovexa Banner" width={520} height={72} className="h-5 md:h-6 w-auto object-contain dark:hidden" />
+        <img src="/inovexabd-banner-dark-mode.webp" alt="Inovexa Banner" width={519} height={72} className="h-5 md:h-6 w-auto object-contain hidden dark:block" />
       </div>
     );
   }

@@ -287,6 +287,7 @@ export function Home() {
                         className={showcaseImageClass}
                         loading="eager"
                         decoding="async"
+                        fetchPriority="high"
                         referrerPolicy="no-referrer"
                       />
                     </div>
