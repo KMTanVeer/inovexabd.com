@@ -253,7 +253,7 @@ export function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className="pt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-black/5 dark:border-white/5"
+              className="pt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-zinc-200/85 dark:border-white/5"
             >
               {[
                 { label: 'NETWORK POWER', value: '100G+' },
@@ -530,7 +530,7 @@ export function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-black/5 dark:bg-black/40">
+      <section className="py-24 bg-zinc-100/40 dark:bg-black/40 border-t border-zinc-200/50 dark:border-none">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[

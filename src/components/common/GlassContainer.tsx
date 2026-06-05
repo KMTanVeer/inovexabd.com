@@ -14,8 +14,8 @@ export function GlassContainer({ children, className, hoverGlow = false, ...prop
   return (
     <div 
       className={cn(
-        "bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border border-black/5 dark:border-white/5 rounded-2xl",
-        hoverGlow && "transition-all duration-300 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:bg-white/60 dark:hover:bg-white/10 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]",
+        "bg-white/70 dark:bg-zinc-950/40 backdrop-blur-xl border border-white/85 dark:border-white/5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.02)] dark:shadow-none transition-all duration-300",
+        hoverGlow && "hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:bg-white/90 dark:hover:bg-white/10 hover:shadow-[0_12px_40px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]",
         className
       )}
       {...props}
