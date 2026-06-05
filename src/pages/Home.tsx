@@ -520,7 +520,7 @@ export function Home() {
                 <Link to="/contact" className="px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition-all">
                   Contact Sales Specialist
                 </Link>
-                <Link to="/contact" className="px-10 py-5 rounded-full border border-black/20 dark:border-white/20 text-black dark:text-white font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all">
+                <Link to="/about" className="px-10 py-5 rounded-full border border-black/20 dark:border-white/20 text-black dark:text-white font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all">
                   About Inovexa
                 </Link>
               </div>
