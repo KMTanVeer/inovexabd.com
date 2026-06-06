@@ -99,6 +99,31 @@ export function Home() {
   const [itemsPerView, setItemsPerView] = useState(4);
   const [gapRem, setGapRem] = useState(1.5);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      setCurrentIndex((prev) => Math.min(prev + 1, featuredProducts.length - itemsPerView));
+    } else if (distance < -minSwipeDistance) {
+      setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    }
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -481,7 +506,12 @@ export function Home() {
               </Link>
             </div>
 
-            <div className="relative">
+            <div 
+              className="relative overflow-hidden touch-pan-y"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <motion.div 
                 className="flex gap-4 sm:gap-6"
                 animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}

@@ -168,7 +168,7 @@ export const PRODUCTS: Product[] = [
     category: 'networking',
     price: 0,
     description: 'The Juniper Networks MX80 is a compact, full-featured 2U routing platform engineered for enterprise, campus, and service provider edge deployments. It delivers 80 Gbps of system capacity and comes standard with 4 x 10GE SFP+ ports. With two Modular Interface Card (MIC) slots, the MX80 is highly customizable to support various fiber and copper interfaces under Junos OS.',
-    image: img('juniper mx80 universal router', 'Juniper_MX80_Chassis_2X_P1-476x476.jpg.webp'),
+    image: img('juniper mx80 universal router', 'photo_1_2026-06-05_20-31-35.webp'),
     images: [
       img('juniper mx80 universal router', '1.webp'),
       img('juniper mx80 universal router', 'photo_1_2026-06-05_20-31-35.webp'),
