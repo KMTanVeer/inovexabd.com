@@ -141,38 +141,73 @@ function CategorySlider({
     setTouchEnd(null);
   };
 
+  const handlePrev = () => {
+    const maxIndex = Math.max(0, products.length - itemsPerView);
+    if (maxIndex === 0) return;
+    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
+  };
+
+  const handleNext = () => {
+    const maxIndex = Math.max(0, products.length - itemsPerView);
+    if (maxIndex === 0) return;
+    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
+  };
+
+  const showArrows = products.length > itemsPerView;
+
   return (
     <div 
       className="mb-16 last:mb-0"
       onMouseEnter={() => setIsSliderPaused(true)}
       onMouseLeave={() => setIsSliderPaused(false)}
     >
-      <div className="mb-6">
+      <div className="mb-6 flex flex-col items-center text-center">
         <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white mb-2">{title}</h3>
-        <p className="text-sm text-black/60 dark:text-white/60 max-w-xl">{description}</p>
+        <p className="text-sm text-black/60 dark:text-white/60 max-w-xl text-center">{description}</p>
       </div>
 
-      <div 
-        className="relative overflow-hidden touch-pan-y"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <motion.div 
-          className="flex gap-4 sm:gap-6"
-          animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      <div className="relative">
+        <div 
+          className="relative overflow-hidden touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {products.map((product, index) => (
-            <div key={`${(product as any)._id || product.id}-${index}`} className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
-              <ProductCard 
-                product={product} 
-                index={index % 4} 
-                onQuickViewChange={onQuickViewChange}
-              />
-            </div>
-          ))}
-        </motion.div>
+          <motion.div 
+            className={`flex gap-4 sm:gap-6 ${products.length < itemsPerView ? 'justify-center w-full' : ''}`}
+            animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+          >
+            {products.map((product, index) => (
+              <div key={`${(product as any)._id || product.id}-${index}`} className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
+                <ProductCard 
+                  product={product} 
+                  index={index % 4} 
+                  onQuickViewChange={onQuickViewChange}
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {showArrows && (
+          <>
+            <button
+              onClick={handlePrev}
+              aria-label="Previous products"
+              className="absolute left-[-0.75rem] sm:left-[-1.5rem] md:left-[-2rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Next products"
+              className="absolute right-[-0.75rem] sm:right-[-1.5rem] md:right-[-2rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
       </div>
 
       <div className="flex justify-center gap-1 mt-6">
@@ -586,17 +621,17 @@ export function Home() {
       <section className="py-24 relative overflow-hidden">
          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16 border-b border-black/5 dark:border-white/10 pb-6">
-              <div className="space-y-4">
+            <div className="flex flex-col items-center justify-center gap-4 mb-16 border-b border-black/5 dark:border-white/10 pb-8 text-center">
+              <div className="space-y-3 flex flex-col items-center">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Products</h2>
-                <p className="text-black/70 dark:text-white/60 max-w-lg">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
+                <p className="text-black/70 dark:text-white/60 max-w-2xl text-center">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
               </div>
-              <Link to="/shop" className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors uppercase tracking-widest text-xs">
+              <Link to="/shop" className="flex items-center justify-center gap-2 text-blue-700 dark:text-blue-400 font-bold hover:text-blue-800 dark:hover:text-blue-300 transition-colors uppercase tracking-widest text-xs">
                 Browse Full Catalog <ChevronRight size={16} />
               </Link>
             </div>
 
-            <div className="space-y-20">
+            <div className="space-y-20 max-w-6xl mx-auto">
               <CategorySlider
                 title="Servers"
                 description={categoryDescriptions.servers}
