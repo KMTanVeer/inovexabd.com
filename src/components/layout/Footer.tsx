@@ -1,8 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, Twitter, Github, Linkedin, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 
 export function Footer() {
+  const location = useLocation();
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="relative bg-slate-100 dark:bg-black pt-24 pb-12 overflow-hidden border-t border-black/5 dark:border-white/10">
       {/* Glow Effect */}
@@ -12,7 +20,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-2 group">
+            <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
               <BrandLogo showMark={false} className="w-12 h-12 transform transition-transform group-hover:rotate-12" />
             </Link>
             <p className="text-black/60 dark:text-white/50 text-sm leading-relaxed max-w-xs">
@@ -42,7 +50,13 @@ export function Footer() {
                 { name: 'Contact', path: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.path} className="block w-full text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm py-1">{item.name}</Link>
+                  <Link 
+                    to={item.path} 
+                    onClick={item.path === '/' ? handleLogoClick : undefined}
+                    className="block w-full text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm py-1"
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -34,6 +34,13 @@ export function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -76,7 +83,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group shrink-0">
+        <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 group shrink-0">
           <BrandLogo variant="topbar" showMark={false} highlightTopbarX className="transform transition-transform group-hover:scale-105" />
         </Link>
 
@@ -148,6 +155,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={link.path === '/' ? handleLogoClick : undefined}
                 className={cn(
                   'text-sm font-medium tracking-wide transition-colors hover:text-blue-500 flex items-center gap-1.5',
                   location.pathname === link.path ? 'text-blue-500' : 'text-black/70 dark:text-white/70'
@@ -265,107 +273,122 @@ export function Navbar() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-            className="absolute top-full left-0 w-full bg-white/95 dark:bg-black/95 backdrop-blur-2xl border-b border-black/5 dark:border-white/10 overflow-hidden md:hidden shadow-[0_40px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_80px_rgba(0,0,0,0.7)]"
-          >
-            <div className="py-8 px-6 flex flex-col gap-6">
-              {NAV_LINKS.map((link, i) => {
-                const Icon = link.icon;
-                return (
-                 <motion.div
-                   key={link.path}
-                   initial={{ opacity: 0, x: -20 }}
-                   animate={{ opacity: 1, x: 0 }}
-                   transition={{ delay: 0.1 + i * 0.1 }}
-                   className="flex flex-col gap-4"
-                 >
-                   {link.dropdownGroups ? (
-                     <button
-                       type="button"
-                       onClick={() => {
-                         navigate(link.path);
-                         setIsMobileMenuOpen(false);
-                       }}
-                       className={cn(
-                         "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                         "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
-                       )}
-                     >
-                       <div className="flex items-center gap-3">
-                         <Icon size={20} />
-                         {link.name}
-                       </div>
-                     </button>
-                   ) : (
-                     <Link
-                       to={link.path}
-                       className={cn(
-                         "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                         location.pathname === link.path ? "text-blue-500" : "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
-                       )}
-                       onClick={() => setIsMobileMenuOpen(false)}
-                     >
-                       <div className="flex items-center gap-3">
-                         <Icon size={20} />
-                         {link.name}
-                       </div>
-                     </Link>
-                   )}
-                   {link.dropdownGroups && (
-                     <div className="flex flex-col gap-3 pl-8 border-l-2 border-black/5 dark:border-white/10 ml-2">
-                       {link.dropdownGroups.map((group) => (
-                         <div key={group.name} className="space-y-2">
-                           <button
-                             type="button"
-                             onClick={() => setActiveMobileGroup((prev) => (prev === group.name ? null : group.name))}
-                             className="w-full flex items-center justify-between text-left text-base font-semibold text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400"
-                           >
-                             <span>{group.name}</span>
-                             <ChevronDown
-                               size={16}
-                               className={cn(
-                                 "transition-transform duration-300",
-                                 activeMobileGroup === group.name ? "rotate-0" : "-rotate-90"
-                               )}
-                             />
-                           </button>
-                           <AnimatePresence initial={false}>
-                             {activeMobileGroup === group.name && (
-                               <motion.div
-                                 initial={{ height: 0, opacity: 0 }}
-                                 animate={{ height: 'auto', opacity: 1 }}
-                                 exit={{ height: 0, opacity: 0 }}
-                                 transition={{ duration: 0.25, ease: 'easeInOut' }}
-                                 className="overflow-hidden"
-                               >
-                                 <div className="space-y-2 pl-2">
-                                   {group.items.map((item) => (
-                                     <Link
-                                       key={item.path}
-                                       to={item.path}
-                                       onClick={() => setIsMobileMenuOpen(false)}
-                                       className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
-                                     >
-                                       {item.name}
-                                     </Link>
-                                   ))}
-                                 </div>
-                               </motion.div>
-                             )}
-                           </AnimatePresence>
+          <>
+            {/* Backdrop overlay covering the rest of the screen to close menu on outside click */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 z-40 bg-black/20 dark:bg-black/50 backdrop-blur-xs md:hidden"
+            />
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+              className="absolute top-full left-0 w-full bg-white/95 dark:bg-black/95 backdrop-blur-2xl border-b border-black/5 dark:border-white/10 overflow-hidden md:hidden shadow-[0_40px_80px_rgba(0,0,0,0.1)] dark:shadow-[0_40px_80px_rgba(0,0,0,0.7)] z-50"
+            >
+              <div className="py-8 px-6 flex flex-col gap-6">
+                {NAV_LINKS.map((link, i) => {
+                  const Icon = link.icon;
+                  return (
+                   <motion.div
+                     key={link.path}
+                     initial={{ opacity: 0, x: -20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     transition={{ delay: 0.1 + i * 0.1 }}
+                     className="flex flex-col gap-4"
+                   >
+                     {link.dropdownGroups ? (
+                       <button
+                         type="button"
+                         onClick={() => {
+                           navigate(link.path);
+                           setIsMobileMenuOpen(false);
+                         }}
+                         className={cn(
+                           "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
+                           "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                         )}
+                       >
+                         <div className="flex items-center gap-3">
+                           <Icon size={20} />
+                           {link.name}
                          </div>
-                       ))}
-                     </div>
-                   )}
-                 </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
+                       </button>
+                     ) : (
+                       <Link
+                         to={link.path}
+                         className={cn(
+                           "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
+                           location.pathname === link.path ? "text-blue-500" : "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                         )}
+                         onClick={(e) => {
+                           if (link.path === '/' && location.pathname === '/') {
+                             handleLogoClick(e);
+                           }
+                           setIsMobileMenuOpen(false);
+                         }}
+                       >
+                         <div className="flex items-center gap-3">
+                           <Icon size={20} />
+                           {link.name}
+                         </div>
+                       </Link>
+                     )}
+                     {link.dropdownGroups && (
+                       <div className="flex flex-col gap-3 pl-8 border-l-2 border-black/5 dark:border-white/10 ml-2">
+                         {link.dropdownGroups.map((group) => (
+                           <div key={group.name} className="space-y-2">
+                             <button
+                               type="button"
+                               onClick={() => setActiveMobileGroup((prev) => (prev === group.name ? null : group.name))}
+                               className="w-full flex items-center justify-between text-left text-base font-semibold text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400"
+                             >
+                               <span>{group.name}</span>
+                               <ChevronDown
+                                 size={16}
+                                 className={cn(
+                                   "transition-transform duration-300",
+                                   activeMobileGroup === group.name ? "rotate-0" : "-rotate-90"
+                                 )}
+                               />
+                             </button>
+                             <AnimatePresence initial={false}>
+                               {activeMobileGroup === group.name && (
+                                 <motion.div
+                                   initial={{ height: 0, opacity: 0 }}
+                                   animate={{ height: 'auto', opacity: 1 }}
+                                   exit={{ height: 0, opacity: 0 }}
+                                   transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                   className="overflow-hidden"
+                                 >
+                                   <div className="space-y-2 pl-2">
+                                     {group.items.map((item) => (
+                                       <Link
+                                         key={item.path}
+                                         to={item.path}
+                                         onClick={() => setIsMobileMenuOpen(false)}
+                                         className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
+                                       >
+                                         {item.name}
+                                       </Link>
+                                     ))}
+                                   </div>
+                                 </motion.div>
+                               )}
+                             </AnimatePresence>
+                           </div>
+                         ))}
+                       </div>
+                     )}
+                   </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
