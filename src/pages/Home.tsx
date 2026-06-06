@@ -330,7 +330,7 @@ export function Home() {
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-600/20 blur-[130px] rounded-full animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-purple-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
+          <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-cyan-600/10 blur-[150px] rounded-full animate-pulse delay-700" />
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -342,7 +342,7 @@ export function Home() {
                 </span>
                 <span className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.85] text-black dark:text-white font-stylish flex flex-col">
                   <span>Inovexa</span>
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 dark:from-blue-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                  <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                     Technologies
                   </span>
                 </span>
