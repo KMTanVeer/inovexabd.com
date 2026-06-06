@@ -66,30 +66,34 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
             />
           </Link>
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-          
-          <div className="absolute inset-0 flex items-center justify-center gap-2 translate-y-10 group-hover:translate-y-0 transition-transform duration-500 z-20">
-            <a 
-              href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="p-2.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#25D366] hover:border-[#25D366] transition-all shadow-2xl"
-              title="Order on WhatsApp"
-            >
-              <MessageCircle size={16} />
-            </a>
-            <button 
-              onClick={(e) => handleQuickViewToggle(e, true)}
-              className="p-2.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 hover:border-blue-600 transition-all shadow-2xl"
-              title="Quick View"
-            >
-              <Eye size={16} />
-            </button>
-            <Link onClick={(e) => e.stopPropagation()} to={`/product/${(product as any)._id || product.id}`} className="p-2.5 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-blue-500 transition-colors border border-white/20" title="View Details">
-              <Search size={16} />
-            </Link>
-          </div>
+          {!isList && (
+            <>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              
+              <div className="absolute inset-0 flex items-center justify-center gap-2 translate-y-10 group-hover:translate-y-0 transition-transform duration-500 z-20">
+                <a 
+                  href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="p-2.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#25D366] hover:border-[#25D366] transition-all shadow-2xl"
+                  title="Order on WhatsApp"
+                >
+                  <MessageCircle size={16} />
+                </a>
+                <button 
+                  onClick={(e) => handleQuickViewToggle(e, true)}
+                  className="p-2.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-blue-600 hover:border-blue-600 transition-all shadow-2xl"
+                  title="Quick View"
+                >
+                  <Eye size={16} />
+                </button>
+                <Link onClick={(e) => e.stopPropagation()} to={`/product/${(product as any)._id || product.id}`} className="p-2.5 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-blue-500 transition-colors border border-white/20" title="View Details">
+                  <Search size={16} />
+                </Link>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Content */}
