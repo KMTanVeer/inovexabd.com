@@ -40,7 +40,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
     >
       <GlassContainer className={cn(
         "h-full p-2.5 sm:p-3 bg-white/[0.02] flex",
-        isList ? "flex-col sm:flex-row gap-6 relative" : "flex-col"
+        isList ? "flex-row gap-3 sm:gap-6 relative" : "flex-col"
       )}>
         {/* Badge */}
         {product.isFeatured && (
@@ -52,7 +52,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
         {/* Image */}
         <div className={cn(
           "relative overflow-hidden rounded-lg bg-white/[0.03]",
-          isList ? "w-full sm:w-48 aspect-square shrink-0" : "aspect-square mb-2 sm:mb-4 w-full"
+          isList ? "w-24 h-24 sm:w-48 sm:h-48 aspect-square shrink-0" : "aspect-square mb-2 sm:mb-4 w-full"
         )}>
           <Link to={`/product/${(product as any)._id || product.id}`} className="block w-full h-full">
             <img
@@ -107,14 +107,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
           <Link to={`/product/${(product as any)._id || product.id}`}>
             <h3 className={cn(
               "font-bold text-black dark:text-white leading-tight hover:text-blue-500 transition-colors",
-              isList ? "text-lg sm:text-xl line-clamp-2" : "text-xs sm:text-base line-clamp-2"
+              isList ? "text-sm sm:text-xl line-clamp-1 sm:line-clamp-2" : "text-xs sm:text-base line-clamp-2"
             )}>
               {product.name}
             </h3>
           </Link>
 
           {isList && (
-            <p className="mt-2 text-sm text-black/50 dark:text-white/50 line-clamp-2 sm:line-clamp-3 mb-4">
+            <p className="mt-1 sm:mt-2 text-[10px] sm:text-sm text-black/50 dark:text-white/50 line-clamp-1 sm:line-clamp-3 mb-2 sm:mb-4">
               {product.description}
             </p>
           )}

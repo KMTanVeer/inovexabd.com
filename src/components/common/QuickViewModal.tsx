@@ -38,15 +38,15 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white hover:bg-black/60 transition-colors"
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/10 dark:bg-black/40 backdrop-blur-md border border-black/10 dark:border-white/10 text-zinc-900 dark:text-white hover:bg-black/20 dark:hover:bg-black/60 transition-colors"
               aria-label="Close modal"
             >
               <X size={20} />
             </button>
 
-            <GlassContainer className="flex-1 min-h-0 flex flex-col md:flex-row overflow-y-auto p-0 bg-[#050505]/95 border-white/10">
+            <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-y-auto p-0 bg-white dark:bg-[#050505]/95 border border-zinc-200 dark:border-white/10 rounded-[2rem]">
               {/* Product Image Area */}
-              <div className="w-full md:w-1/2 relative bg-white/[0.02] shrink-0">
+              <div className="w-full md:w-1/2 relative bg-zinc-50 dark:bg-white/[0.02] shrink-0">
                 <img
                   src={(product.images && product.images[0]) || product.image}
                   alt={product.name}
@@ -60,18 +60,18 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
               <div className="w-full md:w-1/2 p-4 md:p-12 flex flex-col justify-center gap-4 md:gap-6 shrink-0">
                 <div>
                   <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
-                    <span className="px-2 md:px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] md:text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                    <span className="px-2 md:px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-[9px] md:text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
                       {product.category}
                     </span>
                     <div className="flex items-center gap-1">
                       <Star size={12} className="fill-yellow-500 text-yellow-500 md:w-3.5 md:h-3.5" />
-                      <span className="text-xs md:text-sm font-bold text-white tracking-widest">{product.rating || 5}</span>
+                      <span className="text-xs md:text-sm font-bold text-zinc-950 dark:text-white tracking-widest">{product.rating || 5}</span>
                     </div>
                   </div>
-                  <h2 className="text-xl md:text-3xl font-bold text-white mb-2 md:mb-4 leading-tight">
+                  <h2 className="text-xl md:text-3xl font-bold text-zinc-950 dark:text-white mb-2 md:mb-4 leading-tight">
                     {product.name}
                   </h2>
-                  <p className="text-white/60 leading-relaxed text-xs md:text-base line-clamp-3 md:line-clamp-none">
+                  <p className="text-zinc-600 dark:text-white/60 leading-relaxed text-xs md:text-base line-clamp-3 md:line-clamp-none">
                     {product.description}
                   </p>
                 </div>
@@ -79,23 +79,23 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
                 {/* Specs */}
                 <div className="grid grid-cols-2 gap-2 md:gap-4">
                   {product.specs && Object.entries(product.specs).map(([label, value]) => (
-                    <div key={label} className="p-2 md:p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1 truncate">{label}</span>
-                      <span className="block text-xs md:text-sm text-white font-medium truncate">{String(value)}</span>
+                    <div key={label} className="p-2 md:p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-1 truncate">{label}</span>
+                      <span className="block text-xs md:text-sm text-zinc-900 dark:text-white font-medium truncate">{String(value)}</span>
                     </div>
                   ))}
                   {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                    <div key={spec.key} className="p-2 md:p-3 rounded-xl bg-white/[0.03] border border-white/5">
-                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-white/30 font-bold mb-1 truncate">{spec.key}</span>
-                      <span className="block text-xs md:text-sm text-white font-medium truncate">{spec.value}</span>
+                    <div key={spec.key} className="p-2 md:p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-1 truncate">{spec.key}</span>
+                      <span className="block text-xs md:text-sm text-zinc-900 dark:text-white font-medium truncate">{spec.value}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-4 md:pt-6 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
+                <div className="pt-4 md:pt-6 border-t border-zinc-100 dark:border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
                   <div className="flex flex-col">
-                    <span className="text-[10px] md:text-xs text-white/40 font-medium">Retail Price</span>
-                    <span className="text-2xl md:text-3xl font-bold text-white">{product.price?.toLocaleString() || '0'}tk</span>
+                    <span className="text-[10px] md:text-xs text-zinc-500 dark:text-white/40 font-medium">Retail Price</span>
+                    <span className="text-2xl md:text-3xl font-bold text-zinc-950 dark:text-white">{product.price?.toLocaleString() || '0'}tk</span>
                   </div>
                   <a
                     href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
@@ -107,12 +107,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
                   </a>
                 </div>
 
-                <div className="flex items-center gap-2 text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-green-600 dark:text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                   <CheckCircle2 size={12} className="md:w-3.5 md:h-3.5" />
                   In Stock & Ready for Delivery
                 </div>
               </div>
-            </GlassContainer>
+            </div>
           </motion.div>
         </div>
       )}
