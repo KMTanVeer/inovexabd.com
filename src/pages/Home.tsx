@@ -284,7 +284,7 @@ export function Home() {
   const bannerContactHoverClass = isBlueBanner ? 'hover:text-blue-600 dark:hover:text-blue-400' : 'hover:text-purple-600 dark:hover:text-purple-400';
 
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-black transition-colors duration-150">
+    <div className="relative overflow-hidden bg-white dark:bg-black">
       <h1 className="sr-only">InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions</h1>
       <SEO
         title="InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions"
@@ -455,7 +455,7 @@ export function Home() {
       </section>
 
       {/* Full-Screen Promotional Banner Slider */}
-      <section className="relative min-h-[100vh] md:h-screen w-full overflow-hidden bg-white dark:bg-black transition-colors duration-150 flex items-center">
+      <section className="relative min-h-[100vh] md:h-screen w-full overflow-hidden bg-white dark:bg-black flex items-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeBanner}

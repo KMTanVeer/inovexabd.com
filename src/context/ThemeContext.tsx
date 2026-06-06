@@ -20,30 +20,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     return 'light';
   });
 
-  const isFirstRender = React.useRef(true);
-
   useEffect(() => {
     const root = window.document.documentElement;
-    
-    if (!isFirstRender.current) {
-      root.classList.add('theme-transitioning');
-    }
-    
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
-
-    if (!isFirstRender.current) {
-      const timer = setTimeout(() => {
-        root.classList.remove('theme-transitioning');
-      }, 150);
-      return () => clearTimeout(timer);
-    } else {
-      isFirstRender.current = false;
-    }
   }, [theme]);
 
   const toggleTheme = () => {

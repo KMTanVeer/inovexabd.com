@@ -55,7 +55,7 @@ function LoadingFallback() {
 // Store Layout Component
 function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-150">
+    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
       <Navbar />
       <main>
         {children}
