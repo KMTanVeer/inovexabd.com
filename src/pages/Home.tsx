@@ -507,13 +507,13 @@ export function Home() {
                 alt={BANNERS[activeBanner].title}
                 width={1920}
                 height={1080}
-                className="w-full h-full object-cover opacity-40 dark:opacity-30 scale-105"
+                className="w-full h-full object-cover opacity-65 dark:opacity-30 scale-105"
                 loading="lazy"
                 decoding="async"
                 fetchPriority="low"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/45 dark:from-black dark:via-black/80 dark:to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/30 dark:from-black dark:via-black/80 dark:to-transparent" />
               <div className={`absolute inset-0 ${bannerAccentOverlayClass} mix-blend-multiply dark:mix-blend-overlay`} />
             </div>
 
@@ -666,8 +666,8 @@ export function Home() {
       {/* Call to Action */}
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <GlassContainer className="p-12 md:p-24 bg-blue-600/5 overflow-hidden group">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop')] bg-cover opacity-10 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
+          <GlassContainer className="p-12 md:p-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:bg-blue-600/5 border-blue-200/40 dark:border-white/5 overflow-hidden group">
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop')] bg-cover opacity-80 dark:opacity-10 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
             <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white tracking-tight">Ready to Upgrade Your <br />Infrastructure?</h2>
               <p className="text-black/70 dark:text-white/60 text-lg">
