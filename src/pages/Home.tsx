@@ -85,32 +85,39 @@ const HERO_SHOWCASE = [
   }
 ] as const;
 
-export function Home() {
-  const [products, setProducts] = useState<Product[]>(PRODUCTS);
-  const [activeTab, setActiveTab] = useState<'servers' | 'networking' | 'storage'>('servers');
+interface CategorySliderProps {
+  title: string;
+  description: string;
+  products: Product[];
+  itemsPerView: number;
+  gapRem: number;
+  onQuickViewChange: (isOpen: boolean) => void;
+  isQuickViewActive: boolean;
+}
 
-  const activeProducts = useMemo(() => {
-    const categoryProducts = products.filter(p => p.category === activeTab);
-    const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
-    const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
-    return [...featured, ...nonFeatured].slice(0, 5);
-  }, [products, activeTab]);
-
-  const categoryDescriptions = {
-    servers: 'High-performance rack-mountable servers and hardware optimized for enterprise workloads, database management, and cloud virtualization.',
-    networking: 'Carrier-grade switches, edge routers, transceivers, and optical patch cords designed for ISP networks and data center connectivity.',
-    storage: 'Enterprise solid-state drives, hard disk drives, and components offering extreme endurance and speed for data warehousing.'
-  };
+function CategorySlider({
+  title,
+  description,
+  products,
+  itemsPerView,
+  gapRem,
+  onQuickViewChange,
+  isQuickViewActive,
+}: CategorySliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activeBanner, setActiveBanner] = useState(0);
-  const [heroShowcaseIndex, setHeroShowcaseIndex] = useState(0);
   const [isSliderPaused, setIsSliderPaused] = useState(false);
-  const [isQuickViewActive, setIsQuickViewActive] = useState(false);
-  const [itemsPerView, setItemsPerView] = useState(4);
-  const [gapRem, setGapRem] = useState(1.5);
-
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (isSliderPaused || isQuickViewActive) return;
+    const maxIndex = Math.max(0, products.length - itemsPerView);
+    if (maxIndex === 0) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [products.length, isSliderPaused, isQuickViewActive, itemsPerView]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
@@ -126,13 +133,99 @@ export function Home() {
     const minSwipeDistance = 50;
 
     if (distance > minSwipeDistance) {
-      setCurrentIndex((prev) => Math.min(prev + 1, Math.max(0, activeProducts.length - itemsPerView)));
+      setCurrentIndex((prev) => Math.min(prev + 1, Math.max(0, products.length - itemsPerView)));
     } else if (distance < -minSwipeDistance) {
       setCurrentIndex((prev) => Math.max(prev - 1, 0));
     }
     setTouchStart(null);
     setTouchEnd(null);
   };
+
+  return (
+    <div 
+      className="mb-16 last:mb-0"
+      onMouseEnter={() => setIsSliderPaused(true)}
+      onMouseLeave={() => setIsSliderPaused(false)}
+    >
+      <div className="mb-6">
+        <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white mb-2">{title}</h3>
+        <p className="text-sm text-black/60 dark:text-white/60 max-w-xl">{description}</p>
+      </div>
+
+      <div 
+        className="relative overflow-hidden touch-pan-y"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <motion.div 
+          className="flex gap-4 sm:gap-6"
+          animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}
+          transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        >
+          {products.map((product, index) => (
+            <div key={`${(product as any)._id || product.id}-${index}`} className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
+              <ProductCard 
+                product={product} 
+                index={index % 4} 
+                onQuickViewChange={onQuickViewChange}
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="flex justify-center gap-1 mt-6">
+        {Array.from({ length: Math.max(0, products.length - (itemsPerView - 1)) }).map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Go to slide ${i + 1}`}
+            onClick={() => setCurrentIndex(i)}
+            className="w-11 h-11 flex items-center justify-center focus:outline-none"
+          >
+            <div className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/20 dark:bg-white/20'}`} />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function Home() {
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  
+  const serverProducts = useMemo(() => {
+    const categoryProducts = products.filter(p => p.category === 'servers');
+    const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
+    const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
+    return [...featured, ...nonFeatured].slice(0, 5);
+  }, [products]);
+
+  const networkingProducts = useMemo(() => {
+    const categoryProducts = products.filter(p => p.category === 'networking');
+    const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
+    const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
+    return [...featured, ...nonFeatured].slice(0, 5);
+  }, [products]);
+
+  const storageProducts = useMemo(() => {
+    const categoryProducts = products.filter(p => p.category === 'storage');
+    const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
+    const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
+    return [...featured, ...nonFeatured].slice(0, 5);
+  }, [products]);
+
+  const categoryDescriptions = {
+    servers: 'High-performance rack-mountable servers and hardware optimized for enterprise workloads, database management, and cloud virtualization.',
+    networking: 'Carrier-grade switches, edge routers, transceivers, and optical patch cords designed for ISP networks and data center connectivity.',
+    storage: 'Enterprise solid-state drives, hard disk drives, and components offering extreme endurance and speed for data warehousing.'
+  };
+
+  const [activeBanner, setActiveBanner] = useState(0);
+  const [heroShowcaseIndex, setHeroShowcaseIndex] = useState(0);
+  const [isQuickViewActive, setIsQuickViewActive] = useState(false);
+  const [itemsPerView, setItemsPerView] = useState(4);
+  const [gapRem, setGapRem] = useState(1.5);
 
   useEffect(() => {
     const handleResize = () => {
@@ -159,22 +252,6 @@ export function Home() {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
-
-  // Reset index when tab changes to avoid slider range out of bounds
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [activeTab]);
-
-  // Auto-play for product slider
-  useEffect(() => {
-    if (isSliderPaused || isQuickViewActive) return;
-    const maxIndex = Math.max(0, activeProducts.length - itemsPerView);
-    if (maxIndex === 0) return; // No auto-play if all items fit on screen
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [activeProducts.length, isSliderPaused, isQuickViewActive, itemsPerView]);
 
   // Auto-play for banners (4.5s)
   useEffect(() => {
@@ -505,15 +582,11 @@ export function Home() {
         </div>
       </section>
 
-      {/* Featured Hardware - SLIDER VERSION */}
-      <section 
-        className="py-24 relative overflow-hidden"
-        onMouseEnter={() => setIsSliderPaused(true)}
-        onMouseLeave={() => setIsSliderPaused(false)}
-      >
+      {/* Featured Hardware - STACKED CATEGORIES VERSION */}
+      <section className="py-24 relative overflow-hidden">
          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-8">
+            <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-16 border-b border-black/5 dark:border-white/10 pb-6">
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Products</h2>
                 <p className="text-black/70 dark:text-white/60 max-w-lg">Engineered for performance. Built for scale. Discover our most popular enterprise solutions.</p>
@@ -523,68 +596,34 @@ export function Home() {
               </Link>
             </div>
 
-            {/* Category Sub-Tabs */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-6">
-              {(['servers', 'networking', 'storage'] as const).map((tab) => {
-                const isActive = activeTab === tab;
-                const label = tab.charAt(0).toUpperCase() + tab.slice(1);
-                return (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`px-6 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all duration-300 border backdrop-blur-md cursor-pointer ${
-                      isActive
-                        ? "bg-blue-600 border-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]"
-                        : "bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/10 dark:hover:bg-white/10"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Category Description */}
-            <div className="text-center max-w-2xl mx-auto mb-12 min-h-[40px] flex items-center justify-center">
-              <p className="text-sm md:text-base text-black/60 dark:text-white/60 leading-relaxed font-medium">
-                {categoryDescriptions[activeTab]}
-              </p>
-            </div>
-
-            <div 
-              className="relative overflow-hidden touch-pan-y"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <motion.div 
-                className="flex gap-4 sm:gap-6"
-                animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
-              >
-                {activeProducts.map((product, index) => (
-                  <div key={`${(product as any)._id || product.id}-${index}`} className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
-                    <ProductCard 
-                      product={product} 
-                      index={index % 4} 
-                      onQuickViewChange={(isOpen) => setIsQuickViewActive(isOpen)}
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <div className="flex justify-center gap-1 mt-8">
-              {Array.from({ length: Math.max(0, activeProducts.length - (itemsPerView - 1)) }).map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => setCurrentIndex(i)}
-                  className="w-11 h-11 flex items-center justify-center focus:outline-none"
-                >
-                  <div className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/20 dark:bg-white/20'}`} />
-                </button>
-              ))}
+            <div className="space-y-20">
+              <CategorySlider
+                title="Servers"
+                description={categoryDescriptions.servers}
+                products={serverProducts}
+                itemsPerView={itemsPerView}
+                gapRem={gapRem}
+                onQuickViewChange={(isOpen) => setIsQuickViewActive(isOpen)}
+                isQuickViewActive={isQuickViewActive}
+              />
+              <CategorySlider
+                title="Networking"
+                description={categoryDescriptions.networking}
+                products={networkingProducts}
+                itemsPerView={itemsPerView}
+                gapRem={gapRem}
+                onQuickViewChange={(isOpen) => setIsQuickViewActive(isOpen)}
+                isQuickViewActive={isQuickViewActive}
+              />
+              <CategorySlider
+                title="Storage"
+                description={categoryDescriptions.storage}
+                products={storageProducts}
+                itemsPerView={itemsPerView}
+                gapRem={gapRem}
+                onQuickViewChange={(isOpen) => setIsQuickViewActive(isOpen)}
+                isQuickViewActive={isQuickViewActive}
+              />
             </div>
          </div>
       </section>
