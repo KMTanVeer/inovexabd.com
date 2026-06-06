@@ -674,7 +674,7 @@ export function Home() {
                 Join hundreds of enterprises trust Inovexa Technologies for their mission-critical networking and server requirements.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6">
-                <Link to="/contact" className="px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition-all">
+                <Link to="/contact" className="px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition-all border border-zinc-200 dark:border-transparent">
                   Contact Sales Specialist
                 </Link>
                 <Link to="/about" className="px-10 py-5 rounded-full border border-black/20 dark:border-white/20 text-black dark:text-white font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all">
