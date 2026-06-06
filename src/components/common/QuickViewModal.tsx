@@ -44,21 +44,47 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
               <X size={20} />
             </button>
 
-            <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-y-auto p-0 bg-white dark:bg-[#050505]/95 border border-zinc-200 dark:border-white/10 rounded-[2rem]">
-              {/* Product Image Area */}
-              <div className="w-full md:w-1/2 relative bg-zinc-50 dark:bg-white/[0.02] shrink-0">
+            <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden md:overflow-y-auto p-0 bg-white dark:bg-[#050505]/95 border border-zinc-200 dark:border-white/10 rounded-[2rem]">
+              {/* Product Image Area (Desktop Only) */}
+              <div className="hidden md:block md:w-1/2 relative bg-zinc-50 dark:bg-white/[0.02] shrink-0">
                 <img
                   src={(product.images && product.images[0]) || product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover aspect-[4/3] md:aspect-auto"
+                  className="w-full h-full object-cover md:aspect-auto"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden" />
               </div>
 
               {/* Product Details Area */}
-              <div className="w-full md:w-1/2 p-4 md:p-12 flex flex-col justify-center gap-4 md:gap-6 shrink-0">
-                <div>
+              <div className="w-full md:w-1/2 p-3.5 md:p-12 flex flex-col justify-between md:justify-center gap-3 md:gap-6 shrink-0">
+                {/* Mobile-only Header Row with Small Image */}
+                <div className="flex gap-4 md:hidden">
+                  <div className="w-20 h-20 rounded-xl bg-zinc-50 dark:bg-white/[0.02] border border-zinc-200 dark:border-white/10 overflow-hidden shrink-0">
+                    <img
+                      src={(product.images && product.images[0]) || product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-[8px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                        {product.category}
+                      </span>
+                      <div className="flex items-center gap-0.5">
+                        <Star size={9} className="fill-yellow-500 text-yellow-500" />
+                        <span className="text-[10px] font-bold text-zinc-950 dark:text-white">{product.rating || 5}</span>
+                      </div>
+                    </div>
+                    <h2 className="text-sm font-bold text-zinc-950 dark:text-white leading-tight line-clamp-2">
+                      {product.name}
+                    </h2>
+                  </div>
+                </div>
+
+                {/* Desktop-only Header Section */}
+                <div className="hidden md:block">
                   <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
                     <span className="px-2 md:px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 text-[9px] md:text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
                       {product.category}
@@ -71,43 +97,49 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
                   <h2 className="text-xl md:text-3xl font-bold text-zinc-950 dark:text-white mb-2 md:mb-4 leading-tight">
                     {product.name}
                   </h2>
-                  <p className="text-zinc-600 dark:text-white/60 leading-relaxed text-xs md:text-base line-clamp-3 md:line-clamp-none">
+                </div>
+
+                {/* Description */}
+                <div>
+                  <p className="text-zinc-600 dark:text-white/60 leading-relaxed text-xs md:text-base line-clamp-2 md:line-clamp-none">
                     {product.description}
                   </p>
                 </div>
 
                 {/* Specs */}
-                <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="grid grid-cols-2 gap-1.5 md:gap-4">
                   {product.specs && Object.entries(product.specs).map(([label, value]) => (
-                    <div key={label} className="p-2 md:p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
-                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-1 truncate">{label}</span>
-                      <span className="block text-xs md:text-sm text-zinc-900 dark:text-white font-medium truncate">{String(value)}</span>
+                    <div key={label} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                      <span className="block text-[8px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-0.5 truncate">{label}</span>
+                      <span className="block text-[10px] md:text-sm text-zinc-900 dark:text-white font-medium truncate">{String(value)}</span>
                     </div>
                   ))}
                   {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                    <div key={spec.key} className="p-2 md:p-3 rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
-                      <span className="block text-[9px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-1 truncate">{spec.key}</span>
-                      <span className="block text-xs md:text-sm text-zinc-900 dark:text-white font-medium truncate">{spec.value}</span>
+                    <div key={spec.key} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                      <span className="block text-[8px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-0.5 truncate">{spec.key}</span>
+                      <span className="block text-[10px] md:text-sm text-zinc-900 dark:text-white font-medium truncate">{spec.value}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-4 md:pt-6 border-t border-zinc-100 dark:border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
+                {/* Footer Section */}
+                <div className="pt-2.5 md:pt-6 border-t border-zinc-100 dark:border-white/5 flex flex-row items-center justify-between gap-4 md:gap-6">
                   <div className="flex flex-col">
-                    <span className="text-[10px] md:text-xs text-zinc-500 dark:text-white/40 font-medium">Retail Price</span>
-                    <span className="text-2xl md:text-3xl font-bold text-zinc-950 dark:text-white">{product.price?.toLocaleString() || '0'}tk</span>
+                    <span className="text-[9px] md:text-xs text-zinc-500 dark:text-white/40 font-medium">Retail Price</span>
+                    <span className="text-sm md:text-3xl font-bold text-zinc-950 dark:text-white leading-none">{product.price?.toLocaleString() || '0'}tk</span>
                   </div>
                   <a
                     href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full md:flex-1 py-3 md:py-4 rounded-xl bg-blue-600 text-white text-sm md:text-base font-bold text-center hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all flex items-center justify-center gap-2"
+                    className="flex-1 py-2 md:py-4 rounded-xl bg-blue-600 text-white text-xs md:text-base font-bold text-center hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] transition-all flex items-center justify-center gap-1.5"
                   >
                     Order on WhatsApp
                   </a>
                 </div>
 
-                <div className="flex items-center gap-2 text-green-600 dark:text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                {/* Stock Info (Desktop Only) */}
+                <div className="hidden md:flex items-center gap-2 text-green-600 dark:text-green-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
                   <CheckCircle2 size={12} className="md:w-3.5 md:h-3.5" />
                   In Stock & Ready for Delivery
                 </div>
