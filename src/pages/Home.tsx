@@ -5,7 +5,7 @@ import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 // Hero Image Static Paths
 const dellServerHero = '/Hero-images/dell-server-hero.webp';
@@ -108,6 +108,43 @@ function CategorySlider({
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [imageHeight, setImageHeight] = useState<number>(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateImageHeight = () => {
+      if (sliderRef.current) {
+        const imgContainer = sliderRef.current.querySelector('.aspect-square');
+        if (imgContainer) {
+          setImageHeight(imgContainer.clientHeight);
+        }
+      }
+    };
+
+    updateImageHeight();
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (sliderRef.current && typeof ResizeObserver !== 'undefined') {
+      const imgContainer = sliderRef.current.querySelector('.aspect-square');
+      if (imgContainer) {
+        resizeObserver = new ResizeObserver(() => {
+          updateImageHeight();
+        });
+        resizeObserver.observe(imgContainer);
+      }
+    }
+
+    window.addEventListener('resize', updateImageHeight);
+    const timer = setTimeout(updateImageHeight, 100);
+
+    return () => {
+      window.removeEventListener('resize', updateImageHeight);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      clearTimeout(timer);
+    };
+  }, [products, itemsPerView]);
 
   useEffect(() => {
     if (isSliderPaused || isQuickViewActive) return;
@@ -166,7 +203,7 @@ function CategorySlider({
         <p className="text-sm text-black/60 dark:text-white/60 max-w-xl text-center">{description}</p>
       </div>
 
-      <div className="relative">
+      <div className="relative px-4 sm:px-12" ref={sliderRef}>
         <div 
           className="relative overflow-hidden touch-pan-y"
           onTouchStart={handleTouchStart}
@@ -195,16 +232,20 @@ function CategorySlider({
             <button
               onClick={handlePrev}
               aria-label="Previous products"
-              className="absolute left-[-0.75rem] sm:left-[-1.5rem] md:left-[-2rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer"
+              className="absolute left-0 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
+              style={{ top: imageHeight ? `${imageHeight / 2}px` : '50%' }}
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} className="sm:hidden" />
+              <ChevronLeft size={20} className="hidden sm:block" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next products"
-              className="absolute right-[-0.75rem] sm:right-[-1.5rem] md:right-[-2rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer"
+              className="absolute right-0 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
+              style={{ top: imageHeight ? `${imageHeight / 2}px` : '50%' }}
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={18} className="sm:hidden" />
+              <ChevronRight size={20} className="hidden sm:block" />
             </button>
           </>
         )}
