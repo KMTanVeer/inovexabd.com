@@ -1,6 +1,10 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /api/
+Disallow: /*?q=
+Disallow: /*?sort=
+Disallow: /*?condition=
+Disallow: /*?stock=
 Allow: /
 
 Sitemap: https://www.inovexabd.com/sitemap.xml
