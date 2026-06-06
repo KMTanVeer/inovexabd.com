@@ -6,7 +6,7 @@ import { SEO } from '@/src/components/common/SEO.tsx';
 
 export function NotFound() {
   return (
-    <div className="pt-36 pb-24 min-h-[85vh] relative overflow-hidden bg-white dark:bg-black transition-colors duration-300 flex items-center">
+    <div className="pt-36 pb-24 min-h-[85vh] relative overflow-hidden bg-white dark:bg-black transition-colors duration-150 flex items-center">
       <SEO 
         title="404 - Page Not Found" 
         description="The page you are looking for does not exist or has been moved. Explore InovexaBD server, networking, and storage catalog." 
