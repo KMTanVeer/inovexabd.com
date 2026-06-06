@@ -39,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
       className="group h-full"
     >
       <GlassContainer className={cn(
-        "h-full p-3 bg-white/[0.02] flex",
+        "h-full p-2.5 sm:p-3 bg-white/[0.02] flex",
         isList ? "flex-col sm:flex-row gap-6 relative" : "flex-col"
       )}>
         {/* Badge */}
@@ -52,7 +52,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
         {/* Image */}
         <div className={cn(
           "relative overflow-hidden rounded-lg bg-white/[0.03]",
-          isList ? "w-full sm:w-48 aspect-square shrink-0" : "aspect-square mb-4 w-full"
+          isList ? "w-full sm:w-48 aspect-square shrink-0" : "aspect-square mb-2 sm:mb-4 w-full"
         )}>
           <Link to={`/product/${(product as any)._id || product.id}`} className="block w-full h-full">
             <img
@@ -107,7 +107,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
           <Link to={`/product/${(product as any)._id || product.id}`}>
             <h3 className={cn(
               "font-bold text-black dark:text-white leading-tight hover:text-blue-500 transition-colors",
-              isList ? "text-lg sm:text-xl line-clamp-2" : "text-base line-clamp-2"
+              isList ? "text-lg sm:text-xl line-clamp-2" : "text-xs sm:text-base line-clamp-2"
             )}>
               {product.name}
             </h3>
@@ -119,10 +119,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
             </p>
           )}
           
-          <div className="pt-3 flex items-center justify-between border-t border-black/5 dark:border-white/5 mt-auto">
+          <div className="pt-2 sm:pt-3 flex items-center justify-between border-t border-black/5 dark:border-white/5 mt-auto">
             <div className="flex flex-col">
               <span className="text-[10px] text-black/60 dark:text-white/60 font-medium">Price</span>
-              <span className="text-lg font-bold text-black dark:text-white">
+              <span className="text-sm sm:text-lg font-bold text-black dark:text-white">
                 {product.price?.toLocaleString() || '0'}tk
               </span>
             </div>
@@ -131,7 +131,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
               target="_blank"
               onClick={(e) => e.stopPropagation()}
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold hover:bg-blue-600 hover:text-white transition-all backdrop-blur-md"
+              className="px-2.5 py-1.5 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-400 text-[10px] sm:text-[11px] font-bold hover:bg-blue-600 hover:text-white transition-all backdrop-blur-md"
             >
               Order Now
             </a>

@@ -97,12 +97,20 @@ export function Home() {
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const [isQuickViewActive, setIsQuickViewActive] = useState(false);
   const [itemsPerView, setItemsPerView] = useState(4);
+  const [gapRem, setGapRem] = useState(1.5);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) setItemsPerView(1);
-      else if (window.innerWidth < 1024) setItemsPerView(2);
-      else setItemsPerView(4);
+      if (window.innerWidth < 640) {
+        setItemsPerView(2);
+        setGapRem(1.0);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+        setGapRem(1.5);
+      } else {
+        setItemsPerView(4);
+        setGapRem(1.5);
+      }
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -475,12 +483,12 @@ export function Home() {
 
             <div className="relative">
               <motion.div 
-                className="flex gap-6"
-                animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (1.5 / itemsPerView)}rem)` }}
+                className="flex gap-4 sm:gap-6"
+                animate={{ x: `calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (gapRem / itemsPerView)}rem)` }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
               >
                 {featuredProducts.map((product, index) => (
-                  <div key={`${(product as any)._id || product.id}-${index}`} className="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
+                  <div key={`${(product as any)._id || product.id}-${index}`} className="w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] shrink-0">
                     <ProductCard 
                       product={product} 
                       index={index % 4} 

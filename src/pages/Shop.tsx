@@ -227,8 +227,8 @@ export function Shop() {
 
                     {filteredProducts.length > 0 ? (
                         <div className={cn(
-                            "grid gap-8",
-                            viewMode === 'grid' ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
+                            "grid gap-4 sm:gap-8",
+                            viewMode === 'grid' ? "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"
                         )}>
                             <AnimatePresence mode="popLayout">
                                 {filteredProducts.map((product, index) => (
