@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="relative bg-slate-100 dark:bg-black pt-24 pb-12 overflow-hidden border-t border-black/5 dark:border-white/10">
       {/* Glow Effect */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
@@ -30,7 +30,7 @@ export function Footer() {
               <a aria-label="Facebook" href="https://www.facebook.com/inovexatechnologies" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
                 <Facebook size={18} />
               </a>
-              {[{Icon: Twitter, label: 'Twitter'}, {Icon: Github, label: 'GitHub'}, {Icon: Linkedin, label: 'LinkedIn'}].map(({Icon, label}, i) => (
+              {[{ Icon: Twitter, label: 'Twitter' }, { Icon: Github, label: 'GitHub' }, { Icon: Linkedin, label: 'LinkedIn' }].map(({ Icon, label }, i) => (
                 <a aria-label={label} key={i} href="#" className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 dark:border-white/10 text-black/50 dark:text-white/50 hover:text-blue-500 hover:border-blue-500 transition-all">
                   <Icon size={18} />
                 </a>
@@ -48,11 +48,10 @@ export function Footer() {
                 { name: 'Categories', path: '/categories' },
                 { name: 'About', path: '/about' },
                 { name: 'Contact', path: '/contact' },
-                { name: 'New Page (PDF)', path: '/testpage1' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link 
-                    to={item.path} 
+                  <Link
+                    to={item.path}
                     onClick={item.path === '/' ? handleLogoClick : undefined}
                     className="block w-full text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors text-sm py-1"
                   >
@@ -85,24 +84,24 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="text-black dark:text-white font-bold tracking-tight">Get in Touch</h4>
             <div className="space-y-3">
-              <a 
-                href="https://maps.google.com/?q=Asadgate,+Shyamoli,+Dhaka,+Bangladesh" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://maps.google.com/?q=Asadgate,+Shyamoli,+Dhaka,+Bangladesh"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-start gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
               >
                 <MapPin size={18} className="text-blue-500 shrink-0 mt-0.5" />
                 <span>Asadgate, Shyamoli, Dhaka,<br />Bangladesh</span>
               </a>
-              <a 
-                href="tel:+8801813065665" 
+              <a
+                href="tel:+8801813065665"
                 className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
               >
                 <Phone size={18} className="text-blue-500 shrink-0" />
                 <span>+8801813065665</span>
               </a>
-              <a 
-                href="mailto:info@inovexabd.com" 
+              <a
+                href="mailto:info@inovexabd.com"
                 className="flex items-center gap-3 text-sm text-black/60 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors w-full py-1"
               >
                 <Mail size={18} className="text-blue-500 shrink-0" />
