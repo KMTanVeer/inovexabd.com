@@ -523,7 +523,7 @@ export function Home() {
               {/* Solution-Focused Heading with text rotators */}
               <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-black dark:text-white font-sans">
                 Bangladesh's Source for
-                <div className="h-[1.2em] sm:h-[1.15em] relative overflow-hidden block mt-2 text-blue-600 dark:text-blue-400">
+                <div className="h-[1.2em] sm:h-[1.15em] relative overflow-hidden block mt-2">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={scopeIndex}
@@ -531,7 +531,7 @@ export function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -25, opacity: 0 }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                      className="absolute inset-x-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient block whitespace-nowrap truncate"
+                      className="absolute inset-x-0 bg-gradient-to-r from-rose-600 via-fuchsia-600 to-indigo-600 dark:from-rose-400 dark:via-fuchsia-500 dark:to-amber-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient block whitespace-nowrap truncate"
                     >
                       {SCOPES[scopeIndex]}
                     </motion.span>
@@ -713,12 +713,12 @@ export function Home() {
         </div>
 
         {/* Trusted Technology Partners Logos (Brand Trust Signals) - Scrolling Marquee style matching screenshot */}
-        <div className="w-full py-6 bg-zinc-50/30 dark:bg-[#030303]/30 border-t border-b border-zinc-200/50 dark:border-zinc-800/50 overflow-hidden z-20 backdrop-blur-md">
+        <div className="w-full py-6 bg-white/40 dark:bg-black/35 border-t border-b border-white/50 dark:border-white/10 overflow-hidden z-20 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.02)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.25)]">
           <div className="container mx-auto px-6 max-w-6xl">
             <div className="relative w-full overflow-hidden">
               {/* Fade overlays on sides */}
-              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-zinc-50/50 dark:from-[#030303]/50 to-transparent z-10 pointer-events-none" />
-              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-zinc-50/50 dark:from-[#030303]/50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white/40 dark:from-black/40 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white/40 dark:from-black/40 to-transparent z-10 pointer-events-none" />
               
               <div className="flex w-full overflow-hidden">
                 <div className="animate-marquee flex items-center gap-16 whitespace-nowrap opacity-60 hover:opacity-100 transition-opacity duration-500 dark:opacity-70 dark:hover:opacity-100">
