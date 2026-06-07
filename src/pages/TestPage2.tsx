@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ChevronRight, Zap, Shield, Cpu, Globe, Server, ChevronLeft, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, ChevronRight, Zap, Shield, Cpu, Globe, Server, ChevronLeft, Search, X, Sparkles } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
@@ -382,9 +382,21 @@ function CategorySlider({
   );
 }
 
-export function Home() {
+export function TestPage2() {
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
-  
+  const navigate = useNavigate();
+
+  // Rotating text index
+  const [scopeIndex, setScopeIndex] = useState(0);
+
+  // Set up scope rotation (every 3 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setScopeIndex((prev) => (prev + 1) % SCOPES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const serverProducts = useMemo(() => {
     const categoryProducts = products.filter(p => p.category === 'servers');
     const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
@@ -414,16 +426,7 @@ export function Home() {
 
   const [activeBanner, setActiveBanner] = useState(0);
   const [heroShowcaseIndex, setHeroShowcaseIndex] = useState(0);
-  const [scopeIndex, setScopeIndex] = useState(0);
   const [isQuickViewActive, setIsQuickViewActive] = useState(false);
-
-  // Rotating scope text index (every 3s)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setScopeIndex((prev) => (prev + 1) % SCOPES.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
   const [itemsPerView, setItemsPerView] = useState(4);
   const [gapRem, setGapRem] = useState(1.5);
 
@@ -449,7 +452,7 @@ export function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroShowcaseIndex((prev) => (prev + 1) % HERO_SHOWCASE.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
 
@@ -471,60 +474,29 @@ export function Home() {
     ? 'bg-blue-600 hover:bg-blue-500 md:bg-blue-700 md:hover:bg-blue-600 shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)]'
     : 'bg-purple-600 hover:bg-purple-500 md:bg-purple-700 md:hover:bg-purple-600 shadow-[0_0_40px_rgba(147,51,234,0.3)] hover:shadow-[0_0_60px_rgba(147,51,234,0.5)]';
   const isBlueShowcase = HERO_SHOWCASE[heroShowcaseIndex].color === 'blue';
-  const showcaseGlowClass = isBlueShowcase ? 'bg-blue-500/10' : 'bg-purple-500/10';
+  const showcaseGlowClass = isBlueShowcase ? 'bg-blue-500/20' : 'bg-purple-500/20';
   const showcaseBadgeClass = isBlueShowcase
-    ? 'bg-blue-600/20 border-blue-500/30 text-blue-400'
-    : 'bg-purple-600/20 border-purple-500/30 text-purple-400';
+    ? 'bg-blue-600/20 border-blue-500/30 text-blue-500 dark:text-blue-400'
+    : 'bg-purple-600/20 border-purple-500/30 text-purple-500 dark:text-purple-400';
   const showcaseDotPrimaryClass = isBlueShowcase ? 'bg-blue-500' : 'bg-purple-500';
-  const showcaseDotSecondaryClass = isBlueShowcase ? 'bg-blue-500/30' : 'bg-purple-500/30';
-  const showcaseCategoryClass = isBlueShowcase ? 'text-blue-400/60' : 'text-purple-400/60';
-  const showcaseImageClass = 'w-full h-full object-contain brightness-110 contrast-110 drop-shadow-[0_18px_36px_rgba(15,23,42,0.6)] dark:drop-shadow-[0_18px_36px_rgba(255,255,255,0.2)] hover:scale-[1.03] transition-transform duration-700';
+  const showcaseDotSecondaryClass = isBlueShowcase ? 'bg-blue-500/20 dark:bg-blue-500/30' : 'bg-purple-500/20 dark:bg-purple-500/30';
+  const showcaseCategoryClass = isBlueShowcase ? 'text-blue-500/80 dark:text-blue-400/60' : 'text-purple-500/80 dark:text-purple-400/60';
+  const showcaseImageClass = 'w-full h-full object-contain brightness-105 contrast-105 drop-shadow-[0_20px_40px_rgba(15,23,42,0.4)] dark:drop-shadow-[0_20px_40px_rgba(255,255,255,0.15)] hover:scale-[1.05] transition-transform duration-700';
   const bannerOrderButtonBaseClass = 'px-8 py-4 md:px-10 md:py-5 rounded-xl text-white font-black uppercase tracking-widest transition-all hover:scale-105 active:scale-95 text-sm md:text-base';
   const bannerDetailsButtonClass = 'px-8 py-4 md:px-10 md:py-5 rounded-xl bg-white/70 dark:bg-white/5 border border-black/15 dark:border-white/10 text-black dark:text-white font-black uppercase tracking-widest transition-all hover:bg-white dark:hover:bg-white/10 backdrop-blur-xl text-sm md:text-base';
   const bannerContactHoverClass = isBlueBanner ? 'hover:text-blue-600 dark:hover:text-blue-400' : 'hover:text-purple-600 dark:hover:text-purple-400';
 
   return (
     <div className="relative overflow-hidden bg-white dark:bg-black">
-      <h1 className="sr-only">InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions</h1>
+      <h1 className="sr-only">Inovexa Technologies | Bangladesh's Trusted Source for ISP, Networking & Server Equipment</h1>
       <SEO
-        title="InovexaBD | ISP Equipment, Enterprise Networking & Data Center Solutions"
+        title="Inovexa Technologies | Bangladesh's Trusted Source for ISP, Networking & Server Equipment"
         disableTitleSuffix={true}
-        description="Buy ISP equipment, enterprise networking hardware, Dell PowerEdge servers, Cisco switches, Huawei routers, storage systems, fiber optic solutions, and data center infrastructure from InovexaBD Bangladesh."
-        keywords="ISP Equipment Bangladesh, Enterprise Networking Bangladesh, Cisco Switch Bangladesh, Huawei Router Bangladesh, Dell PowerEdge Server Bangladesh, Fiber Optic Equipment, Data Center Solutions Bangladesh, Network Infrastructure Bangladesh, Server Hardware Bangladesh"
-        url="https://www.inovexabd.com/"
-        structuredData={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Inovexa Technologies',
-            url: 'https://www.inovexabd.com/',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: 'https://www.inovexabd.com/shop?q={search_term_string}',
-              'query-input': 'required name=search_term_string',
-            },
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'Inovexa Technologies',
-            url: 'https://www.inovexabd.com/',
-            logo: 'https://www.inovexabd.com/inovexabd-logo.png',
-            contactPoint: {
-              '@type': 'ContactPoint',
-              telephone: '+8801813065665',
-              contactType: 'sales',
-              email: 'info@inovexabd.com'
-            },
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: 'Asadgate, Shyamoli',
-              addressLocality: 'Dhaka',
-              addressCountry: 'BD'
-            }
-          }
-        ]}
+        description="Bangladesh's trusted B2B source for ISP equipment, enterprise networking hardware, Dell PowerEdge servers, Cisco switches, Huawei routers, enterprise SSDs, and network storage infrastructure."
+        keywords="ISP Equipment Bangladesh, Enterprise Networking Bangladesh, Cisco Switch Bangladesh, Dell Server Bangladesh, Server Hardware Bangladesh, Data Center Solutions Dhaka"
+        url="https://www.inovexabd.com/testpage2"
       />
+      
       {/* Hero Section */}
       <section className="relative min-h-[92vh] lg:min-h-screen flex flex-col justify-between pt-28 pb-0 overflow-hidden">
         {/* Animated Background Elements */}
@@ -717,7 +689,6 @@ export function Home() {
                           referrerPolicy="no-referrer"
                         />
                       </div>
-
                       {/* Info & Micro-navigation dots */}
                       <div className="space-y-2 relative z-10">
                         <div className="flex items-center justify-center gap-3">
@@ -731,7 +702,7 @@ export function Home() {
                                   onClick={() => setHeroShowcaseIndex(i)}
                                   className={`w-1.5 h-1.5 rounded-full transition-all focus:outline-none cursor-pointer ${heroShowcaseIndex === i ? `${showcaseDotPrimaryClass} w-3` : showcaseDotSecondaryClass}`}
                                   aria-label={`Go to showcase ${i + 1}`}
-                               />
+                                />
                               ))}
                            </div>
                          </div>
@@ -746,8 +717,7 @@ export function Home() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-              
-            </div>
+                         </div>
           </div>
 
         </div>
@@ -787,6 +757,60 @@ export function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Structured Category Shortcut Grid */}
+      <section className="py-16 bg-white dark:bg-black">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-10">
+            <h3 className="text-xl font-bold text-black dark:text-white tracking-wider uppercase mb-1">
+              Browse Core Infrastructure
+            </h3>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
+              Select a vertical segment to explore our fully spec'd stock.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {CATEGORIES.map((cat) => {
+              const Icon = cat.icon;
+              const count = products.filter(p => p.category === cat.id).length;
+              return (
+                <Link
+                  key={cat.id}
+                  to={`/shop?category=${cat.id}`}
+                  className="group relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[170px]"
+                >
+                  <div className="absolute -right-8 -bottom-8 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/15 transition-all duration-300" />
+                  
+                  <div className="space-y-3 relative z-10">
+                    <div className="flex items-center justify-between">
+                      <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
+                        <Icon size={24} />
+                      </div>
+                      <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 px-2.5 py-1 rounded-full">
+                        {count} Products
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {cat.name}
+                      </h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 mt-1 leading-relaxed">
+                        {cat.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 mt-4 group-hover:gap-2 transition-all relative z-10">
+                    <span>Explore segment</span>
+                    <ChevronRight size={14} />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -919,7 +943,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Featured Hardware - STACKED CATEGORIES VERSION */}
+      {/* Featured Hardware */}
       <section className="py-24 relative overflow-hidden">
          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
          <div className="container mx-auto px-6">
@@ -982,7 +1006,6 @@ export function Home() {
         </div>
       </section>
 
-
       {/* Call to Action */}
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
@@ -991,7 +1014,7 @@ export function Home() {
             <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white tracking-tight">Ready to Upgrade Your <br />Infrastructure?</h2>
               <p className="text-black/70 dark:text-white/60 text-lg">
-                Join hundreds of enterprises trust Inovexa Technologies for their mission-critical networking and server requirements.
+                Join hundreds of enterprises that trust Inovexa Technologies for their mission-critical networking and server requirements.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <Link to="/contact" className="px-10 py-5 rounded-full bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition-all border border-zinc-200 dark:border-transparent">

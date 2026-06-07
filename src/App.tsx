@@ -24,6 +24,8 @@ const Shipping = React.lazy(() => import('@/src/pages/Shipping.tsx').then(m => (
 const Privacy = React.lazy(() => import('@/src/pages/Privacy.tsx').then(m => ({ default: m.Privacy })));
 const About = React.lazy(() => import('@/src/pages/About.tsx').then(m => ({ default: m.About })));
 const NotFound = React.lazy(() => import('@/src/pages/NotFound.tsx').then(m => ({ default: m.NotFound })));
+const TestPage1 = React.lazy(() => import('@/src/pages/TestPage1.tsx').then(m => ({ default: m.TestPage1 })));
+const TestPage2 = React.lazy(() => import('@/src/pages/TestPage2.tsx').then(m => ({ default: m.TestPage2 })));
 const AdminLogin = React.lazy(() => import('@/src/pages/admin/AdminLogin.tsx').then(m => ({ default: m.AdminLogin })));
 const AdminDashboard = React.lazy(() => import('@/src/pages/admin/AdminDashboard.tsx').then(m => ({ default: m.AdminDashboard })));
 const AdminProducts = React.lazy(() => import('@/src/pages/admin/AdminProducts.tsx').then(m => ({ default: m.AdminProducts })));
@@ -96,6 +98,8 @@ export default function App() {
                     <Route path="/returns" element={<Returns />} />
                     <Route path="/shipping" element={<Shipping />} />
                     <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/testpage1" element={<TestPage1 />} />
+                    <Route path="/testpage2" element={<TestPage2 />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </StoreLayout>

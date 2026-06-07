@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Menu, X, ArrowRight, Sun, Moon, ChevronDown, Home, ShoppingBag, Mail, Package } from 'lucide-react';
+import { Search, Menu, X, ArrowRight, Sun, Moon, ChevronDown, Home, ShoppingBag, Mail, Package, ChevronRight } from 'lucide-react';
 import { cn } from '@/src/components/common/GlassContainer.tsx';
 import { useNavigate } from 'react-router-dom';
 import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 import { useTheme } from '@/src/context/ThemeContext.tsx';
-import { CATALOG_GROUPS } from '@/src/data/products.ts';
+import { CATALOG_GROUPS, PRODUCTS } from '@/src/data/products.ts';
 
 const NAV_LINKS = [
   { name: 'Home', path: '/', icon: Home },
@@ -31,6 +31,17 @@ export function Navbar() {
   const [activeMobileGroup, setActiveMobileGroup] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const suggestions = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const query = searchQuery.toLowerCase();
+    return PRODUCTS.filter(p => 
+      p.name.toLowerCase().includes(query) || 
+      p.category.toLowerCase().includes(query) ||
+      (p.specs.Brand && p.specs.Brand.toLowerCase().includes(query)) ||
+      (p.specs.Model && p.specs.Model.toLowerCase().includes(query))
+    ).slice(0, 5);
+  }, [searchQuery]);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -43,11 +54,10 @@ export function Navbar() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/shop?q=${encodeURIComponent(searchQuery.trim())}`);
-      setIsSearchOpen(false);
-      setSearchQuery('');
-    }
+    const query = searchQuery.trim();
+    navigate(query ? `/shop?q=${encodeURIComponent(query)}` : '/shop');
+    setIsSearchOpen(false);
+    setSearchQuery('');
   };
 
   useEffect(() => {
@@ -60,6 +70,11 @@ export function Navbar() {
 
   useEffect(() => {
     if (!isSearchOpen) return;
+    
+    // Lock body scrolling when search overlay is active
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    
     searchInputRef.current?.focus();
 
     const handleEscape = (event: KeyboardEvent) => {
@@ -69,7 +84,11 @@ export function Navbar() {
     };
 
     window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
+    return () => {
+      // Restore body scrolling on close
+      document.body.style.overflow = originalStyle;
+      window.removeEventListener('keydown', handleEscape);
+    };
   }, [isSearchOpen]);
 
   return (
@@ -194,13 +213,46 @@ export function Navbar() {
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </div>
             </button>
+            {/* Desktop Search Pill Button */}
             <button 
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 setIsSearchOpen(true);
               }}
               aria-label="Open search"
-              className="group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+              className="hidden md:block relative h-9 w-[132px] group/search cursor-pointer focus:outline-none hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 select-none"
+            >
+              {/* Left Part (Pill with cutout) */}
+              <div className="absolute left-0 top-0 w-[112px] h-9 pointer-events-none">
+                <svg width="112" height="36" viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <path d="M18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36H99C95.5 31 93 25 93 18C93 11 95.5 5 99 0H18Z" fill="url(#search-left-grad)" />
+                  <defs>
+                    <linearGradient id="search-left-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#00A3FF" />
+                      <stop offset="100%" stopColor="#7B5CFF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                {/* Text Overlay */}
+                <span className="absolute inset-y-0 left-0 pl-5 flex items-center text-white text-[13px] font-semibold select-none">
+                  Search...
+                </span>
+              </div>
+
+              {/* Right Part (Circle button) */}
+              <div className="absolute left-[96px] top-0 w-9 h-9 rounded-full bg-gradient-to-br from-[#7B5CFF] to-[#9D4EDD] flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover/search:shadow-indigo-500/40 transition-all duration-300">
+                <Search size={15} strokeWidth={2.5} />
+              </div>
+            </button>
+
+            {/* Mobile Search Icon Button */}
+            <button 
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsSearchOpen(true);
+              }}
+              aria-label="Open search"
+              className="md:hidden group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
             >
               <div className="absolute inset-0 rounded-full bg-purple-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 pointer-events-none" />
               <div className="relative transform group-hover:-rotate-12 group-hover:scale-110 transition-transform duration-300">
@@ -247,15 +299,24 @@ export function Navbar() {
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Escape') {
+                          setIsSearchOpen(false);
+                        }
+                      }}
                       placeholder="Search infrastructure hardware..."
                       className="w-full bg-transparent py-3 md:py-4 text-base md:text-xl font-semibold text-black dark:text-white placeholder:text-black/35 dark:placeholder:text-white/35 focus:outline-none"
                     />
                     <button
                       type="submit"
                       aria-label="Submit search"
-                      className="p-2 rounded-lg text-blue-500 hover:bg-blue-500/10 transition-colors"
+                      className="relative w-10 h-10 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 duration-200 shrink-0 cursor-pointer focus:outline-none"
                     >
-                      <ArrowRight size={20} />
+                      {/* Rosette Background SVG */}
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full fill-zinc-100 dark:fill-zinc-800 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 50 5 C 53.9 10 59.8 11.6 62.9 15.3 C 66 19 66.2 25.4 70.4 28.3 C 74.6 31.2 80.9 30.5 83.9 34.6 C 86.9 38.7 86.2 45.1 88 50 C 86.2 54.9 86.9 61.3 83.9 65.4 C 80.9 69.5 74.6 68.8 70.4 71.7 C 66.2 74.6 66 81 62.9 84.7 C 59.8 88.4 53.9 90 50 95 C 46.1 90 40.2 88.4 37.1 84.7 C 34 81 33.8 74.6 29.6 71.7 C 25.4 68.8 19.1 69.5 16.1 65.4 C 13.1 61.3 13.8 54.9 12 50 C 13.8 45.1 13.1 38.7 16.1 34.6 C 19.1 30.5 25.4 31.2 29.6 28.3 C 33.8 25.4 34 19 37.1 15.3 C 40.2 11.6 46.1 10 50 5 Z" />
+                      </svg>
+                      <Search size={16} className="relative z-10 text-zinc-900 dark:text-white" />
                     </button>
                     <button
                       type="button"
@@ -266,6 +327,43 @@ export function Navbar() {
                       <X size={18} />
                     </button>
                   </div>
+                  {searchQuery.trim() && (
+                    <div className="space-y-1.5 border-t border-black/5 dark:border-white/5 pt-3 max-h-[260px] overflow-y-auto">
+                      {suggestions.length > 0 ? (
+                        <>
+                          <div className="text-[10px] font-bold text-black/40 dark:text-white/40 uppercase tracking-widest px-2 mb-1">Suggested Products</div>
+                          {suggestions.map((p) => (
+                            <Link
+                              key={p.id}
+                              to={`/product/${p.id}`}
+                              onClick={() => {
+                                setIsSearchOpen(false);
+                                setSearchQuery('');
+                              }}
+                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all group"
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-white border border-black/10 dark:border-white/10 flex items-center justify-center p-1 shrink-0">
+                                <img src={p.image} alt={p.name} className="max-w-full max-h-full object-contain" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="text-sm font-semibold text-black dark:text-white truncate group-hover:text-blue-500 transition-colors font-medium">
+                                  {p.name}
+                                </div>
+                                <div className="text-[10px] text-black/40 dark:text-white/40 uppercase tracking-wider">
+                                  {p.specs.Brand || 'Enterprise'} • {p.category}
+                                </div>
+                              </div>
+                              <ChevronRight size={14} className="text-black/30 dark:text-white/30 group-hover:translate-x-0.5 transition-transform" />
+                            </Link>
+                          ))}
+                        </>
+                      ) : (
+                        <div className="p-3 text-center text-xs text-black/40 dark:text-white/40">
+                          No matches found. Press Enter to search.
+                        </div>
+                      )}
+                    </div>
+                  )}
                   <div className="flex flex-wrap gap-2.5">
                     <span className="text-[11px] font-bold text-blue-500 uppercase tracking-widest mr-1 self-center">Quick Search:</span>
                     {['10G Card', 'Xeon', 'Supermicro', 'SFP+', 'Dell R640'].map((tag) => (
