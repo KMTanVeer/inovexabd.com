@@ -85,28 +85,7 @@ const HERO_SHOWCASE = [
   }
 ] as const;
 
-const FLOATING_SPECS: Record<string, { text: string; top?: string; bottom?: string; left?: string; right?: string }[]> = {
-  server: [
-    { text: 'Dual Intel® Xeon® v4', top: '10%', left: '-10%' },
-    { text: 'Up to 3TB DDR4 ECC', top: '42%', right: '-12%' },
-    { text: 'iDRAC9 Lifecycle Controller', bottom: '26%', left: '5%' }
-  ],
-  'switch-cisco': [
-    { text: '100G QSFP28 Uplinks', top: '8%', right: '-5%' },
-    { text: '3.6 Tbps Switching Capacity', top: '45%', left: '-15%' },
-    { text: 'ACI / NX-OS Dual Boot', bottom: '26%', right: '15%' }
-  ],
-  ssd: [
-    { text: 'PCIe Gen4 NVMe U.2', top: '15%', left: '-12%' },
-    { text: '7,000+ TBW Endurance', top: '40%', right: '-15%' },
-    { text: 'Power Loss Data Protection', bottom: '26%', left: '10%' }
-  ],
-  'switch-juniper': [
-    { text: 'Carrier-Grade Junos OS', top: '10%', left: '-8%' },
-    { text: '80 Gbps System Capacity', top: '45%', right: '-12%' },
-    { text: 'L3 VPN & MPLS Offloads', bottom: '26%', left: '8%' }
-  ]
-};
+
 
 const POPULAR_SEARCHES = ['Nexus Switch', 'PowerEdge Server', 'SFP28 Lan Card', 'Enterprise SSD', 'Fiber Patch Cord'];
 
@@ -542,7 +521,7 @@ export function Home() {
 
               
               {/* Solution-Focused Heading with text rotators */}
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-black dark:text-white font-sans">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-black dark:text-white font-sans">
                 Bangladesh's Source for
                 <div className="h-[1.2em] sm:h-[1.15em] relative overflow-hidden block mt-2 text-blue-600 dark:text-blue-400">
                   <AnimatePresence mode="wait">
@@ -552,7 +531,7 @@ export function Home() {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -25, opacity: 0 }}
                       transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                      className="absolute inset-x-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient block"
+                      className="absolute inset-x-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient block whitespace-nowrap truncate"
                     >
                       {SCOPES[scopeIndex]}
                     </motion.span>
@@ -680,25 +659,6 @@ export function Home() {
                     {/* Glowing color disc behind item */}
                     <div className={`absolute inset-0 ${showcaseGlowClass} blur-[120px] rounded-full opacity-50 group-hover:opacity-75 transition-opacity`} />
                     
-                    {/* Floating Specification Pills */}
-                    {FLOATING_SPECS[HERO_SHOWCASE[heroShowcaseIndex].id]?.map((pill, idx) => (
-                      <motion.div
-                        key={`${HERO_SHOWCASE[heroShowcaseIndex].id}-pill-${idx}`}
-                        initial={{ opacity: 0, y: 15 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.25 + idx * 0.1, duration: 0.4 }}
-                        className="absolute px-3 py-2 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 text-[10px] sm:text-[11px] font-bold text-zinc-700 dark:text-zinc-300 shadow-lg backdrop-blur-md whitespace-nowrap z-20 hover:scale-105 transition-transform"
-                        style={{
-                          top: pill.top,
-                          left: pill.left,
-                          right: pill.right,
-                          bottom: pill.bottom
-                        }}
-                      >
-                        {pill.text}
-                      </motion.div>
-                    ))}
-
                     <div className="relative flex flex-col items-center text-center">
                       
                       {/* Product Image Frame */}
