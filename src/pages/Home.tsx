@@ -707,41 +707,16 @@ export function Home() {
       {/* Search Engine Optimization (SEO) Content Block */}
       <section className="py-16 relative overflow-hidden border-t border-zinc-200/85 dark:border-white/5 bg-zinc-50/50 dark:bg-[#080808]/40">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 text-left">
-            <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-2xl font-bold tracking-tight text-black dark:text-white">
-                Leading ISP Equipment & Enterprise IT Infrastructure Provider in Bangladesh
-              </h2>
-              <p className="text-sm text-black/70 dark:text-white/60 leading-relaxed">
-                Inovexa Technologies (InovexaBD) is a premier supplier of mission-critical networking hardware, data center components, and server solutions in Bangladesh. We specialize in providing high-performance, pre-vetted IT hardware designed to help ISPs, corporate offices, and data centers build scalable, future-ready infrastructure.
-              </p>
-              <p className="text-sm text-black/70 dark:text-white/60 leading-relaxed">
-                Our extensive inventory features industry-leading brands such as Cisco, Juniper Networks, Dell PowerEdge, Intel, Mellanox, and Huawei. From carrier-grade edge routers to high-speed optical transceivers and storage components, we offer the most competitive prices and robust after-sales support in the BD market.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-sm font-bold tracking-tight text-black dark:text-white uppercase tracking-wider">
-                Quick Equipment Links
-              </h3>
-              <ul className="grid grid-cols-1 gap-3 text-sm">
-                {[
-                  { label: "Enterprise Servers & Components", path: "/shop?category=servers", desc: "Dell PowerEdge, Intel processors, and redundant power supplies." },
-                  { label: "ISP & Data Center Networking", path: "/shop?category=networking", desc: "Cisco Nexus switches, Juniper routers, and SFP transceivers." },
-                  { label: "High-End Data Storage Systems", path: "/shop?category=storage", desc: "Data center SSDs, storage arrays, and high-end controllers." }
-                ].map((link, idx) => (
-                  <li key={idx} className="group border-b border-black/5 dark:border-white/5 pb-2 last:border-0">
-                    <Link 
-                      to={link.path} 
-                      className="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                    <span className="text-xs text-black/50 dark:text-white/45 block mt-0.5">{link.desc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="space-y-6 text-left">
+            <h2 className="text-2xl font-bold tracking-tight text-black dark:text-white">
+              Leading ISP Equipment & Enterprise IT Infrastructure Provider in Bangladesh
+            </h2>
+            <p className="text-sm text-black/70 dark:text-white/60 leading-relaxed">
+              Inovexa Technologies (InovexaBD) is a premier supplier of mission-critical networking hardware, data center components, and server solutions in Bangladesh. We specialize in providing high-performance, pre-vetted IT hardware designed to help ISPs, corporate offices, and data centers build scalable, future-ready infrastructure.
+            </p>
+            <p className="text-sm text-black/70 dark:text-white/60 leading-relaxed">
+              Our extensive inventory features industry-leading brands such as Cisco, Juniper Networks, Dell PowerEdge, Intel, Mellanox, and Huawei. From carrier-grade edge routers to high-speed optical transceivers and storage components, we offer the most competitive prices and robust after-sales support in the BD market.
+            </p>
           </div>
         </div>
       </section>
