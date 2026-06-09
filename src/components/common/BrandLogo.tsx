@@ -7,15 +7,16 @@ interface BrandLogoProps {
   highlightTopbarX?: boolean;
 }
 
-function BrandMark() {
+function BrandMark({ className }: { className?: string }) {
   return (
-    <div className="relative flex items-center justify-center w-10 h-10 select-none shrink-0">
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-xl transform rotate-45 group-hover:rotate-180 transition-transform duration-700 shadow-[0_0_20px_rgba(37,99,235,0.3)] dark:shadow-[0_0_20px_rgba(37,99,235,0.5)]" />
-      <div className="absolute inset-[3px] bg-white dark:bg-black rounded-[10px] transform rotate-45 group-hover:-rotate-90 transition-transform duration-700" />
-      <span className="relative z-10 font-black text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-display transition-transform duration-300">
-        X
-      </span>
-    </div>
+    <img 
+      src="/inovexabd-logo-small.webp" 
+      srcSet="/inovexabd-logo-small.webp 1x, /inovexabd-logo.webp 2x"
+      alt="Inovexa Symbol" 
+      width={40} 
+      height={32} 
+      className={`h-10 w-auto object-contain select-none shrink-0 ${className || ''}`}
+    />
   );
 }
 
