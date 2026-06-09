@@ -607,7 +607,7 @@ export function Home() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center flex-grow py-8 md:py-12">
           
           {/* Left Column: Solution and CTAs */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <div className="lg:col-span-7 space-y-8 text-left order-2 lg:order-none">
             <div className="space-y-4">
               
 
@@ -667,7 +667,7 @@ export function Home() {
           </div>
 
           {/* Right Column: Dynamic Spec-Badge Product Showcase (25% larger container) */}
-          <div className="lg:col-span-5 flex items-center justify-center relative min-h-[480px] lg:min-h-[580px]">
+          <div className="lg:col-span-5 flex items-center justify-center relative min-h-[480px] lg:min-h-[580px] order-1 lg:order-none">
             
             {/* Animated Network Lines and Nodes */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
