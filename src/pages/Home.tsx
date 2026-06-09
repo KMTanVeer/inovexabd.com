@@ -328,7 +328,7 @@ function CategorySlider({
         <p className="text-sm text-black/60 dark:text-white/60 max-w-xl text-center">{description}</p>
       </div>
 
-      <div className="relative px-4 sm:px-12" ref={sliderRef}>
+      <div className="relative px-0 sm:px-12" ref={sliderRef}>
         <div 
           className="relative overflow-hidden touch-pan-y"
           onTouchStart={handleTouchStart}
@@ -357,7 +357,7 @@ function CategorySlider({
             <button
               onClick={handlePrev}
               aria-label="Previous products"
-              className="absolute left-0 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
+              className="absolute left-0 z-10 w-8 h-8 sm:w-10 sm:h-10 hidden sm:flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
               style={{ top: imageHeight ? `${imageHeight / 2}px` : '50%' }}
             >
               <ChevronLeft size={18} className="sm:hidden" />
@@ -366,7 +366,7 @@ function CategorySlider({
             <button
               onClick={handleNext}
               aria-label="Next products"
-              className="absolute right-0 z-10 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
+              className="absolute right-0 z-10 w-8 h-8 sm:w-10 sm:h-10 hidden sm:flex items-center justify-center rounded-full bg-white/95 dark:bg-black/95 border border-black/10 dark:border-white/10 text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-500 hover:scale-105 active:scale-95 transition-all shadow-md focus:outline-none cursor-pointer -translate-y-1/2"
               style={{ top: imageHeight ? `${imageHeight / 2}px` : '50%' }}
             >
               <ChevronRight size={18} className="sm:hidden" />
@@ -961,7 +961,7 @@ export function Home() {
       {/* Featured Hardware - STACKED CATEGORIES VERSION */}
       <section className="py-24 relative overflow-hidden">
          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent" />
-         <div className="container mx-auto px-6">
+         <div className="container mx-auto px-[3%] sm:px-6">
             <div className="flex flex-col items-center justify-center gap-4 mb-16 border-b border-black/5 dark:border-white/10 pb-8 text-center">
               <div className="space-y-3 flex flex-col items-center">
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white">Featured Products</h2>
@@ -1026,10 +1026,10 @@ export function Home() {
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <GlassContainer className="p-12 md:p-24 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:bg-blue-600/5 border-blue-200/40 dark:border-white/5 overflow-hidden group">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop')] bg-cover opacity-80 dark:opacity-10 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop')] bg-cover opacity-15 dark:opacity-10 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000" />
             <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
               <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white tracking-tight">Ready to Upgrade Your <br />Infrastructure?</h2>
-              <p className="text-black/70 dark:text-white/60 text-lg">
+              <p className="text-black/85 dark:text-white/75 text-lg">
                 Join hundreds of enterprises trust Inovexa Technologies for their mission-critical networking and server requirements.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6">

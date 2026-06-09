@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { MessageCircle, Eye, Search, Star } from 'lucide-react';
+import { MessageCircle, Eye, Search, Star, ShoppingCart } from 'lucide-react';
 import { type Product } from '@/src/data/products.ts';
 import { cn } from '@/src/components/common/GlassContainer.tsx';
 import { QuickViewModal } from '@/src/components/common/QuickViewModal.tsx';
@@ -115,7 +115,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#25D366] hover:border-[#25D366] hover:scale-110 active:scale-95 transition-all shadow-2xl"
+                    className="hidden sm:inline-flex p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#25D366] hover:border-[#25D366] hover:scale-110 active:scale-95 transition-all shadow-2xl"
                     title="Order on WhatsApp"
                   >
                     <MessageCircle size={18} />
@@ -137,6 +137,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
                   </Link>
                 </div>
               </>
+            )}
+            
+            {/* Order Now Overlay Button (Grid View only) */}
+            {!isList && (
+              <a 
+                href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I am interested in ${product.name}`)}`}
+                target="_blank"
+                onClick={(e) => e.stopPropagation()}
+                rel="noopener noreferrer"
+                className="absolute bottom-0 right-0 z-30 p-3 rounded-tl-2xl bg-zinc-900 text-white hover:bg-blue-600 dark:bg-white dark:text-zinc-900 dark:hover:bg-blue-600 dark:hover:text-white active:bg-blue-700 active:text-white dark:active:bg-blue-700 dark:active:text-white transition-all hover:scale-105 active:scale-95 flex items-center justify-center"
+                title="Order Now"
+              >
+                <ShoppingCart size={16} />
+              </a>
             )}
           </div>
 
@@ -164,7 +178,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
               className="block w-full"
             >
               <h3 className={cn(
-                "font-bold text-black dark:text-white leading-tight hover:text-blue-500 transition-colors text-left",
+                "font-medium text-black dark:text-white leading-tight hover:text-blue-500 transition-colors text-left",
                 isList ? "text-sm sm:text-xl line-clamp-1 sm:line-clamp-2" : "text-xs sm:text-base line-clamp-2"
               )}>
                 {product.name}
@@ -177,23 +191,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
               </p>
             )}
             
-            <div className="pt-2 sm:pt-3 flex items-center justify-between border-t border-black/5 dark:border-white/5 mt-auto w-full">
-              <div className="flex flex-col items-start">
-                <span className="text-[10px] text-black/60 dark:text-white/60 font-medium">Price</span>
-                <span className="text-sm sm:text-lg font-bold text-black dark:text-white">
-                  {product.price?.toLocaleString() || '0'}tk
-                </span>
+            {isList && (
+              <div className="mt-auto pt-2">
+                <a 
+                  href={`https://wa.me/8801813065665?text=${encodeURIComponent(`Hello, I am interested in ${product.name}`)}`}
+                  target="_blank"
+                  onClick={(e) => e.stopPropagation()}
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+                >
+                  Order Now
+                </a>
               </div>
-              <a 
-                href={`https://wa.me/8801813065665?text=Hello, I am interested in ${product.name}`}
-                target="_blank"
-                onClick={(e) => e.stopPropagation()}
-                rel="noopener noreferrer"
-                className="px-2.5 py-1.5 rounded-lg bg-blue-600/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] sm:text-[11px] font-bold hover:bg-blue-600 hover:text-white transition-all backdrop-blur-md"
-              >
-                Order Now
-              </a>
-            </div>
+            )}
           </div>
         </div>
       </motion.div>
