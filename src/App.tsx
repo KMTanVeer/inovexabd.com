@@ -9,6 +9,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { ThemeProvider } from '@/src/context/ThemeContext.tsx';
 import { Navbar } from '@/src/components/layout/Navbar.tsx';
 import { Footer } from '@/src/components/layout/Footer.tsx';
+import { BrandLogo } from '@/src/components/common/BrandLogo.tsx';
 import { FloatingWhatsApp } from '@/src/components/common/FloatingWhatsApp.tsx';
 import { CookieConsent } from '@/src/components/common/CookieConsent.tsx';
 import { Home } from '@/src/pages/Home.tsx';
@@ -46,8 +47,20 @@ function ScrollToTop() {
 // Lightweight loading fallback
 function LoadingFallback() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-zinc-50 dark:bg-black text-black dark:text-white">
-      <div className="text-xl font-medium">Loading...</div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-50 dark:bg-black text-black dark:text-white">
+      <div className="flex flex-col items-center gap-6">
+        <div className="animate-pulse">
+          <BrandLogo variant="mark" className="scale-150" />
+        </div>
+        <div className="flex items-center gap-1.5 mt-2">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-black/50 dark:text-white/50">
+            Loading
+          </span>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 animate-bounce [animation-delay:-0.3s]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 animate-bounce [animation-delay:-0.15s]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-500 animate-bounce" />
+        </div>
+      </div>
     </div>
   );
 }
