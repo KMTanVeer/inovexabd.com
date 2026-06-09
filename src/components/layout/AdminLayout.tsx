@@ -38,7 +38,7 @@ export function AdminLayout() {
       
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 transition-all duration-300">
-        <header className="h-16 border-b border-black/10 dark:border-white/10 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md flex items-center justify-between px-6 sticky top-0 z-20">
+        <header className="h-16 mx-6 mt-4 mb-2 rounded-full bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] flex items-center justify-between px-8 sticky top-4 z-20 transition-all duration-300">
           <button 
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="p-2 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors"

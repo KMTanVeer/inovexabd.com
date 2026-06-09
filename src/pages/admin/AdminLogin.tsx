@@ -43,7 +43,7 @@ export function AdminLogin() {
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <div className="w-full max-w-md bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-8 rounded-3xl shadow-2xl">
+      <div className="w-full max-w-md p-8 rounded-3xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_50px_rgba(99,102,241,0.1)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_30px_60px_rgba(0,0,0,0.5)]">
         <div className="flex flex-col items-center mb-8">
           <BrandLogo className="w-16 h-16 mb-4" />
           <h1 className="text-2xl font-display font-bold uppercase tracking-widest text-center">Admin Access</h1>

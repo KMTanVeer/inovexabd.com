@@ -49,7 +49,7 @@ export function AdminDashboard() {
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.name} className="bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+            <div key={stat.name} className="p-6 rounded-2xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_20px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-all duration-300">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-black/60 dark:text-white/60 font-semibold text-sm">{stat.name}</span>
                 <div className={`p-2.5 rounded-xl ${stat.color}`}>
@@ -68,7 +68,7 @@ export function AdminDashboard() {
       {/* Analytics grids */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Low Stock Items List */}
-        <div className="lg:col-span-2 bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 p-6 rounded-2xl overflow-hidden shadow-sm">
+        <div className="lg:col-span-2 p-6 rounded-2xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.35)] overflow-hidden">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-lg font-bold uppercase tracking-wider">Low Stock Inventory Warnings</h2>
@@ -112,7 +112,7 @@ export function AdminDashboard() {
         </div>
 
         {/* Brand metrics info */}
-        <div className="bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 p-6 rounded-2xl shadow-sm">
+        <div className="p-6 rounded-2xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.35)]">
           <h2 className="text-lg font-bold uppercase tracking-wider mb-2">Vendor Distribution</h2>
           <p className="text-xs text-black/50 dark:text-white/50 mb-6">Device concentration by certified manufacturer brand.</p>
 

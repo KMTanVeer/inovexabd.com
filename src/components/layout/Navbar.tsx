@@ -222,7 +222,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 z-50 w-full transition-all duration-500',
           (isScrolled || isMobileMenuOpen) 
-            ? 'py-4 backdrop-blur-2xl bg-white/80 dark:bg-black/80 border-b border-black/5 dark:border-white/10' 
+            ? 'py-4 backdrop-blur-xl bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)]' 
             : 'py-6 bg-transparent'
         )}
       >
