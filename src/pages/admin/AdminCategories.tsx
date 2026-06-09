@@ -21,7 +21,7 @@ export function AdminCategories() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Categories Panel */}
-        <div className="bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 rounded-2xl shadow-sm p-6 space-y-6">
+        <div className="bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl rounded-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] p-6 space-y-6">
           <div className="flex items-center gap-2 pb-4 border-b border-black/5 dark:border-white/5">
             <Package className="text-blue-500" size={20} />
             <h2 className="text-xl font-bold uppercase tracking-wide">Category Layers</h2>
@@ -49,7 +49,7 @@ export function AdminCategories() {
         </div>
 
         {/* Brands Panel */}
-        <div className="bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 rounded-2xl shadow-sm p-6 flex flex-col justify-between">
+        <div className="bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl rounded-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] p-6 flex flex-col justify-between">
           <div className="space-y-6">
             <div className="flex items-center gap-2 pb-4 border-b border-black/5 dark:border-white/5">
               <ShieldAlert className="text-blue-500" size={20} />
@@ -62,7 +62,7 @@ export function AdminCategories() {
 
             <div className="grid grid-cols-2 gap-4">
               {['Cisco Systems', 'Juniper Networks', 'Samsung Enterprise', 'Intel Corporation', 'Ubiquiti Networks', 'Huawei Technologies'].map((b, idx) => (
-                <div key={idx} className="p-3 text-center rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 font-bold uppercase text-xs tracking-wider">
+                <div key={idx} className="p-3 text-center rounded-xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/5 dark:via-zinc-900/20 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] font-bold uppercase text-xs tracking-wider">
                   {b}
                 </div>
               ))}

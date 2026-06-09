@@ -62,7 +62,7 @@ export function Shop() {
             </div>
             
             {/* Sticky Search bar */}
-            <div className="flex flex-col md:flex-row md:items-center justify-end gap-4 mb-12 sticky top-[72px] z-40 bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 px-6 border-b border-black/5 dark:border-white/10 -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl shadow-sm transition-all duration-500">
+            <div className="flex flex-col md:flex-row md:items-center justify-end gap-4 mb-12 sticky top-[72px] z-40 bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl py-4 px-6 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)] -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl transition-all duration-500">
                 <div className="flex flex-wrap items-center gap-4 w-full md:w-auto justify-between md:justify-end">
                     <div className="relative group">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30 dark:text-white/30 group-focus-within:text-blue-500 transition-colors" size={18} />

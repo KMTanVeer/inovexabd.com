@@ -788,8 +788,8 @@ export function Home() {
         </div>
 
         {/* Trusted Technology Partners Logos (Brand Trust Signals) - Floating Plain Marquee */}
-        <div className="container mx-auto px-6 max-w-6xl mb-12 relative z-20">
-          <div className="relative w-full py-6 px-12 overflow-hidden">
+        <div className="container mx-auto px-[2%] md:px-6 max-w-6xl mb-12 relative z-20">
+          <div className="relative w-full py-6 px-0 md:px-12 overflow-hidden">
             <div className="relative w-full overflow-hidden">
               <div className="flex w-full overflow-hidden">
                 <div 

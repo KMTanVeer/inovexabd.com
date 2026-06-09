@@ -124,7 +124,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.98 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="fixed top-20 md:top-24 left-1/2 z-[60] w-[calc(100%-1.5rem)] md:w-[min(760px,calc(100%-3rem))] -translate-x-1/2 rounded-2xl border border-black/10 dark:border-white/10 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-2xl shadow-2xl"
+              className="fixed top-20 md:top-24 left-1/2 z-[60] w-[calc(100%-1.5rem)] md:w-[min(760px,calc(100%-3rem))] -translate-x-1/2 rounded-2xl border border-white/60 dark:border-white/10 bg-gradient-to-b from-white/80 via-white/60 to-indigo-50/70 dark:from-zinc-950/80 dark:via-zinc-900/60 dark:to-neutral-950/50 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_15px_40px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_25px_50px_rgba(0,0,0,0.4)]"
             >
               <form onSubmit={handleSearch} className="p-4 md:p-6 space-y-5">
                 <div className="flex items-center gap-2 md:gap-3 border border-black/10 dark:border-white/10 rounded-xl px-3 md:px-4 focus-within:border-blue-500 transition-colors">
@@ -250,8 +250,8 @@ export function Navbar() {
                     <ChevronDown size={14} className="opacity-70 group-hover/dropdown:rotate-180 transition-transform duration-300" />
                   </Link>
                   {/* Dropdown Menu */}
-                  <div className="absolute top-full left-0 pt-4 w-[320px] opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-50">
-                    <div className="bg-white dark:bg-zinc-900 border border-black/5 dark:border-white/10 rounded-xl shadow-xl overflow-hidden py-3 backdrop-blur-xl">
+                  <div className="absolute top-full left-0 pt-4 w-[320px] opacity-0 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:pointer-events-auto transition-opacity duration-300 z-50">
+                    <div className="bg-gradient-to-b from-white/80 via-white/60 to-indigo-50/70 dark:from-zinc-950/80 dark:via-zinc-900/60 dark:to-neutral-950/50 border border-white/60 dark:border-white/10 rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_15px_40px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_25px_50px_rgba(0,0,0,0.4)] overflow-hidden py-3 backdrop-blur-3xl">
                       {link.dropdownGroups.map((group) => (
                         <div key={group.name} className="px-4 py-2">
                           <button
@@ -393,7 +393,7 @@ export function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-              className="absolute top-full left-0 w-full bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_40px_80px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_80px_rgba(0,0,0,0.6)] overflow-hidden md:hidden z-50"
+              className="absolute top-full left-0 w-full bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-3xl border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_40px_80px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_80px_rgba(0,0,0,0.6)] overflow-hidden md:hidden z-50"
             >
               <div className="py-8 px-6 flex flex-col gap-6">
                 {NAV_LINKS.map((link, i) => {

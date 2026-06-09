@@ -54,8 +54,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, index = 0, on
       >
         <div
           className={cn(
-            "h-full flex transition-all duration-300 relative rounded-2xl overflow-hidden",
-            isList ? "flex-row gap-4 p-3 bg-white/5 border border-white/10" : "flex-col bg-transparent"
+            "h-full flex transition-all duration-300 relative rounded-2xl overflow-hidden p-3 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl border border-indigo-100/70 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_6px_20px_-5px_rgba(99,102,241,0.02)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_20px_rgba(0,0,0,0.2)] hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:bg-white/90 dark:hover:bg-white/10 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_15px_30px_rgba(59,130,246,0.08)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.4)]",
+            isList ? "flex-row gap-4" : "flex-col"
           )}
         >
           {/* Badge */}

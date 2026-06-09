@@ -71,7 +71,7 @@ export function AdminProducts() {
         </button>
       </div>
 
-      <div className="bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl rounded-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] overflow-hidden">
         <div className="p-4 border-b border-black/10 dark:border-white/10 flex items-center justify-between">
           <div className="relative w-full max-w-md">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-black/40 dark:text-white/40" size={18} />

@@ -44,7 +44,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
               <X size={20} />
             </button>
 
-            <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden md:overflow-y-auto p-0 bg-white dark:bg-[#050505]/95 border border-zinc-200 dark:border-white/10 rounded-[2rem]">
+            <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden md:overflow-y-auto p-0 bg-gradient-to-b from-white/90 via-white/80 to-indigo-50/90 dark:from-zinc-950/90 dark:via-zinc-900/80 dark:to-neutral-950/70 border border-white/60 dark:border-white/10 rounded-[2rem] backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
               {/* Product Image Area (Desktop Only) */}
               <div className="hidden md:block md:w-1/2 relative bg-zinc-50 dark:bg-white/[0.02] shrink-0">
                 <img
@@ -109,13 +109,13 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({ product, isOpen,
                 {/* Specs */}
                 <div className="grid grid-cols-2 gap-1.5 md:gap-4">
                   {product.specs && Object.entries(product.specs).map(([label, value]) => (
-                    <div key={label} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                    <div key={label} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/5 dark:via-zinc-900/20 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
                       <span className="block text-[8px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-0.5 truncate">{label}</span>
                       <span className="block text-[10px] md:text-sm text-zinc-900 dark:text-white font-medium truncate">{String(value)}</span>
                     </div>
                   ))}
                   {(product as any).specifications && (product as any).specifications.map((spec: any) => (
-                    <div key={spec.key} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-zinc-50 dark:bg-white/[0.03] border border-zinc-100 dark:border-white/5">
+                    <div key={spec.key} className="[&:nth-child(n+5)]:hidden md:[&:nth-child(n+5)]:block p-1.5 md:p-3 rounded-lg md:rounded-xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/5 dark:via-zinc-900/20 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
                       <span className="block text-[8px] md:text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/30 font-bold mb-0.5 truncate">{spec.key}</span>
                       <span className="block text-[10px] md:text-sm text-zinc-900 dark:text-white font-medium truncate">{spec.value}</span>
                     </div>

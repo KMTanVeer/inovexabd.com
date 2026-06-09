@@ -79,7 +79,7 @@ export function Contact() {
           </div>
 
           {/* Form */}
-          <div className="bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 p-8 rounded-3xl shadow-xl">
+          <div className="bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_50px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_25px_50px_rgba(0,0,0,0.35)]">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 bg-blue-500/10 text-blue-500 rounded-full flex items-center justify-center mx-auto">

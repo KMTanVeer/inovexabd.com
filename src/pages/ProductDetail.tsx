@@ -260,7 +260,7 @@ export function ProductDetail() {
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative flex-1 group h-[min(42rem,78vh)] rounded-[2rem] overflow-hidden border border-black/15 dark:border-white/20 bg-white dark:bg-neutral-950 flex items-center justify-center"
+              className="relative flex-1 group h-[min(42rem,78vh)] rounded-[2rem] overflow-hidden border border-indigo-100/70 dark:border-white/10 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
             >
               <img
                 src={activeImage}
@@ -352,7 +352,7 @@ export function ProductDetail() {
 
             <div className="grid grid-cols-2 gap-2">
               {TRUST_BADGES.map((badge) => (
-                <div key={badge} className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white dark:bg-neutral-950 border border-black/10 dark:border-white/15">
+                <div key={badge} className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/5 dark:via-zinc-900/20 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
                   <CheckCircle2 size={15} className="text-blue-600 dark:text-blue-400 shrink-0" />
                   <span className="text-[11px] font-semibold text-black/80 dark:text-white/80 leading-tight">{badge}</span>
                 </div>
@@ -503,7 +503,7 @@ export function ProductDetail() {
                 exit={{ opacity: 0, y: -10 }}
                 className="space-y-12"
               >
-                <div className="flex items-center gap-8 py-10 px-8 rounded-3xl bg-black/[0.02] dark:bg-white/[0.03] border border-black/10 dark:border-white/15">
+                <div className="flex items-center gap-8 py-10 px-8 rounded-3xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.03)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.25)]">
                   <div className="text-center space-y-2">
                     <div className="text-6xl font-bold text-black dark:text-white">0</div>
                     <div className="flex items-center justify-center gap-1 text-gray-400">
@@ -524,7 +524,7 @@ export function ProductDetail() {
                 </div>
 
                 <div className="space-y-8">
-                  <div className="p-8 rounded-2xl border border-black/10 dark:border-white/15 bg-black/[0.02] dark:bg-white/[0.03] text-center">
+                  <div className="p-8 rounded-2xl border border-indigo-100/70 dark:border-white/10 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl text-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.03)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.25)]">
                     <p className="text-black/75 dark:text-white/75 text-sm leading-relaxed mb-4">No reviews yet.</p>
                     <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase tracking-widest rounded-full transition-colors">
                       Write a Review

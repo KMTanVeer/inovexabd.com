@@ -34,7 +34,7 @@ export function CookieConsent() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-[100] overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-[100] overflow-hidden rounded-2xl border border-white/60 dark:border-white/10 bg-gradient-to-b from-white/80 via-white/60 to-indigo-50/70 dark:from-zinc-950/80 dark:via-zinc-900/60 dark:to-neutral-950/50 backdrop-blur-xl p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_20px_50px_rgba(0,0,0,0.5)]"
         >
           {/* Decorative glowing gradient at the top border */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />

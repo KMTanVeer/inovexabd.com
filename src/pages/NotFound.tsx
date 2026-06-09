@@ -116,7 +116,7 @@ export function NotFound() {
               <Link
                 key={idx}
                 to={cat.path}
-                className="group relative block p-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md hover:border-blue-500/50 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-neutral-900 transition-all text-left shadow-sm hover:shadow-md"
+                className="group relative block p-5 rounded-2xl border border-indigo-100/70 dark:border-white/10 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_30px_-5px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.3)] hover:border-blue-500/50 dark:hover:border-blue-500/40 hover:scale-[1.03] transition-all duration-300 text-left"
               >
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${cat.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <cat.icon size={20} />

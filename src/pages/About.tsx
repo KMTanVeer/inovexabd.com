@@ -128,7 +128,7 @@ export function About() {
 
         {/* Mission & Vision Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="relative group overflow-hidden bg-slate-50/50 dark:bg-zinc-900/30 border border-black/5 dark:border-white/5 p-8 rounded-3xl transition-all duration-300 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/5">
+          <div className="relative group overflow-hidden bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl border border-indigo-100/70 dark:border-white/10 p-8 rounded-3xl transition-all duration-300 hover:border-blue-500/40 dark:hover:border-blue-500/35 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_45px_rgba(59,130,246,0.1)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_20px_45px_rgba(0,0,0,0.45)]">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 dark:bg-blue-500/10 blur-[40px] rounded-full transition-all group-hover:scale-150" />
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 rounded-2xl bg-blue-500/10 text-blue-500 shrink-0">
@@ -142,7 +142,7 @@ export function About() {
             </p>
           </div>
 
-          <div className="relative group overflow-hidden bg-slate-50/50 dark:bg-zinc-900/30 border border-black/5 dark:border-white/5 p-8 rounded-3xl transition-all duration-300 hover:border-purple-500/30 dark:hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/5">
+          <div className="relative group overflow-hidden bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl border border-indigo-100/70 dark:border-white/10 p-8 rounded-3xl transition-all duration-300 hover:border-purple-500/40 dark:hover:border-purple-500/35 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_45px_rgba(168,85,247,0.1)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_20px_45px_rgba(0,0,0,0.45)]">
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 dark:bg-purple-500/10 blur-[40px] rounded-full transition-all group-hover:scale-150" />
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 rounded-2xl bg-purple-500/10 text-purple-500 shrink-0">
@@ -172,7 +172,7 @@ export function About() {
               return (
                 <div 
                   key={idx} 
-                  className="group relative overflow-hidden bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
+                  className="group relative overflow-hidden bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl border border-indigo-100/70 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/40 p-6 rounded-2xl transition-all duration-300 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_40px_rgba(59,130,246,0.08)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_20px_40px_rgba(0,0,0,0.4)] hover:translate-y-[-2px]"
                 >
                   <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 group-hover:scale-110 text-blue-500 transition-all duration-300">
                     <Icon size={120} />
@@ -217,7 +217,7 @@ export function About() {
               return (
                 <div 
                   key={idx}
-                  className="flex gap-5 p-6 rounded-2xl bg-slate-50/30 dark:bg-zinc-900/10 border border-black/5 dark:border-white/5 transition-all hover:bg-slate-50/70 dark:hover:bg-zinc-900/20"
+                  className="flex gap-5 p-6 rounded-2xl bg-gradient-to-b from-white/35 via-indigo-50/10 to-indigo-100/25 dark:from-white/5 dark:via-zinc-900/20 dark:to-white/5 border border-indigo-100/60 dark:border-white/10 backdrop-blur-xl transition-all hover:border-blue-500/30 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_25px_rgba(0,0,0,0.03)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_15px_30px_rgba(0,0,0,0.25)]"
                 >
                   <div className={`p-4 rounded-2xl bg-gradient-to-br ${item.color} shrink-0 h-fit`}>
                     <Icon size={24} />
@@ -251,7 +251,7 @@ export function About() {
               return (
                 <div 
                   key={idx}
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-950 text-black/70 dark:text-white/70 hover:text-blue-500 hover:border-blue-500/50 transition-all font-medium text-xs md:text-sm shadow-sm"
+                  className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-indigo-100/60 dark:border-white/10 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/20 dark:from-white/5 dark:via-zinc-900/30 dark:to-white/5 text-black/70 dark:text-white/75 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-500/50 dark:hover:border-blue-500/40 backdrop-blur-md transition-all font-semibold text-xs md:text-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <Icon size={16} className="text-blue-500" />
                   <span>{industry.name}</span>
@@ -276,7 +276,7 @@ export function About() {
               return (
                 <div 
                   key={idx}
-                  className="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-black/10 dark:border-white/10 hover:border-blue-500/30 hover:shadow-lg transition-all text-center space-y-4"
+                  className="p-6 rounded-2xl bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 border border-indigo-100/70 dark:border-white/10 backdrop-blur-xl hover:border-blue-500/40 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_15px_30px_rgba(0,0,0,0.03)] dark:hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_20px_35px_rgba(0,0,0,0.3)] transition-all text-center space-y-4"
                 >
                   <div className={`w-12 h-12 rounded-full ${value.color} flex items-center justify-center mx-auto shrink-0`}>
                     <Icon size={20} />
@@ -294,7 +294,7 @@ export function About() {
         </div>
 
         {/* Commitment Section (Glass style) */}
-        <div className="relative overflow-hidden p-8 md:p-12 rounded-3xl border border-black/10 dark:border-white/10 bg-slate-50/50 dark:bg-zinc-950/40 backdrop-blur-md shadow-xl text-center space-y-6">
+        <div className="relative overflow-hidden p-8 md:p-12 rounded-3xl border border-indigo-100/70 dark:border-white/10 bg-gradient-to-b from-white/40 via-indigo-50/15 to-indigo-100/30 dark:from-white/10 dark:via-zinc-900/40 dark:to-white/5 backdrop-blur-xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_20px_50px_-10px_rgba(99,102,241,0.05)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_25px_50px_rgba(0,0,0,0.35)] text-center space-y-6">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.05),transparent)] pointer-events-none" />
           <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider text-black dark:text-white relative z-10">Our Commitment</h2>
           <p className="max-w-3xl mx-auto text-black/70 dark:text-white/70 leading-relaxed text-sm md:text-base font-light relative z-10">
