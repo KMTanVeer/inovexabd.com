@@ -485,6 +485,31 @@ export function Home() {
 
   const [activeBanner, setActiveBanner] = useState(0);
   const [heroShowcaseIndex, setHeroShowcaseIndex] = useState(0);
+  const [heroTouchStart, setHeroTouchStart] = useState<number | null>(null);
+  const [heroTouchEnd, setHeroTouchEnd] = useState<number | null>(null);
+
+  const handleHeroTouchStart = (e: React.TouchEvent) => {
+    setHeroTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleHeroTouchMove = (e: React.TouchEvent) => {
+    setHeroTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleHeroTouchEnd = () => {
+    if (heroTouchStart === null || heroTouchEnd === null) return;
+    const distance = heroTouchStart - heroTouchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      setHeroShowcaseIndex((prev) => (prev + 1) % HERO_SHOWCASE.length);
+    } else if (distance < -minSwipeDistance) {
+      setHeroShowcaseIndex((prev) => (prev - 1 + HERO_SHOWCASE.length) % HERO_SHOWCASE.length);
+    }
+    setHeroTouchStart(null);
+    setHeroTouchEnd(null);
+  };
+
   const [scopeIndex, setScopeIndex] = useState(0);
   const [isQuickViewActive, setIsQuickViewActive] = useState(false);
 
@@ -667,7 +692,12 @@ export function Home() {
           </div>
 
           {/* Right Column: Dynamic Spec-Badge Product Showcase (25% larger container) */}
-          <div className="lg:col-span-5 flex items-center justify-center relative min-h-[480px] lg:min-h-[580px] order-1 lg:order-none">
+          <div 
+            onTouchStart={handleHeroTouchStart}
+            onTouchMove={handleHeroTouchMove}
+            onTouchEnd={handleHeroTouchEnd}
+            className="lg:col-span-5 flex items-center justify-center relative min-h-[480px] lg:min-h-[580px] order-1 lg:order-none select-none touch-pan-y"
+          >
             
             {/* Animated Network Lines and Nodes */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" xmlns="http://www.w3.org/2000/svg">
