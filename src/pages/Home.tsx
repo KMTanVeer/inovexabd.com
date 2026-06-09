@@ -395,6 +395,49 @@ function CategorySlider({
 export function Home() {
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
   const [isMarqueeReversed, setIsMarqueeReversed] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const xRef = useRef(0);
+  const isHoveredRef = useRef(false);
+  const isReversedRef = useRef(false);
+
+  useEffect(() => {
+    isReversedRef.current = isMarqueeReversed;
+  }, [isMarqueeReversed]);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    const speed = 0.8; // pixels per frame (about 48px/s at 60fps)
+
+    const animate = () => {
+      if (!scrollRef.current) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
+      const halfWidth = scrollRef.current.offsetWidth / 2;
+      if (halfWidth > 0) {
+        if (!isHoveredRef.current) {
+          if (isReversedRef.current) {
+            xRef.current += speed;
+            if (xRef.current >= 0) {
+              xRef.current -= halfWidth;
+            }
+          } else {
+            xRef.current -= speed;
+            if (xRef.current <= -halfWidth) {
+              xRef.current += halfWidth;
+            }
+          }
+          scrollRef.current.style.transform = `translate3d(${xRef.current}px, 0, 0)`;
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
   
   const serverProducts = useMemo(() => {
     const categoryProducts = products.filter(p => p.category === 'servers');
@@ -750,9 +793,11 @@ export function Home() {
             <div className="relative w-full overflow-hidden">
               <div className="flex w-full overflow-hidden">
                 <div 
+                  ref={scrollRef}
                   onClick={() => setIsMarqueeReversed(!isMarqueeReversed)}
-                  className="animate-marquee flex items-center gap-16 whitespace-nowrap opacity-70 hover:opacity-100 transition-opacity duration-500 dark:opacity-80 dark:hover:opacity-100 cursor-pointer select-none"
-                  style={{ animationDirection: isMarqueeReversed ? 'reverse' : 'normal' }}
+                  onMouseEnter={() => { isHoveredRef.current = true; }}
+                  onMouseLeave={() => { isHoveredRef.current = false; }}
+                  className="flex items-center gap-16 whitespace-nowrap opacity-70 hover:opacity-100 transition-opacity duration-500 dark:opacity-80 dark:hover:opacity-100 cursor-pointer select-none w-max will-change-transform"
                 >
                   <CiscoLogo />
                   <MikrotikLogo />
