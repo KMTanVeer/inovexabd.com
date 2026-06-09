@@ -95,17 +95,20 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (!isSearchOpen) return;
+    if (!isSearchOpen && !isMobileMenuOpen) return;
     
-    // Lock body scrolling when search overlay is active
+    // Lock body scrolling when search overlay or mobile menu is active
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = 'hidden';
     
-    searchInputRef.current?.focus();
+    if (isSearchOpen) {
+      searchInputRef.current?.focus();
+    }
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsSearchOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -115,7 +118,7 @@ export function Navbar() {
       document.body.style.overflow = originalStyle;
       window.removeEventListener('keydown', handleEscape);
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen, isMobileMenuOpen]);
 
   return (
     <>
@@ -500,7 +503,7 @@ export function Navbar() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-              className="absolute top-full left-0 w-full bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-3xl border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_40px_80px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_80px_rgba(0,0,0,0.6)] overflow-hidden md:hidden z-50"
+              className="absolute top-full left-0 w-full bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-3xl border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_40px_80px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_40px_80px_rgba(0,0,0,0.6)] overflow-y-auto max-h-[calc(100vh-5rem)] md:hidden z-50"
             >
               <div className="py-8 px-6 flex flex-col gap-6">
                 {NAV_LINKS.map((link, i) => {
