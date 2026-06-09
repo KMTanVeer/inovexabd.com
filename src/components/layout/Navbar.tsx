@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Menu, X, ArrowRight, Sun, Moon, ChevronDown, Home, ShoppingBag, Mail, Package, ChevronRight } from 'lucide-react';
 import { cn } from '@/src/components/common/GlassContainer.tsx';
@@ -25,6 +25,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isShopScrolled, setIsShopScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeDesktopGroup, setActiveDesktopGroup] = useState<string | null>(null);
@@ -44,6 +45,30 @@ export function Navbar() {
   }, [searchQuery]);
   const location = useLocation();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const isShopPage = location.pathname === '/shop';
+  const [showInlineSuggestions, setShowInlineSuggestions] = useState(false);
+  const navbarInlineQuery = searchParams.get('q') || '';
+  const inlineSuggestions = useMemo(() => {
+    const q = navbarInlineQuery.trim().toLowerCase();
+    if (!q) return [];
+    return PRODUCTS.filter(p => 
+      p.name.toLowerCase().includes(q) || 
+      p.category.toLowerCase().includes(q) ||
+      (p.specs.Brand && p.specs.Brand.toLowerCase().includes(q)) ||
+      (p.specs.Model && p.specs.Model.toLowerCase().includes(q))
+    ).slice(0, 5);
+  }, [navbarInlineQuery]);
+
+  const [placeholderText, setPlaceholderText] = useState("Search");
+  useEffect(() => {
+    const updatePlaceholder = () => {
+      setPlaceholderText(window.innerWidth < 640 ? "Search" : "Search products...");
+    };
+    updatePlaceholder();
+    window.addEventListener('resize', updatePlaceholder);
+    return () => window.removeEventListener('resize', updatePlaceholder);
+  }, []);
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (location.pathname === '/') {
@@ -63,6 +88,7 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      setIsShopScrolled(window.scrollY > 100);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -314,8 +340,9 @@ export function Navbar() {
           </div>
 
           {/* Icons */}
-          <div className="flex items-center gap-2 md:gap-5">
-            <button
+          <motion.div layout className="flex items-center gap-2 md:gap-5">
+            <motion.button
+              layout
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               className="group relative p-2 md:p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-300"
@@ -324,63 +351,143 @@ export function Navbar() {
               <div className="relative transform group-hover:rotate-12 transition-transform duration-300">
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </div>
-            </button>
-            {/* Desktop Search Pill Button */}
-            <button 
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsSearchOpen(true);
-              }}
-              aria-label="Open search"
-              className="hidden md:block relative h-9 w-[132px] group/search cursor-pointer focus:outline-none hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 select-none"
-            >
-              {/* Left Part (Pill with cutout) */}
-              <div className="absolute left-0 top-0 w-[112px] h-9 pointer-events-none">
-                <svg width="112" height="36" viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36H99C95.5 31 93 25 93 18C93 11 95.5 5 99 0H18Z" fill="url(#search-left-grad)" />
-                  <defs>
-                    <linearGradient id="search-left-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#00A3FF" />
-                      <stop offset="100%" stopColor="#7B5CFF" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                {/* Text Overlay */}
-                <span className="absolute inset-y-0 left-0 pl-5 flex items-center text-white text-[13px] font-semibold select-none">
-                  Search...
-                </span>
-              </div>
+            </motion.button>
+            <AnimatePresence mode="wait">
+              {isShopPage && isShopScrolled ? (
+                <motion.div
+                  key="navbar-inline-search"
+                  layout
+                  initial={{ opacity: 0, scale: 0.95, x: 20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, x: 20 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="relative flex items-center"
+                >
+                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-black/40 dark:text-white/40" size={13} />
+                  <input
+                    type="text"
+                    placeholder={placeholderText}
+                    value={searchParams.get('q') || ''}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      const newParams = new URLSearchParams(searchParams);
+                      if (val) {
+                        newParams.set('q', val);
+                      } else {
+                        newParams.delete('q');
+                      }
+                      setSearchParams(newParams);
+                    }}
+                    onFocus={() => setShowInlineSuggestions(true)}
+                    onBlur={() => setTimeout(() => setShowInlineSuggestions(false), 200)}
+                    className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full pl-7 pr-3 py-1.5 text-xs text-black dark:text-white focus:outline-none focus:border-blue-500/50 w-[85px] xs:w-[110px] sm:w-[170px] md:w-[240px] lg:w-[320px] focus:w-[110px] xs:focus:w-[140px] sm:focus:w-[200px] md:focus:w-[280px] lg:focus:w-[360px] transition-all focus:bg-white dark:focus:bg-zinc-900 shadow-sm"
+                  />
+                  <AnimatePresence>
+                    {showInlineSuggestions && inlineSuggestions.length > 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full right-0 mt-2 w-[280px] xs:w-[320px] sm:w-[360px] md:w-[400px] z-[70] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl p-3 max-h-[320px] overflow-y-auto space-y-1.5"
+                      >
+                        <div className="text-[10px] font-bold text-black/40 dark:text-white/40 uppercase tracking-widest px-2 mb-1">
+                          Suggested Products
+                        </div>
+                        {inlineSuggestions.map((p) => (
+                          <Link
+                            key={p.id}
+                            to={`/product/${p.id}`}
+                            className="flex items-center gap-3 p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all group"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-white border border-black/10 dark:border-white/10 flex items-center justify-center p-1 shrink-0">
+                              <img src={p.image} alt={p.name} className="max-w-full max-h-full object-contain" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-sm font-semibold text-black dark:text-white truncate group-hover:text-blue-500 transition-colors font-medium">
+                                {p.name}
+                              </div>
+                              <div className="text-[10px] text-black/40 dark:text-white/40 uppercase tracking-wider">
+                                {p.specs.Brand || 'Enterprise'} • {p.category}
+                              </div>
+                            </div>
+                            <ChevronRight size={14} className="text-black/30 dark:text-white/30 group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="navbar-search-pill"
+                  layout
+                  initial={{ opacity: 0, scale: 0.95, x: -20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                  transition={{ duration: 0.2, ease: 'easeOut' }}
+                  className="flex items-center"
+                >
+                  {/* Desktop Search Pill Button */}
+                  <button 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsSearchOpen(true);
+                    }}
+                    aria-label="Open search"
+                    className="hidden md:block relative h-9 w-[132px] group/search cursor-pointer focus:outline-none hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 select-none"
+                  >
+                    {/* Left Part (Pill with cutout) */}
+                    <div className="absolute left-0 top-0 w-[112px] h-9 pointer-events-none">
+                      <svg width="112" height="36" viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                        <path d="M18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36H99C95.5 31 93 25 93 18C93 11 95.5 5 99 0H18Z" fill="url(#search-left-grad)" />
+                        <defs>
+                          <linearGradient id="search-left-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#00A3FF" />
+                            <stop offset="100%" stopColor="#7B5CFF" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      {/* Text Overlay */}
+                      <span className="absolute inset-y-0 left-0 pl-5 flex items-center text-white text-[13px] font-semibold select-none">
+                        Search...
+                      </span>
+                    </div>
 
-              {/* Right Part (Circle button) */}
-              <div className="absolute left-[96px] top-0 w-9 h-9 rounded-full bg-gradient-to-br from-[#7B5CFF] to-[#9D4EDD] flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover/search:shadow-indigo-500/40 transition-all duration-300">
-                <Search size={15} strokeWidth={2.5} />
-              </div>
-            </button>
+                    {/* Right Part (Circle button) */}
+                    <div className="absolute left-[96px] top-0 w-9 h-9 rounded-full bg-gradient-to-br from-[#7B5CFF] to-[#9D4EDD] flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover/search:shadow-indigo-500/40 transition-all duration-300">
+                      <Search size={15} strokeWidth={2.5} />
+                    </div>
+                  </button>
 
-            {/* Mobile Search Icon Button */}
-            <button 
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsSearchOpen(true);
-              }}
-              aria-label="Open search"
-              className="md:hidden group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
-            >
-              <div className="absolute inset-0 rounded-full bg-purple-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 pointer-events-none" />
-              <div className="relative transform group-hover:-rotate-12 group-hover:scale-110 transition-transform duration-300">
-                <Search size={20} />
-              </div>
-            </button>
+                  {/* Mobile Search Icon Button */}
+                  <button 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsSearchOpen(true);
+                    }}
+                    aria-label="Open search"
+                    className="md:hidden group relative p-2.5 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 text-black/70 dark:text-white/70 hover:text-purple-500 dark:hover:text-purple-400 transition-all duration-300"
+                  >
+                    <div className="absolute inset-0 rounded-full bg-purple-500/10 scale-0 group-hover:scale-100 transition-transform duration-300 pointer-events-none" />
+                    <div className="relative transform group-hover:-rotate-12 group-hover:scale-110 transition-transform duration-300">
+                      <Search size={20} />
+                    </div>
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
             
             {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden text-black dark:text-white p-2 -mr-2"
+            <motion.button
+              layout
+              className="md:hidden text-black dark:text-white p-2 mr-0.5"
               aria-label="Toggle mobile menu"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
 

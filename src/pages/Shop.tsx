@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Filter, SlidersHorizontal, Grid, List as ListIcon, X, Phone, Info } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { Search, Filter, SlidersHorizontal, Grid, List as ListIcon, X, Phone, Info, ChevronRight } from 'lucide-react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { CATEGORIES, Product, PRODUCTS } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { GlassContainer } from '@/src/components/common/GlassContainer.tsx';
@@ -27,6 +27,27 @@ export function Shop() {
 
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 150000]);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const [showShopSuggestions, setShowShopSuggestions] = useState(false);
+  const shopQuery = searchQuery.trim().toLowerCase();
+  const shopSuggestions = useMemo(() => {
+    if (!shopQuery) return [];
+    return PRODUCTS.filter(p => 
+      p.name.toLowerCase().includes(shopQuery) || 
+      p.category.toLowerCase().includes(shopQuery) ||
+      (p.specs.Brand && p.specs.Brand.toLowerCase().includes(shopQuery)) ||
+      (p.specs.Model && p.specs.Model.toLowerCase().includes(shopQuery))
+    ).slice(0, 5);
+  }, [shopQuery]);
 
   const filteredProducts = useMemo(() => {
     return products.filter(product => {
@@ -62,7 +83,12 @@ export function Shop() {
             </div>
             
             {/* Sticky Search bar */}
-            <div className="flex flex-col md:flex-row md:items-center justify-end gap-4 mb-12 sticky top-[72px] z-40 bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl py-4 px-6 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)] -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl transition-all duration-500">
+            <div className={cn(
+              "flex flex-col md:flex-row md:items-center justify-end gap-4 sticky top-[72px] z-40 bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl py-4 px-6 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)] -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl transition-all duration-500 overflow-hidden",
+              isScrolled 
+                ? "opacity-0 -translate-y-6 pointer-events-none max-h-0 py-0 mb-0 border-transparent shadow-none" 
+                : "opacity-100 translate-y-0 pointer-events-auto max-h-[120px] py-4 mb-12"
+            )}>
                 <div className="flex flex-wrap items-center gap-4 w-full md:w-auto justify-between md:justify-end">
                     <div className="relative group">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-black/30 dark:text-white/30 group-focus-within:text-blue-500 transition-colors" size={18} />
@@ -71,8 +97,54 @@ export function Shop() {
                             placeholder="Search products..." 
                             className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full pl-12 pr-6 py-3 text-sm text-black dark:text-white focus:outline-none focus:border-blue-500/50 w-[300px] lg:w-[400px] transition-all focus:bg-white dark:focus:bg-zinc-900"
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onFocus={() => setShowShopSuggestions(true)}
+                            onBlur={() => setTimeout(() => setShowShopSuggestions(false), 200)}
+                            onChange={(e) => {
+                              setSearchQuery(e.target.value);
+                              const newParams = new URLSearchParams(searchParams);
+                              if (e.target.value) {
+                                newParams.set('q', e.target.value);
+                              } else {
+                                newParams.delete('q');
+                              }
+                              setSearchParams(newParams, { replace: true });
+                            }}
                         />
+                        <AnimatePresence>
+                          {showShopSuggestions && shopSuggestions.length > 0 && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                              transition={{ duration: 0.15 }}
+                              className="absolute top-full left-0 md:right-0 md:left-auto mt-2 w-full md:w-[400px] z-[70] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl p-3 max-h-[320px] overflow-y-auto space-y-1.5"
+                            >
+                              <div className="text-[10px] font-bold text-black/40 dark:text-white/40 uppercase tracking-widest px-2 mb-1">
+                                Suggested Products
+                              </div>
+                              {shopSuggestions.map((p) => (
+                                <Link
+                                  key={p.id}
+                                  to={`/product/${p.id}`}
+                                  className="flex items-center gap-3 p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all group"
+                                >
+                                  <div className="w-8 h-8 rounded-lg bg-white border border-black/10 dark:border-white/10 flex items-center justify-center p-1 shrink-0">
+                                    <img src={p.image} alt={p.name} className="max-w-full max-h-full object-contain" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-sm font-semibold text-black dark:text-white truncate group-hover:text-blue-500 transition-colors font-medium">
+                                      {p.name}
+                                    </div>
+                                    <div className="text-[10px] text-black/40 dark:text-white/40 uppercase tracking-wider">
+                                      {p.specs.Brand || 'Enterprise'} • {p.category}
+                                    </div>
+                                  </div>
+                                  <ChevronRight size={14} className="text-black/30 dark:text-white/30 group-hover:translate-x-0.5 transition-transform" />
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                     </div>
                 </div>
             </div>
