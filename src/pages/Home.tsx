@@ -382,7 +382,7 @@ function CategorySlider({
             key={i}
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => setCurrentIndex(i)}
-            className="w-11 h-11 flex items-center justify-center focus:outline-none"
+            className="w-12 h-12 flex items-center justify-center focus:outline-none cursor-pointer"
           >
             <div className={`w-1.5 h-1.5 rounded-full transition-all ${currentIndex === i ? 'bg-blue-600 dark:bg-blue-500 w-4' : 'bg-black/20 dark:bg-white/20'}`} />
           </button>
@@ -618,11 +618,11 @@ export function Home() {
             {/* B2B-oriented Sub-headline */}
             <p className="text-base sm:text-lg text-black/70 dark:text-white/60 leading-relaxed max-w-2xl font-light">
               Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in{' '}
-              <Link to="/shop?category=networking" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+              <Link to="/shop?category=networking" className="text-blue-700 dark:text-blue-400 font-semibold hover:underline">
                 enterprise networking
               </Link>
               ,{' '}
-              <Link to="/shop?category=servers" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+              <Link to="/shop?category=servers" className="text-blue-700 dark:text-blue-400 font-semibold hover:underline">
                 server solutions
               </Link>
               , ISP equipment, and smart security systems in Bangladesh.
@@ -759,14 +759,16 @@ export function Home() {
                            <span className={`px-2 py-0.5 rounded border text-[9px] font-bold uppercase tracking-widest ${showcaseBadgeClass}`}>
                              {HERO_SHOWCASE[heroShowcaseIndex].tag}
                             </span>
-                            <div className="flex gap-1.5">
+                            <div className="flex items-center gap-0">
                               {HERO_SHOWCASE.map((_, i) => (
                                 <button
                                   key={i}
                                   onClick={() => setHeroShowcaseIndex(i)}
-                                  className={`w-1.5 h-1.5 rounded-full transition-all focus:outline-none cursor-pointer ${heroShowcaseIndex === i ? `${showcaseDotPrimaryClass} w-3` : showcaseDotSecondaryClass}`}
+                                  className="w-12 h-12 flex items-center justify-center focus:outline-none cursor-pointer"
                                   aria-label={`Go to showcase ${i + 1}`}
-                               />
+                                >
+                                  <div className={`w-1.5 h-1.5 rounded-full transition-all ${heroShowcaseIndex === i ? `${showcaseDotPrimaryClass} w-3` : showcaseDotSecondaryClass}`} />
+                                </button>
                               ))}
                            </div>
                          </div>

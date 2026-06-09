@@ -270,8 +270,8 @@ export function Navbar() {
                   <Link
                     to={link.path}
                     className={cn(
-                      'text-sm font-medium tracking-wide transition-colors hover:text-blue-500 flex items-center gap-1.5',
-                      location.pathname === link.path ? 'text-blue-500' : 'text-black/70 dark:text-white/70'
+                      'text-sm font-medium tracking-wide transition-colors hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5',
+                      location.pathname === link.path ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
                     )}
                   >
                     <Icon size={16} />
@@ -311,7 +311,7 @@ export function Navbar() {
                                     <Link
                                       key={item.path}
                                       to={item.path}
-                                      className="block px-2 py-1.5 text-sm text-black/70 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-500 rounded-md transition-colors"
+                                      className="block px-2 py-1.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors"
                                     >
                                       {item.name}
                                     </Link>
@@ -331,8 +331,8 @@ export function Navbar() {
                   to={link.path}
                   onClick={link.path === '/' ? handleLogoClick : undefined}
                   className={cn(
-                    'text-sm font-medium tracking-wide transition-colors hover:text-blue-500 flex items-center gap-1.5',
-                    location.pathname === link.path ? 'text-blue-500' : 'text-black/70 dark:text-white/70'
+                    'text-sm font-medium tracking-wide transition-colors hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5',
+                    location.pathname === link.path ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
                   )}
                 >
                   <Icon size={16} />
@@ -525,7 +525,7 @@ export function Navbar() {
                          }}
                          className={cn(
                            "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                           "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                           "text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
                          )}
                        >
                          <div className="flex items-center gap-3">
@@ -538,7 +538,7 @@ export function Navbar() {
                          to={link.path}
                          className={cn(
                            "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                           location.pathname === link.path ? "text-blue-500" : "text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-white"
+                           location.pathname === link.path ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
                          )}
                          onClick={(e) => {
                            if (link.path === '/' && location.pathname === '/') {
@@ -560,7 +560,7 @@ export function Navbar() {
                              <button
                                type="button"
                                onClick={() => setActiveMobileGroup((prev) => (prev === group.name ? null : group.name))}
-                               className="w-full flex items-center justify-between text-left text-base font-semibold text-black/70 dark:text-white/70 hover:text-blue-500 dark:hover:text-blue-400"
+                               className="w-full flex items-center justify-between text-left text-base font-semibold text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
                              >
                                <span>{group.name}</span>
                                <ChevronDown
@@ -586,7 +586,7 @@ export function Navbar() {
                                          key={item.path}
                                          to={item.path}
                                          onClick={() => setIsMobileMenuOpen(false)}
-                                         className="block text-base text-black/60 dark:text-white/60 hover:text-blue-500 dark:hover:text-blue-400"
+                                         className="block text-base text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400"
                                        >
                                          {item.name}
                                        </Link>
