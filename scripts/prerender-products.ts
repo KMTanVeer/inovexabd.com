@@ -13,7 +13,7 @@ if (!fs.existsSync(indexPath)) {
 const baseHtml = fs.readFileSync(indexPath, 'utf8');
 
 PRODUCTS.forEach(product => {
-  const title = `${product.name} | ISP, Enterprise Networking & Data Center Solutions | InovexaBD`;
+  const title = `${product.name} | ISP, Enterprise Networking & Data Center Solutions | INOVEXA Technologies`;
   const desc = `Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`;
   const productUrl = `https://www.inovexabd.com/product/${product.id}`;
   
