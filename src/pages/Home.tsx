@@ -394,7 +394,7 @@ function CategorySlider({
 
 export function Home() {
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
-
+  const [isMarqueeReversed, setIsMarqueeReversed] = useState(false);
   
   const serverProducts = useMemo(() => {
     const categoryProducts = products.filter(p => p.category === 'servers');
@@ -749,7 +749,11 @@ export function Home() {
           <div className="relative w-full py-6 px-12 overflow-hidden">
             <div className="relative w-full overflow-hidden">
               <div className="flex w-full overflow-hidden">
-                <div className="animate-marquee flex items-center gap-16 whitespace-nowrap opacity-70 hover:opacity-100 transition-opacity duration-500 dark:opacity-80 dark:hover:opacity-100">
+                <div 
+                  onClick={() => setIsMarqueeReversed(!isMarqueeReversed)}
+                  className="animate-marquee flex items-center gap-16 whitespace-nowrap opacity-70 hover:opacity-100 transition-opacity duration-500 dark:opacity-80 dark:hover:opacity-100 cursor-pointer select-none"
+                  style={{ animationDirection: isMarqueeReversed ? 'reverse' : 'normal' }}
+                >
                   <CiscoLogo />
                   <MikrotikLogo />
                   <UbiquitiLogo />
