@@ -44,7 +44,7 @@ export function ProductDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center pt-20 bg-white dark:bg-black transition-colors">
+      <div className="min-h-screen flex items-center justify-center pt-20 bg-zinc-50 dark:bg-black transition-colors">
         <div className="text-center space-y-6">
           <div className="animate-spin w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto" />
           <h2 className="text-2xl font-bold text-black dark:text-white">Loading innovative hardware...</h2>
@@ -56,7 +56,7 @@ export function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center pt-20 bg-white dark:bg-black transition-colors">
+      <div className="min-h-screen flex items-center justify-center pt-20 bg-zinc-50 dark:bg-black transition-colors">
         <div className="text-center space-y-6">
           <h2 className="text-2xl font-bold text-black dark:text-white">Product not found.</h2>
           <Link to="/shop" className="text-blue-600 dark:text-blue-400 hover:underline">Back to Shop</Link>
@@ -89,14 +89,14 @@ export function ProductDetail() {
   const dynamicKeywords = `${product.name}, ${product.category}, ${detectedBrand}, ${normalizedBrand}, ${subcategoryLabel}, buy ${product.name} Bangladesh, ${product.name} price in BD, ISP equipment, enterprise networking, server solutions, data center equipment`;
 
   return (
-    <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-white dark:bg-black transition-colors">
+    <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-zinc-50 dark:bg-black transition-colors">
       <SEO
         title={`${product.name} | ISP, Enterprise Networking & Data Center Solutions`}
         description={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
         keywords={dynamicKeywords}
         url={`https://www.inovexabd.com/product/${product.id || (product as any)._id}`}
         image={activeImage || product.image || "/og-image.webp"}
-        ogTitle={`${product.name} | ISP, Enterprise Networking & Data Center Solutions | InovexaBD`}
+        ogTitle={`${product.name} | ISP, Enterprise Networking & Data Center Solutions | INOVEXA Technologies`}
         ogDescription={`Buy ${product.name} from InovexaBD. Trusted supplier of ISP equipment, enterprise networking hardware, servers, storage systems, fiber optic solutions, and data center infrastructure in Bangladesh.`}
         type="product"
         structuredData={[

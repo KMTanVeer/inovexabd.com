@@ -46,7 +46,7 @@ function ScrollToTop() {
 // Lightweight loading fallback
 function LoadingFallback() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white dark:bg-black text-black dark:text-white">
+    <div className="flex items-center justify-center min-h-screen bg-zinc-50 dark:bg-black text-black dark:text-white">
       <div className="text-xl font-medium">Loading...</div>
     </div>
   );
@@ -55,7 +55,7 @@ function LoadingFallback() {
 // Store Layout Component
 function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white">
+    <div className="min-h-screen bg-zinc-50 text-black dark:bg-black dark:text-white">
       <Navbar />
       <main>
         {children}

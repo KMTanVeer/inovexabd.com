@@ -87,7 +87,7 @@ export function About() {
   ];
 
   return (
-    <div className="relative pt-32 pb-24 min-h-screen overflow-hidden bg-white dark:bg-black">
+    <div className="relative pt-32 pb-24 min-h-screen overflow-hidden bg-zinc-50 dark:bg-black">
       <SEO 
         title="About Us" 
         description="Empowering Connectivity, Infrastructure, and Innovation. InovexaBD is a trusted provider of ISP equipment, enterprise networking, servers, and data center hardware." 

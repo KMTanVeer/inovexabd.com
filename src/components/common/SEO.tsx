@@ -14,7 +14,7 @@ interface SEOProps {
 }
 
 export function SEO({ title, description, url, image, keywords, type, structuredData, ogTitle, ogDescription, disableTitleSuffix }: SEOProps) {
-  const fullTitle = disableTitleSuffix ? title : `${title} | InovexaBD`;
+  const fullTitle = disableTitleSuffix ? title : `${title} | INOVEXA Technologies`;
   const siteUrl = url || (typeof window !== 'undefined' ? `https://www.inovexabd.com${window.location.pathname}` : "https://www.inovexabd.com");
   let finalImage = image || "https://www.inovexabd.com/og-image.webp";
   if (finalImage.startsWith('/')) {
@@ -34,7 +34,7 @@ export function SEO({ title, description, url, image, keywords, type, structured
       <meta property="og:title" content={finalOgTitle} />
       <meta property="og:description" content={finalOgDesc} />
       <meta property="og:type" content={type || 'website'} />
-      <meta property="og:site_name" content="InovexaBD" />
+      <meta property="og:site_name" content="INOVEXA Technologies" />
       <meta property="og:image" content={finalImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalOgTitle} />
