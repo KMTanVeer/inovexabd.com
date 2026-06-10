@@ -10,7 +10,9 @@ def optimize_images():
         'MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5 SATA SSD',
         'NVIDIA Mellanox MC2210411-SR4 QSFP+ transceivers',
         'Supermicro 10 G dual port SFP LAN Card version 2.10',
-        'Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module'
+        'Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module',
+        'Cisco Nexus 92160YC-X Switch',
+        'Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch'
     ]
     
     total_saved = 0

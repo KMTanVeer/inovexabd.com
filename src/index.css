@@ -128,3 +128,28 @@
 .animate-pulse-node {
   animation: pulse-node 4s ease-in-out infinite;
 }
+
+/* Premium 3D depth and shadows for Navbar Search Button */
+.search-pill-depth {
+  filter: drop-shadow(0px 4px 10px rgba(123, 92, 255, 0.25)) drop-shadow(0px 2px 4px rgba(0, 163, 255, 0.15));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-pill-depth:hover {
+  filter: drop-shadow(0px 8px 22px rgba(123, 92, 255, 0.45)) drop-shadow(0px 4px 8px rgba(0, 163, 255, 0.25));
+  transform: translateY(-1.5px) scale(1.04);
+}
+
+.search-pill-depth:active {
+  transform: translateY(1px) scale(0.96);
+  filter: drop-shadow(0px 3px 6px rgba(123, 92, 255, 0.2));
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: caret-blink 0.9s step-end infinite;
+}

@@ -85,6 +85,11 @@ export function Navbar() {
     setSearchQuery('');
   };
 
+  const handleCloseSearch = () => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -107,7 +112,7 @@ export function Navbar() {
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsSearchOpen(false);
+        handleCloseSearch();
         setIsMobileMenuOpen(false);
       }
     };
@@ -139,15 +144,15 @@ export function Navbar() {
       <AnimatePresence>
         {isSearchOpen && (
           <>
-            <motion.button
-              type="button"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsSearchOpen(false)}
-              aria-label="Close search"
-              className="fixed inset-0 z-[55] bg-black/30 dark:bg-black/60 backdrop-blur-md cursor-default focus:outline-none"
-            />
+             <motion.button
+               type="button"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+               onClick={handleCloseSearch}
+               aria-label="Close search"
+               className="fixed inset-0 z-[55] bg-black/30 dark:bg-black/60 backdrop-blur-md cursor-default focus:outline-none"
+             />
             <motion.div
               initial={{ opacity: 0, y: -16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -156,7 +161,7 @@ export function Navbar() {
               className="fixed top-20 md:top-24 left-1/2 z-[60] w-[calc(100%-1.5rem)] md:w-[min(760px,calc(100%-3rem))] -translate-x-1/2 rounded-2xl border border-white/60 dark:border-white/10 bg-gradient-to-b from-white/80 via-white/60 to-indigo-50/70 dark:from-zinc-950/80 dark:via-zinc-900/60 dark:to-neutral-950/50 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_15px_40px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_25px_50px_rgba(0,0,0,0.4)]"
             >
               <form onSubmit={handleSearch} className="p-4 md:p-6 space-y-5">
-                <div className="flex items-center gap-2 md:gap-3 border border-black/10 dark:border-white/10 rounded-xl px-3 md:px-4 focus-within:border-blue-500 transition-colors">
+                <div className="flex items-center gap-2 md:gap-3 bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-xl px-3 md:px-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus-within:border-indigo-500/80 focus-within:shadow-[0_0_15px_rgba(99,102,241,0.2)] dark:focus-within:shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all duration-300">
                   <Search size={18} className="text-black/40 dark:text-white/40 shrink-0" />
                   <input
                     ref={searchInputRef}
@@ -165,7 +170,7 @@ export function Navbar() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={(e) => {
                       if (e.key === 'Escape') {
-                        setIsSearchOpen(false);
+                        handleCloseSearch();
                       }
                     }}
                     placeholder="Search infrastructure hardware..."
@@ -174,17 +179,13 @@ export function Navbar() {
                   <button
                     type="submit"
                     aria-label="Submit search"
-                    className="relative w-10 h-10 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 duration-200 shrink-0 cursor-pointer focus:outline-none"
+                    className="w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center transition-all hover:bg-zinc-200 dark:hover:bg-zinc-700 hover:scale-105 active:scale-95 duration-200 shrink-0 cursor-pointer focus:outline-none"
                   >
-                    {/* Rosette Background SVG */}
-                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full fill-zinc-100 dark:fill-zinc-800 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M 50 5 C 53.9 10 59.8 11.6 62.9 15.3 C 66 19 66.2 25.4 70.4 28.3 C 74.6 31.2 80.9 30.5 83.9 34.6 C 86.9 38.7 86.2 45.1 88 50 C 86.2 54.9 86.9 61.3 83.9 65.4 C 80.9 69.5 74.6 68.8 70.4 71.7 C 66.2 74.6 66 81 62.9 84.7 C 59.8 88.4 53.9 90 50 95 C 46.1 90 40.2 88.4 37.1 84.7 C 34 81 33.8 74.6 29.6 71.7 C 25.4 68.8 19.1 69.5 16.1 65.4 C 13.1 61.3 13.8 54.9 12 50 C 13.8 45.1 13.1 38.7 16.1 34.6 C 19.1 30.5 25.4 31.2 29.6 28.3 C 33.8 25.4 34 19 37.1 15.3 C 40.2 11.6 46.1 10 50 5 Z" />
-                    </svg>
-                    <Search size={16} className="relative z-10 text-zinc-900 dark:text-white" />
+                    <Search size={16} className="text-zinc-900 dark:text-white" />
                   </button>
                   <button
                     type="button"
-                    onClick={() => setIsSearchOpen(false)}
+                    onClick={handleCloseSearch}
                     aria-label="Close search panel"
                     className="p-2 rounded-lg text-black/40 dark:text-white/40 hover:bg-black/5 dark:hover:bg-white/10 hover:text-black dark:hover:text-white transition-colors"
                   >
@@ -383,7 +384,7 @@ export function Navbar() {
                     }}
                     onFocus={() => setShowInlineSuggestions(true)}
                     onBlur={() => setTimeout(() => setShowInlineSuggestions(false), 200)}
-                    className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full pl-7 pr-3 py-1.5 text-xs text-black dark:text-white focus:outline-none focus:border-blue-500/50 w-[85px] xs:w-[110px] sm:w-[170px] md:w-[240px] lg:w-[320px] focus:w-[110px] xs:focus:w-[140px] sm:focus:w-[200px] md:focus:w-[280px] lg:focus:w-[360px] transition-all focus:bg-white dark:focus:bg-zinc-900 shadow-sm"
+                    className="bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-full pl-7 pr-3 py-1.5 text-xs text-black dark:text-white focus:outline-none focus:border-blue-500/80 w-[85px] xs:w-[110px] sm:w-[170px] md:w-[240px] lg:w-[320px] focus:w-[110px] xs:focus:w-[140px] sm:focus:w-[200px] md:focus:w-[280px] lg:focus:w-[360px] transition-all focus:bg-white dark:focus:bg-zinc-950 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus:shadow-[0_4px_12px_rgba(59,130,246,0.15)] dark:focus:shadow-[0_4px_12px_rgba(59,130,246,0.25)]"
                   />
                   <AnimatePresence>
                     {showInlineSuggestions && inlineSuggestions.length > 0 && (
@@ -438,27 +439,18 @@ export function Navbar() {
                       setIsSearchOpen(true);
                     }}
                     aria-label="Open search"
-                    className="hidden md:block relative h-9 w-[132px] group/search cursor-pointer focus:outline-none hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 select-none"
+                    className="hidden md:flex items-center relative h-9 w-[132px] rounded-full bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_1.5px_3px_rgba(0,0,0,0.4)] hover:border-indigo-500/50 hover:shadow-[0_4px_12px_rgba(123,92,255,0.15)] dark:hover:shadow-[0_4px_12px_rgba(123,92,255,0.25)] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 select-none group/search cursor-text focus:outline-none"
                   >
-                    {/* Left Part (Pill with cutout) */}
-                    <div className="absolute left-0 top-0 w-[112px] h-9 pointer-events-none">
-                      <svg width="112" height="36" viewBox="0 0 112 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                        <path d="M18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36H99C95.5 31 93 25 93 18C93 11 95.5 5 99 0H18Z" fill="url(#search-left-grad)" />
-                        <defs>
-                          <linearGradient id="search-left-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#00A3FF" />
-                            <stop offset="100%" stopColor="#7B5CFF" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      {/* Text Overlay */}
-                      <span className="absolute inset-y-0 left-0 pl-5 flex items-center text-white text-[13px] font-semibold select-none">
+                    {/* Text Overlay & Caret */}
+                    <div className="relative pl-4 flex items-center h-full">
+                      <span className="text-zinc-400 dark:text-zinc-400 text-[13px] font-medium select-none transition-opacity duration-200 group-hover/search:opacity-0">
                         Search...
                       </span>
+                      <span className="absolute left-4 w-[1.5px] h-4 bg-indigo-600 dark:bg-indigo-400 opacity-0 group-hover/search:opacity-100 group-hover/search:animate-blink pointer-events-none transition-opacity duration-200" />
                     </div>
 
                     {/* Right Part (Circle button) */}
-                    <div className="absolute left-[96px] top-0 w-9 h-9 rounded-full bg-gradient-to-br from-[#7B5CFF] to-[#9D4EDD] flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover/search:shadow-indigo-500/40 transition-all duration-300">
+                    <div className="absolute -right-[1px] top-[-1px] w-9 h-9 rounded-full bg-gradient-to-br from-[#7B5CFF] to-[#9D4EDD] flex items-center justify-center text-white border border-white/10 shadow-md shadow-indigo-500/20 group-hover/search:shadow-indigo-500/40 transition-all duration-300 pointer-events-none">
                       <Search size={15} strokeWidth={2.5} />
                     </div>
                   </button>

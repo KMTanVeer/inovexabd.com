@@ -895,6 +895,67 @@ export const PRODUCTS: Product[] = [
       Features: 'VMDq, SR-IOV, FCoE, NC-SI management, iSCSI boot',
       Dimensions: '4.0" (102mm) x 2.73" (69mm)'
     }
+  },
+  {
+    id: 'cisco-nexus-92160yc-x',
+    name: 'Cisco Nexus 92160YC-X 48x 10/25Gb SFP28 + 6x 40/100Gb QSFP28 Data Center Switch',
+    category: 'networking',
+    price: 0,
+    description: 'The Cisco Nexus 92160YC-X Switch is a high-performance 1RU data center switch built to handle demanding enterprise workloads, service provider hosting, and cloud infrastructures. With 3.2 Tbps of switching bandwidth and over 2.5 Bpps of throughput, it delivers exceptional processing power and line-rate performance.\n\nFlexible Port Options – Features 48 10/25-Gbps SFP28 ports and 6 QSFP28 ports (with 4 ports supporting 100-Gbps and 2 ports supporting either 40-Gbps or 100-Gbps).\nSub-Microsecond Latency – Designed for latency-sensitive applications like financial trading and high-frequency workloads.\nLeaf-Spine Architecture – Full support for Cisco ACI (Application Centric Infrastructure) Leaf mode or standalone standard NX-OS mode.\nHigh Reliability – Redundant hot-swappable AC or DC power supplies and N+1 redundant fans ensure continuous availability.\nEnterprise-Class Features – Fully supports FCoE, VXLAN, NVGRE, SR-IOV, and advanced network diagnostics.',
+    shortDescription: 'The Cisco Nexus 92160YC-X is a high-density, low-latency 1RU switch featuring 48x 10/25Gb SFP28 ports and 6x 100Gb QSFP28 uplinks for modern ACI/NX-OS data centers.',
+    image: img('Cisco Nexus 92160YC-X Switch', 'photo_2026-06-06_23-08-23.webp'),
+    images: [
+      img('Cisco Nexus 92160YC-X Switch', 'photo_2026-06-06_23-08-23.webp'),
+      img('Cisco Nexus 92160YC-X Switch', 'photo_2026-06-06_23-08-30.webp'),
+      img('Cisco Nexus 92160YC-X Switch', 'photo_2026-06-07_13-27-25.webp'),
+      img('Cisco Nexus 92160YC-X Switch', 'photo_2026-06-07_13-27-27.webp'),
+      img('Cisco Nexus 92160YC-X Switch', 'photo_8_2026-06-10_10-33-49.webp'),
+      img('Cisco Nexus 92160YC-X Switch', 'photo_10_2026-06-10_10-33-49.webp')
+    ],
+    rating: 4.9,
+    specs: {
+      Model: 'N9K-C92160YC-X',
+      Brand: 'Cisco Systems',
+      Series: 'Cisco Nexus 9000 Series',
+      Ports: '48x 10/25Gb SFP28 + 6x 40/100Gb QSFP28',
+      'Switching Capacity': '3.2 Tbps (2.5 Bpps)',
+      'Form Factor': '19" 1U Rack-Mount',
+      Airflow: 'Port-Side Intake / Port-Side Exhaust options',
+      Power: 'Dual Redundant Hot-Swap AC Power Supplies (650W)',
+      Software: 'Cisco NX-OS / Cisco ACI Leaf Mode supported',
+      Features: 'VXLAN, FCoE, RoCE v2, SR-IOV, IEEE 802.1Q VLANs'
+    },
+    isFeatured: true
+  },
+  {
+    id: 'cisco-nexus-3064pq-10gx',
+    name: 'Cisco Nexus 3064PQ-10GX 48x 10G SFP+ + 4x 40G QSFP+ Ultra-Low Latency Switch',
+    category: 'networking',
+    price: 0,
+    description: 'The Cisco Nexus N3K-3064PQ-10GX is a high-density, ultra-low latency Ethernet switch designed for top-of-rack (ToR) data center deployments, high-frequency trading (HFT), and enterprise high-speed networking. Packaged in a compact 1RU form factor, it delivers 1.28 Tbps of switching capacity with sub-microsecond latency.\n\nHigh density – Offers 48 SFP+ ports (supporting 1G/10Gbps Ethernet) and 4 QSFP+ ports (supporting 40Gbps uplinks or 4x10G breakout mode).\nUltra-Low Latency – Optimized with sub-microsecond PHY-less design for instantaneous packet forwarding.\nRedundancy – Comes with dual hot-swappable AC or DC power supplies and redundant hot-swappable fan trays.\nLayer 2 & 3 Support – Full routing suite including BGP, OSPF, EIGRP, and PIM, running on standard Cisco NX-OS.',
+    shortDescription: 'The Cisco Nexus 3064PQ-10GX is a 48-port 10Gb SFP+ and 4-port 40Gb QSFP+ ultra-low latency top-of-rack switch for data centers and high-frequency trading.',
+    image: img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_13-27-30.webp'),
+    images: [
+      img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_13-27-30.webp'),
+      img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_15-35-49.webp'),
+      img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_15-35-50.webp'),
+      img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_15-35-51.webp'),
+      img('Cisco Nexus N3K-3064PQ-10GX –48-Port 10G SFP+ Switch', 'photo_2026-06-07_15-39-00.webp')
+    ],
+    rating: 4.8,
+    specs: {
+      Model: 'N3K-C3064PQ-10GX',
+      Brand: 'Cisco Systems',
+      Series: 'Cisco Nexus 3000 Series',
+      Ports: '48x 10G SFP+ + 4x 40G QSFP+',
+      'Switching Capacity': '1.28 Tbps (950 Mpps)',
+      'Form Factor': '19" 1U Rack-Mount',
+      Latency: 'Sub-microsecond PHY-less forwarding',
+      Airflow: 'Front-to-back or Back-to-front options',
+      Power: 'Dual Redundant Hot-Swap AC Power Supplies',
+      Software: 'Cisco NX-OS Software'
+    },
+    isFeatured: true
   }
 ];
 

@@ -80,7 +80,7 @@ export function AdminProducts() {
               placeholder="Search products..." 
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl pl-12 pr-4 py-2.5 focus:outline-none focus:border-blue-500 transition-colors"
+              className="w-full bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-xl pl-12 pr-4 py-2.5 focus:outline-none focus:border-blue-500/80 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus:shadow-[0_4px_12px_rgba(59,130,246,0.15)] dark:focus:shadow-[0_4px_12px_rgba(59,130,246,0.25)] transition-all duration-300"
             />
           </div>
         </div>

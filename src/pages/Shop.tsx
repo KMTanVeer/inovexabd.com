@@ -84,10 +84,10 @@ export function Shop() {
             
             {/* Sticky Search bar */}
             <div className={cn(
-              "flex flex-col md:flex-row md:items-center justify-end gap-4 sticky top-[72px] z-40 bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl py-4 px-6 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)] -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl transition-all duration-500 overflow-hidden",
+              "flex flex-col md:flex-row md:items-center justify-end gap-4 sticky top-[72px] z-40 bg-gradient-to-b from-white/50 via-white/25 to-indigo-50/30 dark:from-zinc-900/30 dark:via-black/20 dark:to-zinc-900/10 backdrop-blur-xl py-4 px-6 border-b border-white/60 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_15px_40px_rgba(0,0,0,0.3)] -mx-6 sm:-mx-6 rounded-none sm:rounded-b-2xl transition-all duration-500",
               isScrolled 
-                ? "opacity-0 -translate-y-6 pointer-events-none max-h-0 py-0 mb-0 border-transparent shadow-none" 
-                : "opacity-100 translate-y-0 pointer-events-auto max-h-[120px] py-4 mb-12"
+                ? "opacity-0 -translate-y-6 pointer-events-none max-h-0 py-0 mb-0 border-transparent shadow-none overflow-hidden" 
+                : "opacity-100 translate-y-0 pointer-events-auto max-h-[120px] py-4 mb-12 overflow-visible"
             )}>
                 <div className="flex flex-wrap items-center gap-4 w-full md:w-auto justify-between md:justify-end">
                     <div className="relative group">
@@ -95,7 +95,7 @@ export function Shop() {
                         <input 
                             type="text" 
                             placeholder="Search products..." 
-                            className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full pl-12 pr-6 py-3 text-sm text-black dark:text-white focus:outline-none focus:border-blue-500/50 w-[300px] lg:w-[400px] transition-all focus:bg-white dark:focus:bg-zinc-900"
+                            className="bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-full pl-12 pr-6 py-3 text-sm text-black dark:text-white focus:outline-none focus:border-blue-500/80 w-[300px] lg:w-[400px] transition-all focus:bg-white dark:focus:bg-zinc-950 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus:shadow-[0_8px_24px_rgba(59,130,246,0.15)] dark:focus:shadow-[0_8px_24px_rgba(59,130,246,0.25)]"
                             value={searchQuery}
                             onFocus={() => setShowShopSuggestions(true)}
                             onBlur={() => setTimeout(() => setShowShopSuggestions(false), 200)}
