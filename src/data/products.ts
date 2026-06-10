@@ -956,6 +956,39 @@ export const PRODUCTS: Product[] = [
       Software: 'Cisco NX-OS Software'
     },
     isFeatured: true
+  },
+  {
+    id: 'dell-perc-h740p-mini-mono',
+    name: 'Dell PERC H740P Mini Mono RAID Controller Card with 8GB NV Cache',
+    category: 'storage',
+    price: 0,
+    description: 'The Dell PERC H740P Mini Mono RAID Controller Card is a high-performance hardware RAID controller designed for Dell PowerEdge 14th Generation servers. It is equipped with 8GB of Non-Volatile (NV) DDR4 cache memory, providing outstanding read/write performance and robust data integrity in enterprise storage arrays.\n\nKey Highlights:\n- **8GB DDR4 NV Cache:** Significantly accelerates write-back and write-through operations while ensuring exceptional read-ahead capabilities.\n- **Heatsink cooling:** Large, passive aluminum black fins cool the onboard controller dual-core ARM processor (LSI SAS3508) during intense high-throughput storage operations.\n- **Battery Backup Unit (BBU):** Includes a detachable Dell Lithium-Ion battery pack (Type Y2RV2, 3.7V, 2.8Wh) that serves as the backup power source to flush the cached dirty data into permanent flash memory in the event of a sudden power outage.\n- **RAID Levels:** Supports RAID 0, 1, 5, 6, 10, 50, and 60, offering highly flexible, redundant configurations for HDDs and enterprise SSDs.',
+    shortDescription: 'The Dell PERC H740P Mini Mono RAID Controller Card features 8GB NV DDR4 Cache, LSI SAS3508 ROC, and a detachable backup battery unit (Type Y2RV2) to secure active storage cache data.',
+    image: img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_1_2026-06-10_12-27-00.webp'),
+    images: [
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_1_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_2_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_3_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_4_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_5_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_6_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_7_2026-06-10_12-27-00.webp'),
+      img('Dell PERC H740P Mini Mono RAID Controller Card', 'photo_8_2026-06-10_12-27-00.webp')
+    ],
+    rating: 4.9,
+    specs: {
+      Model: 'PERC H740P Mini Monolithic (Mini Mono)',
+      Brand: 'Dell Technologies',
+      Interface: '12Gb/s SAS / 6Gb/s SATA',
+      'Cache Memory': '8GB NV (Non-Volatile) DDR4 Cache',
+      'Battery Backup Unit': 'Dell Y2RV2 Lithium-Ion Battery (3.7V, 2.8Wh)',
+      'RAID Levels': 'RAID 0, 1, 5, 6, 10, 50, 60',
+      'Host Bus Type': 'PCIe 3.1 x8',
+      'Processor Type': 'LSI SAS3508 Dual-Core ARM ROC',
+      'Supported Servers': 'Dell PowerEdge R640, R740, R740xd, R940, etc.',
+      'Form Factor': 'Mini Mono (dedicated motherboard RAID slot)'
+    },
+    isFeatured: true
   }
 ];
 
