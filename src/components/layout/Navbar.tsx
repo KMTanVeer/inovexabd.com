@@ -271,8 +271,8 @@ export function Navbar() {
                   <Link
                     to={link.path}
                     className={cn(
-                      'text-sm font-medium tracking-wide transition-colors hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5',
-                      location.pathname === link.path ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
+                      'text-sm font-medium tracking-wide transition-colors hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1.5',
+                      location.pathname === link.path ? 'text-blue-700 dark:text-blue-300 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
                     )}
                   >
                     <Icon size={16} />
@@ -312,7 +312,7 @@ export function Navbar() {
                                     <Link
                                       key={item.path}
                                       to={item.path}
-                                      className="block px-2 py-1.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-blue-400 rounded-md transition-colors"
+                                      className="block px-2 py-1.5 text-sm text-zinc-700 dark:text-zinc-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-blue-700 dark:hover:text-blue-300 rounded-md transition-colors"
                                     >
                                       {item.name}
                                     </Link>
@@ -332,8 +332,8 @@ export function Navbar() {
                   to={link.path}
                   onClick={link.path === '/' ? handleLogoClick : undefined}
                   className={cn(
-                    'text-sm font-medium tracking-wide transition-colors hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5',
-                    location.pathname === link.path ? 'text-blue-600 dark:text-blue-400 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
+                    'text-sm font-medium tracking-wide transition-colors hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1.5',
+                    location.pathname === link.path ? 'text-blue-700 dark:text-blue-300 font-semibold' : 'text-zinc-800 dark:text-zinc-200'
                   )}
                 >
                   <Icon size={16} />
@@ -443,7 +443,7 @@ export function Navbar() {
                   >
                     {/* Text Overlay & Caret */}
                     <div className="relative pl-4 flex items-center h-full">
-                      <span className="text-zinc-400 dark:text-zinc-400 text-[13px] font-medium select-none transition-opacity duration-200 group-hover/search:opacity-0">
+                      <span className="text-zinc-500 dark:text-zinc-300 text-[13px] font-medium select-none transition-opacity duration-200 group-hover/search:opacity-0">
                         Search...
                       </span>
                       <span className="absolute left-4 w-[1.5px] h-4 bg-indigo-600 dark:bg-indigo-400 opacity-0 group-hover/search:opacity-100 group-hover/search:animate-blink pointer-events-none transition-opacity duration-200" />
@@ -517,7 +517,7 @@ export function Navbar() {
                          }}
                          className={cn(
                            "w-full text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                           "text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
+                           "text-zinc-800 dark:text-zinc-200 hover:text-blue-700 dark:hover:text-blue-300"
                          )}
                        >
                          <div className="flex items-center gap-3">
@@ -530,7 +530,7 @@ export function Navbar() {
                          to={link.path}
                          className={cn(
                            "text-xl font-bold tracking-tight transition-colors flex items-center justify-between",
-                           location.pathname === link.path ? "text-blue-600 dark:text-blue-400 font-semibold" : "text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
+                           location.pathname === link.path ? "text-blue-700 dark:text-blue-300 font-semibold" : "text-zinc-800 dark:text-zinc-200 hover:text-blue-700 dark:hover:text-blue-300"
                          )}
                          onClick={(e) => {
                            if (link.path === '/' && location.pathname === '/') {
@@ -552,7 +552,7 @@ export function Navbar() {
                              <button
                                type="button"
                                onClick={() => setActiveMobileGroup((prev) => (prev === group.name ? null : group.name))}
-                               className="w-full flex items-center justify-between text-left text-base font-semibold text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400"
+                               className="w-full flex items-center justify-between text-left text-base font-semibold text-zinc-800 dark:text-zinc-200 hover:text-blue-700 dark:hover:text-blue-300"
                              >
                                <span>{group.name}</span>
                                <ChevronDown
@@ -578,7 +578,7 @@ export function Navbar() {
                                          key={item.path}
                                          to={item.path}
                                          onClick={() => setIsMobileMenuOpen(false)}
-                                         className="block text-base text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400"
+                                         className="block text-base text-zinc-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-300"
                                        >
                                          {item.name}
                                        </Link>

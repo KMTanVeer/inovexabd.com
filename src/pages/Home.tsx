@@ -637,10 +637,10 @@ export function Home() {
               
 
               
-              {/* Solution-Focused Heading with text rotators */}
+               {/* Solution-Focused Heading with text rotators */}
               <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-black dark:text-white font-sans">
                 Bangladesh's Source for
-                <div className="h-[1.2em] sm:h-[1.15em] relative overflow-hidden block mt-2 text-blue-600 dark:text-blue-400">
+                <div className="h-[1.2em] sm:h-[1.15em] relative overflow-hidden block mt-2 text-blue-700 dark:text-blue-300">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={scopeIndex}
@@ -658,13 +658,13 @@ export function Home() {
             </div>
 
             {/* B2B-oriented Sub-headline */}
-            <p className="text-base sm:text-lg text-black/70 dark:text-white/60 leading-relaxed max-w-2xl font-light">
+            <p className="text-base sm:text-lg text-zinc-800 dark:text-zinc-300 leading-relaxed max-w-2xl font-light">
               Inovexa Technologies is a modern IT infrastructure and networking solutions company specializing in{' '}
-              <Link to="/shop?category=networking" className="text-blue-700 dark:text-blue-400 font-semibold hover:underline">
+              <Link to="/shop?category=networking" className="text-blue-700 dark:text-blue-300 font-semibold hover:underline">
                 enterprise networking
               </Link>
               ,{' '}
-              <Link to="/shop?category=servers" className="text-blue-700 dark:text-blue-400 font-semibold hover:underline">
+              <Link to="/shop?category=servers" className="text-blue-700 dark:text-blue-300 font-semibold hover:underline">
                 server solutions
               </Link>
               , ISP equipment, and smart security systems in Bangladesh.
