@@ -1,5 +1,5 @@
 // Re-deploy trigger: restore original backgrounds
-import { LucideIcon, Network, HardDrive, Server } from 'lucide-react';
+import { LucideIcon, Network, HardDrive, Server, Cpu, Database, Link } from 'lucide-react';
 
 export interface Product {
   id: string;
@@ -35,24 +35,45 @@ export interface CatalogGroup {
 export const CATEGORIES: Category[] = [
   {
     id: 'servers',
-    name: 'Servers',
+    name: 'Servers & Systems',
     icon: Server,
     image: 'https://images.unsplash.com/photo-1597852074351-7890b396781f?auto=format&fit=crop&q=80',
-    description: 'Powerful server solutions for data centers and enterprise infrastructure.'
+    description: 'Complete rack servers and computing configurations.'
   },
   {
-    id: 'networking',
-    name: 'Networking',
+    id: 'switches-routers',
+    name: 'Switches & Routers',
     icon: Network,
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80',
-    description: 'Enterprise networking solutions, ISP equipment, and high-speed connectivity.'
+    description: 'Enterprise switches, routers, and high-performance routing systems.'
   },
   {
-    id: 'storage',
-    name: 'Storage',
+    id: 'network-adapters',
+    name: 'Network Adapters (NICs)',
+    icon: Cpu,
+    image: 'https://images.unsplash.com/photo-1591405351990-4726e33df58d?auto=format&fit=crop&q=80',
+    description: 'PCIe server adapters, 10G/25G/40G fiber SFP+ interfaces.'
+  },
+  {
+    id: 'drives',
+    name: 'Enterprise Drives (SSD/HDD)',
     icon: HardDrive,
     image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80',
-    description: 'Enterprise SSDs, HDDs, data center RAM, processors, PSUs, and fiber accessories.'
+    description: 'High-endurance server solid state drives and SAS hard disks.'
+  },
+  {
+    id: 'controllers',
+    name: 'RAID & Expansion Cards',
+    icon: Database,
+    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80',
+    description: 'Hardware RAID controllers, host bus adapters, and expansion modules.'
+  },
+  {
+    id: 'optics-cables',
+    name: 'Transceivers & Cabling',
+    icon: Link,
+    image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80',
+    description: 'SFP+/QSFP+/QSFP28 optical modules and high-speed fiber cables.'
   }
 ];
 
@@ -89,7 +110,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'hgst-12tb-10k-sas-hdd',
     name: 'HGST Ultrastar C10K1800 1.2TB 10,000 RPM SAS 12Gb/s 2.5-inch Enterprise HDD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The HGST Ultrastar C10K1800 is a high-performance, mission-critical 2.5-inch enterprise hard drive offering 1.2TB of capacity. Engineered for write-intensive database applications, transactional processing, and multi-drive storage arrays, this SFF drive features a 12Gb/s SAS interface and operates at 10,000 RPM, delivering rapid access times and carrier-grade reliability.',
     image: img('HGST 12 TB  10K RPM', 'photo_1_2026-05-31_10-45-21.webp'),
@@ -113,7 +134,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'hpe-7-68tb-nvme-ssd',
     name: 'HPE 7.68TB NVMe Gen4 High Read Intensive SFF BC Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The HPE 7.68TB NVMe Gen4 High Read Intensive SSD is designed for platforms requiring massive data access speeds and high capacity, such as read-heavy cloud virtualization, data warehousing, and big data analysis. Utilizing the high-bandwidth PCIe Gen4 x4 interface, this 2.5-inch SFF Basic Carrier drive provides exceptional read IOPs, low response latency, and solid drive write endurance.',
     image: img('HPE 768TB SSD NVMe', 'photo_1_2026-05-31_10-44-55.webp'),
@@ -135,7 +156,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'cisco-nexus-93180yc-ex',
     name: 'Cisco Nexus 9300 N9K-C93180YC-EX 48x 10/25GbE SFP28 + 6x 100GbE QSFP28 Network Switch',
-    category: 'networking',
+    category: 'switches-routers',
     price: 0,
     description: 'The Cisco Nexus 93180YC-EX is a high-performance Layer 2/3 switch designed for top-of-rack (ToR) data center deployments. It is equipped with 48 x 10/25 Gbps SFP+ ports and 6 x 40/100 Gbps QSFP28 uplink ports, delivering 3.6 Tbps of switching capacity. It supports Cisco ACI (Application Centric Infrastructure) or standard NX-OS, enabling robust software-defined networking.',
     image: img('Cisco Nexus N9K C93180YC EX', '1_1.webp'),
@@ -165,7 +186,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'juniper-mx80',
     name: 'Juniper Networks MX80 Universal Routing Platform',
-    category: 'networking',
+    category: 'switches-routers',
     price: 0,
     description: 'The Juniper Networks MX80 is a compact, full-featured 2U routing platform engineered for enterprise, campus, and service provider edge deployments. It delivers 80 Gbps of system capacity and comes standard with 4 x 10GE SFP+ ports. With two Modular Interface Card (MIC) slots, the MX80 is highly customizable to support various fiber and copper interfaces under Junos OS.',
     image: img('juniper mx80 universal router', 'photo_1_2026-06-05_20-31-35.webp'),
@@ -194,7 +215,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-d3-s4510-480gb',
     name: 'Intel SSD D3-S4510 Series 480GB 2.5-inch SATA III Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Intel D3-S4510 480GB SATA Enterprise SSD is optimized for read-intensive workloads, virtualization hosts, and data storage arrays. Built with 3D NAND TLC technology, this 2.5-inch, 7mm SSD offers consistent, predictable latency and high read-write operations, while substantially reducing power consumption compared to traditional air-filled hard drives.',
     image: img('INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB', 'INTEL SSD D3  S4510 SERIES 2.5 6GAbs SATA SSD 480 GB.webp'),
@@ -215,7 +236,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-dc-s3610-200gb',
     name: 'Intel SSD DC S3610 Series 200GB 2.5-inch SATA III Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Intel DC S3610 200GB is a high-endurance enterprise-class SATA III SSD designed for mixed-use workloads. Delivering high performance in both reads and writes, it is built with Intel 20nm HET (High Endurance Technology) MLC NAND. It is ideal for server swap files, virtualization, dynamic caching layers, and high-frequency transaction databases.',
     image: img('INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB', 'INTEL SSD DC S3610 SERIES 2.5 6GAbs SATA SSD 200GB-1.webp'),
@@ -242,7 +263,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-dc-s4500-240gb',
     name: 'Intel SSD DC S4500 Series 240GB 2.5-inch SATA III Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Intel DC S4500 240GB Enterprise SATA SSD is designed to help legacy storage arrays run more efficiently. Built on Intel 3D NAND TLC technology, it provides high read operations and reliable data integrity. It offers an excellent path to replace mechanical HDDs with high-performance, low-power solid-state infrastructure.',
     image: img('INTEL SSD DC S4500 SERIES 2.5 6GAbs SATA SSD 240GB', 'photo_1_2026-05-31_10-24-02.webp'),
@@ -275,7 +296,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-d3-s4510-series-480gb',
     name: 'Intel SSD D3-S4510 Series 480GB SATA Enterprise SSD (Alternative Carrier)',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'An alternative carrier variant of the Intel SSD D3-S4510 480GB. Utilizing Intel 3D NAND TLC, this drive provides the exact same high read IOPS and enterprise-grade power-loss data protection, making it compatible with various specialized server caddies and drive enclosures in modular data systems.',
     image: img('Intel SSD D3-S4510 Sereis 480GB', 'Intel SSD D3-S4510 Sereis 480GB-thum.webp'),
@@ -301,7 +322,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'mellanox-40g-dual-sfp',
     name: 'Mellanox ConnectX-3 EN MCX312B-XCCT Dual-Port 10G/40G SFP+ Network Adapter',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Mellanox ConnectX-3 EN (MCX312B-XCCT) is a dual-port 10G/40G SFP+ network interface card designed for latency-sensitive network storage and cloud servers. Equipped with a PCIe 3.0 x8 interface, it features RoCE (RDMA over Converged Ethernet) and network virtualization offloads (VXLAN, NVGRE), maximizing server performance.',
     image: img('Mellanox 40G 2 Port SFP LAN CARD', 'photo_1_2026-05-31_10-46-45.webp'),
@@ -327,7 +348,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-x710-da2-10g',
     name: 'Intel Ethernet Converged Network Adapter X710-DA2 Dual-Port SFP+ 10GbE',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Intel Ethernet Converged Network Adapter X710-DA2 is a dual-port 10GbE network interface card designed for server virtualization, cloud setups, and LAN workloads. It features hardware-based traffic optimization (Intel Flow Director) and full support for network virtualization offloads (VXLAN, NVGRE, Geneve) on a PCIe 3.0 x8 interface.',
     image: img('PCIE 3.0 X82 Port SFP10G Lan Card Model No  INTEL X710 DA2', 'photo_1_2026-05-31_10-25-03.webp'),
@@ -356,7 +377,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-x520-da2-10g',
     name: 'Intel Ethernet Server Adapter X520-DA2 Dual-Port SFP+ 10GbE',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Intel Ethernet Server Adapter X520-DA2 is a highly reliable, dual-port 10GbE SFP+ adapter card designed for storage area networks (SAN) and high-traffic databases. Powered by the Intel 82599ES controller, it offers native FCoE and iSCSI hardware offloads, reducing CPU utilization while maintaining packet performance.',
     image: img('PCIe x8FP 2 Port 10G SFP Lan Card Model No INTEL X520 DA2', 'photo_1_2026-05-31_10-26-27.webp'),
@@ -387,7 +408,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-1-8tb-10k-sas-hdd',
     name: 'Dell 1.8TB 10K RPM SAS 12Gbps 512e 2.5-inch SFF Enterprise Hot-Plug HDD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Dell 1.8TB 10K RPM SAS 12Gbps is a small form factor (SFF) 2.5-inch enterprise mechanical hard drive designed for Dell PowerEdge servers. Operating at 10,000 RPM over a fast SAS 12Gbps interface, this 512e sector format drive delivers the optimal combination of transaction performance, capacity, and power efficiency for high-density storage applications.',
     image: img('SAS 12 Gbps, 1.8 TB Dell, RPM 10K', 'SAS 12 Gbps, 1.8 TB Dell, RPM 10K-1.webp'),
@@ -410,7 +431,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'supermicro-dual-sfp-v211',
     name: 'Supermicro AOC-STGN-i2S Dual-Port 10GbE SFP+ PCI-e Controller Card (v2.11)',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Supermicro AOC-STGN-i2S (v2.11) is a low-power, dual-port 10GbE network interface card based on the Intel 82599ES controller. Designed for Supermicro SuperServers and storage platforms, this PCIe card supports high-throughput SFP+ optical links, Direct Attach Copper (DAC) cables, and features robust virtualization offloads.',
     image: img('Supermicro 2.11  Lan Card', 'photo_1_2026-06-01_07-52-15.webp'),
@@ -440,7 +461,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-d7-p5520-7-68tb',
     name: 'Solidigm D7-P5520 Series 7.68TB NVMe PCIe 4.0 x4 U.2 2.5-inch Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Solidigm D7-P5520 (formerly Intel SSD D7-P5520) is a 7.68TB enterprise-grade PCIe 4.0 NVMe SSD. Utilizing advanced 144-Layer 3D TLC NAND, this high-performance U.2 drive delivers massive read speeds up to 7,100 MB/s and extreme endurance (1 DWPD), optimized for write-intensive cloud virtualization, HPC, and heavy databases.',
     image: img('INTEL SSD D7-P5520 SERIES 2.5 7.68TB', 'photo_1_2026-06-01_07-53-10.webp'),
@@ -465,7 +486,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'supermicro-10g-2port-v20',
     name: 'Supermicro AOC-STGN-i2S Dual-Port 10GbE SFP+ PCI-e Controller Card (v2.0)',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The AOC-STGN-i2S (v2.0) is a dual-port 10G SFP+ PCI-e network card manufactured by Supermicro. Built on the industry-standard Intel 82599ES controller, it allows high-speed 10Gbps optical fiber and DAC copper connections, providing solid load balancing and virtualization support for rackmount servers.',
     image: img('Supermicro 10G 2 Port SFP Lancard (Version 2.0)', 'photo_1_2026-06-01_07-53-55.webp'),
@@ -487,7 +508,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'supermicro-10g-2port-v20-pro',
     name: 'Supermicro AOC-STGN-i2S Dual-Port 10GbE SFP+ PCI-e Controller Card (Pro Carrier)',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'A variant of Supermicro AOC-STGN-i2S dual-port 10GbE network controller equipped with a custom pro-series carrier bracket. Based on the Intel 82599ES chip, it is optimized for high-bandwidth virtualization, high-speed storage networking, and redundant link deployments in modern IT setups.',
     image: img('Supermicro 10G-2 Port SFP Lancard ( Version 2.0)', 'photo_1_2026-06-01_07-55-10.webp'),
@@ -512,7 +533,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'patch-cord-om4-100g',
     name: 'LC-LC OM4 Multimode Duplex 100G Fiber Patch Cord',
-    category: 'networking',
+    category: 'optics-cables',
     price: 0,
     description: 'This LC to LC OM4 Laser-Optimized Multimode Fiber (LOMMF) patch cord is designed for 40G/100G high-speed networking applications. Constructed with 50/125µm fiber core and a Low Smoke Zero Halogen (LSZH) jacket, it provides low insertion loss and high bandwidth capabilities in short-range data center switch links.',
     image: img('Patch Cord  OM4 100G', 'photo_1_2026-06-01_07-55-35.webp'),
@@ -531,7 +552,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'samsung-pm863a-1-92tb',
     name: 'Samsung PM863a Series 1.92TB SATA III 2.5-inch Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Samsung PM863a 1.92TB is an enterprise-class SATA III 2.5-inch SSD designed for data centers requiring high read-write stability. Utilizing Samsung V-NAND technology, this SSD features power-loss protection, high queue-depth performance, and is optimized for web servers, content distribution networks, and enterprise database infrastructure.',
     image: img('Samsung PM863a 1.92TB Enterprise SATA 2.5 Solid State Drive (SSD)', 'photo_1_2026-06-01_07-55-58.webp'),
@@ -552,7 +573,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-emc-intel-dc-p4510-1tb',
     name: 'Dell Intel SSD DC P4510 Series 1.0TB NVMe PCIe 3.1 x4 U.2 2.5-inch Enterprise SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The Dell Intel DC P4510 1.0TB NVMe SSD is a high-performance U.2 drive engineered for cloud systems, hyperconverged architectures, and database operations. Built with Intel 3D NAND TLC technology on a PCIe 3.1 x4 interface, it minimizes latency, increases throughput, and is fully certified for Dell PowerEdge servers.',
     image: img('Dell EMC Intel DC P4510 Series 1.0TB NVMe U.2 2.5-inch enterprise solid-state drives', 'photo_1_2026-06-01_07-56-21.webp'),
@@ -573,7 +594,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'cisco-qsfp-40g-sr4',
     name: 'Cisco QSFP-40G-SR4 40GBASE-SR4 QSFP+ Transceiver Module',
-    category: 'networking',
+    category: 'optics-cables',
     price: 0,
     description: 'The Cisco QSFP-40G-SR4 is a hot-swappable, parallel fiber-optic QSFP+ transceiver module designed for high-density 40 Gigabit Ethernet links in enterprise networks and data centers. It operates at 850nm nominal wavelength over multimode fiber (MMF), supporting transmission distances of up to 100 meters on OM3 MMF and up to 150 meters on OM4 MMF. Equipped with an MPO-12 optical interface, it supports a 4x10G breakout mode when used with parallel-to-duplex breakout cables, facilitating connectivity to 10GBASE-SR interfaces. It features low power consumption (typically 1.5W), hot-swappability for seamless installation, and full compliance with IEEE 802.3ba 40GBASE-SR4 and SFF-8436 standards, offering reliable optical connectivity.',
     shortDescription: 'The Cisco QSFP-40G-SR4 is a hot-swappable 40G QSFP+ optical transceiver module featuring an MPO-12 connector, supporting OM3/OM4 and 4x10G breakout cabling.',
@@ -604,7 +625,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'mellanox-linkx-qsfp28-100g',
     name: 'Mellanox MMA1B00-C100D LinkX 100GBASE-SR4 QSFP28 Optical Transceiver',
-    category: 'networking',
+    category: 'optics-cables',
     price: 0,
     description: 'The Mellanox MMA1B00-C100D LinkX is a high-speed 100Gb/s optical transceiver module designed for spine-leaf switches and InfiniBand routers. Utilizing 4-channel 850nm VCSEL lasers, it supports connections up to 100 meters over OM4 multimode fiber, terminating in a standard MPO-12 connector.',
     image: img('Mellanox Link X QSFP28 100Gbs', 'photo_1_2026-06-01_07-57-05.webp'),
@@ -624,7 +645,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'mellanox-connectx5-25gbe-dual',
     name: 'Mellanox ConnectX-5 EN MCX512A-ADAT Dual-Port 25GbE SFP28 PCIe Network Adapter',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Mellanox ConnectX-5 EN (MCX512A-ADAT) is a dual-port 25GbE network interface card designed for cloud hosts, virtualization, and flash storage. With a PCIe 3.0 x8 interface, it features hardware offloads for VXLAN, NVGRE, and RoCE v2, enabling exceptional processing speeds and low host CPU utilization.',
     image: img('Mellanox ConnectX-5 EN Dual-Port 25GbE SFP28 Network Interface Card (NIC)', 'photo_1_2026-06-01_07-57-37.webp'),
@@ -646,7 +667,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'intel-xxv710-da2-25g',
     name: 'Intel Ethernet Network Adapter XXV710-DA2 Dual-Port SFP28 25GbE',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Intel XXV710-DA2 is a dual-port 25GbE SFP28 PCIe network card designed for server consolidation and data centers. Operating on a PCIe 3.0 x8 slot, it supports network virtualization offloads, Intel Flow Director, and provides backward compatibility to 10GbE, enabling a smooth path to high-speed migrations.',
     image: img('Intel-XXV710-DA2-25G Dual SFP Port', 'photo_1_2026-06-01_07-48-53.webp'),
@@ -700,7 +721,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'fujitsu-1g-four-port-lan',
     name: 'Fujitsu D3045-A11 Quad-Port 1GbE PCIe Ethernet Network Card',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Fujitsu D3045-A11 is a quad-port 1Gbps Ethernet PCI-e network interface card. Based on the Intel i350-AM4 controller, it is designed to deliver stable network virtualization and load balancing, making it ideal for multi-homed server applications and firewall gateways.',
     image: img('FUJITSU 1G Four Port Ethernet Lan Card', 'photo_1_2026-06-01_07-51-42.webp'),
@@ -724,7 +745,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'fujitsu-d3045-a11-quad-port',
     name: 'Fujitsu D3045-A11 Quad-Port 1GbE PCIe Ethernet Network Card (Bulk Edition)',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'A bulk-packaged edition of the Fujitsu D3045-A11 quad-port 1Gbps network adapter card. Powered by the Intel i350 controller, it supports full hardware acceleration, energy-efficient ethernet, and redundant network interface card (NIC) teaming configurations.',
     image: img('FUJITSU D3045-A11-Quad port Erhernet Lan Card', 'photo_1_2026-06-01_07-51-04.webp'),
@@ -754,7 +775,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-broadcom-57412-10gbe',
     name: 'Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCIe Network Adapter',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCI-e Network Adapter is a high-performance network interface card engineered for enterprise data centers and virtualization environments. Built on the advanced Broadcom BCM57412 controller, it offers reliable 10 Gbps Ethernet connectivity per port (up to 20 Gbps full-duplex) with dual SFP+ slots. Fully compatible with Dell PowerEdge rack servers (such as R640, R740, and R750 series), it features full hardware offloading for VXLAN, NVGRE, and Geneve virtualization encapsulations. With TruFlow™ flow processing technology and RDMA over Converged Ethernet (RoCE) support, it minimizes host CPU overhead and delivers low latency for storage and high-throughput workloads.',
     shortDescription: 'The Dell Broadcom 57412 Dual-Port 10GbE SFP+ PCIe Network Adapter is a high-performance network interface card designed to accelerate cloud scale databases and virtualization environments with hardware offloading.',
@@ -784,7 +805,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-poweredge-nvme-pcie-extender',
     name: 'Dell PowerEdge NVMe PCIe Extender Expansion Card',
-    category: 'storage',
+    category: 'controllers',
     price: 0,
     description: 'The Dell PowerEdge NVMe PCIe Extender Expansion Card is a high-speed passive routing bridge designed to link enterprise-grade PCIe NVMe SSDs directly to PowerEdge servers. Utilizing a physical PCIe x16 interface to connect to riser slots, this card features dual SlimSAS (SFF-8654) internal connectors for clean cabling to the server\'s drive backplane. It ensures maximum data transfer rates between the CPU and high-performance storage, fully certified to support models such as R630, R730, R640, R740, R740xd, R840, and R940. Note: This is an extender card enabling direct NVMe connectivity; software-based OS-level RAID or dedicated NVMe RAID controllers are required for disk redundancy.',
     shortDescription: 'The Dell PowerEdge NVMe PCIe Extender Expansion Card connects PCIe lanes to NVMe SSD drive backplanes, enabling ultra-fast storage access in Dell PowerEdge systems.',
@@ -812,7 +833,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'mikrotik-routeros-x86-level6-ssd',
     name: 'MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5-inch SATA SSD',
-    category: 'storage',
+    category: 'drives',
     price: 0,
     description: 'The MikroTik RouterOS x86 Level 6 License Pre-Installed 2.5-inch SATA SSD is a solid-state boot drive containing the robust RouterOS x86 software pre-installed with a lifetime Level 6 Controller license. Level 6 license provides unlimited virtual interfaces, unlimited EoIP tunnels, unlimited PPPoE/PPtP/L2TP tunnels, unlimited HotSpot active users, and full routing support. Bound permanently to the drive\'s software ID, this SSD allows you to instantly transform standard PC/server hardware into an enterprise-grade router. It is optimized for high uptime, low write latency, and compatible with both legacy BIOS and UEFI motherboard boot configurations.',
     shortDescription: 'Transform standard PC/server hardware into an enterprise-grade router with this 2.5-inch SATA SSD preinstalled with a lifetime MikroTik RouterOS Level 6 license.',
@@ -837,7 +858,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'nvidia-mellanox-mc2210411-sr4',
     name: 'NVIDIA Mellanox MC2210411-SR4 40Gb/s QSFP+ Optical Transceiver Module',
-    category: 'networking',
+    category: 'optics-cables',
     price: 0,
     description: 'The NVIDIA Mellanox MC2210411-SR4 is a hot-pluggable, 4-channel pluggable optical transceiver designed for high-density 40Gb/s Ethernet and InfiniBand FDR10 applications. Operating at an 850nm nominal wavelength over multimode fiber (MMF), it supports a transmission reach up to 100 meters on OM3 MMF and up to 150 meters on OM4 MMF. It features an MPO-12 optical interface and integrated Digital Diagnostic Monitoring (DDM/DOM) to track temperature, supply voltage, transmit/receive power, and laser bias in real-time. Built with high-performance VCSEL transmitters and PIN receivers, this transceiver operates over standard case temperatures (0°C to 70°C) with single 3.3V power, compliant with IEEE 802.3ba and SFF-8436 standards.',
     shortDescription: 'The NVIDIA Mellanox MC2210411-SR4 is a high-speed 40G QSFP+ optical transceiver module featuring an MPO-12 connector and DDM diagnostics.',
@@ -865,7 +886,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'supermicro-dual-sfp-v210',
     name: 'Supermicro AOC-STGN-i2S Dual-Port 10GbE SFP+ PCI-e Adapter (v2.10)',
-    category: 'networking',
+    category: 'network-adapters',
     price: 0,
     description: 'The Supermicro AOC-STGN-i2S (v2.10) is a low-profile, dual-port 10GbE network adapter card built on the industry-standard Intel® 82599ES 10Gb Ethernet controller. Powered by a PCI Express 2.0 x8 physical interface, it supports up to 10 Gbps transfer rates per port (totaling 20 Gbps full-duplex) using Direct-Attached Copper (DAC) cables or SFP+ fiber optical transceivers. Ideal for virtualization and high VM environments, it includes support for VMDq and PCI-SIG SR-IOV. It also provides advanced TCP/IP, SCTP, and UDP checksum offloads, Fibre Channel over Ethernet (FCoE), iSCSI boot, PXE, and NC-SI remote management, making it an excellent cost-effective upgrade for rackmount servers.',
     shortDescription: 'The Supermicro AOC-STGN-i2S (v2.10) is a dual-port 10G SFP+ network adapter card powered by the Intel 82599ES controller for high-speed connectivity.',
@@ -899,7 +920,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'cisco-nexus-92160yc-x',
     name: 'Cisco Nexus 92160YC-X 48x 10/25Gb SFP28 + 6x 40/100Gb QSFP28 Data Center Switch',
-    category: 'networking',
+    category: 'switches-routers',
     price: 0,
     description: 'The Cisco Nexus 92160YC-X Switch is a high-performance 1RU data center switch built to handle demanding enterprise workloads, service provider hosting, and cloud infrastructures. With 3.2 Tbps of switching bandwidth and over 2.5 Bpps of throughput, it delivers exceptional processing power and line-rate performance.\n\nFlexible Port Options – Features 48 10/25-Gbps SFP28 ports and 6 QSFP28 ports (with 4 ports supporting 100-Gbps and 2 ports supporting either 40-Gbps or 100-Gbps).\nSub-Microsecond Latency – Designed for latency-sensitive applications like financial trading and high-frequency workloads.\nLeaf-Spine Architecture – Full support for Cisco ACI (Application Centric Infrastructure) Leaf mode or standalone standard NX-OS mode.\nHigh Reliability – Redundant hot-swappable AC or DC power supplies and N+1 redundant fans ensure continuous availability.\nEnterprise-Class Features – Fully supports FCoE, VXLAN, NVGRE, SR-IOV, and advanced network diagnostics.',
     shortDescription: 'The Cisco Nexus 92160YC-X is a high-density, low-latency 1RU switch featuring 48x 10/25Gb SFP28 ports and 6x 100Gb QSFP28 uplinks for modern ACI/NX-OS data centers.',
@@ -930,7 +951,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'cisco-nexus-3064pq-10gx',
     name: 'Cisco Nexus 3064PQ-10GX 48x 10G SFP+ + 4x 40G QSFP+ Ultra-Low Latency Switch',
-    category: 'networking',
+    category: 'switches-routers',
     price: 0,
     description: 'The Cisco Nexus N3K-3064PQ-10GX is a high-density, ultra-low latency Ethernet switch designed for top-of-rack (ToR) data center deployments, high-frequency trading (HFT), and enterprise high-speed networking. Packaged in a compact 1RU form factor, it delivers 1.28 Tbps of switching capacity with sub-microsecond latency.\n\nHigh density – Offers 48 SFP+ ports (supporting 1G/10Gbps Ethernet) and 4 QSFP+ ports (supporting 40Gbps uplinks or 4x10G breakout mode).\nUltra-Low Latency – Optimized with sub-microsecond PHY-less design for instantaneous packet forwarding.\nRedundancy – Comes with dual hot-swappable AC or DC power supplies and redundant hot-swappable fan trays.\nLayer 2 & 3 Support – Full routing suite including BGP, OSPF, EIGRP, and PIM, running on standard Cisco NX-OS.',
     shortDescription: 'The Cisco Nexus 3064PQ-10GX is a 48-port 10Gb SFP+ and 4-port 40Gb QSFP+ ultra-low latency top-of-rack switch for data centers and high-frequency trading.',
@@ -960,7 +981,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'dell-perc-h740p-mini-mono',
     name: 'Dell PERC H740P Mini Mono RAID Controller Card with 8GB NV Cache',
-    category: 'storage',
+    category: 'controllers',
     price: 0,
     description: 'The Dell PERC H740P Mini Mono RAID Controller Card is a high-performance hardware RAID controller designed for Dell PowerEdge 14th Generation servers. It is equipped with 8GB of Non-Volatile (NV) DDR4 cache memory, providing outstanding read/write performance and robust data integrity in enterprise storage arrays.\n\nKey Highlights:\n- **8GB DDR4 NV Cache:** Significantly accelerates write-back and write-through operations while ensuring exceptional read-ahead capabilities.\n- **Heatsink cooling:** Large, passive aluminum black fins cool the onboard controller dual-core ARM processor (LSI SAS3508) during intense high-throughput storage operations.\n- **Battery Backup Unit (BBU):** Includes a detachable Dell Lithium-Ion battery pack (Type Y2RV2, 3.7V, 2.8Wh) that serves as the backup power source to flush the cached dirty data into permanent flash memory in the event of a sudden power outage.\n- **RAID Levels:** Supports RAID 0, 1, 5, 6, 10, 50, and 60, offering highly flexible, redundant configurations for HDDs and enterprise SSDs.',
     shortDescription: 'The Dell PERC H740P Mini Mono RAID Controller Card features 8GB NV DDR4 Cache, LSI SAS3508 ROC, and a detachable backup battery unit (Type Y2RV2) to secure active storage cache data.',

@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Star, Heart, ShieldCheck, RotateCcw, Share2, ChevronRight, Zap, CheckCircle2, MessageCircle, PhoneCall, Facebook, Twitter, Linkedin, Link2 } from 'lucide-react';
-import { type Product, PRODUCTS } from '@/src/data/products.ts';
+import { type Product, PRODUCTS, CATEGORIES } from '@/src/data/products.ts';
 import { ProductCard } from '@/src/components/common/ProductCard.tsx';
 import { SEO } from '@/src/components/common/SEO.tsx';
 
@@ -77,10 +77,11 @@ export function ProductDetail() {
   const stockValue = (product as any).stock;
   const stockStatus = typeof stockValue === 'number' ? (stockValue > 0 ? 'In Stock' : 'Out of Stock') : 'In Stock';
   const condition = ((product as any).condition as string | undefined) || 'Refurbished';
-  const categoryLabel = product.category.charAt(0).toUpperCase() + product.category.slice(1);
+  const categoryLabel = CATEGORIES.find((c) => c.id === product.category)?.name || product.category;
   const specEntries = product.specs ? Object.entries(product.specs) : [];
+  const isNetworkRelated = ['switches-routers', 'network-adapters', 'optics-cables'].includes(product.category);
   const subcategoryLabel =
-    product.category === 'networking'
+    isNetworkRelated
       ? ((product.specs as any)?.Model as string | undefined) || ((product.specs as any)?.Type as string | undefined) || 'Enterprise Networking'
       : ((product.specs as any)?.Series as string | undefined) || ((product.specs as any)?.Model as string | undefined) || 'Enterprise Hardware';
   const normalizedBrand = MANUFACTURER_BRANDS.find((brand) => detectedBrand.toLowerCase().includes(brand.toLowerCase())) || detectedBrand;
@@ -472,7 +473,7 @@ export function ProductDetail() {
                     product.description
                   ) : (
                     <p className="text-lg">
-                      The {product.name} represents a pinnacle of engineering from {product.category === 'networking' ? 'networking pioneers' : 'computing experts'}.
+                      The {product.name} represents a pinnacle of engineering from {['switches-routers', 'network-adapters', 'optics-cables'].includes(product.category) ? 'networking pioneers' : 'computing experts'}.
                       Built with future-proof materials and cutting-edge silicon, this solution addresses the high-demand requirements of modern data centers and enterprise workflows.
                     </p>
                   )}

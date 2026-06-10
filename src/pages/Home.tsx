@@ -464,14 +464,14 @@ export function Home() {
   }, [products]);
 
   const networkingProducts = useMemo(() => {
-    const categoryProducts = products.filter(p => p.category === 'networking');
+    const categoryProducts = products.filter(p => ['switches-routers', 'network-adapters', 'optics-cables'].includes(p.category));
     const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
     const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
     return [...featured, ...nonFeatured].slice(0, 5);
   }, [products]);
 
   const storageProducts = useMemo(() => {
-    const categoryProducts = products.filter(p => p.category === 'storage');
+    const categoryProducts = products.filter(p => ['drives', 'controllers'].includes(p.category));
     const featured = categoryProducts.filter(p => p.isFeatured || (p as any).featured);
     const nonFeatured = categoryProducts.filter(p => !p.isFeatured && !(p as any).featured);
     return [...featured, ...nonFeatured].slice(0, 5);
