@@ -384,7 +384,7 @@ export function Navbar() {
                     }}
                     onFocus={() => setShowInlineSuggestions(true)}
                     onBlur={() => setTimeout(() => setShowInlineSuggestions(false), 200)}
-                    className="bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-full pl-7 pr-3 py-1.5 text-xs text-black dark:text-white focus:outline-none focus:border-blue-500/80 w-[85px] xs:w-[110px] sm:w-[170px] md:w-[240px] lg:w-[320px] focus:w-[110px] xs:focus:w-[140px] sm:focus:w-[200px] md:focus:w-[280px] lg:focus:w-[360px] transition-all focus:bg-white dark:focus:bg-zinc-950 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus:shadow-[0_4px_12px_rgba(59,130,246,0.15)] dark:focus:shadow-[0_4px_12px_rgba(59,130,246,0.25)]"
+                    className="bg-zinc-50/50 dark:bg-zinc-900/50 border border-black/10 dark:border-white/10 rounded-full pl-7 pr-3 py-1.5 text-xs text-black dark:text-white focus:outline-none focus:border-blue-500/80 w-[85px] xs:w-[110px] sm:w-[170px] md:w-[132px] lg:w-[132px] focus:w-[110px] xs:focus:w-[140px] sm:focus:w-[200px] md:focus:w-[132px] lg:focus:w-[132px] transition-all focus:bg-white dark:focus:bg-zinc-950 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] dark:shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] focus:shadow-[0_4px_12px_rgba(59,130,246,0.15)] dark:focus:shadow-[0_4px_12px_rgba(59,130,246,0.25)]"
                   />
                   <AnimatePresence>
                     {showInlineSuggestions && inlineSuggestions.length > 0 && (
